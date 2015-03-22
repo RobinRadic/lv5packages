@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="FileLoader.php">
+    <totals>
+      <lines total="257" comments="157" code="100" executable="69" executed="0" percent="0.00%"/>
+      <methods count="11" tested="0" percent="0.00%"/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="1" tested="0" percent="0.00%"/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="FileLoader" start="20" executable="69" executed="0" crap="420">
+      <package full="Laradic" name="Laradic" sub="" category=""/>
+      <namespace name="Laradic\Config"/>
+      <method name="__construct" signature="__construct(Filesystem $files, $defaultPath)" start="56" end="60" crap="2" executable="4" executed="0" coverage="0"/>
+      <method name="load" signature="load($environment, $group, $namespace = null)" start="70" end="102" crap="20" executable="16" executed="0" coverage="0"/>
+      <method name="mergeEnvironment" signature="mergeEnvironment(array $items, $file)" start="111" end="114" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="exists" signature="exists($group, $namespace = null)" start="123" end="150" crap="12" executable="12" executed="0" coverage="0"/>
+      <method name="cascadePackage" signature="cascadePackage($env, $package, $group, $items)" start="161" end="182" crap="12" executable="11" executed="0" coverage="0"/>
+      <method name="getPackagePath" signature="getPackagePath($env, $package, $group)" start="192" end="197" crap="2" executable="4" executed="0" coverage="0"/>
+      <method name="getPath" signature="getPath($namespace)" start="205" end="212" crap="12" executable="7" executed="0" coverage="0"/>
+      <method name="addNamespace" signature="addNamespace($namespace, $hint)" start="221" end="224" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="getNamespaces" signature="getNamespaces()" start="232" end="235" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="getRequire" signature="getRequire($path)" start="243" end="246" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="getFilesystem" signature="getFilesystem()" start="253" end="256" crap="2" executable="3" executed="0" coverage="0"/>
+    </class>
+  </file>
+</phpunit>

@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <project name="/mnt/safe/laradic/config/src">
+    <tests/>
+    <directory name="/mnt/safe/laradic/config/src">
+      <totals>
+        <lines total="1321" comments="650" code="671" executable="390" executed="0" percent="0.00%"/>
+        <methods count="60" tested="0" percent="0.00%"/>
+        <functions count="0" tested="0" percent=""/>
+        <classes count="7" tested="0" percent="0.00%"/>
+        <traits count="3" tested="0" percent="0.00%"/>
+      </totals>
+      <directory name="Bootstrap">
+        <totals>
+          <lines total="35" comments="12" code="23" executable="10" executed="0" percent="0.00%"/>
+          <methods count="1" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="1" tested="0" percent="0.00%"/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+        <file name="LoadConfiguration.php" href="Bootstrap/LoadConfiguration.php.xml">
+          <totals>
+            <lines total="35" comments="12" code="23" executable="10" executed="0" percent="0.00%"/>
+            <methods count="1" tested="0" percent="0.00%"/>
+            <functions count="0" tested="0" percent=""/>
+            <classes count="1" tested="0" percent="0.00%"/>
+            <traits count="0" tested="0" percent=""/>
+          </totals>
+        </file>
+      </directory>
+      <file name="LoadConfiguration.php" href="Bootstrap/LoadConfiguration.php.xml">
+        <totals>
+          <lines total="35" comments="12" code="23" executable="10" executed="0" percent="0.00%"/>
+          <methods count="1" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="1" tested="0" percent="0.00%"/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+      </file>
+      <file name="ConfigServiceProvider.php" href="ConfigServiceProvider.php.xml">
+        <totals>
+          <lines total="30" comments="15" code="15" executable="4" executed="0" percent="0.00%"/>
+          <methods count="1" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="1" tested="0" percent="0.00%"/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+      </file>
+      <directory name="Console">
+        <totals>
+          <lines total="98" comments="24" code="74" executable="46" executed="0" percent="0.00%"/>
+          <methods count="4" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="1" tested="0" percent="0.00%"/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+        <file name="ConfigCacheCommand.php" href="Console/ConfigCacheCommand.php.xml">
+          <totals>
+            <lines total="98" comments="24" code="74" executable="46" executed="0" percent="0.00%"/>
+            <methods count="4" tested="0" percent="0.00%"/>
+            <functions count="0" tested="0" percent=""/>
+            <classes count="1" tested="0" percent="0.00%"/>
+            <traits count="0" tested="0" percent=""/>
+          </totals>
+        </file>
+      </directory>
+      <file name="ConfigCacheCommand.php" href="Console/ConfigCacheCommand.php.xml">
+        <totals>
+          <lines total="98" comments="24" code="74" executable="46" executed="0" percent="0.00%"/>
+          <methods count="4" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="1" tested="0" percent="0.00%"/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+      </file>
+      <directory name="Contracts">
+        <totals>
+          <lines total="26" comments="20" code="6" executable="0" executed="0" percent=""/>
+          <methods count="0" tested="0" percent=""/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="0" tested="0" percent=""/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+        <file name="PackageRepository.php" href="Contracts/PackageRepository.php.xml">
+          <totals>
+            <lines total="26" comments="20" code="6" executable="0" executed="0" percent=""/>
+            <methods count="0" tested="0" percent=""/>
+            <functions count="0" tested="0" percent=""/>
+            <classes count="0" tested="0" percent=""/>
+            <traits count="0" tested="0" percent=""/>
+          </totals>
+        </file>
+      </directory>
+      <file name="PackageRepository.php" href="Contracts/PackageRepository.php.xml">
+        <totals>
+          <lines total="26" comments="20" code="6" executable="0" executed="0" percent=""/>
+          <methods count="0" tested="0" percent=""/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="0" tested="0" percent=""/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+      </file>
+      <file name="FileLoader.php" href="FileLoader.php.xml">
+        <totals>
+          <lines total="257" comments="157" code="100" executable="69" executed="0" percent="0.00%"/>
+          <methods count="11" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="1" tested="0" percent="0.00%"/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+      </file>
+      <file name="LoaderInterface.php" href="LoaderInterface.php.xml">
+        <totals>
+          <lines total="66" comments="51" code="15" executable="0" executed="0" percent=""/>
+          <methods count="0" tested="0" percent=""/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="0" tested="0" percent=""/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+      </file>
+      <directory name="Providers">
+        <totals>
+          <lines total="50" comments="15" code="35" executable="19" executed="0" percent="0.00%"/>
+          <methods count="2" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="1" tested="0" percent="0.00%"/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+        <file name="PublisherServiceProvider.php" href="Providers/PublisherServiceProvider.php.xml">
+          <totals>
+            <lines total="50" comments="15" code="35" executable="19" executed="0" percent="0.00%"/>
+            <methods count="2" tested="0" percent="0.00%"/>
+            <functions count="0" tested="0" percent=""/>
+            <classes count="1" tested="0" percent="0.00%"/>
+            <traits count="0" tested="0" percent=""/>
+          </totals>
+        </file>
+      </directory>
+      <file name="PublisherServiceProvider.php" href="Providers/PublisherServiceProvider.php.xml">
+        <totals>
+          <lines total="50" comments="15" code="35" executable="19" executed="0" percent="0.00%"/>
+          <methods count="2" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="1" tested="0" percent="0.00%"/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+      </file>
+      <file name="Publisher.php" href="Publisher.php.xml">
+        <totals>
+          <lines total="183" comments="72" code="111" executable="76" executed="0" percent="0.00%"/>
+          <methods count="9" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="1" tested="0" percent="0.00%"/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+      </file>
+      <file name="Repository.php" href="Repository.php.xml">
+        <totals>
+          <lines total="377" comments="192" code="185" executable="114" executed="0" percent="0.00%"/>
+          <methods count="20" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="1" tested="0" percent="0.00%"/>
+          <traits count="0" tested="0" percent=""/>
+        </totals>
+      </file>
+      <directory name="Traits">
+        <totals>
+          <lines total="199" comments="92" code="107" executable="52" executed="0" percent="0.00%"/>
+          <methods count="12" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="0" tested="0" percent=""/>
+          <traits count="3" tested="0" percent="0.00%"/>
+        </totals>
+        <file name="CascadingTrait.php" href="Traits/CascadingTrait.php.xml">
+          <totals>
+            <lines total="90" comments="54" code="36" executable="15" executed="0" percent="0.00%"/>
+            <methods count="5" tested="0" percent="0.00%"/>
+            <functions count="0" tested="0" percent=""/>
+            <classes count="0" tested="0" percent=""/>
+            <traits count="1" tested="0" percent="0.00%"/>
+          </totals>
+        </file>
+        <file name="ConfigProviderTrait.php" href="Traits/ConfigProviderTrait.php.xml">
+          <totals>
+            <lines total="59" comments="13" code="46" executable="27" executed="0" percent="0.00%"/>
+            <methods count="4" tested="0" percent="0.00%"/>
+            <functions count="0" tested="0" percent=""/>
+            <classes count="0" tested="0" percent=""/>
+            <traits count="1" tested="0" percent="0.00%"/>
+          </totals>
+        </file>
+        <file name="LoadingTrait.php" href="Traits/LoadingTrait.php.xml">
+          <totals>
+            <lines total="50" comments="25" code="25" executable="10" executed="0" percent="0.00%"/>
+            <methods count="3" tested="0" percent="0.00%"/>
+            <functions count="0" tested="0" percent=""/>
+            <classes count="0" tested="0" percent=""/>
+            <traits count="1" tested="0" percent="0.00%"/>
+          </totals>
+        </file>
+      </directory>
+      <file name="CascadingTrait.php" href="Traits/CascadingTrait.php.xml">
+        <totals>
+          <lines total="90" comments="54" code="36" executable="15" executed="0" percent="0.00%"/>
+          <methods count="5" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="0" tested="0" percent=""/>
+          <traits count="1" tested="0" percent="0.00%"/>
+        </totals>
+      </file>
+      <file name="ConfigProviderTrait.php" href="Traits/ConfigProviderTrait.php.xml">
+        <totals>
+          <lines total="59" comments="13" code="46" executable="27" executed="0" percent="0.00%"/>
+          <methods count="4" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="0" tested="0" percent=""/>
+          <traits count="1" tested="0" percent="0.00%"/>
+        </totals>
+      </file>
+      <file name="LoadingTrait.php" href="Traits/LoadingTrait.php.xml">
+        <totals>
+          <lines total="50" comments="25" code="25" executable="10" executed="0" percent="0.00%"/>
+          <methods count="3" tested="0" percent="0.00%"/>
+          <functions count="0" tested="0" percent=""/>
+          <classes count="0" tested="0" percent=""/>
+          <traits count="1" tested="0" percent="0.00%"/>
+        </totals>
+      </file>
+    </directory>
+  </project>
+</phpunit>

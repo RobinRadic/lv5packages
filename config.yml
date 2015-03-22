@@ -1,0 +1,57 @@
+target: site
+
+targets:
+  site:
+    stubs: src/stubs
+    dest: theme
+    type: dev
+    site:
+
+      icons:
+        icons: {}
+      navigation:
+          sidebar:
+            - name: Laravel 5 Home
+              href: <%= target.nav.pre %>/home<%= target.nav.ext %>
+              icon: fa fa-home
+              children:
+                - name: Login
+                  href: <%= target.nav.pre %>/auth/login<%= target.nav.ext %>
+                  icon: fa fa-unlock-alt
+                - name: Forgot password
+                  href: <%= target.nav.pre %>/password/email<%= target.nav.ext %>
+                  icon: fa fa-key
+                - name: Register
+                  href: <%= target.nav.pre %>/auth/register<%= target.nav.ext %>
+                  icon: fa fa-pencil
+
+
+            - name: Blade Extensions
+              href: <%= target.nav.pre %>/blade-extensions
+              icon: fa fa-puzzle-piece
+
+            - name: Test views
+              icon: fa fa-eye
+              children:
+                - name: Blade extensions
+                  icon: fa fa-home
+                  children:
+                    - name: Markdown
+                      href: <%= target.nav.pre %>/blade-extensions/markdown<%= target.nav.ext %>
+                      icon: fa fa-home
+      #theme: {}
+    nav:
+      pre: ''
+      ext: ''
+
+
+
+
+
+
+
+
+
+
+
+

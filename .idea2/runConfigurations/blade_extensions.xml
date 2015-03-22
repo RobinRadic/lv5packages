@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="blade-extensions" type="BashConfigurationType" factoryName="Bash" folderName="submodule-update">
+    <option name="INTERPRETER_OPTIONS" value="" />
+    <option name="INTERPRETER_PATH" value="/bin/bash" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../projects/blade-extensions" />
+    <option name="PARENT_ENVS" value="true" />
+    <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../projects/blade-extensions/build/tools/submodule-update.sh" />
+    <option name="PARAMETERS" value="" />
+    <module name="" />
+    <envs />
+    <RunnerSettings RunnerId="BashRunner" />
+    <ConfigurationWrapper RunnerId="BashRunner" />
+    <method />
+  </configuration>
+</component>

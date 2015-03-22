@@ -1,0 +1,42 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "Laravel package development workspace =====================================",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robinradic/lv5packages"
+  },
+  "author": "Robin Radic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robinradic/lv5packages/issues"
+  },
+  "devDependencies": {
+    "fs-extra": "~0.16.3",
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-notify": "^0.4.1",
+    "grunt-shell": "^1.1.1",
+    "grunt-subgrunt": "~0.4.4",
+    "js-yaml": "~3.2.7",
+    "load-grunt-tasks": "~3.1.0",
+    "lodash": "~3.2.0",
+    "radic": "^0.7.0",
+    "time-grunt": "~1.0.0",
+    "grunt-available-tasks": "~0.5.6",
+    "typescript": "~1.4.1",
+    "grunt-typescript": "~0.6.1",
+    "grunt-contrib-watch": "~0.6.1"
+  },
+  "dependencies": {
+    "grunt-ftpsync": "~0.1.1"
+  }
+}

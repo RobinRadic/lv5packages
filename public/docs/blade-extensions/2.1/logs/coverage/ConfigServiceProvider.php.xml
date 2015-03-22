@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="ConfigServiceProvider.php">
+    <totals>
+      <lines total="30" comments="15" code="15" executable="4" executed="0" percent="0.00%"/>
+      <methods count="1" tested="0" percent="0.00%"/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="1" tested="0" percent="0.00%"/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="ConfigServiceProvider" start="21" executable="4" executed="0" crap="2">
+      <package full="Laradic" name="Laradic" sub="" category=""/>
+      <namespace name="Laradic\Config"/>
+      <method name="register" signature="register()" start="26" end="30" crap="2" executable="4" executed="0" coverage="0"/>
+    </class>
+  </file>
+</phpunit>

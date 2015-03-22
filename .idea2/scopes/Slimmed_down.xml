@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Slimmed down" pattern="(file:src//*||file:config//*||file:composer.json||file:build.xml||file:tests//*||file:public/frontend//*||file:app/config//*)&amp;&amp;!file:public/frontend/default/namespaces/theme/assets//*||file:app/bootstrap//*||file:app/storage//*" />
+</component>

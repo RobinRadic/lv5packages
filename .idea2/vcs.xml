@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../config" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../debug" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../dev" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../docs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../support" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../themes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../projects/blade-extensions" vcs="Git" />
+  </component>
+</project>

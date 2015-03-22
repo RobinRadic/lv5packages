@@ -1,0 +1,7 @@
+/vendor
+/node_modules
+/App/old/.env
+/logs
+/node_modules
+/radic/cthemes
+/build

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="Publisher.php">
+    <totals>
+      <lines total="183" comments="72" code="111" executable="76" executed="0" percent="0.00%"/>
+      <methods count="9" tested="0" percent="0.00%"/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="1" tested="0" percent="0.00%"/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="Publisher" start="19" executable="76" executed="0" crap="380">
+      <package full="Laradic" name="Laradic" sub="" category=""/>
+      <namespace name="Laradic\Config"/>
+      <method name="__construct" signature="__construct(Filesystem $files, Repository $config)" start="47" end="51" crap="2" executable="4" executed="0" coverage="0"/>
+      <method name="publishAll" signature="publishAll()" start="57" end="65" crap="6" executable="7" executed="0" coverage="0"/>
+      <method name="publish" signature="publish($package)" start="72" end="88" crap="12" executable="14" executed="0" coverage="0"/>
+      <method name="output" signature="output()" start="94" end="97" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="ensureDestination" signature="ensureDestination($package)" start="103" end="110" crap="6" executable="7" executed="0" coverage="0"/>
+      <method name="getDestinationPath" signature="getDestinationPath($package)" start="117" end="120" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="isPublished" signature="isPublished($package)" start="127" end="130" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="getPackages" signature="getPackages()" start="136" end="145" crap="6" executable="8" executed="0" coverage="0"/>
+      <method name="getSourcePath" signature="getSourcePath($package)" start="152" end="183" crap="42" executable="27" executed="0" coverage="0"/>
+    </class>
+  </file>
+</phpunit>

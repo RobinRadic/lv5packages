@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="2.2.0">
+<file name="/mnt/safe/laradic/config/src/Traits/ConfigProviderTrait.php">
+ <error line="29" column="61" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="38" column="49" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="53" column="32" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="60" column="1" severity="error" message="Expected 1 newline at end of file; 0 found" source="PSR2.Files.EndFileNewline.NoneFound"/>
+</file>
+<file name="/mnt/safe/laradic/config/src/FileLoader.php">
+ <error line="130" column="43" severity="error" message="Expected 1 newline after opening brace; 2 found" source="Squiz.ControlStructures.ControlSignature.NewlineAfterOpenBrace"/>
+</file>
+<file name="/mnt/safe/laradic/config/src/Providers/PublisherServiceProvider.php">
+ <error line="27" column="9" severity="error" message="Opening brace should be on the same line as the declaration" source="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnNewLine"/>
+ <error line="32" column="9" severity="error" message="Opening brace should be on the same line as the declaration" source="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnNewLine"/>
+ <error line="35" column="17" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="35" column="51" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="35" column="52" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n            &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="41" column="21" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="41" column="53" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="41" column="54" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n                &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="51" column="1" severity="error" message="Expected 1 newline at end of file; 0 found" source="PSR2.Files.EndFileNewline.NoneFound"/>
+</file>
+<file name="/mnt/safe/laradic/config/src/Contracts/PackageRepository.php">
+ <error line="1" column="1" severity="error" message="Whitespace found at end of line" source="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine"/>
+ <error line="3" column="4" severity="error" message="Whitespace found at end of line" source="Squiz.WhiteSpace.SuperfluousWhitespace.EndLine"/>
+ <error line="5" column="1" severity="error" message="There must be one blank line after the namespace declaration" source="PSR2.Namespaces.NamespaceDeclaration.BlankLineAfter"/>
+ <error line="27" column="1" severity="error" message="Expected 1 newline at end of file; 0 found" source="PSR2.Files.EndFileNewline.NoneFound"/>
+</file>
+<file name="/mnt/safe/laradic/config/src/Repository.php">
+ <error line="120" column="13" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="120" column="28" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="120" column="29" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="134" column="13" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="134" column="28" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="134" column="29" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="137" column="9" severity="error" message="Expected 1 space after closing brace; newline found" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseBrace"/>
+ <error line="138" column="9" severity="error" message="Expected 1 space after ELSE keyword; newline found" source="Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword"/>
+ <error line="180" column="42" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="201" column="13" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="201" column="46" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="201" column="47" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="211" column="13" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="211" column="49" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="211" column="50" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="232" column="13" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="232" column="51" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="232" column="52" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="255" column="13" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="255" column="67" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="255" column="68" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="283" column="9" severity="error" message="Opening brace should be on the same line as the declaration" source="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnNewLine"/>
+ <error line="301" column="13" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="301" column="33" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="301" column="34" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+</file>
+<file name="/mnt/safe/laradic/config/src/ConfigServiceProvider.php">
+ <error line="31" column="1" severity="error" message="Expected 1 newline at end of file; 0 found" source="PSR2.Files.EndFileNewline.NoneFound"/>
+</file>
+<file name="/mnt/safe/laradic/config/src/Publisher.php">
+ <error line="59" column="50" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="74" column="13" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="74" column="44" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="74" column="45" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="76" column="17" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="76" column="60" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="76" column="61" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n            &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="106" column="13" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="106" column="55" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="106" column="56" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="139" column="13" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="139" column="25" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="139" column="26" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="157" column="38" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="159" column="17" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="159" column="49" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="159" column="50" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n            &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="165" column="13" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="165" column="34" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="165" column="35" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="173" column="37" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n        &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="175" column="17" severity="error" message="Expected 0 spaces after opening bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpacingAfterOpenBrace"/>
+ <error line="175" column="69" severity="error" message="Expected 0 spaces before closing bracket; 1 found" source="PSR2.ControlStructures.ControlStructureSpacing.SpaceBeforeCloseBrace"/>
+ <error line="175" column="70" severity="error" message="Expected 1 space after closing parenthesis; found &quot;\n            &quot;" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="184" column="1" severity="error" message="Expected 1 newline at end of file; 0 found" source="PSR2.Files.EndFileNewline.NoneFound"/>
+</file>
+</checkstyle>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="bootstrap/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         syntaxCheck="false">
+    <testsuites>
+        <testsuite name="BladeExtensions">
+            <directory suffix="Test.php">./laradic/blade-extensions/tests/</directory>
+        </testsuite>
+<!--
+        <testsuite name="docs">
+            <directory suffix="Test.php">./laradic/docs/tests/</directory>
+        </testsuite>
+        <testsuite name="dev">
+            <directory suffix="Test.php">./radic/dev/tests/</directory>
+        </testsuite>
+        <testsuite name="Themes">
+            <directory suffix="Test.php">./radic/themes/tests/</directory>
+        </testsuite>
+        <testsuite name="Docs">
+            <directory suffix="Test.php">./radic/docs/tests/</directory>
+        </testsuite>
+        <testsuite name="Support">
+            <directory suffix="Test.php">./radic/support/tests/</directory>
+        </testsuite>
+        <testsuite name="roiot">
+            <directory suffix="Test.php">./tests/</directory>
+            <exclude suffix="Case.php">./tests/TestCase.php</exclude>
+            <exclude>./tests/app</exclude>
+        </testsuite>
+        -->
+    </testsuites>
+
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="SESSION_DRIVER" value="array"/>
+    </php>
+</phpunit>

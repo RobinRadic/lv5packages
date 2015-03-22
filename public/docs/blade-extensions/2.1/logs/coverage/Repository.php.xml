@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="Repository.php">
+    <totals>
+      <lines total="377" comments="192" code="185" executable="114" executed="0" percent="0.00%"/>
+      <methods count="20" tested="0" percent="0.00%"/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="1" tested="0" percent="0.00%"/>
+      <traits count="0" tested="0" percent=""/>
+    </totals>
+    <class name="Repository" start="26" executable="114" executed="0" crap="870">
+      <package full="Laradic" name="Laradic" sub="" category=""/>
+      <namespace name="Laradic\Config"/>
+      <method name="__construct" signature="__construct(LoaderInterface $loader, $environment)" start="56" end="62" crap="2" executable="4" executed="0" coverage="0"/>
+      <method name="has" signature="has($key)" start="70" end="75" crap="2" executable="4" executed="0" coverage="0"/>
+      <method name="hasGroup" signature="hasGroup($key)" start="83" end="88" crap="2" executable="4" executed="0" coverage="0"/>
+      <method name="get" signature="get($key, $default = null)" start="97" end="109" crap="2" executable="6" executed="0" coverage="0"/>
+      <method name="set" signature="set($key, $value = null)" start="118" end="142" crap="12" executable="17" executed="0" coverage="0"/>
+      <method name="prepend" signature="prepend($key, $value)" start="151" end="156" crap="2" executable="4" executed="0" coverage="0"/>
+      <method name="push" signature="push($key, $value)" start="165" end="170" crap="2" executable="4" executed="0" coverage="0"/>
+      <method name="setItems" signature="setItems(array $items)" start="178" end="184" crap="6" executable="6" executed="0" coverage="0"/>
+      <method name="load" signature="load($group, $namespace, $collection)" start="194" end="217" crap="12" executable="13" executed="0" coverage="0"/>
+      <method name="parseNamespacedSegments" signature="parseNamespacedSegments($key)" start="225" end="238" crap="6" executable="8" executed="0" coverage="0"/>
+      <method name="parsePackageSegments" signature="parsePackageSegments($key, $namespace, $item)" start="248" end="261" crap="6" executable="8" executed="0" coverage="0"/>
+      <method name="package" signature="package($package, $hint, $namespace = null)" start="271" end="290" crap="2" executable="4" executed="0" coverage="0"/>
+      <method name="anonymous function" signature="anonymous function (Repository $me, $group, $items) use ($package)" start="282" end="289" crap="2" executable="5" executed="0" coverage="0"/>
+      <method name="getPackageNamespace" signature="getPackageNamespace($package, $namespace)" start="299" end="307" crap="6" executable="7" executed="0" coverage="0"/>
+      <method name="getCollection" signature="getCollection($group, $namespace = null)" start="316" end="321" crap="6" executable="4" executed="0" coverage="0"/>
+      <method name="all" signature="all()" start="328" end="331" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="offsetExists" signature="offsetExists($key)" start="339" end="342" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="offsetGet" signature="offsetGet($key)" start="350" end="353" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="offsetSet" signature="offsetSet($key, $value)" start="362" end="365" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="offsetUnset" signature="offsetUnset($key)" start="373" end="376" crap="2" executable="3" executed="0" coverage="0"/>
+    </class>
+  </file>
+</phpunit>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PDepend>
+  <Packages>
+    <Package name="Laradic\Config\Bootstrap">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>3</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/mnt/safe/laradic/config/src/Bootstrap/LoadConfiguration.php">LoadConfiguration</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Illuminate\Contracts\Foundation</Package>
+        <Package>Illuminate\Filesystem</Package>
+        <Package>Laradic\Config</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="Laradic\Config">
+      <Stats>
+        <TotalClasses>5</TotalClasses>
+        <ConcreteClasses>4</ConcreteClasses>
+        <AbstractClasses>1</AbstractClasses>
+        <Ca>2</Ca>
+        <Ce>6</Ce>
+        <A>0.2</A>
+        <I>0.75</I>
+        <D>0.05</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/mnt/safe/laradic/config/src/ConfigServiceProvider.php">ConfigServiceProvider</Class>
+        <Class sourceFile="/mnt/safe/laradic/config/src/FileLoader.php">FileLoader</Class>
+        <Class sourceFile="/mnt/safe/laradic/config/src/Publisher.php">Publisher</Class>
+        <Class sourceFile="/mnt/safe/laradic/config/src/Repository.php">Repository</Class>
+      </ConcreteClasses>
+      <AbstractClasses>
+        <Class sourceFile="/mnt/safe/laradic/config/src/LoaderInterface.php">LoaderInterface</Class>
+      </AbstractClasses>
+      <DependsUpon>
+        <Package></Package>
+        <Package>Illuminate\Config</Package>
+        <Package>Illuminate\Contracts\Config</Package>
+        <Package>Illuminate\Filesystem</Package>
+        <Package>Illuminate\Support</Package>
+        <Package>Laradic\Config\Contracts</Package>
+      </DependsUpon>
+      <UsedBy>
+        <Package>Laradic\Config\Bootstrap</Package>
+        <Package>Laradic\Config\Traits</Package>
+      </UsedBy>
+    </Package>
+    <Package name="Laradic\Config\Console">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>2</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/mnt/safe/laradic/config/src/Console/ConfigCacheCommand.php">ConfigCacheCommand</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Illuminate\Foundation\Console</Package>
+        <Package>Symfony\Component\Finder</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="Laradic\Config\Contracts">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>0</ConcreteClasses>
+        <AbstractClasses>1</AbstractClasses>
+        <Ca>2</Ca>
+        <Ce>0</Ce>
+        <A>1</A>
+        <I>0</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses/>
+      <AbstractClasses>
+        <Class sourceFile="/mnt/safe/laradic/config/src/Contracts/PackageRepository.php">PackageRepository</Class>
+      </AbstractClasses>
+      <DependsUpon/>
+      <UsedBy>
+        <Package>Laradic\Config</Package>
+        <Package>Laradic\Config\Traits</Package>
+      </UsedBy>
+    </Package>
+    <Package name="Laradic\Config\Providers">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>2</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/mnt/safe/laradic/config/src/Providers/PublisherServiceProvider.php">PublisherServiceProvider</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Illuminate\Console</Package>
+        <Package>Illuminate\Support</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+  </Packages>
+  <Cycles/>
+</PDepend>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="LoadingTrait.php">
+    <totals>
+      <lines total="50" comments="25" code="25" executable="10" executed="0" percent="0.00%"/>
+      <methods count="3" tested="0" percent="0.00%"/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="0" tested="0" percent=""/>
+      <traits count="1" tested="0" percent="0.00%"/>
+    </totals>
+    <trait name="LoadingTrait" start="5" executable="10" executed="0" crap="12">
+      <package full="" name="" sub="" category=""/>
+      <namespace name="Laradic\Config\Traits"/>
+      <method name="afterLoading" signature="afterLoading($namespace, Closure $callback)" start="21" end="24" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="getAfterLoadCallbacks" signature="getAfterLoadCallbacks()" start="31" end="34" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="callAfterLoad" signature="callAfterLoad($namespace, $group, $items)" start="44" end="49" crap="2" executable="4" executed="0" coverage="0"/>
+    </trait>
+  </file>
+</phpunit>

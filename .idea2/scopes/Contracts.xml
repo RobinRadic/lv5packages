@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Contracts" pattern="file:*/Contracts/*&amp;&amp;!file:*/build//*" />
+</component>

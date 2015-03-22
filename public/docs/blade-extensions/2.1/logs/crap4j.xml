@@ -1,0 +1,675 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crap_result>
+  <project/>
+  <timestamp>2015-03-03 23:15:58</timestamp>
+  <stats>
+    <name>Method Crap Stats</name>
+    <methodCount>60</methodCount>
+    <crapMethodCount>2</crapMethodCount>
+    <crapLoad>11</crapLoad>
+    <totalCrap>358</totalCrap>
+    <crapMethodPercent>3.33</crapMethodPercent>
+  </stats>
+  <methods>
+    <method>
+      <package/>
+      <className>LoadConfiguration</className>
+      <methodName>bootstrap</methodName>
+      <methodSignature>bootstrap(Application $app)</methodSignature>
+      <fullMethod>bootstrap(Application $app)</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>ConfigServiceProvider</className>
+      <methodName>register</methodName>
+      <methodSignature>register()</methodSignature>
+      <fullMethod>register()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>ConfigCacheCommand</className>
+      <methodName>getFreshConfiguration</methodName>
+      <methodSignature>getFreshConfiguration()</methodSignature>
+      <fullMethod>getFreshConfiguration()</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>ConfigCacheCommand</className>
+      <methodName>parseFreshConfiguration</methodName>
+      <methodSignature>parseFreshConfiguration(array $config)</methodSignature>
+      <fullMethod>parseFreshConfiguration(array $config)</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>5</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>ConfigCacheCommand</className>
+      <methodName>setRealSessionDriver</methodName>
+      <methodSignature>setRealSessionDriver(array $config)</methodSignature>
+      <fullMethod>setRealSessionDriver(array $config)</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>ConfigCacheCommand</className>
+      <methodName>getConfigurationFiles</methodName>
+      <methodSignature>getConfigurationFiles()</methodSignature>
+      <fullMethod>getConfigurationFiles()</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>FileLoader</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct(Filesystem $files, $defaultPath)</methodSignature>
+      <fullMethod>__construct(Filesystem $files, $defaultPath)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>FileLoader</className>
+      <methodName>load</methodName>
+      <methodSignature>load($environment, $group, $namespace = null)</methodSignature>
+      <fullMethod>load($environment, $group, $namespace = null)</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>FileLoader</className>
+      <methodName>mergeEnvironment</methodName>
+      <methodSignature>mergeEnvironment(array $items, $file)</methodSignature>
+      <fullMethod>mergeEnvironment(array $items, $file)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>FileLoader</className>
+      <methodName>exists</methodName>
+      <methodSignature>exists($group, $namespace = null)</methodSignature>
+      <fullMethod>exists($group, $namespace = null)</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>FileLoader</className>
+      <methodName>cascadePackage</methodName>
+      <methodSignature>cascadePackage($env, $package, $group, $items)</methodSignature>
+      <fullMethod>cascadePackage($env, $package, $group, $items)</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>FileLoader</className>
+      <methodName>getPackagePath</methodName>
+      <methodSignature>getPackagePath($env, $package, $group)</methodSignature>
+      <fullMethod>getPackagePath($env, $package, $group)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>FileLoader</className>
+      <methodName>getPath</methodName>
+      <methodSignature>getPath($namespace)</methodSignature>
+      <fullMethod>getPath($namespace)</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>FileLoader</className>
+      <methodName>addNamespace</methodName>
+      <methodSignature>addNamespace($namespace, $hint)</methodSignature>
+      <fullMethod>addNamespace($namespace, $hint)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>FileLoader</className>
+      <methodName>getNamespaces</methodName>
+      <methodSignature>getNamespaces()</methodSignature>
+      <fullMethod>getNamespaces()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>FileLoader</className>
+      <methodName>getRequire</methodName>
+      <methodSignature>getRequire($path)</methodSignature>
+      <fullMethod>getRequire($path)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>FileLoader</className>
+      <methodName>getFilesystem</methodName>
+      <methodSignature>getFilesystem()</methodSignature>
+      <fullMethod>getFilesystem()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>PublisherServiceProvider</className>
+      <methodName>register</methodName>
+      <methodSignature>register()</methodSignature>
+      <fullMethod>register()</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>PublisherServiceProvider</className>
+      <methodName>anonymous function</methodName>
+      <methodSignature>anonymous function (Artisan $artisan)</methodSignature>
+      <fullMethod>anonymous function (Artisan $artisan)</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Publisher</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct(Filesystem $files, Repository $config)</methodSignature>
+      <fullMethod>__construct(Filesystem $files, Repository $config)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Publisher</className>
+      <methodName>publishAll</methodName>
+      <methodSignature>publishAll()</methodSignature>
+      <fullMethod>publishAll()</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Publisher</className>
+      <methodName>publish</methodName>
+      <methodSignature>publish($package)</methodSignature>
+      <fullMethod>publish($package)</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Publisher</className>
+      <methodName>output</methodName>
+      <methodSignature>output()</methodSignature>
+      <fullMethod>output()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Publisher</className>
+      <methodName>ensureDestination</methodName>
+      <methodSignature>ensureDestination($package)</methodSignature>
+      <fullMethod>ensureDestination($package)</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Publisher</className>
+      <methodName>getDestinationPath</methodName>
+      <methodSignature>getDestinationPath($package)</methodSignature>
+      <fullMethod>getDestinationPath($package)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Publisher</className>
+      <methodName>isPublished</methodName>
+      <methodSignature>isPublished($package)</methodSignature>
+      <fullMethod>isPublished($package)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Publisher</className>
+      <methodName>getPackages</methodName>
+      <methodSignature>getPackages()</methodSignature>
+      <fullMethod>getPackages()</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Publisher</className>
+      <methodName>getSourcePath</methodName>
+      <methodSignature>getSourcePath($package)</methodSignature>
+      <fullMethod>getSourcePath($package)</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>6</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct(LoaderInterface $loader, $environment)</methodSignature>
+      <fullMethod>__construct(LoaderInterface $loader, $environment)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>has</methodName>
+      <methodSignature>has($key)</methodSignature>
+      <fullMethod>has($key)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>hasGroup</methodName>
+      <methodSignature>hasGroup($key)</methodSignature>
+      <fullMethod>hasGroup($key)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>get</methodName>
+      <methodSignature>get($key, $default = null)</methodSignature>
+      <fullMethod>get($key, $default = null)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>set</methodName>
+      <methodSignature>set($key, $value = null)</methodSignature>
+      <fullMethod>set($key, $value = null)</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>prepend</methodName>
+      <methodSignature>prepend($key, $value)</methodSignature>
+      <fullMethod>prepend($key, $value)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>push</methodName>
+      <methodSignature>push($key, $value)</methodSignature>
+      <fullMethod>push($key, $value)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>setItems</methodName>
+      <methodSignature>setItems(array $items)</methodSignature>
+      <fullMethod>setItems(array $items)</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>load</methodName>
+      <methodSignature>load($group, $namespace, $collection)</methodSignature>
+      <fullMethod>load($group, $namespace, $collection)</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>parseNamespacedSegments</methodName>
+      <methodSignature>parseNamespacedSegments($key)</methodSignature>
+      <fullMethod>parseNamespacedSegments($key)</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>parsePackageSegments</methodName>
+      <methodSignature>parsePackageSegments($key, $namespace, $item)</methodSignature>
+      <fullMethod>parsePackageSegments($key, $namespace, $item)</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>package</methodName>
+      <methodSignature>package($package, $hint, $namespace = null)</methodSignature>
+      <fullMethod>package($package, $hint, $namespace = null)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>anonymous function</methodName>
+      <methodSignature>anonymous function (Repository $me, $group, $items) use ($package)</methodSignature>
+      <fullMethod>anonymous function (Repository $me, $group, $items) use ($package)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>getPackageNamespace</methodName>
+      <methodSignature>getPackageNamespace($package, $namespace)</methodSignature>
+      <fullMethod>getPackageNamespace($package, $namespace)</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>getCollection</methodName>
+      <methodSignature>getCollection($group, $namespace = null)</methodSignature>
+      <fullMethod>getCollection($group, $namespace = null)</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>all</methodName>
+      <methodSignature>all()</methodSignature>
+      <fullMethod>all()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>offsetExists</methodName>
+      <methodSignature>offsetExists($key)</methodSignature>
+      <fullMethod>offsetExists($key)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>offsetGet</methodName>
+      <methodSignature>offsetGet($key)</methodSignature>
+      <fullMethod>offsetGet($key)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>offsetSet</methodName>
+      <methodSignature>offsetSet($key, $value)</methodSignature>
+      <fullMethod>offsetSet($key, $value)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>Repository</className>
+      <methodName>offsetUnset</methodName>
+      <methodSignature>offsetUnset($key)</methodSignature>
+      <fullMethod>offsetUnset($key)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>CascadingTrait</className>
+      <methodName>addNamespace</methodName>
+      <methodSignature>addNamespace($namespace, $hint)</methodSignature>
+      <fullMethod>addNamespace($namespace, $hint)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>CascadingTrait</className>
+      <methodName>getNamespaces</methodName>
+      <methodSignature>getNamespaces()</methodSignature>
+      <fullMethod>getNamespaces()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>CascadingTrait</className>
+      <methodName>getLoader</methodName>
+      <methodSignature>getLoader()</methodSignature>
+      <fullMethod>getLoader()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>CascadingTrait</className>
+      <methodName>setLoader</methodName>
+      <methodSignature>setLoader(LoaderInterface $loader)</methodSignature>
+      <fullMethod>setLoader(LoaderInterface $loader)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>CascadingTrait</className>
+      <methodName>getEnvironment</methodName>
+      <methodSignature>getEnvironment()</methodSignature>
+      <fullMethod>getEnvironment()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>ConfigProviderTrait</className>
+      <methodName>addConfig</methodName>
+      <methodSignature>addConfig($package, $namespace = null, $path = null)</methodSignature>
+      <fullMethod>addConfig($package, $namespace = null, $path = null)</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>ConfigProviderTrait</className>
+      <methodName>addConfigComponent</methodName>
+      <methodSignature>addConfigComponent($package, $namespace, $path)</methodSignature>
+      <fullMethod>addConfigComponent($package, $namespace, $path)</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>ConfigProviderTrait</className>
+      <methodName>guessConfigPath</methodName>
+      <methodSignature>guessConfigPath()</methodSignature>
+      <fullMethod>guessConfigPath()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>ConfigProviderTrait</className>
+      <methodName>getConfigNamespace</methodName>
+      <methodSignature>getConfigNamespace($package, $namespace)</methodSignature>
+      <fullMethod>getConfigNamespace($package, $namespace)</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>LoadingTrait</className>
+      <methodName>afterLoading</methodName>
+      <methodSignature>afterLoading($namespace, Closure $callback)</methodSignature>
+      <fullMethod>afterLoading($namespace, Closure $callback)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>LoadingTrait</className>
+      <methodName>getAfterLoadCallbacks</methodName>
+      <methodSignature>getAfterLoadCallbacks()</methodSignature>
+      <fullMethod>getAfterLoadCallbacks()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package/>
+      <className>LoadingTrait</className>
+      <methodName>callAfterLoad</methodName>
+      <methodSignature>callAfterLoad($namespace, $group, $items)</methodSignature>
+      <fullMethod>callAfterLoad($namespace, $group, $items)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+  </methods>
+</crap_result>

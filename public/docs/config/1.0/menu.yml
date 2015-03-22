@@ -1,0 +1,22 @@
+menu:
+  - name: Overview
+    icon: fa fa-eye
+    page: index
+
+  - name: Getting started
+    icon: fa fa-cloud
+    children:
+      Downloading: getting-started/downloading
+      Installing: getting-started/downloading
+      Configuration: getting-started/downloading
+
+  - name: Usage
+    icon: fa fa-pencil
+    children:
+      Basic examples: usage/basic
+
+  - name: Misc
+    icon: fa fa-pencil
+    children:
+      Contributing: misc/contributing
+      Issues and Questions: misc/issues-questions

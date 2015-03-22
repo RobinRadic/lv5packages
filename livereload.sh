@@ -1,0 +1,27 @@
+#!/bin/sh
+livereloadx -y http://dev9.radic.nl {radic,public,app} \
+    --include "public" \
+    --include "app" \
+    --include "public/" \
+    --include "app/" \
+    --include "public/*" \
+    --include "app/*" \
+    --include "public/**" \
+    --include "app/**" \
+    --include "../public" \
+    --include "../app" \
+    --include "../public/" \
+    --include "../app/" \
+    --include "../public/*" \
+    --include "../app/*" \
+    --include "../public/**" \
+    --include "../app/**" \
+    --include "/mnt/safe/devhosts/dev9/public" \
+    --include "/mnt/safe/devhosts/dev9/app" \
+    --include "/mnt/safe/devhosts/dev9/public/" \
+    --include "/mnt/safe/devhosts/dev9/app/" \
+    --include "/mnt/safe/devhosts/dev9/public/*" \
+    --include "/mnt/safe/devhosts/dev9/app/*" \
+    --include "/mnt/safe/devhosts/dev9/public/**" \
+    --include "/mnt/safe/devhosts/dev9/app/**" \
+    --include "*.{md}"

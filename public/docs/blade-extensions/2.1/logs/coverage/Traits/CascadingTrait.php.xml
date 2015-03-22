@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="CascadingTrait.php">
+    <totals>
+      <lines total="90" comments="54" code="36" executable="15" executed="0" percent="0.00%"/>
+      <methods count="5" tested="0" percent="0.00%"/>
+      <functions count="0" tested="0" percent=""/>
+      <classes count="0" tested="0" percent=""/>
+      <traits count="1" tested="0" percent="0.00%"/>
+    </totals>
+    <trait name="CascadingTrait" start="21" executable="15" executed="0" crap="30">
+      <package full="Laradic.Traits" name="Laradic" sub="Traits" category=""/>
+      <namespace name="Laradic\Config\Traits"/>
+      <method name="addNamespace" signature="addNamespace($namespace, $hint)" start="44" end="47" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="getNamespaces" signature="getNamespaces()" start="55" end="58" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="getLoader" signature="getLoader()" start="65" end="68" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="setLoader" signature="setLoader(LoaderInterface $loader)" start="76" end="79" crap="2" executable="3" executed="0" coverage="0"/>
+      <method name="getEnvironment" signature="getEnvironment()" start="86" end="89" crap="2" executable="3" executed="0" coverage="0"/>
+    </trait>
+  </file>
+</phpunit>

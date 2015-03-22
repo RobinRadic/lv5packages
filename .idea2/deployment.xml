@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="docs.radic.nl" exclude=".svn;.cvs;.idea;.DS_Store;.git;.hg;.phar;" showDifferentInSync="false" showNewOnSourceInSync="false">
+    <serverData>
+      <paths name="dev9.radic.nl">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/public" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="docs.radic.nl">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/laradic/themes/build" />
+            <excludedPath path="/laradic/themes/cthemes" />
+            <excludedPath path="/laradic/config/build" />
+            <excludedPath path="/laradic/config/build" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="la.radic.nl">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/public" web="/" />
+            <mapping local="$PROJECT_DIR$/../php-build-tools" web="/" />
+            <mapping local="$PROJECT_DIR$/../config" web="/" />
+            <mapping local="$PROJECT_DIR$/../support" web="/" />
+            <mapping local="$PROJECT_DIR$/../docs" web="/" />
+            <mapping local="$PROJECT_DIR$/../../projects/blade-extensions" web="/" />
+            <mapping local="$PROJECT_DIR$/../themes" web="/" />
+            <mapping local="$PROJECT_DIR$/../dev" web="/" />
+            <mapping local="$PROJECT_DIR$/../debug" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
