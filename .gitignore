@@ -23,4 +23,7 @@
 /_test
 /Laradic
 .idea
+.idea2
+.idea3
 /secret.js
+/public/packages

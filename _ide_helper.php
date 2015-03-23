@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.18 on 2015-03-22.
+ * Generated for Laravel 5.0.18 on 2015-03-23.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -10836,7 +10836,7 @@ namespace {
          *
          * @static 
          */
-        public static function toAdmin($path, $extra = array(), $secure = null){
+        public static function toAdmin($path = '', $extra = array(), $secure = null){
             return \Laradic\Admin\Routing\AdminUrlGenerator::toAdmin($path, $extra, $secure);
         }
         
@@ -11674,673 +11674,6 @@ namespace {
     }
 
 
-    class Throttle extends \GrahamCampbell\Throttle\Facades\Throttle{
-        
-        /**
-         * Get a new throttler.
-         *
-         * @param array|\Illuminate\Http\Request $data
-         * @param int $limit
-         * @param int $time
-         * @return \GrahamCampbell\Throttle\Throttlers\ThrottlerInterface 
-         * @static 
-         */
-        public static function get($data, $limit = 10, $time = 60){
-            return \GrahamCampbell\Throttle\Throttle::get($data, $limit, $time);
-        }
-        
-        /**
-         * Get the cache instance.
-         *
-         * @return \GrahamCampbell\Throttle\Factories\FactoryInterface 
-         * @static 
-         */
-        public static function getFactory(){
-            return \GrahamCampbell\Throttle\Throttle::getFactory();
-        }
-        
-        /**
-         * Get the transformer instance.
-         *
-         * @codeCoverageIgnore 
-         * @return \GrahamCampbell\Throttle\Transformers\TransformerFactory 
-         * @static 
-         */
-        public static function getTransformer(){
-            return \GrahamCampbell\Throttle\Throttle::getTransformer();
-        }
-        
-    }
-
-
-    class Projects extends \Laradic\Docs\Facades\Projects{
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function all($bySlug = false){
-            return \Laradic\Docs\ProjectFactory::all($bySlug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function has($slug){
-            return \Laradic\Docs\ProjectFactory::has($slug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function get($slug){
-            return \Laradic\Docs\ProjectFactory::get($slug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function slugs(){
-            return \Laradic\Docs\ProjectFactory::slugs();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function make($slug){
-            return \Laradic\Docs\ProjectFactory::make($slug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function path(){
-            return \Laradic\Docs\ProjectFactory::path();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function url($project = null, $version = null, $page = null){
-            return \Laradic\Docs\ProjectFactory::url($project, $version, $page);
-        }
-        
-    }
-
-
-    class Sentry extends \Cartalyst\Sentry\Facades\Laravel\Sentry{
-        
-        /**
-         * Registers a user by giving the required credentials
-         * and an optional flag for whether to activate the user.
-         *
-         * @param array $credentials
-         * @param bool $activate
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @static 
-         */
-        public static function register($credentials, $activate = false){
-            return \Cartalyst\Sentry\Sentry::register($credentials, $activate);
-        }
-        
-        /**
-         * Attempts to authenticate the given user
-         * according to the passed credentials.
-         *
-         * @param array $credentials
-         * @param bool $remember
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \Cartalyst\Sentry\Throttling\UserBannedException
-         * @throws \Cartalyst\Sentry\Throttling\UserSuspendedException
-         * @throws \Cartalyst\Sentry\Users\LoginRequiredException
-         * @throws \Cartalyst\Sentry\Users\PasswordRequiredException
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function authenticate($credentials, $remember = false){
-            return \Cartalyst\Sentry\Sentry::authenticate($credentials, $remember);
-        }
-        
-        /**
-         * Alias for authenticating with the remember flag checked.
-         *
-         * @param array $credentials
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @static 
-         */
-        public static function authenticateAndRemember($credentials){
-            return \Cartalyst\Sentry\Sentry::authenticateAndRemember($credentials);
-        }
-        
-        /**
-         * Check to see if the user is logged in and activated, and hasn't been banned or suspended.
-         *
-         * @return bool 
-         * @static 
-         */
-        public static function check(){
-            return \Cartalyst\Sentry\Sentry::check();
-        }
-        
-        /**
-         * Logs in the given user and sets properties
-         * in the session.
-         *
-         * @param \Cartalyst\Sentry\Users\UserInterface $user
-         * @param bool $remember
-         * @return void 
-         * @throws \Cartalyst\Sentry\Users\UserNotActivatedException
-         * @static 
-         */
-        public static function login($user, $remember = false){
-            \Cartalyst\Sentry\Sentry::login($user, $remember);
-        }
-        
-        /**
-         * Alias for logging in and remembering.
-         *
-         * @param \Cartalyst\Sentry\Users\UserInterface $user
-         * @static 
-         */
-        public static function loginAndRemember($user){
-            return \Cartalyst\Sentry\Sentry::loginAndRemember($user);
-        }
-        
-        /**
-         * Logs the current user out.
-         *
-         * @return void 
-         * @static 
-         */
-        public static function logout(){
-            \Cartalyst\Sentry\Sentry::logout();
-        }
-        
-        /**
-         * Sets the user to be used by Sentry.
-         *
-         * @param \Cartalyst\Sentry\Users\UserInterface
-         * @return void 
-         * @static 
-         */
-        public static function setUser($user){
-            \Cartalyst\Sentry\Sentry::setUser($user);
-        }
-        
-        /**
-         * Returns the current user being used by Sentry, if any.
-         *
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @static 
-         */
-        public static function getUser(){
-            return \Cartalyst\Sentry\Sentry::getUser();
-        }
-        
-        /**
-         * Sets the session driver for Sentry.
-         *
-         * @param \Cartalyst\Sentry\Sessions\SessionInterface $session
-         * @return void 
-         * @static 
-         */
-        public static function setSession($session){
-            \Cartalyst\Sentry\Sentry::setSession($session);
-        }
-        
-        /**
-         * Gets the session driver for Sentry.
-         *
-         * @return \Cartalyst\Sentry\Sessions\SessionInterface 
-         * @static 
-         */
-        public static function getSession(){
-            return \Cartalyst\Sentry\Sentry::getSession();
-        }
-        
-        /**
-         * Sets the cookie driver for Sentry.
-         *
-         * @param \Cartalyst\Sentry\Cookies\CookieInterface $cookie
-         * @return void 
-         * @static 
-         */
-        public static function setCookie($cookie){
-            \Cartalyst\Sentry\Sentry::setCookie($cookie);
-        }
-        
-        /**
-         * Gets the cookie driver for Sentry.
-         *
-         * @return \Cartalyst\Sentry\Cookies\CookieInterface 
-         * @static 
-         */
-        public static function getCookie(){
-            return \Cartalyst\Sentry\Sentry::getCookie();
-        }
-        
-        /**
-         * Sets the group provider for Sentry.
-         *
-         * @param \Cartalyst\Sentry\Groups\ProviderInterface
-         * @return void 
-         * @static 
-         */
-        public static function setGroupProvider($groupProvider){
-            \Cartalyst\Sentry\Sentry::setGroupProvider($groupProvider);
-        }
-        
-        /**
-         * Gets the group provider for Sentry.
-         *
-         * @return \Cartalyst\Sentry\Groups\ProviderInterface 
-         * @static 
-         */
-        public static function getGroupProvider(){
-            return \Cartalyst\Sentry\Sentry::getGroupProvider();
-        }
-        
-        /**
-         * Sets the user provider for Sentry.
-         *
-         * @param \Cartalyst\Sentry\Users\ProviderInterface
-         * @return void 
-         * @static 
-         */
-        public static function setUserProvider($userProvider){
-            \Cartalyst\Sentry\Sentry::setUserProvider($userProvider);
-        }
-        
-        /**
-         * Gets the user provider for Sentry.
-         *
-         * @return \Cartalyst\Sentry\Users\ProviderInterface 
-         * @static 
-         */
-        public static function getUserProvider(){
-            return \Cartalyst\Sentry\Sentry::getUserProvider();
-        }
-        
-        /**
-         * Sets the throttle provider for Sentry.
-         *
-         * @param \Cartalyst\Sentry\Throttling\ProviderInterface
-         * @return void 
-         * @static 
-         */
-        public static function setThrottleProvider($throttleProvider){
-            \Cartalyst\Sentry\Sentry::setThrottleProvider($throttleProvider);
-        }
-        
-        /**
-         * Gets the throttle provider for Sentry.
-         *
-         * @return \Cartalyst\Sentry\Throttling\ProviderInterface 
-         * @static 
-         */
-        public static function getThrottleProvider(){
-            return \Cartalyst\Sentry\Sentry::getThrottleProvider();
-        }
-        
-        /**
-         * Sets the IP address Sentry is bound to.
-         *
-         * @param string $ipAddress
-         * @return void 
-         * @static 
-         */
-        public static function setIpAddress($ipAddress){
-            \Cartalyst\Sentry\Sentry::setIpAddress($ipAddress);
-        }
-        
-        /**
-         * Gets the IP address Sentry is bound to.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function getIpAddress(){
-            return \Cartalyst\Sentry\Sentry::getIpAddress();
-        }
-        
-        /**
-         * Find the group by ID.
-         *
-         * @param int $id
-         * @return \Cartalyst\Sentry\Groups\GroupInterface $group
-         * @throws \Cartalyst\Sentry\Groups\GroupNotFoundException
-         * @static 
-         */
-        public static function findGroupById($id){
-            return \Cartalyst\Sentry\Sentry::findGroupById($id);
-        }
-        
-        /**
-         * Find the group by name.
-         *
-         * @param string $name
-         * @return \Cartalyst\Sentry\Groups\GroupInterface $group
-         * @throws \Cartalyst\Sentry\Groups\GroupNotFoundException
-         * @static 
-         */
-        public static function findGroupByName($name){
-            return \Cartalyst\Sentry\Sentry::findGroupByName($name);
-        }
-        
-        /**
-         * Returns all groups.
-         *
-         * @return array $groups
-         * @static 
-         */
-        public static function findAllGroups(){
-            return \Cartalyst\Sentry\Sentry::findAllGroups();
-        }
-        
-        /**
-         * Creates a group.
-         *
-         * @param array $attributes
-         * @return \Cartalyst\Sentry\Groups\GroupInterface 
-         * @static 
-         */
-        public static function createGroup($attributes){
-            return \Cartalyst\Sentry\Sentry::createGroup($attributes);
-        }
-        
-        /**
-         * Finds a user by the given user ID.
-         *
-         * @param mixed $id
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function findUserById($id){
-            return \Cartalyst\Sentry\Sentry::findUserById($id);
-        }
-        
-        /**
-         * Finds a user by the login value.
-         *
-         * @param string $login
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function findUserByLogin($login){
-            return \Cartalyst\Sentry\Sentry::findUserByLogin($login);
-        }
-        
-        /**
-         * Finds a user by the given credentials.
-         *
-         * @param array $credentials
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function findUserByCredentials($credentials){
-            return \Cartalyst\Sentry\Sentry::findUserByCredentials($credentials);
-        }
-        
-        /**
-         * Finds a user by the given activation code.
-         *
-         * @param string $code
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \RuntimeException
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function findUserByActivationCode($code){
-            return \Cartalyst\Sentry\Sentry::findUserByActivationCode($code);
-        }
-        
-        /**
-         * Finds a user by the given reset password code.
-         *
-         * @param string $code
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \RuntimeException
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function findUserByResetPasswordCode($code){
-            return \Cartalyst\Sentry\Sentry::findUserByResetPasswordCode($code);
-        }
-        
-        /**
-         * Returns an all users.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function findAllUsers(){
-            return \Cartalyst\Sentry\Sentry::findAllUsers();
-        }
-        
-        /**
-         * Returns all users who belong to
-         * a group.
-         *
-         * @param \Cartalyst\Sentry\Groups\GroupInterface $group
-         * @return array 
-         * @static 
-         */
-        public static function findAllUsersInGroup($group){
-            return \Cartalyst\Sentry\Sentry::findAllUsersInGroup($group);
-        }
-        
-        /**
-         * Returns all users with access to
-         * a permission(s).
-         *
-         * @param string|array $permissions
-         * @return array 
-         * @static 
-         */
-        public static function findAllUsersWithAccess($permissions){
-            return \Cartalyst\Sentry\Sentry::findAllUsersWithAccess($permissions);
-        }
-        
-        /**
-         * Returns all users with access to
-         * any given permission(s).
-         *
-         * @param array $permissions
-         * @return array 
-         * @static 
-         */
-        public static function findAllUsersWithAnyAccess($permissions){
-            return \Cartalyst\Sentry\Sentry::findAllUsersWithAnyAccess($permissions);
-        }
-        
-        /**
-         * Creates a user.
-         *
-         * @param array $credentials
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @static 
-         */
-        public static function createUser($credentials){
-            return \Cartalyst\Sentry\Sentry::createUser($credentials);
-        }
-        
-        /**
-         * Returns an empty user object.
-         *
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @static 
-         */
-        public static function getEmptyUser(){
-            return \Cartalyst\Sentry\Sentry::getEmptyUser();
-        }
-        
-        /**
-         * Finds a throttler by the given user ID.
-         *
-         * @param mixed $id
-         * @param string $ipAddress
-         * @return \Cartalyst\Sentry\Throttling\ThrottleInterface 
-         * @static 
-         */
-        public static function findThrottlerByUserId($id, $ipAddress = null){
-            return \Cartalyst\Sentry\Sentry::findThrottlerByUserId($id, $ipAddress);
-        }
-        
-        /**
-         * Finds a throttling interface by the given user login.
-         *
-         * @param string $login
-         * @param string $ipAddress
-         * @return \Cartalyst\Sentry\Throttling\ThrottleInterface 
-         * @static 
-         */
-        public static function findThrottlerByUserLogin($login, $ipAddress = null){
-            return \Cartalyst\Sentry\Sentry::findThrottlerByUserLogin($login, $ipAddress);
-        }
-        
-    }
-
-
-    class Alert extends \Cartalyst\Alerts\Laravel\Facades\Alert{
-        
-        /**
-         * Returns all the registered notifiers.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function getNotifiers(){
-            return \Cartalyst\Alerts\Alerts::getNotifiers();
-        }
-        
-        /**
-         * Adds the given notifier.
-         *
-         * @param \Cartalyst\Alerts\Notifiers\NotifierInterface $notifier
-         * @return $this 
-         * @static 
-         */
-        public static function addNotifier($notifier){
-            return \Cartalyst\Alerts\Alerts::addNotifier($notifier);
-        }
-        
-        /**
-         * Removes the given notifier.
-         *
-         * @param string $name
-         * @return $this 
-         * @static 
-         */
-        public static function removeNotifier($name){
-            return \Cartalyst\Alerts\Alerts::removeNotifier($name);
-        }
-        
-        /**
-         * Returns the default notifier name.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function getDefaultNotifier(){
-            return \Cartalyst\Alerts\Alerts::getDefaultNotifier();
-        }
-        
-        /**
-         * Sets the default notifier.
-         *
-         * @param string $notifier
-         * @return $this 
-         * @static 
-         */
-        public static function setDefaultNotifier($notifier){
-            return \Cartalyst\Alerts\Alerts::setDefaultNotifier($notifier);
-        }
-        
-        /**
-         * Returns the given notifier.
-         *
-         * @param string $name
-         * @param string $default
-         * @return \Cartalyst\Alerts\Notifiers\NotifierInterface|null 
-         * @static 
-         */
-        public static function notifier($name, $default = null){
-            return \Cartalyst\Alerts\Alerts::notifier($name, $default);
-        }
-        
-        /**
-         * Returns the alerts with the applied filters.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function get(){
-            return \Cartalyst\Alerts\Alerts::get();
-        }
-        
-        /**
-         * Filter alerts based on the given areas.
-         *
-         * @param string|array $areas
-         * @return self 
-         * @static 
-         */
-        public static function whereArea($areas){
-            return \Cartalyst\Alerts\Alerts::whereArea($areas);
-        }
-        
-        /**
-         * Filter alerts excluding the given areas.
-         *
-         * @param string|array $areas
-         * @return self 
-         * @static 
-         */
-        public static function whereNotArea($areas){
-            return \Cartalyst\Alerts\Alerts::whereNotArea($areas);
-        }
-        
-        /**
-         * Filter alerts based on the given types.
-         *
-         * @param string|array $types
-         * @return self 
-         * @static 
-         */
-        public static function whereType($types){
-            return \Cartalyst\Alerts\Alerts::whereType($types);
-        }
-        
-        /**
-         * Filter alerts excluding the given types.
-         *
-         * @param string|array $types
-         * @return self 
-         * @static 
-         */
-        public static function whereNotType($types){
-            return \Cartalyst\Alerts\Alerts::whereNotType($types);
-        }
-        
-    }
-
-
     class Form extends \Collective\Html\FormFacade{
         
         /**
@@ -12774,6 +12107,618 @@ namespace {
          */
         public static function hasMacro($name){
             return \Collective\Html\FormBuilder::hasMacro($name);
+        }
+        
+    }
+
+
+    class HTML extends \Collective\Html\HtmlFacade{
+        
+        /**
+         * Convert an HTML string to entities.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */
+        public static function entities($value){
+            return \Collective\Html\HtmlBuilder::entities($value);
+        }
+        
+        /**
+         * Convert entities to HTML characters.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */
+        public static function decode($value){
+            return \Collective\Html\HtmlBuilder::decode($value);
+        }
+        
+        /**
+         * Generate a link to a JavaScript file.
+         *
+         * @param string $url
+         * @param array $attributes
+         * @param bool $secure
+         * @return string 
+         * @static 
+         */
+        public static function script($url, $attributes = array(), $secure = null){
+            return \Collective\Html\HtmlBuilder::script($url, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a link to a CSS file.
+         *
+         * @param string $url
+         * @param array $attributes
+         * @param bool $secure
+         * @return string 
+         * @static 
+         */
+        public static function style($url, $attributes = array(), $secure = null){
+            return \Collective\Html\HtmlBuilder::style($url, $attributes, $secure);
+        }
+        
+        /**
+         * Generate an HTML image element.
+         *
+         * @param string $url
+         * @param string $alt
+         * @param array $attributes
+         * @param bool $secure
+         * @return string 
+         * @static 
+         */
+        public static function image($url, $alt = null, $attributes = array(), $secure = null){
+            return \Collective\Html\HtmlBuilder::image($url, $alt, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a HTML link.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @param bool $secure
+         * @return string 
+         * @static 
+         */
+        public static function link($url, $title = null, $attributes = array(), $secure = null){
+            return \Collective\Html\HtmlBuilder::link($url, $title, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a HTTPS HTML link.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function secureLink($url, $title = null, $attributes = array()){
+            return \Collective\Html\HtmlBuilder::secureLink($url, $title, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to an asset.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @param bool $secure
+         * @return string 
+         * @static 
+         */
+        public static function linkAsset($url, $title = null, $attributes = array(), $secure = null){
+            return \Collective\Html\HtmlBuilder::linkAsset($url, $title, $attributes, $secure);
+        }
+        
+        /**
+         * Generate a HTTPS HTML link to an asset.
+         *
+         * @param string $url
+         * @param string $title
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function linkSecureAsset($url, $title = null, $attributes = array()){
+            return \Collective\Html\HtmlBuilder::linkSecureAsset($url, $title, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to a named route.
+         *
+         * @param string $name
+         * @param string $title
+         * @param array $parameters
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function linkRoute($name, $title = null, $parameters = array(), $attributes = array()){
+            return \Collective\Html\HtmlBuilder::linkRoute($name, $title, $parameters, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to a controller action.
+         *
+         * @param string $action
+         * @param string $title
+         * @param array $parameters
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function linkAction($action, $title = null, $parameters = array(), $attributes = array()){
+            return \Collective\Html\HtmlBuilder::linkAction($action, $title, $parameters, $attributes);
+        }
+        
+        /**
+         * Generate a HTML link to an email address.
+         *
+         * @param string $email
+         * @param string $title
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function mailto($email, $title = null, $attributes = array()){
+            return \Collective\Html\HtmlBuilder::mailto($email, $title, $attributes);
+        }
+        
+        /**
+         * Obfuscate an e-mail address to prevent spam-bots from sniffing it.
+         *
+         * @param string $email
+         * @return string 
+         * @static 
+         */
+        public static function email($email){
+            return \Collective\Html\HtmlBuilder::email($email);
+        }
+        
+        /**
+         * Generate an ordered list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function ol($list, $attributes = array()){
+            return \Collective\Html\HtmlBuilder::ol($list, $attributes);
+        }
+        
+        /**
+         * Generate an un-ordered list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function ul($list, $attributes = array()){
+            return \Collective\Html\HtmlBuilder::ul($list, $attributes);
+        }
+        
+        /**
+         * Generate a description list of items.
+         *
+         * @param array $list
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function dl($list, $attributes = array()){
+            return \Collective\Html\HtmlBuilder::dl($list, $attributes);
+        }
+        
+        /**
+         * Build an HTML attribute string from an array.
+         *
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function attributes($attributes){
+            return \Collective\Html\HtmlBuilder::attributes($attributes);
+        }
+        
+        /**
+         * Obfuscate a string to prevent spam-bots from sniffing it.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */
+        public static function obfuscate($value){
+            return \Collective\Html\HtmlBuilder::obfuscate($value);
+        }
+        
+        /**
+         * Generate a meta tag.
+         *
+         * @param string $name
+         * @param string $content
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function meta($name, $content, $attributes = array()){
+            return \Collective\Html\HtmlBuilder::meta($name, $content, $attributes);
+        }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param callable $macro
+         * @return void 
+         * @static 
+         */
+        public static function macro($name, $macro){
+            \Collective\Html\HtmlBuilder::macro($name, $macro);
+        }
+        
+        /**
+         * Checks if macro is registered
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */
+        public static function hasMacro($name){
+            return \Collective\Html\HtmlBuilder::hasMacro($name);
+        }
+        
+    }
+
+
+    class Projects extends \Laradic\Docs\Facades\Projects{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function all($bySlug = false){
+            return \Laradic\Docs\ProjectFactory::all($bySlug);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function has($slug){
+            return \Laradic\Docs\ProjectFactory::has($slug);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function get($slug){
+            return \Laradic\Docs\ProjectFactory::get($slug);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function slugs(){
+            return \Laradic\Docs\ProjectFactory::slugs();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function make($slug){
+            return \Laradic\Docs\ProjectFactory::make($slug);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function path(){
+            return \Laradic\Docs\ProjectFactory::path();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function url($project = null, $version = null, $page = null){
+            return \Laradic\Docs\ProjectFactory::url($project, $version, $page);
+        }
+        
+    }
+
+
+    class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function register($name, $callback){
+            return \DaveJamesMiller\Breadcrumbs\Manager::register($name, $callback);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function exists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::exists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generate($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generate($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateIfExists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateIfExistsArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see generateIfExistsArray
+         * @static 
+         */
+        public static function generateArrayIfExists(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArrayIfExists();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function render($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::render($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderIfExists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderIfExistsArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see renderIfExistsArray
+         * @static 
+         */
+        public static function renderArrayIfExists(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArrayIfExists();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setCurrentRoute($name){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRoute($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setCurrentRouteArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRouteArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function clearCurrentRoute(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::clearCurrentRoute();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setView($view){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setView($view);
+        }
+        
+    }
+
+
+    class Alert extends \Cartalyst\Alerts\Laravel\Facades\Alert{
+        
+        /**
+         * Returns all the registered notifiers.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getNotifiers(){
+            return \Cartalyst\Alerts\Alerts::getNotifiers();
+        }
+        
+        /**
+         * Adds the given notifier.
+         *
+         * @param \Cartalyst\Alerts\Notifiers\NotifierInterface $notifier
+         * @return $this 
+         * @static 
+         */
+        public static function addNotifier($notifier){
+            return \Cartalyst\Alerts\Alerts::addNotifier($notifier);
+        }
+        
+        /**
+         * Removes the given notifier.
+         *
+         * @param string $name
+         * @return $this 
+         * @static 
+         */
+        public static function removeNotifier($name){
+            return \Cartalyst\Alerts\Alerts::removeNotifier($name);
+        }
+        
+        /**
+         * Returns the default notifier name.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDefaultNotifier(){
+            return \Cartalyst\Alerts\Alerts::getDefaultNotifier();
+        }
+        
+        /**
+         * Sets the default notifier.
+         *
+         * @param string $notifier
+         * @return $this 
+         * @static 
+         */
+        public static function setDefaultNotifier($notifier){
+            return \Cartalyst\Alerts\Alerts::setDefaultNotifier($notifier);
+        }
+        
+        /**
+         * Returns the given notifier.
+         *
+         * @param string $name
+         * @param string $default
+         * @return \Cartalyst\Alerts\Notifiers\NotifierInterface|null 
+         * @static 
+         */
+        public static function notifier($name, $default = null){
+            return \Cartalyst\Alerts\Alerts::notifier($name, $default);
+        }
+        
+        /**
+         * Returns the alerts with the applied filters.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function get(){
+            return \Cartalyst\Alerts\Alerts::get();
+        }
+        
+        /**
+         * Filter alerts based on the given areas.
+         *
+         * @param string|array $areas
+         * @return self 
+         * @static 
+         */
+        public static function whereArea($areas){
+            return \Cartalyst\Alerts\Alerts::whereArea($areas);
+        }
+        
+        /**
+         * Filter alerts excluding the given areas.
+         *
+         * @param string|array $areas
+         * @return self 
+         * @static 
+         */
+        public static function whereNotArea($areas){
+            return \Cartalyst\Alerts\Alerts::whereNotArea($areas);
+        }
+        
+        /**
+         * Filter alerts based on the given types.
+         *
+         * @param string|array $types
+         * @return self 
+         * @static 
+         */
+        public static function whereType($types){
+            return \Cartalyst\Alerts\Alerts::whereType($types);
+        }
+        
+        /**
+         * Filter alerts excluding the given types.
+         *
+         * @param string|array $types
+         * @return self 
+         * @static 
+         */
+        public static function whereNotType($types){
+            return \Cartalyst\Alerts\Alerts::whereNotType($types);
         }
         
     }
@@ -13384,6 +13329,564 @@ namespace {
          */
         public static function setUrlGenerator($urlGenerator){
             return \Laradic\Themes\Assets\AssetFactory::setUrlGenerator($urlGenerator);
+        }
+        
+    }
+
+
+    class Sentry extends \Cartalyst\Sentry\Facades\Laravel\Sentry{
+        
+        /**
+         * Registers a user by giving the required credentials
+         * and an optional flag for whether to activate the user.
+         *
+         * @param array $credentials
+         * @param bool $activate
+         * @return \Cartalyst\Sentry\Users\UserInterface 
+         * @static 
+         */
+        public static function register($credentials, $activate = false){
+            return \Cartalyst\Sentry\Sentry::register($credentials, $activate);
+        }
+        
+        /**
+         * Attempts to authenticate the given user
+         * according to the passed credentials.
+         *
+         * @param array $credentials
+         * @param bool $remember
+         * @return \Cartalyst\Sentry\Users\UserInterface 
+         * @throws \Cartalyst\Sentry\Throttling\UserBannedException
+         * @throws \Cartalyst\Sentry\Throttling\UserSuspendedException
+         * @throws \Cartalyst\Sentry\Users\LoginRequiredException
+         * @throws \Cartalyst\Sentry\Users\PasswordRequiredException
+         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
+         * @static 
+         */
+        public static function authenticate($credentials, $remember = false){
+            return \Cartalyst\Sentry\Sentry::authenticate($credentials, $remember);
+        }
+        
+        /**
+         * Alias for authenticating with the remember flag checked.
+         *
+         * @param array $credentials
+         * @return \Cartalyst\Sentry\Users\UserInterface 
+         * @static 
+         */
+        public static function authenticateAndRemember($credentials){
+            return \Cartalyst\Sentry\Sentry::authenticateAndRemember($credentials);
+        }
+        
+        /**
+         * Check to see if the user is logged in and activated, and hasn't been banned or suspended.
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function check(){
+            return \Cartalyst\Sentry\Sentry::check();
+        }
+        
+        /**
+         * Logs in the given user and sets properties
+         * in the session.
+         *
+         * @param \Cartalyst\Sentry\Users\UserInterface $user
+         * @param bool $remember
+         * @return void 
+         * @throws \Cartalyst\Sentry\Users\UserNotActivatedException
+         * @static 
+         */
+        public static function login($user, $remember = false){
+            \Cartalyst\Sentry\Sentry::login($user, $remember);
+        }
+        
+        /**
+         * Alias for logging in and remembering.
+         *
+         * @param \Cartalyst\Sentry\Users\UserInterface $user
+         * @static 
+         */
+        public static function loginAndRemember($user){
+            return \Cartalyst\Sentry\Sentry::loginAndRemember($user);
+        }
+        
+        /**
+         * Logs the current user out.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function logout(){
+            \Cartalyst\Sentry\Sentry::logout();
+        }
+        
+        /**
+         * Sets the user to be used by Sentry.
+         *
+         * @param \Cartalyst\Sentry\Users\UserInterface
+         * @return void 
+         * @static 
+         */
+        public static function setUser($user){
+            \Cartalyst\Sentry\Sentry::setUser($user);
+        }
+        
+        /**
+         * Returns the current user being used by Sentry, if any.
+         *
+         * @return \Cartalyst\Sentry\Users\UserInterface 
+         * @static 
+         */
+        public static function getUser(){
+            return \Cartalyst\Sentry\Sentry::getUser();
+        }
+        
+        /**
+         * Sets the session driver for Sentry.
+         *
+         * @param \Cartalyst\Sentry\Sessions\SessionInterface $session
+         * @return void 
+         * @static 
+         */
+        public static function setSession($session){
+            \Cartalyst\Sentry\Sentry::setSession($session);
+        }
+        
+        /**
+         * Gets the session driver for Sentry.
+         *
+         * @return \Cartalyst\Sentry\Sessions\SessionInterface 
+         * @static 
+         */
+        public static function getSession(){
+            return \Cartalyst\Sentry\Sentry::getSession();
+        }
+        
+        /**
+         * Sets the cookie driver for Sentry.
+         *
+         * @param \Cartalyst\Sentry\Cookies\CookieInterface $cookie
+         * @return void 
+         * @static 
+         */
+        public static function setCookie($cookie){
+            \Cartalyst\Sentry\Sentry::setCookie($cookie);
+        }
+        
+        /**
+         * Gets the cookie driver for Sentry.
+         *
+         * @return \Cartalyst\Sentry\Cookies\CookieInterface 
+         * @static 
+         */
+        public static function getCookie(){
+            return \Cartalyst\Sentry\Sentry::getCookie();
+        }
+        
+        /**
+         * Sets the group provider for Sentry.
+         *
+         * @param \Cartalyst\Sentry\Groups\ProviderInterface
+         * @return void 
+         * @static 
+         */
+        public static function setGroupProvider($groupProvider){
+            \Cartalyst\Sentry\Sentry::setGroupProvider($groupProvider);
+        }
+        
+        /**
+         * Gets the group provider for Sentry.
+         *
+         * @return \Cartalyst\Sentry\Groups\ProviderInterface 
+         * @static 
+         */
+        public static function getGroupProvider(){
+            return \Cartalyst\Sentry\Sentry::getGroupProvider();
+        }
+        
+        /**
+         * Sets the user provider for Sentry.
+         *
+         * @param \Cartalyst\Sentry\Users\ProviderInterface
+         * @return void 
+         * @static 
+         */
+        public static function setUserProvider($userProvider){
+            \Cartalyst\Sentry\Sentry::setUserProvider($userProvider);
+        }
+        
+        /**
+         * Gets the user provider for Sentry.
+         *
+         * @return \Cartalyst\Sentry\Users\ProviderInterface 
+         * @static 
+         */
+        public static function getUserProvider(){
+            return \Cartalyst\Sentry\Sentry::getUserProvider();
+        }
+        
+        /**
+         * Sets the throttle provider for Sentry.
+         *
+         * @param \Cartalyst\Sentry\Throttling\ProviderInterface
+         * @return void 
+         * @static 
+         */
+        public static function setThrottleProvider($throttleProvider){
+            \Cartalyst\Sentry\Sentry::setThrottleProvider($throttleProvider);
+        }
+        
+        /**
+         * Gets the throttle provider for Sentry.
+         *
+         * @return \Cartalyst\Sentry\Throttling\ProviderInterface 
+         * @static 
+         */
+        public static function getThrottleProvider(){
+            return \Cartalyst\Sentry\Sentry::getThrottleProvider();
+        }
+        
+        /**
+         * Sets the IP address Sentry is bound to.
+         *
+         * @param string $ipAddress
+         * @return void 
+         * @static 
+         */
+        public static function setIpAddress($ipAddress){
+            \Cartalyst\Sentry\Sentry::setIpAddress($ipAddress);
+        }
+        
+        /**
+         * Gets the IP address Sentry is bound to.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getIpAddress(){
+            return \Cartalyst\Sentry\Sentry::getIpAddress();
+        }
+        
+        /**
+         * Find the group by ID.
+         *
+         * @param int $id
+         * @return \Cartalyst\Sentry\Groups\GroupInterface $group
+         * @throws \Cartalyst\Sentry\Groups\GroupNotFoundException
+         * @static 
+         */
+        public static function findGroupById($id){
+            return \Cartalyst\Sentry\Sentry::findGroupById($id);
+        }
+        
+        /**
+         * Find the group by name.
+         *
+         * @param string $name
+         * @return \Cartalyst\Sentry\Groups\GroupInterface $group
+         * @throws \Cartalyst\Sentry\Groups\GroupNotFoundException
+         * @static 
+         */
+        public static function findGroupByName($name){
+            return \Cartalyst\Sentry\Sentry::findGroupByName($name);
+        }
+        
+        /**
+         * Returns all groups.
+         *
+         * @return array $groups
+         * @static 
+         */
+        public static function findAllGroups(){
+            return \Cartalyst\Sentry\Sentry::findAllGroups();
+        }
+        
+        /**
+         * Creates a group.
+         *
+         * @param array $attributes
+         * @return \Cartalyst\Sentry\Groups\GroupInterface 
+         * @static 
+         */
+        public static function createGroup($attributes){
+            return \Cartalyst\Sentry\Sentry::createGroup($attributes);
+        }
+        
+        /**
+         * Finds a user by the given user ID.
+         *
+         * @param mixed $id
+         * @return \Cartalyst\Sentry\Users\UserInterface 
+         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
+         * @static 
+         */
+        public static function findUserById($id){
+            return \Cartalyst\Sentry\Sentry::findUserById($id);
+        }
+        
+        /**
+         * Finds a user by the login value.
+         *
+         * @param string $login
+         * @return \Cartalyst\Sentry\Users\UserInterface 
+         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
+         * @static 
+         */
+        public static function findUserByLogin($login){
+            return \Cartalyst\Sentry\Sentry::findUserByLogin($login);
+        }
+        
+        /**
+         * Finds a user by the given credentials.
+         *
+         * @param array $credentials
+         * @return \Cartalyst\Sentry\Users\UserInterface 
+         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
+         * @static 
+         */
+        public static function findUserByCredentials($credentials){
+            return \Cartalyst\Sentry\Sentry::findUserByCredentials($credentials);
+        }
+        
+        /**
+         * Finds a user by the given activation code.
+         *
+         * @param string $code
+         * @return \Cartalyst\Sentry\Users\UserInterface 
+         * @throws \RuntimeException
+         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
+         * @static 
+         */
+        public static function findUserByActivationCode($code){
+            return \Cartalyst\Sentry\Sentry::findUserByActivationCode($code);
+        }
+        
+        /**
+         * Finds a user by the given reset password code.
+         *
+         * @param string $code
+         * @return \Cartalyst\Sentry\Users\UserInterface 
+         * @throws \RuntimeException
+         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
+         * @static 
+         */
+        public static function findUserByResetPasswordCode($code){
+            return \Cartalyst\Sentry\Sentry::findUserByResetPasswordCode($code);
+        }
+        
+        /**
+         * Returns an all users.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function findAllUsers(){
+            return \Cartalyst\Sentry\Sentry::findAllUsers();
+        }
+        
+        /**
+         * Returns all users who belong to
+         * a group.
+         *
+         * @param \Cartalyst\Sentry\Groups\GroupInterface $group
+         * @return array 
+         * @static 
+         */
+        public static function findAllUsersInGroup($group){
+            return \Cartalyst\Sentry\Sentry::findAllUsersInGroup($group);
+        }
+        
+        /**
+         * Returns all users with access to
+         * a permission(s).
+         *
+         * @param string|array $permissions
+         * @return array 
+         * @static 
+         */
+        public static function findAllUsersWithAccess($permissions){
+            return \Cartalyst\Sentry\Sentry::findAllUsersWithAccess($permissions);
+        }
+        
+        /**
+         * Returns all users with access to
+         * any given permission(s).
+         *
+         * @param array $permissions
+         * @return array 
+         * @static 
+         */
+        public static function findAllUsersWithAnyAccess($permissions){
+            return \Cartalyst\Sentry\Sentry::findAllUsersWithAnyAccess($permissions);
+        }
+        
+        /**
+         * Creates a user.
+         *
+         * @param array $credentials
+         * @return \Cartalyst\Sentry\Users\UserInterface 
+         * @static 
+         */
+        public static function createUser($credentials){
+            return \Cartalyst\Sentry\Sentry::createUser($credentials);
+        }
+        
+        /**
+         * Returns an empty user object.
+         *
+         * @return \Cartalyst\Sentry\Users\UserInterface 
+         * @static 
+         */
+        public static function getEmptyUser(){
+            return \Cartalyst\Sentry\Sentry::getEmptyUser();
+        }
+        
+        /**
+         * Finds a throttler by the given user ID.
+         *
+         * @param mixed $id
+         * @param string $ipAddress
+         * @return \Cartalyst\Sentry\Throttling\ThrottleInterface 
+         * @static 
+         */
+        public static function findThrottlerByUserId($id, $ipAddress = null){
+            return \Cartalyst\Sentry\Sentry::findThrottlerByUserId($id, $ipAddress);
+        }
+        
+        /**
+         * Finds a throttling interface by the given user login.
+         *
+         * @param string $login
+         * @param string $ipAddress
+         * @return \Cartalyst\Sentry\Throttling\ThrottleInterface 
+         * @static 
+         */
+        public static function findThrottlerByUserLogin($login, $ipAddress = null){
+            return \Cartalyst\Sentry\Sentry::findThrottlerByUserLogin($login, $ipAddress);
+        }
+        
+    }
+
+
+    class Hashids extends \Vinkla\Hashids\Facades\Hashids{
+        
+        /**
+         * Get the factory instance.
+         *
+         * @return \Vinkla\Hashids\HashidsFactory 
+         * @static 
+         */
+        public static function getFactory(){
+            return \Vinkla\Hashids\HashidsManager::getFactory();
+        }
+        
+        /**
+         * Get a connection instance.
+         *
+         * @param string $name
+         * @return object 
+         * @static 
+         */
+        public static function connection($name = null){
+            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
+            return \Vinkla\Hashids\HashidsManager::connection($name);
+        }
+        
+        /**
+         * Reconnect to the given connection.
+         *
+         * @param string $name
+         * @return object 
+         * @static 
+         */
+        public static function reconnect($name = null){
+            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
+            return \Vinkla\Hashids\HashidsManager::reconnect($name);
+        }
+        
+        /**
+         * Disconnect from the given connection.
+         *
+         * @param string $name
+         * @return void 
+         * @static 
+         */
+        public static function disconnect($name = null){
+            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
+            \Vinkla\Hashids\HashidsManager::disconnect($name);
+        }
+        
+        /**
+         * Get the configuration for a connection.
+         *
+         * @param string $name
+         * @throws \InvalidArgumentException
+         * @return array 
+         * @static 
+         */
+        public static function getConnectionConfig($name){
+            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
+            return \Vinkla\Hashids\HashidsManager::getConnectionConfig($name);
+        }
+        
+        /**
+         * Get the default connection name.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDefaultConnection(){
+            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
+            return \Vinkla\Hashids\HashidsManager::getDefaultConnection();
+        }
+        
+        /**
+         * Set the default connection name.
+         *
+         * @param string $name
+         * @return void 
+         * @static 
+         */
+        public static function setDefaultConnection($name){
+            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
+            \Vinkla\Hashids\HashidsManager::setDefaultConnection($name);
+        }
+        
+        /**
+         * Register an extension connection resolver.
+         *
+         * @param string $name
+         * @param callable $resolver
+         * @return void 
+         * @static 
+         */
+        public static function extend($name, $resolver){
+            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
+            \Vinkla\Hashids\HashidsManager::extend($name, $resolver);
+        }
+        
+        /**
+         * Return all of the created connections.
+         *
+         * @return object[] 
+         * @static 
+         */
+        public static function getConnections(){
+            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
+            return \Vinkla\Hashids\HashidsManager::getConnections();
+        }
+        
+        /**
+         * Get the config instance.
+         *
+         * @return \Illuminate\Contracts\Config\Repository 
+         * @static 
+         */
+        public static function getConfig(){
+            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
+            return \Vinkla\Hashids\HashidsManager::getConfig();
         }
         
     }

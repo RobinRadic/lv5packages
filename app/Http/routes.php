@@ -12,13 +12,3 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-
-Route::get('blade', 'BladeExtensionsController@index');
-
-Route::get('index', 'HomeController@index');
-
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
-

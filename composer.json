@@ -46,13 +46,12 @@
         "apigen/apigen": "~4.0",
         "latte/latte": "~2.3",
         "laravelcollective/html": "~5.0",
-        "graham-campbell/throttle": "~3.0",
         "clickalicious/phpmemadmin": "0.3.*",
         "itsgoingd/clockwork": "dev-master",
-        "orchestra/platform": "~3.0",
-        "cartalyst/sentry": "dev-feature/laravel-5",
         "cartalyst/alerts": "~2.0",
-        "cartalyst/tags": "~1.0"
+        "cartalyst/tags": "~1.0",
+        "rydurham/sentinel": "~2.1",
+        "davejamesmiller/laravel-breadcrumbs": "~3.0"
     },
     "replace": {
         "laradic/admin": "self.version",

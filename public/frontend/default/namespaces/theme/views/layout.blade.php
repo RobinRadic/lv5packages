@@ -6,7 +6,9 @@
 <html lang="en"><!--<![endif]-->
 <head>
     <title>
-        {{ isset($pageTitle) ? $pageTitle . ' | ' : '' }}{{ isset($pageSubtitle) ? $pageSubtitle . ' | ' : '' }}{{ $site_name or "Docs" }}
+        @section('title')
+            {{ isset($pageTitle) ? $pageTitle . ' | ' : '' }}{{ isset($pageSubtitle) ? $pageSubtitle . ' | ' : '' }}{{ $site_name or "Docs" }}
+        @show
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -42,11 +44,16 @@
         <!--nav.top-nav--><a data-toggle="collapse" data-target=".navbar-collapse" class="menu-toggler responsive-toggler btn btn-default" href="#"><i class="fa fa-bars fa-lg"></i></a>
 
         <div class="header-menu">
+            @section('header-menu')
             <ul class="nav navbar-nav">
                 @section('header-nav-menu')
-                    <li><a href="{{ URL::to('/') }}">Home</a></li>
                 @show
             </ul>
+            <ul class="nav navbar-nav pull-right">
+                @section('header-nav-menu-right')
+                @show
+            </ul>
+            @show
         </div>
     </header>
 </section>
@@ -84,6 +91,9 @@
             </header>
             @show
             <div class="content">
+                @section('notifications')
+                    @include('theme::partials.notifications')
+                @show
                 @section('content')
                     <div class="row">
                         <div class="col-md-12">Oops, this page doesn't have any content</div>
@@ -136,13 +146,13 @@
                 require(['theme', 'theme/sidebar'], function(theme, sidebar){
                     theme.init();
                     @if(isset($menu))
-                    var sidebarConfig = {
-                        hidden: false,
-                        items: {!! json_encode($menu) !!}
-                    };
-                    sidebar.init(sidebarConfig)
+                        var sidebarConfig = {
+                            hidden: false,
+                            items: {!! json_encode($menu) !!}
+                        };
+                        sidebar.init(sidebarConfig);
                     @else
-                    sidebar.init();
+                        sidebar.init();
                     @endif
                 })
             });
@@ -159,17 +169,6 @@
 
 @section('scripts.boot')
     <script src="{{ Asset::url("theme::scripts/boot.js") }}"></script>
-
-        <script>
-            (function(){
-                require(['theme/sidebar'], function(sidebar){
-
-                });
-                //window.packadic.site.data.navigation.sidebar =
-
-            }.call());
-        </script>
-
 @show
 
 {{-- It conflicts with requirejs jquery, so this fixes it --}}

@@ -12,7 +12,17 @@ return [
     'version'  => '0.0.1',
     'register' => function (Application $app, Theme $theme)
     {
-        #$app->log->info('Registering theme: ' . $theme->getSlug());
+        $html = $app->make('html');
+        $html->macro('dropdown_menu', function($title, array $links){
+            $html = '<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">' . $title . '</a>';
+            $html .= '<ul class="dropdown-menu">';
+            foreach($links as $title => $route)
+            {
+                $html .= '<li><a href="' . URL::route($route) . '">' . $title . '</a></li>';
+            }
+            $html .= '</ul></li>';
+            return $html;
+        });
     },
     'boot'     => function (Application $app, Theme $theme)
     {

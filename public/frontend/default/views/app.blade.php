@@ -1,4 +1,4 @@
-@extends('theme::index')
+@extends('theme::layout')
 
 {{--<!DOCTYPE html>
 <html lang="en">
