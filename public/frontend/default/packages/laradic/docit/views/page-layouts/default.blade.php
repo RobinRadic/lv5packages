@@ -12,15 +12,15 @@
     <li>
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects</a>
         <ul class="dropdown-menu dropdown-menu-wide">
-            @foreach(Projects::all() as $project)
-                <li><a href="{{ $project['url'] }}">{{ $project['title'] }}</a></li>
+            @foreach(Projects::all() as $proj)
+                <li><a href="{{ $proj['url'] }}">{{ $proj['title'] }}</a></li>
             @endforeach
         </ul>
     </li>
 @stop
 @section('page-header.right')
     @if($project->isGithub())
-    <div class="small-padding-top extra-large-margin-right">
+    <div class="small-padding-top extra-large-margin-right pull-right">
         <div class="btn-toolbar" role="toolbar">
             <div class="btn-group" role="group">
                 <a href="{{ $project->getGithubUrl() }}" class="btn btn-sm blue-light tipped" title="View on github" data-placement="bottom"  target="_blank"><i class="fa fa-git"></i></a>
@@ -66,9 +66,6 @@
 
               <section>
                   <div class="blade-markdown">
-                      <?php
-                    #  Debugger::dump($page->getAttributes())
-                      ?>
                       <?php echo $content; ?>
                   </div>
               </section>

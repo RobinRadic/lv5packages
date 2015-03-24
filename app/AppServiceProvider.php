@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->register('Collective\Html\HtmlServiceProvider');
        # $this->app->register('Darsain\Console\ConsoleServiceProvider');
-      #  $this->app->register('Laradic\Config\ConfigServiceProvider');
+        $this->app->register('Laradic\Config\ConfigServiceProvider');
         $this->app->register('Laradic\Debug\DebugServiceProvider');
         $this->app->register('Radic\BladeExtensions\BladeExtensionsServiceProvider');
         $this->app->register('Laradic\Themes\ThemeServiceProvider');

@@ -84,10 +84,12 @@
                         <div class="page-subtitle">@yield('page-subtitle', isset($pageSubtitle) ? $pageSubtitle : '')</div>
                     @show
                 </div>
-                <ol class="breadcrumb page-breadcrumb pull-right">
-                @section('page-header.breadcrumbs')
+                @section('page-header.right')
+                    <ol class="breadcrumb page-breadcrumb pull-right">
+                        @section('page-header.breadcrumbs')
+                        @show
+                    </ol>
                 @show
-                </ol>
             </header>
             @show
             <div class="content">
