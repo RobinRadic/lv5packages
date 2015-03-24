@@ -73,7 +73,8 @@
             "App\\": "app/",
             "Radic\\BladeExtensions\\": "radic/blade-extensions/src/",
             "Laradic\\": "Laradic/",
-            "Laradic\\Admin\\": "extensions/laradic/admin/src"
+            "Laradic\\Admin\\": "extensions/laradic/admin/src",
+            "Laradic\\Docit\\": "extensions/laradic/docit/src"
         }
     },
     "autoload-dev": {

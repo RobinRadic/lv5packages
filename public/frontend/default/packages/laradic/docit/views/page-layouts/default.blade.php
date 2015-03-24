@@ -1,4 +1,4 @@
-@extends('laradic/docit::layout')
+@extends('theme::layout')
 @section('page-title')
     {{ $project['title'] }}
     @if(isset($project['subtitle']))
@@ -6,6 +6,18 @@
     @endif
 @stop
 
+@section('header-nav-menu')
+
+    <li><a href="{{ URL::to('/') }}">Home</a></li>
+    <li>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Projects</a>
+        <ul class="dropdown-menu dropdown-menu-wide">
+            @foreach(Projects::all() as $project)
+                <li><a href="{{ $project['url'] }}">{{ $project['title'] }}</a></li>
+            @endforeach
+        </ul>
+    </li>
+@stop
 @section('page-header.right')
     @if($project->isGithub())
     <div class="small-padding-top extra-large-margin-right">
@@ -73,13 +85,5 @@
 
 @section('scripts.boot')
     @parent
-    <script>
-        (function(){
-            require([ 'theme/sidebar' ], function( sidebar ){
-                sidebar.init({!! json_encode($menu) !!})
-            });
-        }.call());
-    </script>
-    {{-- The perfect place to alter the requirejs configuration --}}
     <script src="{{ Asset::url("laradic/docit::scripts/mdhighlight.js") }}"></script>
 @stop

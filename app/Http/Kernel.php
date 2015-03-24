@@ -1,6 +1,7 @@
 <?php namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Laradic\Support\Arr;
 
 class Kernel extends HttpKernel {
 
@@ -29,6 +30,24 @@ class Kernel extends HttpKernel {
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
 	];
+
+    /**
+     * Get the bootstrap classes for the application.
+     *
+     * @return array
+     */
+    protected function bootstrappers()
+    {
+        $bootstrappers = array_merge([
+            'Illuminate\Foundation\Bootstrap\DetectEnvironment',
+            'Laradic\Config\Bootstrap\LoadConfiguration'
+        ], Arr::without($this->bootstrappers, [
+            'Illuminate\Foundation\Bootstrap\DetectEnvironment',
+            'Illuminate\Foundation\Bootstrap\LoadConfiguration'
+        ]));
+        #var_dump($bootstrappers);
+        return $bootstrappers;
+    }
 
 }
 

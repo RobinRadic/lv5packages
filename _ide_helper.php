@@ -2207,7 +2207,18 @@ namespace {
          * @static 
          */
         public static function has($key){
-            return \Illuminate\Config\Repository::has($key);
+            return \Laradic\Config\Repository::has($key);
+        }
+        
+        /**
+         * Determine if a configuration group exists.
+         *
+         * @param string $key
+         * @return bool 
+         * @static 
+         */
+        public static function hasGroup($key){
+            return \Laradic\Config\Repository::hasGroup($key);
         }
         
         /**
@@ -2219,19 +2230,19 @@ namespace {
          * @static 
          */
         public static function get($key, $default = null){
-            return \Illuminate\Config\Repository::get($key, $default);
+            return \Laradic\Config\Repository::get($key, $default);
         }
         
         /**
          * Set a given configuration value.
          *
-         * @param array|string $key
+         * @param string $key
          * @param mixed $value
          * @return void 
          * @static 
          */
         public static function set($key, $value = null){
-            \Illuminate\Config\Repository::set($key, $value);
+            \Laradic\Config\Repository::set($key, $value);
         }
         
         /**
@@ -2243,7 +2254,7 @@ namespace {
          * @static 
          */
         public static function prepend($key, $value){
-            \Illuminate\Config\Repository::prepend($key, $value);
+            \Laradic\Config\Repository::prepend($key, $value);
         }
         
         /**
@@ -2255,17 +2266,30 @@ namespace {
          * @static 
          */
         public static function push($key, $value){
-            \Illuminate\Config\Repository::push($key, $value);
+            \Laradic\Config\Repository::push($key, $value);
         }
         
         /**
-         * Get all of the configuration items for the application.
+         * Register a package for cascading configuration.
+         *
+         * @param string $package
+         * @param string $hint
+         * @param string $namespace
+         * @return void 
+         * @static 
+         */
+        public static function package($package, $hint, $namespace = null){
+            \Laradic\Config\Repository::package($package, $hint, $namespace);
+        }
+        
+        /**
+         * Get all of the configuration items.
          *
          * @return array 
          * @static 
          */
         public static function all(){
-            return \Illuminate\Config\Repository::all();
+            return \Laradic\Config\Repository::all();
         }
         
         /**
@@ -2276,7 +2300,7 @@ namespace {
          * @static 
          */
         public static function offsetExists($key){
-            return \Illuminate\Config\Repository::offsetExists($key);
+            return \Laradic\Config\Repository::offsetExists($key);
         }
         
         /**
@@ -2287,7 +2311,7 @@ namespace {
          * @static 
          */
         public static function offsetGet($key){
-            return \Illuminate\Config\Repository::offsetGet($key);
+            return \Laradic\Config\Repository::offsetGet($key);
         }
         
         /**
@@ -2299,7 +2323,7 @@ namespace {
          * @static 
          */
         public static function offsetSet($key, $value){
-            \Illuminate\Config\Repository::offsetSet($key, $value);
+            \Laradic\Config\Repository::offsetSet($key, $value);
         }
         
         /**
@@ -2310,7 +2334,106 @@ namespace {
          * @static 
          */
         public static function offsetUnset($key){
-            \Illuminate\Config\Repository::offsetUnset($key);
+            \Laradic\Config\Repository::offsetUnset($key);
+        }
+        
+        /**
+         * Add a new namespace to the loader.
+         *
+         * @param string $namespace
+         * @param string $hint
+         * @return void 
+         * @static 
+         */
+        public static function addNamespace($namespace, $hint){
+            \Laradic\Config\Repository::addNamespace($namespace, $hint);
+        }
+        
+        /**
+         * Returns all registered vendor with the config
+         * loader.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getNamespaces(){
+            return \Laradic\Config\Repository::getNamespaces();
+        }
+        
+        /**
+         * Get the loader implementation.
+         *
+         * @return \Illuminate\Config\LoaderInterface 
+         * @static 
+         */
+        public static function getLoader(){
+            return \Laradic\Config\Repository::getLoader();
+        }
+        
+        /**
+         * Set the loader implementation.
+         *
+         * @param \Laradic\Config\LoaderInterface $loader
+         * @return void 
+         * @static 
+         */
+        public static function setLoader($loader){
+            \Laradic\Config\Repository::setLoader($loader);
+        }
+        
+        /**
+         * Get the current configuration environment.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getEnvironment(){
+            return \Laradic\Config\Repository::getEnvironment();
+        }
+        
+        /**
+         * Register an after load callback for a given namespace.
+         *
+         * @param string $namespace
+         * @param \Closure $callback
+         * @return void 
+         * @static 
+         */
+        public static function afterLoading($namespace, $callback){
+            \Laradic\Config\Repository::afterLoading($namespace, $callback);
+        }
+        
+        /**
+         * Get the after load callback array.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getAfterLoadCallbacks(){
+            return \Laradic\Config\Repository::getAfterLoadCallbacks();
+        }
+        
+        /**
+         * Parse a key into namespace, group, and item.
+         *
+         * @param string $key
+         * @return array 
+         * @static 
+         */
+        public static function parseKey($key){
+            return \Laradic\Config\Repository::parseKey($key);
+        }
+        
+        /**
+         * Set the parsed value of a key.
+         *
+         * @param string $key
+         * @param array $parsed
+         * @return void 
+         * @static 
+         */
+        public static function setParsedKey($key, $parsed){
+            \Laradic\Config\Repository::setParsedKey($key, $parsed);
         }
         
     }
@@ -12379,15 +12502,15 @@ namespace {
     }
 
 
-    class Projects extends \Laradic\Docs\Facades\Projects{
+    class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade{
         
         /**
          * 
          *
          * @static 
          */
-        public static function all($bySlug = false){
-            return \Laradic\Docs\ProjectFactory::all($bySlug);
+        public static function register($name, $callback){
+            return \DaveJamesMiller\Breadcrumbs\Manager::register($name, $callback);
         }
         
         /**
@@ -12395,8 +12518,8 @@ namespace {
          *
          * @static 
          */
-        public static function has($slug){
-            return \Laradic\Docs\ProjectFactory::has($slug);
+        public static function exists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::exists($name);
         }
         
         /**
@@ -12404,8 +12527,8 @@ namespace {
          *
          * @static 
          */
-        public static function get($slug){
-            return \Laradic\Docs\ProjectFactory::get($slug);
+        public static function generate($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generate($name);
         }
         
         /**
@@ -12413,8 +12536,8 @@ namespace {
          *
          * @static 
          */
-        public static function slugs(){
-            return \Laradic\Docs\ProjectFactory::slugs();
+        public static function generateArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArray($name, $params);
         }
         
         /**
@@ -12422,8 +12545,8 @@ namespace {
          *
          * @static 
          */
-        public static function make($slug){
-            return \Laradic\Docs\ProjectFactory::make($slug);
+        public static function generateIfExists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExists($name);
         }
         
         /**
@@ -12431,8 +12554,19 @@ namespace {
          *
          * @static 
          */
-        public static function path(){
-            return \Laradic\Docs\ProjectFactory::path();
+        public static function generateIfExistsArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see generateIfExistsArray
+         * @static 
+         */
+        public static function generateArrayIfExists(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArrayIfExists();
         }
         
         /**
@@ -12440,8 +12574,206 @@ namespace {
          *
          * @static 
          */
-        public static function url($project = null, $version = null, $page = null){
-            return \Laradic\Docs\ProjectFactory::url($project, $version, $page);
+        public static function render($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::render($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderIfExists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderIfExistsArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see renderIfExistsArray
+         * @static 
+         */
+        public static function renderArrayIfExists(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArrayIfExists();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setCurrentRoute($name){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRoute($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setCurrentRouteArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRouteArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function clearCurrentRoute(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::clearCurrentRoute();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setView($view){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setView($view);
+        }
+        
+    }
+
+
+    class Alert extends \Cartalyst\Alerts\Laravel\Facades\Alert{
+        
+        /**
+         * Returns all the registered notifiers.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getNotifiers(){
+            return \Cartalyst\Alerts\Alerts::getNotifiers();
+        }
+        
+        /**
+         * Adds the given notifier.
+         *
+         * @param \Cartalyst\Alerts\Notifiers\NotifierInterface $notifier
+         * @return $this 
+         * @static 
+         */
+        public static function addNotifier($notifier){
+            return \Cartalyst\Alerts\Alerts::addNotifier($notifier);
+        }
+        
+        /**
+         * Removes the given notifier.
+         *
+         * @param string $name
+         * @return $this 
+         * @static 
+         */
+        public static function removeNotifier($name){
+            return \Cartalyst\Alerts\Alerts::removeNotifier($name);
+        }
+        
+        /**
+         * Returns the default notifier name.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDefaultNotifier(){
+            return \Cartalyst\Alerts\Alerts::getDefaultNotifier();
+        }
+        
+        /**
+         * Sets the default notifier.
+         *
+         * @param string $notifier
+         * @return $this 
+         * @static 
+         */
+        public static function setDefaultNotifier($notifier){
+            return \Cartalyst\Alerts\Alerts::setDefaultNotifier($notifier);
+        }
+        
+        /**
+         * Returns the given notifier.
+         *
+         * @param string $name
+         * @param string $default
+         * @return \Cartalyst\Alerts\Notifiers\NotifierInterface|null 
+         * @static 
+         */
+        public static function notifier($name, $default = null){
+            return \Cartalyst\Alerts\Alerts::notifier($name, $default);
+        }
+        
+        /**
+         * Returns the alerts with the applied filters.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function get(){
+            return \Cartalyst\Alerts\Alerts::get();
+        }
+        
+        /**
+         * Filter alerts based on the given areas.
+         *
+         * @param string|array $areas
+         * @return self 
+         * @static 
+         */
+        public static function whereArea($areas){
+            return \Cartalyst\Alerts\Alerts::whereArea($areas);
+        }
+        
+        /**
+         * Filter alerts excluding the given areas.
+         *
+         * @param string|array $areas
+         * @return self 
+         * @static 
+         */
+        public static function whereNotArea($areas){
+            return \Cartalyst\Alerts\Alerts::whereNotArea($areas);
+        }
+        
+        /**
+         * Filter alerts based on the given types.
+         *
+         * @param string|array $types
+         * @return self 
+         * @static 
+         */
+        public static function whereType($types){
+            return \Cartalyst\Alerts\Alerts::whereType($types);
+        }
+        
+        /**
+         * Filter alerts excluding the given types.
+         *
+         * @param string|array $types
+         * @return self 
+         * @static 
+         */
+        public static function whereNotType($types){
+            return \Cartalyst\Alerts\Alerts::whereNotType($types);
         }
         
     }
@@ -12806,6 +13138,43 @@ namespace {
          *
          * @static 
          */
+        public static function addPackagePublisher($package, $sourcePath, $theme = null){
+            return \Laradic\Themes\ThemeFactory::addPackagePublisher($package, $sourcePath, $theme);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function addNamespacePublisher($namespace, $sourcePath, $theme = null){
+            return \Laradic\Themes\ThemeFactory::addNamespacePublisher($namespace, $sourcePath, $theme);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function publish($namespaceOrPackage = null){
+            return \Laradic\Themes\ThemeFactory::publish($namespaceOrPackage);
+        }
+        
+        /**
+         * Get the value of publishers
+         *
+         * @return \Laradic\Themes\Publisher[] 
+         * @static 
+         */
+        public static function getPublishers(){
+            return \Laradic\Themes\ThemeFactory::getPublishers();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
         public static function boot(){
             return \Laradic\Themes\ThemeFactory::boot();
         }
@@ -13052,283 +13421,6 @@ namespace {
          */
         public static function setUrlGenerator($urlGenerator){
             return \Laradic\Themes\Assets\AssetFactory::setUrlGenerator($urlGenerator);
-        }
-        
-    }
-
-
-    class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade{
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function register($name, $callback){
-            return \DaveJamesMiller\Breadcrumbs\Manager::register($name, $callback);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function exists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::exists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generate($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generate($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateIfExists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateIfExistsArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExistsArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @deprecated Since 3.0.0
-         * @see generateIfExistsArray
-         * @static 
-         */
-        public static function generateArrayIfExists(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateArrayIfExists();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function render($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::render($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderIfExists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderIfExistsArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExistsArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @deprecated Since 3.0.0
-         * @see renderIfExistsArray
-         * @static 
-         */
-        public static function renderArrayIfExists(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderArrayIfExists();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setCurrentRoute($name){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRoute($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setCurrentRouteArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRouteArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function clearCurrentRoute(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::clearCurrentRoute();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setView($view){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setView($view);
-        }
-        
-    }
-
-
-    class Alert extends \Cartalyst\Alerts\Laravel\Facades\Alert{
-        
-        /**
-         * Returns all the registered notifiers.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function getNotifiers(){
-            return \Cartalyst\Alerts\Alerts::getNotifiers();
-        }
-        
-        /**
-         * Adds the given notifier.
-         *
-         * @param \Cartalyst\Alerts\Notifiers\NotifierInterface $notifier
-         * @return $this 
-         * @static 
-         */
-        public static function addNotifier($notifier){
-            return \Cartalyst\Alerts\Alerts::addNotifier($notifier);
-        }
-        
-        /**
-         * Removes the given notifier.
-         *
-         * @param string $name
-         * @return $this 
-         * @static 
-         */
-        public static function removeNotifier($name){
-            return \Cartalyst\Alerts\Alerts::removeNotifier($name);
-        }
-        
-        /**
-         * Returns the default notifier name.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function getDefaultNotifier(){
-            return \Cartalyst\Alerts\Alerts::getDefaultNotifier();
-        }
-        
-        /**
-         * Sets the default notifier.
-         *
-         * @param string $notifier
-         * @return $this 
-         * @static 
-         */
-        public static function setDefaultNotifier($notifier){
-            return \Cartalyst\Alerts\Alerts::setDefaultNotifier($notifier);
-        }
-        
-        /**
-         * Returns the given notifier.
-         *
-         * @param string $name
-         * @param string $default
-         * @return \Cartalyst\Alerts\Notifiers\NotifierInterface|null 
-         * @static 
-         */
-        public static function notifier($name, $default = null){
-            return \Cartalyst\Alerts\Alerts::notifier($name, $default);
-        }
-        
-        /**
-         * Returns the alerts with the applied filters.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function get(){
-            return \Cartalyst\Alerts\Alerts::get();
-        }
-        
-        /**
-         * Filter alerts based on the given areas.
-         *
-         * @param string|array $areas
-         * @return self 
-         * @static 
-         */
-        public static function whereArea($areas){
-            return \Cartalyst\Alerts\Alerts::whereArea($areas);
-        }
-        
-        /**
-         * Filter alerts excluding the given areas.
-         *
-         * @param string|array $areas
-         * @return self 
-         * @static 
-         */
-        public static function whereNotArea($areas){
-            return \Cartalyst\Alerts\Alerts::whereNotArea($areas);
-        }
-        
-        /**
-         * Filter alerts based on the given types.
-         *
-         * @param string|array $types
-         * @return self 
-         * @static 
-         */
-        public static function whereType($types){
-            return \Cartalyst\Alerts\Alerts::whereType($types);
-        }
-        
-        /**
-         * Filter alerts excluding the given types.
-         *
-         * @param string|array $types
-         * @return self 
-         * @static 
-         */
-        public static function whereNotType($types){
-            return \Cartalyst\Alerts\Alerts::whereNotType($types);
         }
         
     }
@@ -13887,6 +13979,74 @@ namespace {
         public static function getConfig(){
             //Method inherited from \GrahamCampbell\Manager\AbstractManager            
             return \Vinkla\Hashids\HashidsManager::getConfig();
+        }
+        
+    }
+
+
+    class Projects extends \Laradic\Docit\Facades\Projects{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function all($bySlug = false){
+            return \Laradic\Docit\ProjectFactory::all($bySlug);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function has($slug){
+            return \Laradic\Docit\ProjectFactory::has($slug);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function get($slug){
+            return \Laradic\Docit\ProjectFactory::get($slug);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function slugs(){
+            return \Laradic\Docit\ProjectFactory::slugs();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function make($slug){
+            return \Laradic\Docit\ProjectFactory::make($slug);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function path(){
+            return \Laradic\Docit\ProjectFactory::path();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function url($project = null, $version = null, $page = null){
+            return \Laradic\Docit\ProjectFactory::url($project, $version, $page);
         }
         
     }

@@ -4,6 +4,7 @@
 <html lang="en" class="ie9"><![endif]-->
 <!--[if !IE]><!-->
 <html lang="en"><!--<![endif]-->
+
 <head>
     <title>
         {{ isset($pageTitle) ? $pageTitle . ' | ' : '' }}{{ isset($pageSubtitle) ? $pageSubtitle . ' | ' : '' }}{{ $config['site_name'] or "Docs" }}

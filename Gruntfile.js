@@ -74,6 +74,9 @@ module.exports = function( grunt ){
             },
             contract_docs_factory: {
                 command: interfaceGenerator("Radic\\Docs", "Factory", "Contracts\\Factory", "radic/docs/src/Contracts/Factory.php")
+            },
+            themes_publish: {
+                command: 'php artisan themes:publish'
             }
         },
         availabletasks: {
@@ -91,6 +94,7 @@ module.exports = function( grunt ){
         },
         watch         : {
             options     : {livereload: true},
+            /*
             docs_project: {
                 files: [ 'radic/docs/src/Projects/AbstractProject.php' ],
                 tasks: [ 'shell:contract_docs_project' ]
@@ -98,6 +102,11 @@ module.exports = function( grunt ){
             docs_factory: {
                 files: [ 'radic/docs/src/Factory.php' ],
                 tasks: [ 'shell:contract_docs_factory' ]
+            }
+            */
+            themes_publishers: {
+                files: ['Laradic/*/resources/theme/**', 'extensions/*/*/resources/theme/**'],
+                tasks: ['shell:themes_publish']
             }
         }
 
