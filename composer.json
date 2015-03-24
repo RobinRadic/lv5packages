@@ -60,7 +60,8 @@
         "laradic/dev": "self.version",
         "laradic/docs": "self.version",
         "laradic/support": "self.version",
-        "laradic/themes": "self.version"
+        "laradic/themes": "self.version",
+        "laradic/extensions": "self.version"
     },
     "autoload": {
         "classmap": [
@@ -70,7 +71,8 @@
         "psr-4": {
             "App\\": "app/",
             "Radic\\BladeExtensions\\": "radic/blade-extensions/src/",
-            "Laradic\\": "Laradic/"
+            "Laradic\\": "Laradic/",
+            "Laradic\\Admin\\": "extensions/laradic/admin/src"
         }
     },
     "autoload-dev": {

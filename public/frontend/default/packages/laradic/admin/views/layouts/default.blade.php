@@ -1,5 +1,11 @@
 @extends('theme::layout')
 
+@section('site-name')
+    Admin
+@stop
+@section('page-header.breadcrumbs')
+    {!! Breadcrumbs::renderIfExists() !!}
+@stop
 @section('notifications')
     @parent
     @include('laradic/admin::partials.alerts')
@@ -21,4 +27,8 @@
             </li>
         </ul>
     </li>
+@stop
+
+@section('footer-copyright')
+    Laradic Admin &copy; {{ date("Y") }} <a href="http://radic.mit-license.org">Robin Radic</a> - <a href="http://radic.mit-license.org">MIT License</a>
 @stop

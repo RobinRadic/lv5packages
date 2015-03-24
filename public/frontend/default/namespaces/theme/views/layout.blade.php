@@ -39,7 +39,7 @@
     <header class="top">
         <div class="menu-toggler sidebar-toggler"><i class="fa fa-long-arrow-left"></i></div>
         <div class="page-logo">
-            <div class="text-logo">{{ $site_name or "Docs" }}</div>
+            <div class="text-logo">@yield('site-name', 'Packadic')</div>
         </div>
         <!--nav.top-nav--><a data-toggle="collapse" data-target=".navbar-collapse" class="menu-toggler responsive-toggler btn btn-default" href="#"><i class="fa fa-bars fa-lg"></i></a>
 
@@ -84,10 +84,10 @@
                         <div class="page-subtitle">@yield('page-subtitle', isset($pageSubtitle) ? $pageSubtitle : '')</div>
                     @show
                 </div>
-                <div class="pull-right">
-                    @section('page-header.right')
-                    @show
-                </div>
+                <ol class="breadcrumb page-breadcrumb pull-right">
+                @section('page-header.breadcrumbs')
+                @show
+                </ol>
             </header>
             @show
             <div class="content">
@@ -107,7 +107,11 @@
 <section id="bottom" class="">
     <!--footer.bottom-->
     <footer class="bottom">
-        <p>DocIt Documentator &copy; {{ date("Y") }} <a href="http://radic.mit-license.org">Robin Radic</a> - <a href="http://radic.mit-license.org">MIT License</a></p>
+        <p>
+            @section('footer-copyright')
+                &copy; {{ date("Y") }} <a href="http://radic.mit-license.org">Robin Radic</a> - <a href="http://radic.mit-license.org">MIT License</a>
+            @show
+        </p>
     </footer>
 </section>
 

@@ -2,7 +2,7 @@
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2015-03-23.
+    * Generated on 2015-03-24.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -71,6 +71,8 @@
             'breadcrumbs' instanceof \DaveJamesMiller\Breadcrumbs\Manager,
             'Cartalyst\Alerts\Storage\StorageInterface' instanceof \Cartalyst\Alerts\Storage\IlluminateSession,
             'alerts' instanceof \Cartalyst\Alerts\Alerts,
+            'extensions.finder' instanceof \Laradic\Extensions\ExtensionFileFinder,
+            'extensions' instanceof \Laradic\Extensions\ExtensionCollection,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'swift.transport' instanceof \Illuminate\Mail\TransportManager,
@@ -219,6 +221,8 @@
             'breadcrumbs' instanceof \DaveJamesMiller\Breadcrumbs\Manager,
             'Cartalyst\Alerts\Storage\StorageInterface' instanceof \Cartalyst\Alerts\Storage\IlluminateSession,
             'alerts' instanceof \Cartalyst\Alerts\Alerts,
+            'extensions.finder' instanceof \Laradic\Extensions\ExtensionFileFinder,
+            'extensions' instanceof \Laradic\Extensions\ExtensionCollection,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'swift.transport' instanceof \Illuminate\Mail\TransportManager,
@@ -367,6 +371,8 @@
             'breadcrumbs' instanceof \DaveJamesMiller\Breadcrumbs\Manager,
             'Cartalyst\Alerts\Storage\StorageInterface' instanceof \Cartalyst\Alerts\Storage\IlluminateSession,
             'alerts' instanceof \Cartalyst\Alerts\Alerts,
+            'extensions.finder' instanceof \Laradic\Extensions\ExtensionFileFinder,
+            'extensions' instanceof \Laradic\Extensions\ExtensionCollection,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'swift.transport' instanceof \Illuminate\Mail\TransportManager,
@@ -515,6 +521,8 @@
             'breadcrumbs' instanceof \DaveJamesMiller\Breadcrumbs\Manager,
             'Cartalyst\Alerts\Storage\StorageInterface' instanceof \Cartalyst\Alerts\Storage\IlluminateSession,
             'alerts' instanceof \Cartalyst\Alerts\Alerts,
+            'extensions.finder' instanceof \Laradic\Extensions\ExtensionFileFinder,
+            'extensions' instanceof \Laradic\Extensions\ExtensionCollection,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'swift.transport' instanceof \Illuminate\Mail\TransportManager,
@@ -663,6 +671,8 @@
             'breadcrumbs' instanceof \DaveJamesMiller\Breadcrumbs\Manager,
             'Cartalyst\Alerts\Storage\StorageInterface' instanceof \Cartalyst\Alerts\Storage\IlluminateSession,
             'alerts' instanceof \Cartalyst\Alerts\Alerts,
+            'extensions.finder' instanceof \Laradic\Extensions\ExtensionFileFinder,
+            'extensions' instanceof \Laradic\Extensions\ExtensionCollection,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'swift.transport' instanceof \Illuminate\Mail\TransportManager,
@@ -811,6 +821,8 @@
             'breadcrumbs' instanceof \DaveJamesMiller\Breadcrumbs\Manager,
             'Cartalyst\Alerts\Storage\StorageInterface' instanceof \Cartalyst\Alerts\Storage\IlluminateSession,
             'alerts' instanceof \Cartalyst\Alerts\Alerts,
+            'extensions.finder' instanceof \Laradic\Extensions\ExtensionFileFinder,
+            'extensions' instanceof \Laradic\Extensions\ExtensionCollection,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'swift.transport' instanceof \Illuminate\Mail\TransportManager,

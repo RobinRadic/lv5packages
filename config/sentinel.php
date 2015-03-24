@@ -120,7 +120,7 @@ return [
 
     'routing' => [
         'session_store'                => ['route' => 'home'],
-        'session_destroy'              => ['action' => '\\Sentinel\Controllers\SessionController@create'],
+        'session_destroy'              => ['route' => 'sentinel.session.create'],
         'registration_complete'        => ['route' => 'home'],
         'registration_activated'       => ['route' => 'home'],
         'registration_resend'          => ['route' => 'home'],

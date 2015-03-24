@@ -43,6 +43,7 @@ return array(
 
     'model_locations' => array(
         'app',
+        'vendor/rydurham/sentinel/src/Sentinel/Models'
     ),
 
 

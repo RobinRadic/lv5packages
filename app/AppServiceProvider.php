@@ -25,8 +25,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->register('Radic\BladeExtensions\BladeExtensionsServiceProvider');
         $this->app->register('Laradic\Themes\ThemeServiceProvider');
         $this->app->register('Laradic\Docs\DocsServiceProvider');
-        $this->app->register('Laradic\Admin\AdminServiceProvider');
-
+        #$this->app->register('Laradic\Admin\AdminServiceProvider');
+        $this->app->register('Laradic\Extensions\ExtensionsServiceProvider');
         /** @var \Illuminate\Foundation\Application $app */
         $app = $this->app;
 
