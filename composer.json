@@ -51,7 +51,8 @@
         "cartalyst/alerts": "~2.0",
         "cartalyst/tags": "~1.0",
         "rydurham/sentinel": "~2.1",
-        "davejamesmiller/laravel-breadcrumbs": "~3.0"
+        "davejamesmiller/laravel-breadcrumbs": "~3.0",
+        "composer-plugin-api": "~1.0"
     },
     "replace": {
         "laradic/admin": "self.version",

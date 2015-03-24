@@ -12447,283 +12447,6 @@ namespace {
     }
 
 
-    class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade{
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function register($name, $callback){
-            return \DaveJamesMiller\Breadcrumbs\Manager::register($name, $callback);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function exists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::exists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generate($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generate($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateIfExists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateIfExistsArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExistsArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @deprecated Since 3.0.0
-         * @see generateIfExistsArray
-         * @static 
-         */
-        public static function generateArrayIfExists(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateArrayIfExists();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function render($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::render($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderIfExists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderIfExistsArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExistsArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @deprecated Since 3.0.0
-         * @see renderIfExistsArray
-         * @static 
-         */
-        public static function renderArrayIfExists(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderArrayIfExists();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setCurrentRoute($name){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRoute($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setCurrentRouteArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRouteArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function clearCurrentRoute(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::clearCurrentRoute();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setView($view){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setView($view);
-        }
-        
-    }
-
-
-    class Alert extends \Cartalyst\Alerts\Laravel\Facades\Alert{
-        
-        /**
-         * Returns all the registered notifiers.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function getNotifiers(){
-            return \Cartalyst\Alerts\Alerts::getNotifiers();
-        }
-        
-        /**
-         * Adds the given notifier.
-         *
-         * @param \Cartalyst\Alerts\Notifiers\NotifierInterface $notifier
-         * @return $this 
-         * @static 
-         */
-        public static function addNotifier($notifier){
-            return \Cartalyst\Alerts\Alerts::addNotifier($notifier);
-        }
-        
-        /**
-         * Removes the given notifier.
-         *
-         * @param string $name
-         * @return $this 
-         * @static 
-         */
-        public static function removeNotifier($name){
-            return \Cartalyst\Alerts\Alerts::removeNotifier($name);
-        }
-        
-        /**
-         * Returns the default notifier name.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function getDefaultNotifier(){
-            return \Cartalyst\Alerts\Alerts::getDefaultNotifier();
-        }
-        
-        /**
-         * Sets the default notifier.
-         *
-         * @param string $notifier
-         * @return $this 
-         * @static 
-         */
-        public static function setDefaultNotifier($notifier){
-            return \Cartalyst\Alerts\Alerts::setDefaultNotifier($notifier);
-        }
-        
-        /**
-         * Returns the given notifier.
-         *
-         * @param string $name
-         * @param string $default
-         * @return \Cartalyst\Alerts\Notifiers\NotifierInterface|null 
-         * @static 
-         */
-        public static function notifier($name, $default = null){
-            return \Cartalyst\Alerts\Alerts::notifier($name, $default);
-        }
-        
-        /**
-         * Returns the alerts with the applied filters.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function get(){
-            return \Cartalyst\Alerts\Alerts::get();
-        }
-        
-        /**
-         * Filter alerts based on the given areas.
-         *
-         * @param string|array $areas
-         * @return self 
-         * @static 
-         */
-        public static function whereArea($areas){
-            return \Cartalyst\Alerts\Alerts::whereArea($areas);
-        }
-        
-        /**
-         * Filter alerts excluding the given areas.
-         *
-         * @param string|array $areas
-         * @return self 
-         * @static 
-         */
-        public static function whereNotArea($areas){
-            return \Cartalyst\Alerts\Alerts::whereNotArea($areas);
-        }
-        
-        /**
-         * Filter alerts based on the given types.
-         *
-         * @param string|array $types
-         * @return self 
-         * @static 
-         */
-        public static function whereType($types){
-            return \Cartalyst\Alerts\Alerts::whereType($types);
-        }
-        
-        /**
-         * Filter alerts excluding the given types.
-         *
-         * @param string|array $types
-         * @return self 
-         * @static 
-         */
-        public static function whereNotType($types){
-            return \Cartalyst\Alerts\Alerts::whereNotType($types);
-        }
-        
-    }
-
-
     class Html extends \Collective\Html\HtmlFacade{
         
         /**
@@ -13329,6 +13052,283 @@ namespace {
          */
         public static function setUrlGenerator($urlGenerator){
             return \Laradic\Themes\Assets\AssetFactory::setUrlGenerator($urlGenerator);
+        }
+        
+    }
+
+
+    class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function register($name, $callback){
+            return \DaveJamesMiller\Breadcrumbs\Manager::register($name, $callback);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function exists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::exists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generate($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generate($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateIfExists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateIfExistsArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see generateIfExistsArray
+         * @static 
+         */
+        public static function generateArrayIfExists(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArrayIfExists();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function render($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::render($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderIfExists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderIfExistsArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see renderIfExistsArray
+         * @static 
+         */
+        public static function renderArrayIfExists(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArrayIfExists();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setCurrentRoute($name){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRoute($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setCurrentRouteArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRouteArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function clearCurrentRoute(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::clearCurrentRoute();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setView($view){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setView($view);
+        }
+        
+    }
+
+
+    class Alert extends \Cartalyst\Alerts\Laravel\Facades\Alert{
+        
+        /**
+         * Returns all the registered notifiers.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getNotifiers(){
+            return \Cartalyst\Alerts\Alerts::getNotifiers();
+        }
+        
+        /**
+         * Adds the given notifier.
+         *
+         * @param \Cartalyst\Alerts\Notifiers\NotifierInterface $notifier
+         * @return $this 
+         * @static 
+         */
+        public static function addNotifier($notifier){
+            return \Cartalyst\Alerts\Alerts::addNotifier($notifier);
+        }
+        
+        /**
+         * Removes the given notifier.
+         *
+         * @param string $name
+         * @return $this 
+         * @static 
+         */
+        public static function removeNotifier($name){
+            return \Cartalyst\Alerts\Alerts::removeNotifier($name);
+        }
+        
+        /**
+         * Returns the default notifier name.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDefaultNotifier(){
+            return \Cartalyst\Alerts\Alerts::getDefaultNotifier();
+        }
+        
+        /**
+         * Sets the default notifier.
+         *
+         * @param string $notifier
+         * @return $this 
+         * @static 
+         */
+        public static function setDefaultNotifier($notifier){
+            return \Cartalyst\Alerts\Alerts::setDefaultNotifier($notifier);
+        }
+        
+        /**
+         * Returns the given notifier.
+         *
+         * @param string $name
+         * @param string $default
+         * @return \Cartalyst\Alerts\Notifiers\NotifierInterface|null 
+         * @static 
+         */
+        public static function notifier($name, $default = null){
+            return \Cartalyst\Alerts\Alerts::notifier($name, $default);
+        }
+        
+        /**
+         * Returns the alerts with the applied filters.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function get(){
+            return \Cartalyst\Alerts\Alerts::get();
+        }
+        
+        /**
+         * Filter alerts based on the given areas.
+         *
+         * @param string|array $areas
+         * @return self 
+         * @static 
+         */
+        public static function whereArea($areas){
+            return \Cartalyst\Alerts\Alerts::whereArea($areas);
+        }
+        
+        /**
+         * Filter alerts excluding the given areas.
+         *
+         * @param string|array $areas
+         * @return self 
+         * @static 
+         */
+        public static function whereNotArea($areas){
+            return \Cartalyst\Alerts\Alerts::whereNotArea($areas);
+        }
+        
+        /**
+         * Filter alerts based on the given types.
+         *
+         * @param string|array $types
+         * @return self 
+         * @static 
+         */
+        public static function whereType($types){
+            return \Cartalyst\Alerts\Alerts::whereType($types);
+        }
+        
+        /**
+         * Filter alerts excluding the given types.
+         *
+         * @param string|array $types
+         * @return self 
+         * @static 
+         */
+        public static function whereNotType($types){
+            return \Cartalyst\Alerts\Alerts::whereNotType($types);
         }
         
     }
