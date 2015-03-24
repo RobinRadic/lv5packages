@@ -171,6 +171,8 @@
 
         }.call());
     </script>
+
+    @include('theme::partials.debugbar')
 @show
 
 @section('scripts.boot')
@@ -178,6 +180,5 @@
 @show
 
 {{-- It conflicts with requirejs jquery, so this fixes it --}}
-@include('theme::partials.debugbar')
 </body>
 </html>
