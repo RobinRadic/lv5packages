@@ -12,7 +12,7 @@ return array(
         'enabled'        => true,
         'username'       => 'robinradic',
         'repository'     => 'blade-extensions',
-        'branches'       => [ 'develop'],
+        'branches'       => [ 'master', 'develop'],
         'webhook_secret' => 'test',
         'exclude_tags'   => [],
         'start_at_tag'   => 'v2.1.0',

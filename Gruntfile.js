@@ -24,7 +24,7 @@ module.exports = function( grunt ){
         config        : {
             theme: 'lib/theme',
             src  : 'lib/theme/theme',
-            dest : 'public/frontend/default/namespaces/theme'
+            dest : 'extensions/laradic/packadic/resources/theme'
         },
         target: config.targets.site,
         clean         : {

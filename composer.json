@@ -59,7 +59,7 @@
         "laradic/config": "self.version",
         "laradic/debug": "self.version",
         "laradic/dev": "self.version",
-        "laradic/docs": "self.version",
+        "laradic/docit": "self.version",
         "laradic/support": "self.version",
         "laradic/themes": "self.version",
         "laradic/extensions": "self.version"
@@ -74,7 +74,8 @@
             "Radic\\BladeExtensions\\": "radic/blade-extensions/src/",
             "Laradic\\": "Laradic/",
             "Laradic\\Admin\\": "extensions/laradic/admin/src",
-            "Laradic\\Docit\\": "extensions/laradic/docit/src"
+            "Laradic\\Docit\\": "extensions/laradic/docit/src",
+            "Laradic\\Packadic\\": "extensions/laradic/packadic/src"
         }
     },
     "autoload-dev": {

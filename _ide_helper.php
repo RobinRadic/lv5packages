@@ -2200,6 +2200,33 @@ namespace {
     class Config extends \Illuminate\Support\Facades\Config{
         
         /**
+         * 
+         *
+         * @static 
+         */
+        public static function addPublisher($package, $sourcePath){
+            return \Laradic\Config\Repository::addPublisher($package, $sourcePath);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getPublishers(){
+            return \Laradic\Config\Repository::getPublishers();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function publish($package = null){
+            return \Laradic\Config\Repository::publish($package);
+        }
+        
+        /**
          * Determine if the given configuration value exists.
          *
          * @param string $key

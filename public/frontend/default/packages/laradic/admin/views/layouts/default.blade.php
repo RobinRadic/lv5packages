@@ -12,10 +12,7 @@
 @stop
 @section('header-nav-menu')
     <li><a href="{{ URL::toAdmin()}}">Dashboard</a></li>
-    {!! HTML::dropdown_menu('Users', [
-        'Users' => 'sentinel.users.index',
-        'Groups' => 'sentinel.groups.index'
-    ]) !!}
+    <li><a href="{{ URL::route('sentinel.users.index')}}">Users</a></li>
 @stop
 @section('header-nav-menu-right')
     <li>
