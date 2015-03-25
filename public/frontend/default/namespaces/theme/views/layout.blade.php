@@ -5,26 +5,32 @@
 <!--[if !IE]><!-->
 <html lang="en"><!--<![endif]-->
 <head>
-    <title>
-        @section('title')
-            {{ isset($pageTitle) ? $pageTitle . ' | ' : '' }}{{ isset($pageSubtitle) ? $pageSubtitle . ' | ' : '' }}{{ $site_name or "Docs" }}
+    @section('head')
+        <title>
+            @section('title')
+                {{ isset($pageTitle) ? $pageTitle . ' | ' : '' }}{{ isset($pageSubtitle) ? $pageSubtitle . ' | ' : '' }}{{ $site_name or "Packadic" }}
+            @show
+        </title>
+        @section('meta')
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="csrf-token" content="{{ csrf_token() }}"/>
         @show
-    </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}"/>
-    <script>
-        (function(){
-            window.startXdebug = function(){
-                document.cookie = 'XDEBUG_SESSION=' + 'PHPSTORM' + ';path=/;';
-                document.cookie = 'XDEBUG_SESSION=' + '' + ';expires=Mon, 05 Jul 2000 00:00:00 GMT;path=/;';
-                document.location.reload();
-            }
-        }.call())
-    </script>
-    <link href="{{ Asset::url("theme::styles/base-stylesheet.css") }}" type="text/css" rel="stylesheet"/>
-    @section('styles')
-        <link href="{{ Asset::url("theme::styles/themes/theme-default.css") }}" type="text/css" rel="stylesheet"/>
+        <script>
+            (function(){
+                window.startXdebug = function(){
+                    document.cookie = 'XDEBUG_SESSION=' + 'PHPSTORM' + ';path=/;';
+                    document.cookie = 'XDEBUG_SESSION=' + '' + ';expires=Mon, 05 Jul 2000 00:00:00 GMT;path=/;';
+                    document.location.reload();
+                }
+            }.call())
+        </script>
+        @section('links')
+            <link href="{{ Asset::url("theme::styles/base-stylesheet.css") }}" type="text/css" rel="stylesheet"/>
+            @section('styles')
+                <link href="{{ Asset::url("theme::styles/themes/theme-default.css") }}" type="text/css" rel="stylesheet"/>
+            @show
+        @show
     @show
 </head>
 <body class="page-loading section-top-fixed">
@@ -78,12 +84,12 @@
         <main>
             @section('page-header')
             <header class="content">
-                <div class="page-title pull-left">
-                    @section('page-header.left')
+                @section('page-header.left')
+                    <div class="page-title pull-left">
                         <h1>@yield('page-title', isset($pageTitle) ? $pageTitle : '')</h1>
                         <div class="page-subtitle">@yield('page-subtitle', isset($pageSubtitle) ? $pageSubtitle : '')</div>
-                    @show
-                </div>
+                    </div>
+                @show
                 @section('page-header.right')
                     <ol class="breadcrumb page-breadcrumb pull-right">
                         @section('page-header.breadcrumbs')
@@ -172,6 +178,7 @@
         }.call());
     </script>
 
+    {{-- It conflicts with requirejs jquery, so this fixes it --}}
     @include('theme::partials.debugbar')
 @show
 
@@ -179,6 +186,5 @@
     <script src="{{ Asset::url("theme::scripts/boot.js") }}"></script>
 @show
 
-{{-- It conflicts with requirejs jquery, so this fixes it --}}
 </body>
 </html>

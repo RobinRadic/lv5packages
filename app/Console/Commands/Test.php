@@ -1,9 +1,20 @@
 <?php namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Laradic\Support\String;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
+/**
+ * Class Test
+ *
+ * @package     App\Console\Commands
+ * @author      Robin Radic
+ * @license     MIT
+ * @copyright   2011-2015, Robin Radic
+ * @link        http://radic.mit-license.org
+ * @method
+ */
 class Test extends Command {
 
 	/**
@@ -37,11 +48,7 @@ class Test extends Command {
 	 */
 	public function fire()
 	{
-		#$a = 'a';
-        #$finder = app('extensions.finder');
-        $extensions = app('extensions');
-        $all = $extensions->all();
-        var_dump($all);
+       $this->line(String::ensureLeft('sadf asd asd', 'fff'));
 	}
 
 	/**
