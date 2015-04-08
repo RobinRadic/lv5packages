@@ -12,3 +12,9 @@
 */
 
 Route::get('/', 'WelcomeController@index');
+
+Route::get('blade-widgets', function(){
+    $widgets = App::make('blade.widgets');
+
+    return View::make('blade-widgets');
+});
