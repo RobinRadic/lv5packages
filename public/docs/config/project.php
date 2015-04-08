@@ -15,7 +15,7 @@ return array(
         'branches'       => [ 'master', 'develop'],
         'webhook_secret' => 'test',
         'exclude_tags'   => [],
-        'start_at_tag'   => 'v2.1.0',
+        'start_at_tag'   => '1.0.0',
         'path_bindings'  => array(
             'logs'     => 'build/logs',
             'docs'     => 'resources/docs',

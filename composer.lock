@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b0426329d0f73d047189e825e5e7c49b",
+    "hash": "d4b81b115342411f029b2d3b3bfada58",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -4308,6 +4308,43 @@
             "description": "Nette Utility Classes",
             "homepage": "http://nette.org",
             "time": "2015-02-24 21:21:17"
+        },
+        {
+            "name": "nicmart/tree",
+            "version": "v0.2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nicmart/Tree.git",
+                "reference": "982bf9518dd7a407f8141cc334fc1e544aea2dea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nicmart/Tree/zipball/982bf9518dd7a407f8141cc334fc1e544aea2dea",
+                "reference": "982bf9518dd7a407f8141cc334fc1e544aea2dea",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Tree": "src/",
+                    "Tree\\Test": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolò Martini",
+                    "email": "nicmartnic@gmail.com"
+                }
+            ],
+            "description": "A basic but flexible php tree data structure and a fluent tree builder implementation.",
+            "time": "2015-02-10 19:14:00"
         },
         {
             "name": "nikic/php-parser",

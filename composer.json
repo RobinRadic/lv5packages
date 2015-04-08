@@ -52,7 +52,8 @@
         "cartalyst/tags": "~1.0",
         "rydurham/sentinel": "~2.1",
         "davejamesmiller/laravel-breadcrumbs": "~3.0",
-        "composer-plugin-api": "~1.0"
+        "composer-plugin-api": "~1.0",
+        "nicmart/tree": "0.2.*"
     },
     "replace": {
         "laradic/admin": "self.version",
@@ -74,6 +75,7 @@
             "Radic\\BladeExtensions\\": "radic/blade-extensions/src/",
             "Laradic\\": "Laradic/",
             "Laradic\\Admin\\": "extensions/laradic/admin/src",
+            "LaradicAdmin\\Extensions\\": "extensions/laradic-admin/extensions/src",
             "Laradic\\Docit\\": "extensions/laradic/docit/src",
             "Laradic\\Packadic\\": "extensions/laradic/packadic/src"
         }
@@ -92,6 +94,7 @@
         "post-update-cmd": [
             "php artisan clear-compiled",
             "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta",
             "php artisan optimize"
         ],
         "post-create-project-cmd": [
@@ -99,7 +102,8 @@
             "php artisan key:generate"
         ],
         "post-autoload-dump": [
-            "php artisan ide-helper:generate"
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta"
         ]
     }
 }

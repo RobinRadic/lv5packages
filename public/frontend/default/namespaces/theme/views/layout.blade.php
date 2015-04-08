@@ -102,6 +102,7 @@
                 @section('notifications')
                     @include('theme::partials.notifications')
                 @show
+
                 @section('content')
                     <div class="row">
                         <div class="col-md-12">Oops, this page doesn't have any content</div>

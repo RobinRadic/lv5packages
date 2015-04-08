@@ -18,24 +18,19 @@ class AppServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->app->register('Collective\Html\HtmlServiceProvider');
-       # $this->app->register('Darsain\Console\ConsoleServiceProvider');
-        $this->app->register('Laradic\Config\ConfigServiceProvider');
-        $this->app->register('Laradic\Debug\DebugServiceProvider');
-        $this->app->register('Laradic\Dev\DevServiceProvider');
-        $this->app->register('Radic\BladeExtensions\BladeExtensionsServiceProvider');
-        $this->app->register('Laradic\Themes\ThemeServiceProvider');
-        #$this->app->register('Laradic\Docs\DocsServiceProvider');
-        #$this->app->register('Laradic\Admin\AdminServiceProvider');
-        $this->app->register('Laradic\Extensions\ExtensionsServiceProvider');
         /** @var \Illuminate\Foundation\Application $app */
         $app = $this->app;
 
-        #$app->make('events')->sf;
+        $app->register('Collective\Html\HtmlServiceProvider');
+        $app->register('Laradic\Config\ConfigServiceProvider');
+        $app->register('Laradic\Debug\DebugServiceProvider');
+        $app->register('Laradic\Dev\DevServiceProvider');
+        $app->register('Radic\BladeExtensions\BladeExtensionsServiceProvider');
+        $app->register('Laradic\Themes\ThemeServiceProvider');
+        $app->register('Laradic\Extensions\ExtensionsServiceProvider');
 
-        #\App::make('router')->
         AliasLoader::getInstance()->alias('Form', 'Collective\Html\FormFacade');
-        AliasLoader::getInstance()->alias('Html', 'Collective\Html\HtmlFacade');
+        AliasLoader::getInstance()->alias('HTML', 'Collective\Html\HtmlFacade');
 
 
     }

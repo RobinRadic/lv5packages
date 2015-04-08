@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.18 on 2015-03-24.
+ * Generated for Laravel 5.0.18 on 2015-04-08.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -9,6 +9,789 @@
 
 namespace {
     exit("This file should not be included, only analyzed by your IDE");
+
+
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Debug\Dumper;
+
+if ( ! function_exists('append_config'))
+{
+	/**
+	 * Assign high numeric IDs to a config item to force appending.
+	 *
+	 * @param  array  $array
+	 * @return array
+	 */
+	function append_config(array $array)
+	{
+		$start = 9999;
+
+		foreach ($array as $key => $value)
+		{
+			if (is_numeric($key))
+			{
+				$start++;
+
+				$array[$start] = array_pull($array, $key);
+			}
+		}
+
+		return $array;
+	}
+}
+
+if ( ! function_exists('array_add'))
+{
+	/**
+	 * Add an element to an array using "dot" notation if it doesn't exist.
+	 *
+	 * @param  array   $array
+	 * @param  string  $key
+	 * @param  mixed   $value
+	 * @return array
+	 */
+	function array_add($array, $key, $value)
+	{
+		return Arr::add($array, $key, $value);
+	}
+}
+
+if ( ! function_exists('array_build'))
+{
+	/**
+	 * Build a new array using a callback.
+	 *
+	 * @param  array  $array
+	 * @param  callable  $callback
+	 * @return array
+	 */
+	function array_build($array, callable $callback)
+	{
+		return Arr::build($array, $callback);
+	}
+}
+
+if ( ! function_exists('array_divide'))
+{
+	/**
+	 * Divide an array into two arrays. One with keys and the other with values.
+	 *
+	 * @param  array  $array
+	 * @return array
+	 */
+	function array_divide($array)
+	{
+		return Arr::divide($array);
+	}
+}
+
+if ( ! function_exists('array_dot'))
+{
+	/**
+	 * Flatten a multi-dimensional associative array with dots.
+	 *
+	 * @param  array   $array
+	 * @param  string  $prepend
+	 * @return array
+	 */
+	function array_dot($array, $prepend = '')
+	{
+		return Arr::dot($array, $prepend);
+	}
+}
+
+if ( ! function_exists('array_except'))
+{
+	/**
+	 * Get all of the given array except for a specified array of items.
+	 *
+	 * @param  array  $array
+	 * @param  array|string  $keys
+	 * @return array
+	 */
+	function array_except($array, $keys)
+	{
+		return Arr::except($array, $keys);
+	}
+}
+
+if ( ! function_exists('array_fetch'))
+{
+	/**
+	 * Fetch a flattened array of a nested array element.
+	 *
+	 * @param  array   $array
+	 * @param  string  $key
+	 * @return array
+	 */
+	function array_fetch($array, $key)
+	{
+		return Arr::fetch($array, $key);
+	}
+}
+
+if ( ! function_exists('array_first'))
+{
+	/**
+	 * Return the first element in an array passing a given truth test.
+	 *
+	 * @param  array  $array
+	 * @param  callable  $callback
+	 * @param  mixed  $default
+	 * @return mixed
+	 */
+	function array_first($array, callable $callback, $default = null)
+	{
+		return Arr::first($array, $callback, $default);
+	}
+}
+
+if ( ! function_exists('array_last'))
+{
+	/**
+	 * Return the last element in an array passing a given truth test.
+	 *
+	 * @param  array  $array
+	 * @param  callable  $callback
+	 * @param  mixed  $default
+	 * @return mixed
+	 */
+	function array_last($array, $callback, $default = null)
+	{
+		return Arr::last($array, $callback, $default);
+	}
+}
+
+if ( ! function_exists('array_flatten'))
+{
+	/**
+	 * Flatten a multi-dimensional array into a single level.
+	 *
+	 * @param  array  $array
+	 * @return array
+	 */
+	function array_flatten($array)
+	{
+		return Arr::flatten($array);
+	}
+}
+
+if ( ! function_exists('array_forget'))
+{
+	/**
+	 * Remove one or many array items from a given array using "dot" notation.
+	 *
+	 * @param  array  $array
+	 * @param  array|string  $keys
+	 * @return void
+	 */
+	function array_forget(&$array, $keys)
+	{
+		return Arr::forget($array, $keys);
+	}
+}
+
+if ( ! function_exists('array_get'))
+{
+	/**
+	 * Get an item from an array using "dot" notation.
+	 *
+	 * @param  array   $array
+	 * @param  string  $key
+	 * @param  mixed   $default
+	 * @return mixed
+	 */
+	function array_get($array, $key, $default = null)
+	{
+		return Arr::get($array, $key, $default);
+	}
+}
+
+if ( ! function_exists('array_has'))
+{
+	/**
+	 * Check if an item exists in an array using "dot" notation.
+	 *
+	 * @param  array   $array
+	 * @param  string  $key
+	 * @return bool
+	 */
+	function array_has($array, $key)
+	{
+		return Arr::has($array, $key);
+	}
+}
+
+if ( ! function_exists('array_only'))
+{
+	/**
+	 * Get a subset of the items from the given array.
+	 *
+	 * @param  array  $array
+	 * @param  array|string  $keys
+	 * @return array
+	 */
+	function array_only($array, $keys)
+	{
+		return Arr::only($array, $keys);
+	}
+}
+
+if ( ! function_exists('array_pluck'))
+{
+	/**
+	 * Pluck an array of values from an array.
+	 *
+	 * @param  array   $array
+	 * @param  string  $value
+	 * @param  string  $key
+	 * @return array
+	 */
+	function array_pluck($array, $value, $key = null)
+	{
+		return Arr::pluck($array, $value, $key);
+	}
+}
+
+if ( ! function_exists('array_pull'))
+{
+	/**
+	 * Get a value from the array, and remove it.
+	 *
+	 * @param  array   $array
+	 * @param  string  $key
+	 * @param  mixed   $default
+	 * @return mixed
+	 */
+	function array_pull(&$array, $key, $default = null)
+	{
+		return Arr::pull($array, $key, $default);
+	}
+}
+
+if ( ! function_exists('array_set'))
+{
+	/**
+	 * Set an array item to a given value using "dot" notation.
+	 *
+	 * If no key is given to the method, the entire array will be replaced.
+	 *
+	 * @param  array   $array
+	 * @param  string  $key
+	 * @param  mixed   $value
+	 * @return array
+	 */
+	function array_set(&$array, $key, $value)
+	{
+		return Arr::set($array, $key, $value);
+	}
+}
+
+if ( ! function_exists('array_sort'))
+{
+	/**
+	 * Sort the array using the given callback.
+	 *
+	 * @param  array  $array
+	 * @param  callable  $callback
+	 * @return array
+	 */
+	function array_sort($array, callable $callback)
+	{
+		return Arr::sort($array, $callback);
+	}
+}
+
+if ( ! function_exists('array_where'))
+{
+	/**
+	 * Filter the array using the given callback.
+	 *
+	 * @param  array  $array
+	 * @param  callable  $callback
+	 * @return array
+	 */
+	function array_where($array, callable $callback)
+	{
+		return Arr::where($array, $callback);
+	}
+}
+
+if ( ! function_exists('camel_case'))
+{
+	/**
+	 * Convert a value to camel case.
+	 *
+	 * @param  string  $value
+	 * @return string
+	 */
+	function camel_case($value)
+	{
+		return Str::camel($value);
+	}
+}
+
+if ( ! function_exists('class_basename'))
+{
+	/**
+	 * Get the class "basename" of the given object / class.
+	 *
+	 * @param  string|object  $class
+	 * @return string
+	 */
+	function class_basename($class)
+	{
+		$class = is_object($class) ? get_class($class) : $class;
+
+		return basename(str_replace('\\', '/', $class));
+	}
+}
+
+if ( ! function_exists('class_uses_recursive'))
+{
+	/**
+	 * Returns all traits used by a class, it's subclasses and trait of their traits
+	 *
+	 * @param  string  $class
+	 * @return array
+	 */
+	function class_uses_recursive($class)
+	{
+		$results = [];
+
+		foreach (array_merge([$class => $class], class_parents($class)) as $class)
+		{
+			$results += trait_uses_recursive($class);
+		}
+
+		return array_unique($results);
+	}
+}
+
+if ( ! function_exists('collect'))
+{
+	/**
+	 * Create a collection from the given value.
+	 *
+	 * @param  mixed  $value
+	 * @return \Illuminate\Support\Collection
+	 */
+	function collect($value = null)
+	{
+		return new Collection($value);
+	}
+}
+
+if ( ! function_exists('data_get'))
+{
+	/**
+	 * Get an item from an array or object using "dot" notation.
+	 *
+	 * @param  mixed   $target
+	 * @param  string  $key
+	 * @param  mixed   $default
+	 * @return mixed
+	 */
+	function data_get($target, $key, $default = null)
+	{
+		if (is_null($key)) return $target;
+
+		foreach (explode('.', $key) as $segment)
+		{
+			if (is_array($target))
+			{
+				if ( ! array_key_exists($segment, $target))
+				{
+					return value($default);
+				}
+
+				$target = $target[$segment];
+			}
+			elseif ($target instanceof ArrayAccess)
+			{
+				if ( ! isset($target[$segment]))
+				{
+					return value($default);
+				}
+
+				$target = $target[$segment];
+			}
+			elseif (is_object($target))
+			{
+				if ( ! isset($target->{$segment}))
+				{
+					return value($default);
+				}
+
+				$target = $target->{$segment};
+			}
+			else
+			{
+				return value($default);
+			}
+		}
+
+		return $target;
+	}
+}
+
+if ( ! function_exists('dd'))
+{
+	/**
+	 * Dump the passed variables and end the script.
+	 *
+	 * @param  mixed
+	 * @return void
+	 */
+	function dd()
+	{
+		array_map(function($x) { (new Dumper)->dump($x); }, func_get_args());
+
+		die;
+	}
+}
+
+if ( ! function_exists('e'))
+{
+	/**
+	 * Escape HTML entities in a string.
+	 *
+	 * @param  string  $value
+	 * @return string
+	 */
+	function e($value)
+	{
+		return htmlentities($value, ENT_QUOTES, 'UTF-8', false);
+	}
+}
+
+if ( ! function_exists('ends_with'))
+{
+	/**
+	 * Determine if a given string ends with a given substring.
+	 *
+	 * @param  string  $haystack
+	 * @param  string|array  $needles
+	 * @return bool
+	 */
+	function ends_with($haystack, $needles)
+	{
+		return Str::endsWith($haystack, $needles);
+	}
+}
+
+if ( ! function_exists('head'))
+{
+	/**
+	 * Get the first element of an array. Useful for method chaining.
+	 *
+	 * @param  array  $array
+	 * @return mixed
+	 */
+	function head($array)
+	{
+		return reset($array);
+	}
+}
+
+if ( ! function_exists('last'))
+{
+	/**
+	 * Get the last element from an array.
+	 *
+	 * @param  array  $array
+	 * @return mixed
+	 */
+	function last($array)
+	{
+		return end($array);
+	}
+}
+
+if ( ! function_exists('object_get'))
+{
+	/**
+	 * Get an item from an object using "dot" notation.
+	 *
+	 * @param  object  $object
+	 * @param  string  $key
+	 * @param  mixed   $default
+	 * @return mixed
+	 */
+	function object_get($object, $key, $default = null)
+	{
+		if (is_null($key) || trim($key) == '') return $object;
+
+		foreach (explode('.', $key) as $segment)
+		{
+			if ( ! is_object($object) || ! isset($object->{$segment}))
+			{
+				return value($default);
+			}
+
+			$object = $object->{$segment};
+		}
+
+		return $object;
+	}
+}
+
+if ( ! function_exists('preg_replace_sub'))
+{
+	/**
+	 * Replace a given pattern with each value in the array in sequentially.
+	 *
+	 * @param  string  $pattern
+	 * @param  array   $replacements
+	 * @param  string  $subject
+	 * @return string
+	 */
+	function preg_replace_sub($pattern, &$replacements, $subject)
+	{
+		return preg_replace_callback($pattern, function($match) use (&$replacements)
+		{
+			return array_shift($replacements);
+
+		}, $subject);
+	}
+}
+
+if ( ! function_exists('snake_case'))
+{
+	/**
+	 * Convert a string to snake case.
+	 *
+	 * @param  string  $value
+	 * @param  string  $delimiter
+	 * @return string
+	 */
+	function snake_case($value, $delimiter = '_')
+	{
+		return Str::snake($value, $delimiter);
+	}
+}
+
+if ( ! function_exists('starts_with'))
+{
+	/**
+	 * Determine if a given string starts with a given substring.
+	 *
+	 * @param  string  $haystack
+	 * @param  string|array  $needles
+	 * @return bool
+	 */
+	function starts_with($haystack, $needles)
+	{
+		return Str::startsWith($haystack, $needles);
+	}
+}
+
+if ( ! function_exists('str_contains'))
+{
+	/**
+	 * Determine if a given string contains a given substring.
+	 *
+	 * @param  string  $haystack
+	 * @param  string|array  $needles
+	 * @return bool
+	 */
+	function str_contains($haystack, $needles)
+	{
+		return Str::contains($haystack, $needles);
+	}
+}
+
+if ( ! function_exists('str_finish'))
+{
+	/**
+	 * Cap a string with a single instance of a given value.
+	 *
+	 * @param  string  $value
+	 * @param  string  $cap
+	 * @return string
+	 */
+	function str_finish($value, $cap)
+	{
+		return Str::finish($value, $cap);
+	}
+}
+
+if ( ! function_exists('str_is'))
+{
+	/**
+	 * Determine if a given string matches a given pattern.
+	 *
+	 * @param  string  $pattern
+	 * @param  string  $value
+	 * @return bool
+	 */
+	function str_is($pattern, $value)
+	{
+		return Str::is($pattern, $value);
+	}
+}
+
+if ( ! function_exists('str_limit'))
+{
+	/**
+	 * Limit the number of characters in a string.
+	 *
+	 * @param  string  $value
+	 * @param  int     $limit
+	 * @param  string  $end
+	 * @return string
+	 */
+	function str_limit($value, $limit = 100, $end = '...')
+	{
+		return Str::limit($value, $limit, $end);
+	}
+}
+
+if ( ! function_exists('str_plural'))
+{
+	/**
+	 * Get the plural form of an English word.
+	 *
+	 * @param  string  $value
+	 * @param  int     $count
+	 * @return string
+	 */
+	function str_plural($value, $count = 2)
+	{
+		return Str::plural($value, $count);
+	}
+}
+
+if ( ! function_exists('str_random'))
+{
+	/**
+	 * Generate a more truly "random" alpha-numeric string.
+	 *
+	 * @param  int  $length
+	 * @return string
+	 *
+	 * @throws \RuntimeException
+	 */
+	function str_random($length = 16)
+	{
+		return Str::random($length);
+	}
+}
+
+if ( ! function_exists('str_replace_array'))
+{
+	/**
+	 * Replace a given value in the string sequentially with an array.
+	 *
+	 * @param  string  $search
+	 * @param  array   $replace
+	 * @param  string  $subject
+	 * @return string
+	 */
+	function str_replace_array($search, array $replace, $subject)
+	{
+		foreach ($replace as $value)
+		{
+			$subject = preg_replace('/'.$search.'/', $value, $subject, 1);
+		}
+
+		return $subject;
+	}
+}
+
+if ( ! function_exists('str_singular'))
+{
+	/**
+	 * Get the singular form of an English word.
+	 *
+	 * @param  string  $value
+	 * @return string
+	 */
+	function str_singular($value)
+	{
+		return Str::singular($value);
+	}
+}
+
+if ( ! function_exists('str_slug'))
+{
+	/**
+	 * Generate a URL friendly "slug" from a given string.
+	 *
+	 * @param  string  $title
+	 * @param  string  $separator
+	 * @return string
+	 */
+	function str_slug($title, $separator = '-')
+	{
+		return Str::slug($title, $separator);
+	}
+}
+
+if ( ! function_exists('studly_case'))
+{
+	/**
+	 * Convert a value to studly caps case.
+	 *
+	 * @param  string  $value
+	 * @return string
+	 */
+	function studly_case($value)
+	{
+		return Str::studly($value);
+	}
+}
+
+if ( ! function_exists('trait_uses_recursive'))
+{
+	/**
+	 * Returns all traits used by a trait and its traits
+	 *
+	 * @param  string  $trait
+	 * @return array
+	 */
+	function trait_uses_recursive($trait)
+	{
+		$traits = class_uses($trait);
+
+		foreach ($traits as $trait)
+		{
+			$traits += trait_uses_recursive($trait);
+		}
+
+		return $traits;
+	}
+}
+
+if ( ! function_exists('value'))
+{
+	/**
+	 * Return the default value of the given value.
+	 *
+	 * @param  mixed  $value
+	 * @return mixed
+	 */
+	function value($value)
+	{
+		return $value instanceof Closure ? $value() : $value;
+	}
+}
+
+if ( ! function_exists('with'))
+{
+	/**
+	 * Return the given object. Useful for chaining.
+	 *
+	 * @param  mixed  $object
+	 * @return mixed
+	 */
+	function with($object)
+	{
+		return $object;
+	}
+}
 
     class App extends \Illuminate\Support\Facades\App{
         
@@ -11773,6 +12556,33 @@ namespace {
          *
          * @static 
          */
+        public static function enable(){
+            return \Laradic\Debug\Debugger::enable();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function disable(){
+            return \Laradic\Debug\Debugger::disable();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function isEnabled(){
+            return \Laradic\Debug\Debugger::isEnabled();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
         public static function dump(){
             return \Laradic\Debug\Debugger::dump();
         }
@@ -11802,6 +12612,26 @@ namespace {
          */
         public static function tracy($title, $var, $options = array()){
             return \Laradic\Debug\Debugger::tracy($title, $var, $options);
+        }
+        
+        /**
+         * Get the value of consoleLogDump
+         *
+         * @return boolean 
+         * @static 
+         */
+        public static function getConsoleLogDump(){
+            return \Laradic\Debug\Debugger::getConsoleLogDump();
+        }
+        
+        /**
+         * Sets the value of consoleLogDump
+         *
+         * @param boolean $consoleLogDump
+         * @static 
+         */
+        public static function setConsoleLogDump($consoleLogDump){
+            return \Laradic\Debug\Debugger::setConsoleLogDump($consoleLogDump);
         }
         
     }
@@ -12529,6 +13359,826 @@ namespace {
     }
 
 
+    interface extensions extends \Laradic\Extensions\Contracts\Extensions{
+        
+    }
+
+
+    class Extensions extends \Laradic\Extensions\Facades\Extensions{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function addPath($path){
+            return \Laradic\Extensions\ExtensionCollection::addPath($path);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function createFromFile($extensionFilePath){
+            return \Laradic\Extensions\ExtensionCollection::createFromFile($extensionFilePath);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function locateAndRegisterAll(){
+            return \Laradic\Extensions\ExtensionCollection::locateAndRegisterAll();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function register($extension){
+            return \Laradic\Extensions\ExtensionCollection::register($extension);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function sortByDependencies(){
+            return \Laradic\Extensions\ExtensionCollection::sortByDependencies();
+        }
+        
+        /**
+         * Get the value of connection
+         *
+         * @return \Illuminate\Database\Connection 
+         * @static 
+         */
+        public static function getConnection(){
+            return \Laradic\Extensions\ExtensionCollection::getConnection();
+        }
+        
+        /**
+         * Get the value of finder
+         *
+         * @return \Laradic\Extensions\ExtensionFileFinder 
+         * @static 
+         */
+        public static function getFinder(){
+            return \Laradic\Extensions\ExtensionCollection::getFinder();
+        }
+        
+        /**
+         * Get the value of files
+         *
+         * @return \Illuminate\Filesystem\Filesystem 
+         * @static 
+         */
+        public static function getFiles(){
+            return \Laradic\Extensions\ExtensionCollection::getFiles();
+        }
+        
+        /**
+         * Get the value of app
+         *
+         * @return \Illuminate\Contracts\Foundation\Application 
+         * @static 
+         */
+        public static function getApplication(){
+            return \Laradic\Extensions\ExtensionCollection::getApplication();
+        }
+        
+        /**
+         * Create a new collection instance if the value isn't one already.
+         *
+         * @param mixed $items
+         * @return static 
+         * @static 
+         */
+        public static function make($items = null){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::make($items);
+        }
+        
+        /**
+         * Get all of the items in the collection.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function all(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::all();
+        }
+        
+        /**
+         * Collapse the collection items into a single array.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function collapse(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::collapse();
+        }
+        
+        /**
+         * Determine if an item exists in the collection.
+         *
+         * @param mixed $key
+         * @param mixed $value
+         * @return bool 
+         * @static 
+         */
+        public static function contains($key, $value = null){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::contains($key, $value);
+        }
+        
+        /**
+         * Diff the collection with the given items.
+         *
+         * @param \Illuminate\Support\Collection|\Illuminate\Contracts\Support\Arrayable|array $items
+         * @return static 
+         * @static 
+         */
+        public static function diff($items){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::diff($items);
+        }
+        
+        /**
+         * Execute a callback over each item.
+         *
+         * @param callable $callback
+         * @return $this 
+         * @static 
+         */
+        public static function each($callback){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::each($callback);
+        }
+        
+        /**
+         * Fetch a nested element of the collection.
+         *
+         * @param string $key
+         * @return static 
+         * @static 
+         */
+        public static function fetch($key){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::fetch($key);
+        }
+        
+        /**
+         * Run a filter over each of the items.
+         *
+         * @param callable $callback
+         * @return static 
+         * @static 
+         */
+        public static function filter($callback){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::filter($callback);
+        }
+        
+        /**
+         * Filter items by the given key value pair.
+         *
+         * @param string $key
+         * @param mixed $value
+         * @param bool $strict
+         * @return static 
+         * @static 
+         */
+        public static function where($key, $value, $strict = true){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::where($key, $value, $strict);
+        }
+        
+        /**
+         * Filter items by the given key value pair using loose comparison.
+         *
+         * @param string $key
+         * @param mixed $value
+         * @return static 
+         * @static 
+         */
+        public static function whereLoose($key, $value){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::whereLoose($key, $value);
+        }
+        
+        /**
+         * Get the first item from the collection.
+         *
+         * @param callable $callback
+         * @param mixed $default
+         * @return mixed|null 
+         * @static 
+         */
+        public static function first($callback = null, $default = null){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::first($callback, $default);
+        }
+        
+        /**
+         * Get a flattened array of the items in the collection.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function flatten(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::flatten();
+        }
+        
+        /**
+         * Flip the items in the collection.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function flip(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::flip();
+        }
+        
+        /**
+         * Remove an item from the collection by key.
+         *
+         * @param mixed $key
+         * @return void 
+         * @static 
+         */
+        public static function forget($key){
+            //Method inherited from \Illuminate\Support\Collection            
+            \Laradic\Extensions\ExtensionCollection::forget($key);
+        }
+        
+        /**
+         * Get an item from the collection by key.
+         *
+         * @param mixed $key
+         * @param mixed $default
+         * @return mixed 
+         * @static 
+         */
+        public static function get($key, $default = null){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::get($key, $default);
+        }
+        
+        /**
+         * Group an associative array by a field or using a callback.
+         *
+         * @param callable|string $groupBy
+         * @return static 
+         * @static 
+         */
+        public static function groupBy($groupBy){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::groupBy($groupBy);
+        }
+        
+        /**
+         * Key an associative array by a field or using a callback.
+         *
+         * @param callable|string $keyBy
+         * @return static 
+         * @static 
+         */
+        public static function keyBy($keyBy){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::keyBy($keyBy);
+        }
+        
+        /**
+         * Determine if an item exists in the collection by key.
+         *
+         * @param mixed $key
+         * @return bool 
+         * @static 
+         */
+        public static function has($key){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::has($key);
+        }
+        
+        /**
+         * Concatenate values of a given key as a string.
+         *
+         * @param string $value
+         * @param string $glue
+         * @return string 
+         * @static 
+         */
+        public static function implode($value, $glue = null){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::implode($value, $glue);
+        }
+        
+        /**
+         * Intersect the collection with the given items.
+         *
+         * @param \Illuminate\Support\Collection|\Illuminate\Contracts\Support\Arrayable|array $items
+         * @return static 
+         * @static 
+         */
+        public static function intersect($items){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::intersect($items);
+        }
+        
+        /**
+         * Determine if the collection is empty or not.
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function isEmpty(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::isEmpty();
+        }
+        
+        /**
+         * Get the keys of the collection items.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function keys(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::keys();
+        }
+        
+        /**
+         * Get the last item from the collection.
+         *
+         * @return mixed|null 
+         * @static 
+         */
+        public static function last(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::last();
+        }
+        
+        /**
+         * Get an array with the values of a given key.
+         *
+         * @param string $value
+         * @param string $key
+         * @return array 
+         * @static 
+         */
+        public static function lists($value, $key = null){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::lists($value, $key);
+        }
+        
+        /**
+         * Run a map over each of the items.
+         *
+         * @param callable $callback
+         * @return static 
+         * @static 
+         */
+        public static function map($callback){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::map($callback);
+        }
+        
+        /**
+         * Merge the collection with the given items.
+         *
+         * @param \Illuminate\Support\Collection|\Illuminate\Contracts\Support\Arrayable|array $items
+         * @return static 
+         * @static 
+         */
+        public static function merge($items){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::merge($items);
+        }
+        
+        /**
+         * "Paginate" the collection by slicing it into a smaller collection.
+         *
+         * @param int $page
+         * @param int $perPage
+         * @return static 
+         * @static 
+         */
+        public static function forPage($page, $perPage){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::forPage($page, $perPage);
+        }
+        
+        /**
+         * Get and remove the last item from the collection.
+         *
+         * @return mixed|null 
+         * @static 
+         */
+        public static function pop(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::pop();
+        }
+        
+        /**
+         * Push an item onto the beginning of the collection.
+         *
+         * @param mixed $value
+         * @return void 
+         * @static 
+         */
+        public static function prepend($value){
+            //Method inherited from \Illuminate\Support\Collection            
+            \Laradic\Extensions\ExtensionCollection::prepend($value);
+        }
+        
+        /**
+         * Push an item onto the end of the collection.
+         *
+         * @param mixed $value
+         * @return void 
+         * @static 
+         */
+        public static function push($value){
+            //Method inherited from \Illuminate\Support\Collection            
+            \Laradic\Extensions\ExtensionCollection::push($value);
+        }
+        
+        /**
+         * Pulls an item from the collection.
+         *
+         * @param mixed $key
+         * @param mixed $default
+         * @return mixed 
+         * @static 
+         */
+        public static function pull($key, $default = null){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::pull($key, $default);
+        }
+        
+        /**
+         * Put an item in the collection by key.
+         *
+         * @param mixed $key
+         * @param mixed $value
+         * @return void 
+         * @static 
+         */
+        public static function put($key, $value){
+            //Method inherited from \Illuminate\Support\Collection            
+            \Laradic\Extensions\ExtensionCollection::put($key, $value);
+        }
+        
+        /**
+         * Get one or more items randomly from the collection.
+         *
+         * @param int $amount
+         * @return mixed 
+         * @static 
+         */
+        public static function random($amount = 1){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::random($amount);
+        }
+        
+        /**
+         * Reduce the collection to a single value.
+         *
+         * @param callable $callback
+         * @param mixed $initial
+         * @return mixed 
+         * @static 
+         */
+        public static function reduce($callback, $initial = null){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::reduce($callback, $initial);
+        }
+        
+        /**
+         * Create a collection of all elements that do not pass a given truth test.
+         *
+         * @param callable|mixed $callback
+         * @return static 
+         * @static 
+         */
+        public static function reject($callback){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::reject($callback);
+        }
+        
+        /**
+         * Reverse items order.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function reverse(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::reverse();
+        }
+        
+        /**
+         * Search the collection for a given value and return the corresponding key if successful.
+         *
+         * @param mixed $value
+         * @param bool $strict
+         * @return mixed 
+         * @static 
+         */
+        public static function search($value, $strict = false){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::search($value, $strict);
+        }
+        
+        /**
+         * Get and remove the first item from the collection.
+         *
+         * @return mixed|null 
+         * @static 
+         */
+        public static function shift(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::shift();
+        }
+        
+        /**
+         * Shuffle the items in the collection.
+         *
+         * @return $this 
+         * @static 
+         */
+        public static function shuffle(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::shuffle();
+        }
+        
+        /**
+         * Slice the underlying collection array.
+         *
+         * @param int $offset
+         * @param int $length
+         * @param bool $preserveKeys
+         * @return static 
+         * @static 
+         */
+        public static function slice($offset, $length = null, $preserveKeys = false){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::slice($offset, $length, $preserveKeys);
+        }
+        
+        /**
+         * Chunk the underlying collection array.
+         *
+         * @param int $size
+         * @param bool $preserveKeys
+         * @return static 
+         * @static 
+         */
+        public static function chunk($size, $preserveKeys = false){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::chunk($size, $preserveKeys);
+        }
+        
+        /**
+         * Sort through each item with a callback.
+         *
+         * @param callable $callback
+         * @return $this 
+         * @static 
+         */
+        public static function sort($callback){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::sort($callback);
+        }
+        
+        /**
+         * Sort the collection using the given callback.
+         *
+         * @param callable|string $callback
+         * @param int $options
+         * @param bool $descending
+         * @return $this 
+         * @static 
+         */
+        public static function sortBy($callback, $options = 0, $descending = false){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::sortBy($callback, $options, $descending);
+        }
+        
+        /**
+         * Sort the collection in descending order using the given callback.
+         *
+         * @param callable|string $callback
+         * @param int $options
+         * @return $this 
+         * @static 
+         */
+        public static function sortByDesc($callback, $options = 0){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::sortByDesc($callback, $options);
+        }
+        
+        /**
+         * Splice portion of the underlying collection array.
+         *
+         * @param int $offset
+         * @param int $length
+         * @param mixed $replacement
+         * @return static 
+         * @static 
+         */
+        public static function splice($offset, $length = 0, $replacement = array()){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::splice($offset, $length, $replacement);
+        }
+        
+        /**
+         * Get the sum of the given values.
+         *
+         * @param callable|string|null $callback
+         * @return mixed 
+         * @static 
+         */
+        public static function sum($callback = null){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::sum($callback);
+        }
+        
+        /**
+         * Take the first or last {$limit} items.
+         *
+         * @param int $limit
+         * @return static 
+         * @static 
+         */
+        public static function take($limit = null){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::take($limit);
+        }
+        
+        /**
+         * Transform each item in the collection using a callback.
+         *
+         * @param callable $callback
+         * @return $this 
+         * @static 
+         */
+        public static function transform($callback){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::transform($callback);
+        }
+        
+        /**
+         * Return only unique items from the collection array.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function unique(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::unique();
+        }
+        
+        /**
+         * Reset the keys on the underlying array.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function values(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::values();
+        }
+        
+        /**
+         * Get the collection of items as a plain array.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function toArray(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::toArray();
+        }
+        
+        /**
+         * Convert the object into something JSON serializable.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function jsonSerialize(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::jsonSerialize();
+        }
+        
+        /**
+         * Get the collection of items as JSON.
+         *
+         * @param int $options
+         * @return string 
+         * @static 
+         */
+        public static function toJson($options = 0){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::toJson($options);
+        }
+        
+        /**
+         * Get an iterator for the items.
+         *
+         * @return \ArrayIterator 
+         * @static 
+         */
+        public static function getIterator(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::getIterator();
+        }
+        
+        /**
+         * Get a CachingIterator instance.
+         *
+         * @param int $flags
+         * @return \CachingIterator 
+         * @static 
+         */
+        public static function getCachingIterator($flags = 1){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::getCachingIterator($flags);
+        }
+        
+        /**
+         * Count the number of items in the collection.
+         *
+         * @return int 
+         * @static 
+         */
+        public static function count(){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::count();
+        }
+        
+        /**
+         * Determine if an item exists at an offset.
+         *
+         * @param mixed $key
+         * @return bool 
+         * @static 
+         */
+        public static function offsetExists($key){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::offsetExists($key);
+        }
+        
+        /**
+         * Get an item at a given offset.
+         *
+         * @param mixed $key
+         * @return mixed 
+         * @static 
+         */
+        public static function offsetGet($key){
+            //Method inherited from \Illuminate\Support\Collection            
+            return \Laradic\Extensions\ExtensionCollection::offsetGet($key);
+        }
+        
+        /**
+         * Set the item at a given offset.
+         *
+         * @param mixed $key
+         * @param mixed $value
+         * @return void 
+         * @static 
+         */
+        public static function offsetSet($key, $value){
+            //Method inherited from \Illuminate\Support\Collection            
+            \Laradic\Extensions\ExtensionCollection::offsetSet($key, $value);
+        }
+        
+        /**
+         * Unset the item at a given offset.
+         *
+         * @param string $key
+         * @return void 
+         * @static 
+         */
+        public static function offsetUnset($key){
+            //Method inherited from \Illuminate\Support\Collection            
+            \Laradic\Extensions\ExtensionCollection::offsetUnset($key);
+        }
+        
+    }
+
+
     class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade{
         
         /**
@@ -12801,653 +14451,6 @@ namespace {
          */
         public static function whereNotType($types){
             return \Cartalyst\Alerts\Alerts::whereNotType($types);
-        }
-        
-    }
-
-
-    class Html extends \Collective\Html\HtmlFacade{
-        
-        /**
-         * Convert an HTML string to entities.
-         *
-         * @param string $value
-         * @return string 
-         * @static 
-         */
-        public static function entities($value){
-            return \Collective\Html\HtmlBuilder::entities($value);
-        }
-        
-        /**
-         * Convert entities to HTML characters.
-         *
-         * @param string $value
-         * @return string 
-         * @static 
-         */
-        public static function decode($value){
-            return \Collective\Html\HtmlBuilder::decode($value);
-        }
-        
-        /**
-         * Generate a link to a JavaScript file.
-         *
-         * @param string $url
-         * @param array $attributes
-         * @param bool $secure
-         * @return string 
-         * @static 
-         */
-        public static function script($url, $attributes = array(), $secure = null){
-            return \Collective\Html\HtmlBuilder::script($url, $attributes, $secure);
-        }
-        
-        /**
-         * Generate a link to a CSS file.
-         *
-         * @param string $url
-         * @param array $attributes
-         * @param bool $secure
-         * @return string 
-         * @static 
-         */
-        public static function style($url, $attributes = array(), $secure = null){
-            return \Collective\Html\HtmlBuilder::style($url, $attributes, $secure);
-        }
-        
-        /**
-         * Generate an HTML image element.
-         *
-         * @param string $url
-         * @param string $alt
-         * @param array $attributes
-         * @param bool $secure
-         * @return string 
-         * @static 
-         */
-        public static function image($url, $alt = null, $attributes = array(), $secure = null){
-            return \Collective\Html\HtmlBuilder::image($url, $alt, $attributes, $secure);
-        }
-        
-        /**
-         * Generate a HTML link.
-         *
-         * @param string $url
-         * @param string $title
-         * @param array $attributes
-         * @param bool $secure
-         * @return string 
-         * @static 
-         */
-        public static function link($url, $title = null, $attributes = array(), $secure = null){
-            return \Collective\Html\HtmlBuilder::link($url, $title, $attributes, $secure);
-        }
-        
-        /**
-         * Generate a HTTPS HTML link.
-         *
-         * @param string $url
-         * @param string $title
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function secureLink($url, $title = null, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::secureLink($url, $title, $attributes);
-        }
-        
-        /**
-         * Generate a HTML link to an asset.
-         *
-         * @param string $url
-         * @param string $title
-         * @param array $attributes
-         * @param bool $secure
-         * @return string 
-         * @static 
-         */
-        public static function linkAsset($url, $title = null, $attributes = array(), $secure = null){
-            return \Collective\Html\HtmlBuilder::linkAsset($url, $title, $attributes, $secure);
-        }
-        
-        /**
-         * Generate a HTTPS HTML link to an asset.
-         *
-         * @param string $url
-         * @param string $title
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function linkSecureAsset($url, $title = null, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::linkSecureAsset($url, $title, $attributes);
-        }
-        
-        /**
-         * Generate a HTML link to a named route.
-         *
-         * @param string $name
-         * @param string $title
-         * @param array $parameters
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function linkRoute($name, $title = null, $parameters = array(), $attributes = array()){
-            return \Collective\Html\HtmlBuilder::linkRoute($name, $title, $parameters, $attributes);
-        }
-        
-        /**
-         * Generate a HTML link to a controller action.
-         *
-         * @param string $action
-         * @param string $title
-         * @param array $parameters
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function linkAction($action, $title = null, $parameters = array(), $attributes = array()){
-            return \Collective\Html\HtmlBuilder::linkAction($action, $title, $parameters, $attributes);
-        }
-        
-        /**
-         * Generate a HTML link to an email address.
-         *
-         * @param string $email
-         * @param string $title
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function mailto($email, $title = null, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::mailto($email, $title, $attributes);
-        }
-        
-        /**
-         * Obfuscate an e-mail address to prevent spam-bots from sniffing it.
-         *
-         * @param string $email
-         * @return string 
-         * @static 
-         */
-        public static function email($email){
-            return \Collective\Html\HtmlBuilder::email($email);
-        }
-        
-        /**
-         * Generate an ordered list of items.
-         *
-         * @param array $list
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function ol($list, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::ol($list, $attributes);
-        }
-        
-        /**
-         * Generate an un-ordered list of items.
-         *
-         * @param array $list
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function ul($list, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::ul($list, $attributes);
-        }
-        
-        /**
-         * Generate a description list of items.
-         *
-         * @param array $list
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function dl($list, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::dl($list, $attributes);
-        }
-        
-        /**
-         * Build an HTML attribute string from an array.
-         *
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function attributes($attributes){
-            return \Collective\Html\HtmlBuilder::attributes($attributes);
-        }
-        
-        /**
-         * Obfuscate a string to prevent spam-bots from sniffing it.
-         *
-         * @param string $value
-         * @return string 
-         * @static 
-         */
-        public static function obfuscate($value){
-            return \Collective\Html\HtmlBuilder::obfuscate($value);
-        }
-        
-        /**
-         * Generate a meta tag.
-         *
-         * @param string $name
-         * @param string $content
-         * @param array $attributes
-         * @return string 
-         * @static 
-         */
-        public static function meta($name, $content, $attributes = array()){
-            return \Collective\Html\HtmlBuilder::meta($name, $content, $attributes);
-        }
-        
-        /**
-         * Register a custom macro.
-         *
-         * @param string $name
-         * @param callable $macro
-         * @return void 
-         * @static 
-         */
-        public static function macro($name, $macro){
-            \Collective\Html\HtmlBuilder::macro($name, $macro);
-        }
-        
-        /**
-         * Checks if macro is registered
-         *
-         * @param string $name
-         * @return bool 
-         * @static 
-         */
-        public static function hasMacro($name){
-            return \Collective\Html\HtmlBuilder::hasMacro($name);
-        }
-        
-    }
-
-
-    class Themes extends \Laradic\Themes\Facades\Themes{
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setConfig($config){
-            return \Laradic\Themes\ThemeFactory::setConfig($config);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setActive($active){
-            return \Laradic\Themes\ThemeFactory::setActive($active);
-        }
-        
-        /**
-         * 
-         *
-         * @return \Laradic\Themes\Theme 
-         * @static 
-         */
-        public static function getActive(){
-            return \Laradic\Themes\ThemeFactory::getActive();
-        }
-        
-        /**
-         * 
-         *
-         * @return \Laradic\Themes\Theme 
-         * @static 
-         */
-        public static function getDefault(){
-            return \Laradic\Themes\ThemeFactory::getDefault();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setDefault($default){
-            return \Laradic\Themes\ThemeFactory::setDefault($default);
-        }
-        
-        /**
-         * resolveTheme
-         *
-         * @param $slug
-         * @return \Laradic\Themes\Theme 
-         * @static 
-         */
-        public static function resolveTheme($slug){
-            return \Laradic\Themes\ThemeFactory::resolveTheme($slug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function addNamespace($id, $dirName){
-            return \Laradic\Themes\ThemeFactory::addNamespace($id, $dirName);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getPath($type){
-            return \Laradic\Themes\ThemeFactory::getPath($type);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getCascadedPaths($cascadeType, $cascadeName = null, $pathType = null, $theme = null){
-            return \Laradic\Themes\ThemeFactory::getCascadedPaths($cascadeType, $cascadeName, $pathType, $theme);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function addPackagePublisher($package, $sourcePath, $theme = null){
-            return \Laradic\Themes\ThemeFactory::addPackagePublisher($package, $sourcePath, $theme);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function addNamespacePublisher($namespace, $sourcePath, $theme = null){
-            return \Laradic\Themes\ThemeFactory::addNamespacePublisher($namespace, $sourcePath, $theme);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function publish($namespaceOrPackage = null){
-            return \Laradic\Themes\ThemeFactory::publish($namespaceOrPackage);
-        }
-        
-        /**
-         * Get the value of publishers
-         *
-         * @return \Laradic\Themes\Publisher[] 
-         * @static 
-         */
-        public static function getPublishers(){
-            return \Laradic\Themes\ThemeFactory::getPublishers();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function boot(){
-            return \Laradic\Themes\ThemeFactory::boot();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getApplication(){
-            return \Laradic\Themes\ThemeFactory::getApplication();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setApplication($app){
-            return \Laradic\Themes\ThemeFactory::setApplication($app);
-        }
-        
-        /**
-         * 
-         *
-         * @return \Laradic\Themes\ThemeViewFinder 
-         * @static 
-         */
-        public static function getFinder(){
-            return \Laradic\Themes\ThemeFactory::getFinder();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setFinder($finder){
-            return \Laradic\Themes\ThemeFactory::setFinder($finder);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getFiles(){
-            return \Laradic\Themes\ThemeFactory::getFiles();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setFiles($files){
-            return \Laradic\Themes\ThemeFactory::setFiles($files);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function count(){
-            return \Laradic\Themes\ThemeFactory::count();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function offsetExists($key){
-            return \Laradic\Themes\ThemeFactory::offsetExists($key);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function offsetGet($key){
-            return \Laradic\Themes\ThemeFactory::offsetGet($key);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function offsetSet($key, $value){
-            return \Laradic\Themes\ThemeFactory::offsetSet($key, $value);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function offsetUnset($key){
-            return \Laradic\Themes\ThemeFactory::offsetUnset($key);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getIterator(){
-            return \Laradic\Themes\ThemeFactory::getIterator();
-        }
-        
-    }
-
-
-    class Asset extends \Laradic\Themes\Facades\Asset{
-        
-        /**
-         * 
-         *
-         * @return \Laradic\Themes\Assets\Asset 
-         * @static 
-         */
-        public static function make($assetPath){
-            return \Laradic\Themes\Assets\AssetFactory::make($assetPath);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function url($assetPath = ''){
-            return \Laradic\Themes\Assets\AssetFactory::url($assetPath);
-        }
-        
-        /**
-         * group
-         *
-         * @param $name
-         * @param callable $cb
-         * @return \Laradic\Themes\Assets\AssetGroup 
-         * @static 
-         */
-        public static function group($name){
-            return \Laradic\Themes\Assets\AssetFactory::group($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function relativePath($path){
-            return \Laradic\Themes\Assets\AssetFactory::relativePath($path);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function toUrl($path){
-            return \Laradic\Themes\Assets\AssetFactory::toUrl($path);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getPath($key = null){
-            return \Laradic\Themes\Assets\AssetFactory::getPath($key);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getThemes(){
-            return \Laradic\Themes\Assets\AssetFactory::getThemes();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setThemes($themes){
-            return \Laradic\Themes\Assets\AssetFactory::setThemes($themes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getContainer(){
-            return \Laradic\Themes\Assets\AssetFactory::getContainer();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setContainer($container){
-            return \Laradic\Themes\Assets\AssetFactory::setContainer($container);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getAssetClass(){
-            return \Laradic\Themes\Assets\AssetFactory::getAssetClass();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setAssetClass($assetClass){
-            return \Laradic\Themes\Assets\AssetFactory::setAssetClass($assetClass);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getUrlGenerator(){
-            return \Laradic\Themes\Assets\AssetFactory::getUrlGenerator();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setUrlGenerator($urlGenerator){
-            return \Laradic\Themes\Assets\AssetFactory::setUrlGenerator($urlGenerator);
         }
         
     }
@@ -14006,6 +15009,527 @@ namespace {
         public static function getConfig(){
             //Method inherited from \GrahamCampbell\Manager\AbstractManager            
             return \Vinkla\Hashids\HashidsManager::getConfig();
+        }
+        
+    }
+
+
+    class Themes extends \Laradic\Themes\Facades\Themes{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setConfig($config){
+            return \Laradic\Themes\ThemeFactory::setConfig($config);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setActive($active){
+            return \Laradic\Themes\ThemeFactory::setActive($active);
+        }
+        
+        /**
+         * 
+         *
+         * @return \Laradic\Themes\Theme 
+         * @static 
+         */
+        public static function getActive(){
+            return \Laradic\Themes\ThemeFactory::getActive();
+        }
+        
+        /**
+         * 
+         *
+         * @return \Laradic\Themes\Theme 
+         * @static 
+         */
+        public static function getDefault(){
+            return \Laradic\Themes\ThemeFactory::getDefault();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setDefault($default){
+            return \Laradic\Themes\ThemeFactory::setDefault($default);
+        }
+        
+        /**
+         * resolveTheme
+         *
+         * @param $slug
+         * @return \Laradic\Themes\Theme 
+         * @static 
+         */
+        public static function resolveTheme($slug){
+            return \Laradic\Themes\ThemeFactory::resolveTheme($slug);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function addNamespace($id, $dirName){
+            return \Laradic\Themes\ThemeFactory::addNamespace($id, $dirName);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getPath($type){
+            return \Laradic\Themes\ThemeFactory::getPath($type);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getCascadedPaths($cascadeType, $cascadeName = null, $pathType = null, $theme = null){
+            return \Laradic\Themes\ThemeFactory::getCascadedPaths($cascadeType, $cascadeName, $pathType, $theme);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function addPackagePublisher($package, $sourcePath, $theme = null){
+            return \Laradic\Themes\ThemeFactory::addPackagePublisher($package, $sourcePath, $theme);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function addNamespacePublisher($namespace, $sourcePath, $theme = null){
+            return \Laradic\Themes\ThemeFactory::addNamespacePublisher($namespace, $sourcePath, $theme);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function publish($namespaceOrPackage = null){
+            return \Laradic\Themes\ThemeFactory::publish($namespaceOrPackage);
+        }
+        
+        /**
+         * Get the value of publishers
+         *
+         * @return \Laradic\Themes\Publisher[] 
+         * @static 
+         */
+        public static function getPublishers(){
+            return \Laradic\Themes\ThemeFactory::getPublishers();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function boot(){
+            return \Laradic\Themes\ThemeFactory::boot();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getApplication(){
+            return \Laradic\Themes\ThemeFactory::getApplication();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setApplication($app){
+            return \Laradic\Themes\ThemeFactory::setApplication($app);
+        }
+        
+        /**
+         * 
+         *
+         * @return \Laradic\Themes\ThemeViewFinder 
+         * @static 
+         */
+        public static function getFinder(){
+            return \Laradic\Themes\ThemeFactory::getFinder();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setFinder($finder){
+            return \Laradic\Themes\ThemeFactory::setFinder($finder);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getFiles(){
+            return \Laradic\Themes\ThemeFactory::getFiles();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setFiles($files){
+            return \Laradic\Themes\ThemeFactory::setFiles($files);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function count(){
+            return \Laradic\Themes\ThemeFactory::count();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function offsetExists($key){
+            return \Laradic\Themes\ThemeFactory::offsetExists($key);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function offsetGet($key){
+            return \Laradic\Themes\ThemeFactory::offsetGet($key);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function offsetSet($key, $value){
+            return \Laradic\Themes\ThemeFactory::offsetSet($key, $value);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function offsetUnset($key){
+            return \Laradic\Themes\ThemeFactory::offsetUnset($key);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getIterator(){
+            return \Laradic\Themes\ThemeFactory::getIterator();
+        }
+        
+    }
+
+
+    class Widgets extends \Laradic\Themes\Facades\Widgets{
+        
+        /**
+         * Registers a widget
+         *
+         * @param $name
+         * @param callable $callback
+         * @static 
+         */
+        public static function create($name, $callback){
+            return \Laradic\Themes\Widgets::create($name, $callback);
+        }
+        
+        /**
+         * Checks if a widget exists, optionally throwing an exception if not found
+         *
+         * @param $name
+         * @param bool $throwException
+         * @return bool 
+         * @static 
+         */
+        public static function exists($name, $throwException = false){
+            return \Laradic\Themes\Widgets::exists($name, $throwException);
+        }
+        
+        /**
+         * Registers the @widget directive
+         *
+         * @static 
+         */
+        public static function registerDirectives(){
+            return \Laradic\Themes\Widgets::registerDirectives();
+        }
+        
+        /**
+         * Renders a widget
+         *
+         * @param string $name the widget name
+         * @param mixed $param,...
+         * @return string The rendered widget
+         * @static 
+         */
+        public static function render($name, $param){
+            return \Laradic\Themes\Widgets::render($name, $param);
+        }
+        
+    }
+
+
+    class Asset extends \Laradic\Themes\Facades\Asset{
+        
+        /**
+         * 
+         *
+         * @return \Laradic\Themes\Assets\Asset 
+         * @static 
+         */
+        public static function make($assetPath){
+            return \Laradic\Themes\Assets\AssetFactory::make($assetPath);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function url($assetPath = ''){
+            return \Laradic\Themes\Assets\AssetFactory::url($assetPath);
+        }
+        
+        /**
+         * group
+         *
+         * @param $name
+         * @param callable $cb
+         * @return \Laradic\Themes\Assets\AssetGroup 
+         * @static 
+         */
+        public static function group($name){
+            return \Laradic\Themes\Assets\AssetFactory::group($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function relativePath($path){
+            return \Laradic\Themes\Assets\AssetFactory::relativePath($path);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function toUrl($path){
+            return \Laradic\Themes\Assets\AssetFactory::toUrl($path);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getPath($key = null){
+            return \Laradic\Themes\Assets\AssetFactory::getPath($key);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getThemes(){
+            return \Laradic\Themes\Assets\AssetFactory::getThemes();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setThemes($themes){
+            return \Laradic\Themes\Assets\AssetFactory::setThemes($themes);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getContainer(){
+            return \Laradic\Themes\Assets\AssetFactory::getContainer();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setContainer($container){
+            return \Laradic\Themes\Assets\AssetFactory::setContainer($container);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getAssetClass(){
+            return \Laradic\Themes\Assets\AssetFactory::getAssetClass();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setAssetClass($assetClass){
+            return \Laradic\Themes\Assets\AssetFactory::setAssetClass($assetClass);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getUrlGenerator(){
+            return \Laradic\Themes\Assets\AssetFactory::getUrlGenerator();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setUrlGenerator($urlGenerator){
+            return \Laradic\Themes\Assets\AssetFactory::setUrlGenerator($urlGenerator);
+        }
+        
+    }
+
+
+    class Navigation extends \Laradic\Admin\Facades\Navigation{
+        
+        /**
+         * add
+         *
+         * @param $id
+         * @param $value
+         * @param $link
+         * @param bool $authenticated
+         * @param array $permissions
+         * @return $this 
+         * @static 
+         */
+        public static function add($id, $value, $link, $authenticated = false, $permissions = array()){
+            return \Laradic\Admin\Navigation\Factory::add($id, $value, $link, $authenticated, $permissions);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function registerBreadcrumbs($crumbs, $parent = null){
+            return \Laradic\Admin\Navigation\Factory::registerBreadcrumbs($crumbs, $parent);
+        }
+        
+        /**
+         * Get the value of sentry
+         *
+         * @return \Cartalyst\Sentry\Sentry 
+         * @static 
+         */
+        public static function getSentry(){
+            return \Laradic\Admin\Navigation\Factory::getSentry();
+        }
+        
+        /**
+         * Sets the value of sentry
+         *
+         * @param \Cartalyst\Sentry\Sentry $sentry
+         * @return $this 
+         * @static 
+         */
+        public static function setSentry($sentry){
+            return \Laradic\Admin\Navigation\Factory::setSentry($sentry);
+        }
+        
+        /**
+         * Get the value of tree
+         *
+         * @return \Laradic\Admin\Navigation\Node 
+         * @static 
+         */
+        public static function getTree(){
+            return \Laradic\Admin\Navigation\Factory::getTree();
+        }
+        
+        /**
+         * Sets the value of tree
+         *
+         * @param \Laradic\Admin\Navigation\Node $tree
+         * @return $this 
+         * @static 
+         */
+        public static function setTree($tree){
+            return \Laradic\Admin\Navigation\Factory::setTree($tree);
+        }
+        
+        /**
+         * Get the value of generator
+         *
+         * @return \Illuminate\Contracts\Routing\UrlGenerator 
+         * @static 
+         */
+        public static function getGenerator(){
+            return \Laradic\Admin\Navigation\Factory::getGenerator();
+        }
+        
+        /**
+         * Sets the value of generator
+         *
+         * @param \Illuminate\Contracts\Routing\UrlGenerator $generator
+         * @return $this 
+         * @static 
+         */
+        public static function setGenerator($generator){
+            return \Laradic\Admin\Navigation\Factory::setGenerator($generator);
         }
         
     }
