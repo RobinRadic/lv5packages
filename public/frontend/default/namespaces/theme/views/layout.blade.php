@@ -51,14 +51,6 @@
 
         <div class="header-menu">
             @section('header-menu')
-            <ul class="nav navbar-nav">
-                @section('header-nav-menu')
-                @show
-            </ul>
-            <ul class="nav navbar-nav pull-right">
-                @section('header-nav-menu-right')
-                @show
-            </ul>
             @show
         </div>
     </header>

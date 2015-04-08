@@ -12634,6 +12634,33 @@ if ( ! function_exists('with'))
             return \Laradic\Debug\Debugger::setConsoleLogDump($consoleLogDump);
         }
         
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function debugbar(){
+            return \Laradic\Debug\Debugger::debugbar();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function startTimeline($name, $label = null){
+            return \Laradic\Debug\Debugger::startTimeline($name, $label);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function stopTimeline($name){
+            return \Laradic\Debug\Debugger::stopTimeline($name);
+        }
+        
     }
 
 
@@ -15017,8 +15044,10 @@ if ( ! function_exists('with'))
     class Themes extends \Laradic\Themes\Facades\Themes{
         
         /**
-         * 
+         * setConfig
          *
+         * @param $config
+         * @return $this 
          * @static 
          */
         public static function setConfig($config){
@@ -15026,16 +15055,18 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * Set the active theme
          *
+         * @param string|\Laradic\Themes\Theme $theme The slug or Theme instance
+         * @return $this 
          * @static 
          */
-        public static function setActive($active){
-            return \Laradic\Themes\ThemeFactory::setActive($active);
+        public static function setActive($theme){
+            return \Laradic\Themes\ThemeFactory::setActive($theme);
         }
         
         /**
-         * 
+         * Get the activated theme
          *
          * @return \Laradic\Themes\Theme 
          * @static 
@@ -15045,7 +15076,7 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * Get the default theme
          *
          * @return \Laradic\Themes\Theme 
          * @static 
@@ -15055,12 +15086,13 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * Set the default theme
          *
+         * @param string|\Laradic\Themes\Theme $theme The slug or Theme instance
          * @static 
          */
-        public static function setDefault($default){
-            return \Laradic\Themes\ThemeFactory::setDefault($default);
+        public static function setDefault($theme){
+            return \Laradic\Themes\ThemeFactory::setDefault($theme);
         }
         
         /**
@@ -15075,8 +15107,41 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * Get a theme with the provided slug
          *
+         * @return \Laradic\Themes\Theme 
+         * @static 
+         */
+        public static function get($slug){
+            return \Laradic\Themes\ThemeFactory::get($slug);
+        }
+        
+        /**
+         * Check if a theme is present
+         *
+         * @param $slug
+         * @return bool 
+         * @static 
+         */
+        public static function has($slug){
+            return \Laradic\Themes\ThemeFactory::has($slug);
+        }
+        
+        /**
+         * Get the number of themes
+         *
+         * @return int 
+         * @static 
+         */
+        public static function count(){
+            return \Laradic\Themes\ThemeFactory::count();
+        }
+        
+        /**
+         * addNamespace
+         *
+         * @param $id
+         * @param $dirName
          * @static 
          */
         public static function addNamespace($id, $dirName){
@@ -15084,8 +15149,10 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * getPath
          *
+         * @param $type
+         * @return mixed 
          * @static 
          */
         public static function getPath($type){
@@ -15093,8 +15160,13 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * getCascadedPaths
          *
+         * @param $cascadeType
+         * @param null $cascadeName
+         * @param null $pathType
+         * @param null $theme
+         * @return array 
          * @static 
          */
         public static function getCascadedPaths($cascadeType, $cascadeName = null, $pathType = null, $theme = null){
@@ -15102,8 +15174,11 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * addPackagePublisher
          *
+         * @param $package
+         * @param $sourcePath
+         * @param null $theme
          * @static 
          */
         public static function addPackagePublisher($package, $sourcePath, $theme = null){
@@ -15111,8 +15186,11 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * addNamespacePublisher
          *
+         * @param $namespace
+         * @param $sourcePath
+         * @param null $theme
          * @static 
          */
         public static function addNamespacePublisher($namespace, $sourcePath, $theme = null){
@@ -15120,8 +15198,9 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * publish
          *
+         * @param null $namespaceOrPackage
          * @static 
          */
         public static function publish($namespaceOrPackage = null){
@@ -15139,7 +15218,7 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * boot
          *
          * @static 
          */
@@ -15148,8 +15227,9 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * getApplication
          *
+         * @return \Illuminate\Contracts\Foundation\Application 
          * @static 
          */
         public static function getApplication(){
@@ -15157,8 +15237,10 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * setApplication
          *
+         * @param \Illuminate\Contracts\Foundation\Application $app
+         * @return $this 
          * @static 
          */
         public static function setApplication($app){
@@ -15166,9 +15248,9 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * getFinder
          *
-         * @return \Laradic\Themes\ThemeViewFinder 
+         * @return \Illuminate\View\ViewFinderInterface 
          * @static 
          */
         public static function getFinder(){
@@ -15176,8 +15258,10 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * setFinder
          *
+         * @param \Laradic\Themes\ThemeViewFinder $finder
+         * @return $this 
          * @static 
          */
         public static function setFinder($finder){
@@ -15185,8 +15269,9 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * getFiles
          *
+         * @return \Illuminate\Filesystem\Filesystem 
          * @static 
          */
         public static function getFiles(){
@@ -15194,8 +15279,10 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * setFiles
          *
+         * @param $files
+         * @return $this 
          * @static 
          */
         public static function setFiles($files){
@@ -15203,17 +15290,10 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * offsetExists
          *
-         * @static 
-         */
-        public static function count(){
-            return \Laradic\Themes\ThemeFactory::count();
-        }
-        
-        /**
-         * 
-         *
+         * @param mixed $key
+         * @return bool 
          * @static 
          */
         public static function offsetExists($key){
@@ -15221,8 +15301,10 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * offsetGet
          *
+         * @param mixed $key
+         * @return mixed 
          * @static 
          */
         public static function offsetGet($key){
@@ -15230,8 +15312,10 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * offsetSet
          *
+         * @param mixed $key
+         * @param mixed $value
          * @static 
          */
         public static function offsetSet($key, $value){
@@ -15239,8 +15323,9 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * offsetUnset
          *
+         * @param mixed $key
          * @static 
          */
         public static function offsetUnset($key){
@@ -15248,8 +15333,9 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * getIterator
          *
+         * @return \ArrayIterator 
          * @static 
          */
         public static function getIterator(){
@@ -15450,14 +15536,35 @@ if ( ! function_exists('with'))
          *
          * @param $id
          * @param $value
-         * @param $link
+         * @param null $parent
+         * @param string $link
          * @param bool $authenticated
          * @param array $permissions
-         * @return $this 
+         * @return \Laradic\Admin\Navigation\Node 
          * @static 
          */
-        public static function add($id, $value, $link, $authenticated = false, $permissions = array()){
-            return \Laradic\Admin\Navigation\Factory::add($id, $value, $link, $authenticated, $permissions);
+        public static function add($id, $value, $parent = null, $link = '#', $authenticated = false, $permissions = array()){
+            return \Laradic\Admin\Navigation\Factory::add($id, $value, $parent, $link, $authenticated, $permissions);
+        }
+        
+        /**
+         * get
+         *
+         * @param $id
+         * @return \Laradic\Admin\Navigation\Node 
+         * @static 
+         */
+        public static function get($id){
+            return \Laradic\Admin\Navigation\Factory::get($id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function render($id, $view = null){
+            return \Laradic\Admin\Navigation\Factory::render($id, $view);
         }
         
         /**
@@ -15488,27 +15595,6 @@ if ( ! function_exists('with'))
          */
         public static function setSentry($sentry){
             return \Laradic\Admin\Navigation\Factory::setSentry($sentry);
-        }
-        
-        /**
-         * Get the value of tree
-         *
-         * @return \Laradic\Admin\Navigation\Node 
-         * @static 
-         */
-        public static function getTree(){
-            return \Laradic\Admin\Navigation\Factory::getTree();
-        }
-        
-        /**
-         * Sets the value of tree
-         *
-         * @param \Laradic\Admin\Navigation\Node $tree
-         * @return $this 
-         * @static 
-         */
-        public static function setTree($tree){
-            return \Laradic\Admin\Navigation\Factory::setTree($tree);
         }
         
         /**

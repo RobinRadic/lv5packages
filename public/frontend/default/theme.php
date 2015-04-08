@@ -26,6 +26,8 @@ return [
     },
     'boot'     => function (Application $app, Theme $theme)
     {
+        $app->make('blade.widgets')->create('test');
+
         $app->log->info('Booting theme: ' . $theme->getSlug());
         $themes = Themes::count();
         Asset::group('base')

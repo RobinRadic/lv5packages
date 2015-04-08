@@ -1,9 +1,10 @@
 @extends('laradic/admin::layouts.default')
 
+
 @section('page-title')
     Dashboard
 @stop
 @section('content')
-    asfd
+    asfdhksdf
     @widget('test', 'Hello test')
 @stop

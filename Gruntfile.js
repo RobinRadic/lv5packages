@@ -20,13 +20,14 @@ module.exports = function( grunt ){
         return 'php vendor/bin/Distiller "\\' + packagePath + '\\' + classPath + '" "' + packagePath + '\\' + interfacePath + '" --bootstrap vendor/autoload.php --excludeInheritedMethods --excludeMagicMethods --saveAs ' + filePath
     }
 
+
     var cfg = {
         config        : {
             theme: 'lib/theme',
             src  : 'lib/theme/theme',
             dest : 'extensions/laradic/packadic/resources/theme'
         },
-        target: config.targets.site,
+        target        : config.targets.site,
         clean         : {
             assets: {src: '<%= config.dest %>/assets'}
         },
@@ -74,9 +75,6 @@ module.exports = function( grunt ){
             },
             contract_docs_factory: {
                 command: interfaceGenerator("Radic\\Docs", "Factory", "Contracts\\Factory", "radic/docs/src/Contracts/Factory.php")
-            },
-            themes_publish: {
-                command: 'php artisan themes:publish'
             }
         },
         availabletasks: {
@@ -93,25 +91,28 @@ module.exports = function( grunt ){
             }
         },
         watch         : {
-            options     : {livereload: true},
-            /*
-            docs_project: {
-                files: [ 'radic/docs/src/Projects/AbstractProject.php' ],
-                tasks: [ 'shell:contract_docs_project' ]
-            },
-            docs_factory: {
-                files: [ 'radic/docs/src/Factory.php' ],
-                tasks: [ 'shell:contract_docs_factory' ]
-            }
-            */
+            options          : {livereload: true},
             themes_publishers: {
-                files: ['Laradic/*/resources/theme/**', 'extensions/*/*/resources/theme/**'],
-                tasks: ['shell:themes_publish']
+                files: [ 'Laradic/*/resources/theme/**', 'extensions/*/*/resources/theme/**' ]
             }
         }
 
     };
 
+
+    grunt.event.on('watch', function( action, filepath, target ){
+        if( target !== 'themes_publishers' ){
+            return;
+        }
+        var segments = filepath.split('/');
+        var task = 'shell:themes_publish';
+        var themesPublishNamespace = '';
+        if( segments[ 0 ] == 'extensions' && segments[ 4 ] == 'theme' && segments[ 5 ] == 'views' && segments[ 6 ] == 'navigation' ){
+            themesPublishNamespace =  segments[ 1 ] + '/' + segments[ 2 ];
+        }
+        process.stdout.write(radic.sh.execSync('php artisan themes:publish ' + themesPublishNamespace).stdout)
+
+    });
     require('load-grunt-tasks')(grunt);
     require('time-grunt')(grunt);
 
