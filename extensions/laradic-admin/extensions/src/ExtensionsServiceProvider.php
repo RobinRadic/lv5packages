@@ -7,6 +7,7 @@ namespace LaradicAdmin\Extensions;
 use Debugger;
 use Illuminate\Routing\Route;
 use Laradic\Support\ServiceProvider;
+use Laradic\Themes\Traits\ThemeProviderTrait;
 
 /**
  * Class ExtensionsProvider
@@ -19,6 +20,8 @@ use Laradic\Support\ServiceProvider;
  */
 class ExtensionsServiceProvider extends ServiceProvider
 {
+    use ThemeProviderTrait;
+
     protected $providers = [
         'LaradicAdmin\Extensions\Providers\RouteServiceProvider'
     ];
@@ -27,16 +30,14 @@ class ExtensionsServiceProvider extends ServiceProvider
     {
         /** @var \Illuminate\Contracts\Foundation\Application $app */
         $app = parent::boot();
+        $this->addPackagePublisher('laradic-admin/extensions', __DIR__ . '/../resources/theme');
+
+        require_once __DIR__ . '/Http/navigation.php';
     }
 
     public function register()
     {
         /** @var \Illuminate\Foundation\Application $app */
         $app = parent::register();
-        Debugger::log('extensions service provider register', $app->getBindings());
-        #$nav = $app->make('navigation');
-
-   #     $nav->add('admin-extensions', 'Extensions', 'a');
-
     }
 }

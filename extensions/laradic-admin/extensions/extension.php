@@ -13,10 +13,6 @@ return array(
     ],
     'register'     => function (Application $app, Extension $extension, ExtensionCollection $extensions)
     {
-        Debugger::log('extensions list', [
-            'extensions' => Extensions::all(),
-            'bindings'   => $app->getBindings()
-        ]);
         $app->register('LaradicAdmin\Extensions\ExtensionsServiceProvider');
     },
     'boot'         => function (Application $app, Extension $extension, ExtensionCollection $extensions)
