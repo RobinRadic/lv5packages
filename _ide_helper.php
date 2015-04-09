@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.18 on 2015-04-08.
+ * Generated for Laravel 5.0.18 on 2015-04-09.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -15340,55 +15340,6 @@ if ( ! function_exists('with'))
          */
         public static function getIterator(){
             return \Laradic\Themes\ThemeFactory::getIterator();
-        }
-        
-    }
-
-
-    class Widgets extends \Laradic\Themes\Facades\Widgets{
-        
-        /**
-         * Registers a widget
-         *
-         * @param $name
-         * @param callable $callback
-         * @static 
-         */
-        public static function create($name, $callback){
-            return \Laradic\Themes\Widgets::create($name, $callback);
-        }
-        
-        /**
-         * Checks if a widget exists, optionally throwing an exception if not found
-         *
-         * @param $name
-         * @param bool $throwException
-         * @return bool 
-         * @static 
-         */
-        public static function exists($name, $throwException = false){
-            return \Laradic\Themes\Widgets::exists($name, $throwException);
-        }
-        
-        /**
-         * Registers the @widget directive
-         *
-         * @static 
-         */
-        public static function registerDirectives(){
-            return \Laradic\Themes\Widgets::registerDirectives();
-        }
-        
-        /**
-         * Renders a widget
-         *
-         * @param string $name the widget name
-         * @param mixed $param,...
-         * @return string The rendered widget
-         * @static 
-         */
-        public static function render($name, $param){
-            return \Laradic\Themes\Widgets::render($name, $param);
         }
         
     }

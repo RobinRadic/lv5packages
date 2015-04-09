@@ -34,7 +34,7 @@
         "ccampbell/chromephp": "~4.1",
         "firephp/firephp-core": "0.4.*",
         "naneau/semver": "0.0.7.*",
-        "radic/tmp-underscore-php": "dev-master",
+        "radic/tmp-underscore-php": "1.3.2",
         "soapbox/laravel-formatter": "~2.0",
         "orchestra/foundation": "3.0.*",
         "theseer/phpdox": "0.7.*",
@@ -77,7 +77,8 @@
             "Laradic\\Admin\\": "extensions/laradic/admin/src",
             "LaradicAdmin\\Extensions\\": "extensions/laradic-admin/extensions/src",
             "Laradic\\Docit\\": "extensions/laradic/docit/src",
-            "Laradic\\Packadic\\": "extensions/laradic/packadic/src"
+            "Laradic\\Packadic\\": "extensions/laradic/packadic/src",
+            "Anigrab\\": "Anigrab"
         }
     },
     "autoload-dev": {
