@@ -18,3 +18,7 @@ Route::get('blade-widgets', function(){
 
     return View::make('blade-widgets');
 });
+
+
+Route::get('test/themes', 'TestController@themes');
+Route::get('test/themes2', 'TestController@themes2');

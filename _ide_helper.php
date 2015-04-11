@@ -15397,6 +15397,24 @@ if ( ! function_exists('with'))
         }
         
         /**
+         * 
+         *
+         * @static 
+         */
+        public static function style($assetPath = ''){
+            return \Laradic\Themes\Assets\AssetFactory::style($assetPath);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function script($assetPath = ''){
+            return \Laradic\Themes\Assets\AssetFactory::script($assetPath);
+        }
+        
+        /**
          * group
          *
          * @param $name
