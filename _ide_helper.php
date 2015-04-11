@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.18 on 2015-04-09.
+ * Generated for Laravel 5.0.18 on 2015-04-11.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13386,12 +13386,37 @@ if ( ! function_exists('with'))
     }
 
 
+    interface navigation extends \Laradic\Themes\Contracts\NavigationFactory{
+        
+    }
+
+
     interface extensions extends \Laradic\Extensions\Contracts\Extensions{
         
     }
 
 
     class Extensions extends \Laradic\Extensions\Facades\Extensions{
+        
+        /**
+         * get
+         *
+         * @param mixed $slug
+         * @return \Laradic\Extensions\Extension 
+         * @static 
+         */
+        public static function get($slug){
+            return \Laradic\Extensions\ExtensionCollection::get($slug);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function isInstalled($slug){
+            return \Laradic\Extensions\ExtensionCollection::isInstalled($slug);
+        }
         
         /**
          * 
@@ -13645,19 +13670,6 @@ if ( ! function_exists('with'))
         public static function forget($key){
             //Method inherited from \Illuminate\Support\Collection            
             \Laradic\Extensions\ExtensionCollection::forget($key);
-        }
-        
-        /**
-         * Get an item from the collection by key.
-         *
-         * @param mixed $key
-         * @param mixed $default
-         * @return mixed 
-         * @static 
-         */
-        public static function get($key, $default = null){
-            //Method inherited from \Illuminate\Support\Collection            
-            return \Laradic\Extensions\ExtensionCollection::get($key, $default);
         }
         
         /**
@@ -15107,6 +15119,15 @@ if ( ! function_exists('with'))
         }
         
         /**
+         * 
+         *
+         * @static 
+         */
+        public static function all(){
+            return \Laradic\Themes\ThemeFactory::all();
+        }
+        
+        /**
          * Get a theme with the provided slug
          *
          * @return \Laradic\Themes\Theme 
@@ -15367,6 +15388,15 @@ if ( ! function_exists('with'))
         }
         
         /**
+         * 
+         *
+         * @static 
+         */
+        public static function uri($assetPath = ''){
+            return \Laradic\Themes\Assets\AssetFactory::uri($assetPath);
+        }
+        
+        /**
          * group
          *
          * @param $name
@@ -15480,7 +15510,7 @@ if ( ! function_exists('with'))
     }
 
 
-    class Navigation extends \Laradic\Admin\Facades\Navigation{
+    class Navigation extends \Laradic\Themes\Facades\Navigation{
         
         /**
          * add
@@ -15491,22 +15521,22 @@ if ( ! function_exists('with'))
          * @param string $link
          * @param bool $authenticated
          * @param array $permissions
-         * @return \Laradic\Admin\Navigation\Node 
+         * @return \Laradic\Themes\Navigation\Node 
          * @static 
          */
         public static function add($id, $value, $parent = null, $link = '#', $authenticated = false, $permissions = array()){
-            return \Laradic\Admin\Navigation\Factory::add($id, $value, $parent, $link, $authenticated, $permissions);
+            return \Laradic\Themes\Navigation\Factory::add($id, $value, $parent, $link, $authenticated, $permissions);
         }
         
         /**
          * get
          *
          * @param $id
-         * @return \Laradic\Admin\Navigation\Node 
+         * @return \Laradic\Themes\Navigation\Node 
          * @static 
          */
         public static function get($id){
-            return \Laradic\Admin\Navigation\Factory::get($id);
+            return \Laradic\Themes\Navigation\Factory::get($id);
         }
         
         /**
@@ -15515,7 +15545,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function render($id, $view = null){
-            return \Laradic\Admin\Navigation\Factory::render($id, $view);
+            return \Laradic\Themes\Navigation\Factory::render($id, $view);
         }
         
         /**
@@ -15524,7 +15554,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function registerBreadcrumbs($crumbs, $parent = null){
-            return \Laradic\Admin\Navigation\Factory::registerBreadcrumbs($crumbs, $parent);
+            return \Laradic\Themes\Navigation\Factory::registerBreadcrumbs($crumbs, $parent);
         }
         
         /**
@@ -15534,7 +15564,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function getSentry(){
-            return \Laradic\Admin\Navigation\Factory::getSentry();
+            return \Laradic\Themes\Navigation\Factory::getSentry();
         }
         
         /**
@@ -15545,7 +15575,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function setSentry($sentry){
-            return \Laradic\Admin\Navigation\Factory::setSentry($sentry);
+            return \Laradic\Themes\Navigation\Factory::setSentry($sentry);
         }
         
         /**
@@ -15555,7 +15585,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function getGenerator(){
-            return \Laradic\Admin\Navigation\Factory::getGenerator();
+            return \Laradic\Themes\Navigation\Factory::getGenerator();
         }
         
         /**
@@ -15566,7 +15596,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function setGenerator($generator){
-            return \Laradic\Admin\Navigation\Factory::setGenerator($generator);
+            return \Laradic\Themes\Navigation\Factory::setGenerator($generator);
         }
         
     }
@@ -15575,12 +15605,14 @@ if ( ! function_exists('with'))
     class Projects extends \Laradic\Docit\Facades\Projects{
         
         /**
-         * 
+         * all
          *
+         * @param bool $bySlug
+         * @return array|\Laradic\Docit\Project[] 
          * @static 
          */
         public static function all($bySlug = false){
-            return \Laradic\Docit\ProjectFactory::all($bySlug);
+            return \Laradic\Docit\Projects\ProjectFactory::all($bySlug);
         }
         
         /**
@@ -15589,7 +15621,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function has($slug){
-            return \Laradic\Docit\ProjectFactory::has($slug);
+            return \Laradic\Docit\Projects\ProjectFactory::has($slug);
         }
         
         /**
@@ -15598,7 +15630,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function get($slug){
-            return \Laradic\Docit\ProjectFactory::get($slug);
+            return \Laradic\Docit\Projects\ProjectFactory::get($slug);
         }
         
         /**
@@ -15607,7 +15639,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function slugs(){
-            return \Laradic\Docit\ProjectFactory::slugs();
+            return \Laradic\Docit\Projects\ProjectFactory::slugs();
         }
         
         /**
@@ -15616,7 +15648,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function make($slug){
-            return \Laradic\Docit\ProjectFactory::make($slug);
+            return \Laradic\Docit\Projects\ProjectFactory::make($slug);
         }
         
         /**
@@ -15625,7 +15657,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function path(){
-            return \Laradic\Docit\ProjectFactory::path();
+            return \Laradic\Docit\Projects\ProjectFactory::path();
         }
         
         /**
@@ -15634,7 +15666,17 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function url($project = null, $version = null, $page = null){
-            return \Laradic\Docit\ProjectFactory::url($project, $version, $page);
+            return \Laradic\Docit\Projects\ProjectFactory::url($project, $version, $page);
+        }
+        
+        /**
+         * Get the value of config
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getConfig(){
+            return \Laradic\Docit\Projects\ProjectFactory::getConfig();
         }
         
     }

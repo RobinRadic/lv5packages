@@ -39,5 +39,6 @@ class ExtensionsServiceProvider extends ServiceProvider
     {
         /** @var \Illuminate\Foundation\Application $app */
         $app = parent::register();
+
     }
 }

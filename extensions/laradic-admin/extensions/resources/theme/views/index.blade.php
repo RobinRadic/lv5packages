@@ -54,7 +54,7 @@
                                                 <a href="{{ route('laradic.admin.extensions.remove', $params) }}" data-toggle="confirmation" class="btn btn-danger">Remove</a>
                                             @else
                                                 @if($extension->canUninstall())
-                                                    <a href="{{ route('laradic.admin.extensions.uninstall', $params) }}" class="btn btn-warning">Uninstall</a>
+                                                    <a href="{{ route('laradic.admin.extensions.uninstall', $params) }}"  data-toggle="confirmation" class="btn btn-warning">Uninstall</a>
                                                 @else
                                                     <div class="btn-disabled-wrapper" tabindex="0"
                                                          title="Cannot uninstall"

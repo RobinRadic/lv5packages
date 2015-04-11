@@ -75,6 +75,9 @@ module.exports = function( grunt ){
             },
             contract_docs_factory: {
                 command: interfaceGenerator("Radic\\Docs", "Factory", "Contracts\\Factory", "radic/docs/src/Contracts/Factory.php")
+            },
+            themes_publish: {
+                command: 'php artisan themes:publish'
             }
         },
         availabletasks: {
@@ -110,6 +113,10 @@ module.exports = function( grunt ){
         if( segments[ 0 ] == 'extensions' && segments[ 4 ] == 'theme' && segments[ 5 ] == 'views' && segments[ 6 ] == 'navigation' ){
             themesPublishNamespace =  segments[ 1 ] + '/' + segments[ 2 ];
         }
+        if(themesPublishNamespace == 'laradic/packadic')
+        {
+            themesPublishNamespace = 'theme';
+        }
         process.stdout.write(radic.sh.execSync('php artisan themes:publish ' + themesPublishNamespace).stdout)
 
     });
@@ -118,7 +125,7 @@ module.exports = function( grunt ){
 
     grunt.initConfig(cfg);
 
-    grunt.registerTask('assets', [ 'copy:activate_my_config_rb', 'subgrunt:assets', 'clean:assets', 'copy:assets', 'copy:activate_theme_config_rb', 'notify_hooks' ]);
+    grunt.registerTask('assets', [ 'copy:activate_my_config_rb', 'subgrunt:assets', 'clean:assets', 'copy:assets', 'copy:activate_theme_config_rb', 'notify_hooks', 'shell:themes_publish' ]);
     grunt.registerTask('views', [ 'copy:activate_my_config_rb', 'subgrunt:views', 'copy:site_data', 'copy:activate_theme_config_rb', 'notify_hooks' ]);
     grunt.registerTask('build', [ 'copy:activate_my_config_rb', 'subgrunt:build', 'clean:assets', 'copy:assets', 'copy:site_data', 'copy:activate_theme_config_rb', 'notify_hooks' ]);
     grunt.registerTask('tasks', function(){
