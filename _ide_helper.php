@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.18 on 2015-04-11.
+ * Generated for Laravel 5.0.18 on 2015-04-18.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -5641,6 +5641,30 @@ if ( ! function_exists('with'))
     class File extends \Illuminate\Support\Facades\File{
         
         /**
+         * Recursive glob
+         *
+         * @param $pattern
+         * @param int $flags
+         * @return array 
+         * @static 
+         */
+        public static function rglob($pattern, $flags = 0){
+            return \Laradic\Support\Filesystem::rglob($pattern, $flags);
+        }
+        
+        /**
+         * Search the folder recursively for files using regular expressions
+         *
+         * @param $folder
+         * @param $pattern
+         * @return array 
+         * @static 
+         */
+        public static function rsearch($folder, $pattern){
+            return \Laradic\Support\Filesystem::rsearch($folder, $pattern);
+        }
+        
+        /**
          * Determine if a file exists.
          *
          * @param string $path
@@ -5648,7 +5672,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function exists($path){
-            return \Illuminate\Filesystem\Filesystem::exists($path);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::exists($path);
         }
         
         /**
@@ -5660,7 +5685,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function get($path){
-            return \Illuminate\Filesystem\Filesystem::get($path);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::get($path);
         }
         
         /**
@@ -5672,7 +5698,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function getRequire($path){
-            return \Illuminate\Filesystem\Filesystem::getRequire($path);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::getRequire($path);
         }
         
         /**
@@ -5683,7 +5710,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function requireOnce($file){
-            return \Illuminate\Filesystem\Filesystem::requireOnce($file);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::requireOnce($file);
         }
         
         /**
@@ -5696,7 +5724,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function put($path, $contents, $lock = false){
-            return \Illuminate\Filesystem\Filesystem::put($path, $contents, $lock);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::put($path, $contents, $lock);
         }
         
         /**
@@ -5708,7 +5737,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function prepend($path, $data){
-            return \Illuminate\Filesystem\Filesystem::prepend($path, $data);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::prepend($path, $data);
         }
         
         /**
@@ -5720,7 +5750,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function append($path, $data){
-            return \Illuminate\Filesystem\Filesystem::append($path, $data);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::append($path, $data);
         }
         
         /**
@@ -5731,7 +5762,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function delete($paths){
-            return \Illuminate\Filesystem\Filesystem::delete($paths);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::delete($paths);
         }
         
         /**
@@ -5743,7 +5775,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function move($path, $target){
-            return \Illuminate\Filesystem\Filesystem::move($path, $target);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::move($path, $target);
         }
         
         /**
@@ -5755,7 +5788,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function copy($path, $target){
-            return \Illuminate\Filesystem\Filesystem::copy($path, $target);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::copy($path, $target);
         }
         
         /**
@@ -5766,7 +5800,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function name($path){
-            return \Illuminate\Filesystem\Filesystem::name($path);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::name($path);
         }
         
         /**
@@ -5777,7 +5812,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function extension($path){
-            return \Illuminate\Filesystem\Filesystem::extension($path);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::extension($path);
         }
         
         /**
@@ -5788,7 +5824,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function type($path){
-            return \Illuminate\Filesystem\Filesystem::type($path);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::type($path);
         }
         
         /**
@@ -5799,7 +5836,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function mimeType($path){
-            return \Illuminate\Filesystem\Filesystem::mimeType($path);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::mimeType($path);
         }
         
         /**
@@ -5810,7 +5848,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function size($path){
-            return \Illuminate\Filesystem\Filesystem::size($path);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::size($path);
         }
         
         /**
@@ -5821,7 +5860,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function lastModified($path){
-            return \Illuminate\Filesystem\Filesystem::lastModified($path);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::lastModified($path);
         }
         
         /**
@@ -5832,7 +5872,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function isDirectory($directory){
-            return \Illuminate\Filesystem\Filesystem::isDirectory($directory);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::isDirectory($directory);
         }
         
         /**
@@ -5843,7 +5884,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function isWritable($path){
-            return \Illuminate\Filesystem\Filesystem::isWritable($path);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::isWritable($path);
         }
         
         /**
@@ -5854,7 +5896,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function isFile($file){
-            return \Illuminate\Filesystem\Filesystem::isFile($file);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::isFile($file);
         }
         
         /**
@@ -5866,7 +5909,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function glob($pattern, $flags = 0){
-            return \Illuminate\Filesystem\Filesystem::glob($pattern, $flags);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::glob($pattern, $flags);
         }
         
         /**
@@ -5877,7 +5921,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function files($directory){
-            return \Illuminate\Filesystem\Filesystem::files($directory);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::files($directory);
         }
         
         /**
@@ -5888,7 +5933,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function allFiles($directory){
-            return \Illuminate\Filesystem\Filesystem::allFiles($directory);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::allFiles($directory);
         }
         
         /**
@@ -5899,7 +5945,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function directories($directory){
-            return \Illuminate\Filesystem\Filesystem::directories($directory);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::directories($directory);
         }
         
         /**
@@ -5913,7 +5960,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function makeDirectory($path, $mode = 493, $recursive = false, $force = false){
-            return \Illuminate\Filesystem\Filesystem::makeDirectory($path, $mode, $recursive, $force);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::makeDirectory($path, $mode, $recursive, $force);
         }
         
         /**
@@ -5926,7 +5974,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function copyDirectory($directory, $destination, $options = null){
-            return \Illuminate\Filesystem\Filesystem::copyDirectory($directory, $destination, $options);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::copyDirectory($directory, $destination, $options);
         }
         
         /**
@@ -5940,7 +5989,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function deleteDirectory($directory, $preserve = false){
-            return \Illuminate\Filesystem\Filesystem::deleteDirectory($directory, $preserve);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::deleteDirectory($directory, $preserve);
         }
         
         /**
@@ -5951,7 +6001,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function cleanDirectory($directory){
-            return \Illuminate\Filesystem\Filesystem::cleanDirectory($directory);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::cleanDirectory($directory);
         }
         
         /**
@@ -5963,7 +6014,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function macro($name, $macro){
-            \Illuminate\Filesystem\Filesystem::macro($name, $macro);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            \Laradic\Support\Filesystem::macro($name, $macro);
         }
         
         /**
@@ -5974,7 +6026,8 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function hasMacro($name){
-            return \Illuminate\Filesystem\Filesystem::hasMacro($name);
+            //Method inherited from \Illuminate\Filesystem\Filesystem            
+            return \Laradic\Support\Filesystem::hasMacro($name);
         }
         
     }
@@ -13401,7 +13454,7 @@ if ( ! function_exists('with'))
         /**
          * get
          *
-         * @param mixed $slug
+         * @param string $slug
          * @return \Laradic\Extensions\Extension 
          * @static 
          */
@@ -13410,8 +13463,21 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * getTemplateParser
          *
+         * @param null $sourcePath
+         * @return \Laradic\Support\TemplateParser 
+         * @static 
+         */
+        public static function getTemplateParser($sourcePath = null){
+            return \Laradic\Extensions\ExtensionCollection::getTemplateParser($sourcePath);
+        }
+        
+        /**
+         * Checks if an extension is installed
+         *
+         * @param $slug
+         * @return bool 
          * @static 
          */
         public static function isInstalled($slug){
@@ -13419,8 +13485,9 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * Adds a path to include while searching for extensions
          *
+         * @param string $path The absolute path to the directory
          * @static 
          */
         public static function addPath($path){
@@ -13428,8 +13495,11 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * Creates an extension instance using the extension.php file
          *
+         * @param string $extensionFilePath Path to the extension.php file
+         * @return \Laradic\Extensions\Extension 
+         * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
          * @static 
          */
         public static function createFromFile($extensionFilePath){
@@ -13437,8 +13507,9 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * Finds all extensions and registers them
          *
+         * @return $this 
          * @static 
          */
         public static function locateAndRegisterAll(){
@@ -13446,8 +13517,10 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * register
          *
+         * @param \Laradic\Extensions\Extension|string $extension An Extension instance or extension slug
+         * @return $this 
          * @static 
          */
         public static function register($extension){
@@ -13455,8 +13528,9 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * Sorts all registered extensions by dependency
          *
+         * @return $this 
          * @static 
          */
         public static function sortByDependencies(){
@@ -15401,8 +15475,8 @@ if ( ! function_exists('with'))
          *
          * @static 
          */
-        public static function style($assetPath = ''){
-            return \Laradic\Themes\Assets\AssetFactory::style($assetPath);
+        public static function style($assetPath = '', $attributes = array(), $secure = false){
+            return \Laradic\Themes\Assets\AssetFactory::style($assetPath, $attributes, $secure);
         }
         
         /**
@@ -15410,8 +15484,8 @@ if ( ! function_exists('with'))
          *
          * @static 
          */
-        public static function script($assetPath = ''){
-            return \Laradic\Themes\Assets\AssetFactory::script($assetPath);
+        public static function script($assetPath = '', $attributes = array(), $secure = false){
+            return \Laradic\Themes\Assets\AssetFactory::script($assetPath, $attributes, $secure);
         }
         
         /**

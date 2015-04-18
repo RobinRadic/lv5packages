@@ -53,7 +53,8 @@
         "rydurham/sentinel": "~2.1",
         "davejamesmiller/laravel-breadcrumbs": "~3.0",
         "composer-plugin-api": "~1.0",
-        "nicmart/tree": "0.2.*"
+        "nicmart/tree": "0.2.*",
+        "league/oauth2-client": "0.10.*"
     },
     "replace": {
         "laradic/admin": "self.version",

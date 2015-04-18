@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
         $viewFiles = $fs->glob(storage_path('framework/views/*'));
         #$fs->delete($viewFiles);
 
+        $app->register('Laradic\Support\SupportServiceProvider');
         $app->register('Collective\Html\HtmlServiceProvider');
         $app->register('Laradic\Config\ConfigServiceProvider');
         $app->register('Laradic\Debug\DebugServiceProvider');

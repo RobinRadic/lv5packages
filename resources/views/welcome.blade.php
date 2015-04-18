@@ -39,7 +39,7 @@
 		<div class="container">
 			<div class="content">
 				<div class="title">Laravel 5</div>
-                <a href="{{ URL::to(Config::get('laradic_docit.base_route')) }}">DocIt</a>
+                <a href="{{ URL::to(Config::get('laradic/docit::base_route')) }}">DocIt</a>
                 <a href="{{ URL::to('admin') }}">Admin</a>
 				<div class="quote">{{ Inspiring::quote() }}</div>
 			</div>

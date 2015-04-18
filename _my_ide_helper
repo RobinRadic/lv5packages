@@ -17,7 +17,7 @@ namespace IdeHelper
 
         /** @var \Illuminate\Routing\UrlGenerator */
         public $url;
-
+   c
         /** @var \Illuminate\Routing\Redirector */
         public $redirect;
 
