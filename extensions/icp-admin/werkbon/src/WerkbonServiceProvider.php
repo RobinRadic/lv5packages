@@ -39,7 +39,7 @@ class WerkbonServiceProvider extends ServiceProvider
 
         if($app->runningInConsole())
         {
-            $app->register('IcpAdmin\Werkbon\Console\ConsoleServiceProvider');
+            $app->register('IcpAdmin\Werkbon\Providers\ConsoleServiceProvider');
         }
     }
 }

@@ -1,4 +1,4 @@
-<?php namespace Laradic\Docit\Console;
+<?php namespace IcpAdmin\Werkbon\Console;
 
 use Laradic\Support\AbstractConsoleCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -13,6 +13,9 @@ class StubCommand extends AbstractConsoleCommand
 
     public function fire()
     {
+        #$extensions = app('extensions');
+        #$repository = app('extensions.repository');
+        $this->dump(app()->getBindings());
         $this->info('Replace this stub command with an actual command');
     }
 
@@ -26,7 +29,7 @@ class StubCommand extends AbstractConsoleCommand
     public function getOptions()
     {
         return [
-            ['opt', InputOption::VALUE_OPTIONAL, 'Description']
+            ['opt', 'o', InputOption::VALUE_OPTIONAL, 'Description']
         ];
     }
 }

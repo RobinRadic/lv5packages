@@ -5,15 +5,15 @@ use Laradic\Extensions\Extension;
 use Laradic\Extensions\ExtensionFactory;
 
 return array(
-    'name'         => 'Extensions',
-    'slug'         => 'laradic-admin/extensions',
+    'name'         => 'Github Editor',
+    'slug'         => 'laradic-admin/github-editor',
     'dependencies' => [
         'laradic/packadic',
         'laradic/admin'
     ],
     'register'     => function (Application $app, Extension $extension, ExtensionFactory $extensions)
     {
-        $app->register('LaradicAdmin\Extensions\ExtensionsServiceProvider');
+        $app->register('LaradicAdmin\GithubEditor\GithubEditorServiceProvider');
     },
     'boot'         => function (Application $app, Extension $extension, ExtensionFactory $extensions)
     {

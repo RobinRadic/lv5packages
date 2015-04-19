@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "37359ef32025e1471e1b9c6847b1d878",
+    "hash": "7f56e76837cc6c866a0efd2e4ab43c3e",
     "packages": [
         {
             "name": "andrewsville/php-token-reflection",
@@ -2455,6 +2455,50 @@
                 "parser"
             ],
             "time": "2013-12-11 11:14:26"
+        },
+        {
+            "name": "laracasts/generators",
+            "version": "1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/Laravel-5-Generators-Extended.git",
+                "reference": "f1596fa3afc26221fc83549989769322f5cc162d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/Laravel-5-Generators-Extended/zipball/f1596fa3afc26221fc83549989769322f5cc162d",
+                "reference": "f1596fa3afc26221fc83549989769322f5cc162d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Laracasts\\Generators\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Extend Laravel 5's generators.",
+            "keywords": [
+                "generators",
+                "laravel"
+            ],
+            "time": "2015-03-02 19:20:34"
         },
         {
             "name": "laravel/framework",
@@ -6162,16 +6206,16 @@
         },
         {
             "name": "rydurham/sentinel",
-            "version": "v2.1.2",
+            "version": "v2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rydurham/Sentinel.git",
-                "reference": "f4310c2cccd9871d8dd837414aaa8c037b0be82e"
+                "reference": "9e33d41f801c9916975b76c57c85977f45c25863"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rydurham/Sentinel/zipball/f4310c2cccd9871d8dd837414aaa8c037b0be82e",
-                "reference": "f4310c2cccd9871d8dd837414aaa8c037b0be82e",
+                "url": "https://api.github.com/repos/rydurham/Sentinel/zipball/9e33d41f801c9916975b76c57c85977f45c25863",
+                "reference": "9e33d41f801c9916975b76c57c85977f45c25863",
                 "shasum": ""
             },
             "require": {
@@ -6213,7 +6257,7 @@
                 "laravel",
                 "sentry"
             ],
-            "time": "2015-03-22 01:22:05"
+            "time": "2015-04-03 03:00:15"
         },
         {
             "name": "seld/jsonlint",

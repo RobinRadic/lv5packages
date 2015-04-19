@@ -54,7 +54,8 @@
         "davejamesmiller/laravel-breadcrumbs": "~3.0",
         "composer-plugin-api": "~1.0",
         "nicmart/tree": "0.2.*",
-        "league/oauth2-client": "0.10.*"
+        "league/oauth2-client": "0.10.*",
+        "laracasts/generators": "~1.1"
     },
     "replace": {
         "laradic/admin": "self.version",
@@ -64,7 +65,8 @@
         "laradic/docit": "self.version",
         "laradic/support": "self.version",
         "laradic/themes": "self.version",
-        "laradic/extensions": "self.version"
+        "laradic/extensions": "self.version",
+        "laradic/generators": "self.version"
     },
     "autoload": {
         "classmap": [
@@ -80,7 +82,8 @@
             "Laradic\\Docit\\": "extensions/laradic/docit/src",
             "Laradic\\Packadic\\": "extensions/laradic/packadic/src",
             "Anigrab\\": "Anigrab",
-            "LaradicAdmin\\GithubEditor\\": "extensions/laradic-admin/github-editor/src"
+            "LaradicAdmin\\GithubEditor\\": "extensions/laradic-admin/github-editor/src",
+            "IcpAdmin\\Werkbon\\": "extensions/icp-admin/werkbon/src"
         }
     },
     "autoload-dev": {
