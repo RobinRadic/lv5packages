@@ -12,6 +12,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Themes::addNamespace('theme', 'theme');
+    #    Themes::addNamespace('field-types', 'field-types');
       #  $this->app->make('cache');
 
     }
@@ -39,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
         AliasLoader::getInstance()->alias('Form', 'Collective\Html\FormFacade');
         AliasLoader::getInstance()->alias('HTML', 'Collective\Html\HtmlFacade');
 
-
+        if($app->runningInConsole())
+        {
+         #   $app->register('App\Providers\ConsoleServiceProvider');
+        }
     }
 }

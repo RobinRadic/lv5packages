@@ -96,7 +96,7 @@ module.exports = function( grunt ){
         watch         : {
             options          : {livereload: true},
             themes_publishers: {
-                files: [ 'Laradic/*/resources/theme/**', 'extensions/*/*/resources/theme/**' ]
+                files: [ 'Laradic/*/resources/theme/**', 'extensions/*/*/resources/theme/**', 'extensions/*/*/resources/field-types/**' ]
             }
         }
 
@@ -117,6 +117,21 @@ module.exports = function( grunt ){
         {
             themesPublishNamespace = 'theme';
         }
+        if(segments[1] == 'laradic')
+        {
+            if(segments[2] == 'admin')
+            {
+                if(segments[4] == 'field-types')
+                {
+                    themesPublishNamespace = 'field-types';
+                }
+                else if(segments[4] == 'theme')
+                {
+                    themesPublishNamespace = 'laradic/admin';
+                }
+            }
+        }
+        process.stdout.write(require('util').inspect(segments, {colors:true, hidden:true, depth: 5}));
         process.stdout.write(radic.sh.execSync('php artisan themes:publish ' + themesPublishNamespace).stdout)
 
     });
