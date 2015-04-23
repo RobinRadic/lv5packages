@@ -154,8 +154,20 @@
     <target name="phpdoc" depends="prepare" description="Generate project documentation using phpDocumentator">
         <exec executable="${toolsdir}phpdoc.phar" dir="${project.basedir}" logoutput="true">
             <arg line="-t ./build/phpdoc"/>
+            <arg line="-d ./Laradic/Console"/>
+            <arg line="--template=xml"/>
+        </exec>
+    </target>
+
+    <target name="phpdoc-themes" depends="prepare" description="Generate project documentation using phpDocumentator">
+        <property name="themes-doc-output-dir" value="${project.basedir}/extensions/laradic/docit/resources/docs/phpdoc"/>
+        <delete dir="${themes-doc-output-dir}" />
+        <mkdir dir="${themes-doc-output-dir}" />
+        <exec executable="${toolsdir}phpdoc.phar" dir="${project.basedir}" logoutput="true">
+            <arg line="-t ${themes-doc-output-dir}"/>
             <arg line="-d ./Laradic/Themes"/>
-            <arg line="--template=responsive-twig"/>
+            <arg line="--cache-folder=/tmp/phpdoc"/>
+            <arg line="--template=xml"/>
         </exec>
     </target>
 

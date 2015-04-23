@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
         $app->register('Radic\BladeExtensions\BladeExtensionsServiceProvider');
         $app->register('Laradic\Themes\ThemeServiceProvider');
         $app->register('Laradic\Extensions\ExtensionsServiceProvider');
+
        # $app->register('Anigrab\AnigrabServiceProvider');
 
         AliasLoader::getInstance()->alias('Form', 'Collective\Html\FormFacade');

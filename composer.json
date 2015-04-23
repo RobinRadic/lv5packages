@@ -42,8 +42,6 @@
         "graham-campbell/github": "~2.0",
         "symfony/dom-crawler": "~2.6",
         "pimple/pimple": "1.0.*",
-        "herrera-io/phar-update": "2.0.0",
-        "apigen/apigen": "~4.0",
         "latte/latte": "~2.3",
         "laravelcollective/html": "~5.0",
         "clickalicious/phpmemadmin": "0.3.*",
@@ -56,7 +54,10 @@
         "nicmart/tree": "0.2.*",
         "league/oauth2-client": "0.10.*",
         "laracasts/generators": "~1.1",
-        "chumper/datatable": "dev-develop#bdd90cbe65b3544761f69ea199a1b9591770f3fc"
+        "chumper/datatable": "dev-develop#bdd90cbe65b3544761f69ea199a1b9591770f3fc",
+        "wp-cli/php-cli-tools": "0.10.*",
+        "phpdocumentor/phpdocumentor": "2.8.*",
+        "evert/phpdoc-md": "0.1.*"
     },
     "require-dev": {
         "league/factory-muffin": "3.0.*@dev",
@@ -89,8 +90,7 @@
             "LaradicAdmin\\Core\\": "extensions/laradic-admin/core/src",
             "LaradicAdmin\\Users\\": "extensions/laradic-admin/users/src",
             "LaradicAdmin\\GithubEditor\\": "extensions/laradic-admin/github-editor/src",
-            "LaradicAdmin\\Extensions\\": "extensions/laradic-admin/extensions/src",
-            "IcpAdmin\\Werkbon\\": "extensions/icp-admin/werkbon/src"
+            "LaradicAdmin\\Extensions\\": "extensions/laradic-admin/extensions/src"
         }
     },
     "autoload-dev": {

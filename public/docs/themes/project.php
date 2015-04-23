@@ -6,15 +6,19 @@ return array(
     'default_version'         => 'master', #null = latest
     'default_page_attributes' => array(
         'disqus' => true,
-       # 'share_buttons' => ['facebook']
+        # 'share_buttons' => ['facebook']
+    ),
+    'phpdoc'                  => array(
+        'enabled'        => true,
+        'structure_path' => 'docs/structure.xml'
     ),
     'github'                  => array(
         'enabled'        => false,
         'username'       => 'laradic',
         'repository'     => 'themes',
-        'branches'       => [ 'master'],
+        'branches'       => [ 'master' ],
         'webhook_secret' => 'test',
-        'exclude_tags'   => [],
+        'exclude_tags'   => [ ],
         'start_at_tag'   => 'v2.1.0',
         'path_bindings'  => array(
             'logs'     => 'build/logs',

@@ -39,8 +39,12 @@ class Test extends AbstractConsoleCommand
     public function fire()
     {
         $extensions = app('extensions');
-        $c          = new AttributesController(app('LaradicAdmin\Attributes\FieldTypes\Factory'), app('LaradicAdmin\Attributes\Repositories\EloquentAttributeRepository'));
-        $a          = 'a';
+        $f = app('files');
+        $raw = $f->get(base_path('build/phpdoc/structure.xml'));
+        $xml = simplexml_load_string($raw);
+        $xml = json_encode($xml);
+        $xml = json_decode($xml, true);
+        $this->dump($xml);
         #$extensions->get('laradic/admin')->runSeeders();
     }
 

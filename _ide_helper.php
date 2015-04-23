@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.18 on 2015-04-23.
+ * Generated for Laravel 5.0.28 on 2015-04-24.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -70,6 +70,20 @@ if ( ! function_exists('array_build'))
 	function array_build($array, callable $callback)
 	{
 		return Arr::build($array, $callback);
+	}
+}
+
+if ( ! function_exists('array_collapse'))
+{
+	/**
+	 * Collapse an array of arrays into a single array.
+	 *
+	 * @param  array|\ArrayAccess  $array
+	 * @return array
+	 */
+	function array_collapse($array)
+	{
+		return Arr::collapse($array);
 	}
 }
 
@@ -352,7 +366,7 @@ if ( ! function_exists('class_basename'))
 if ( ! function_exists('class_uses_recursive'))
 {
 	/**
-	 * Returns all traits used by a class, it's subclasses and trait of their traits
+	 * Returns all traits used by a class, its subclasses and trait of their traits.
 	 *
 	 * @param  string  $class
 	 * @return array
@@ -552,7 +566,10 @@ if ( ! function_exists('preg_replace_sub'))
 	{
 		return preg_replace_callback($pattern, function($match) use (&$replacements)
 		{
-			return array_shift($replacements);
+			foreach ($replacements as $key => $value)
+			{
+				return array_shift($replacements);
+			}
 
 		}, $subject);
 	}
@@ -747,7 +764,7 @@ if ( ! function_exists('studly_case'))
 if ( ! function_exists('trait_uses_recursive'))
 {
 	/**
-	 * Returns all traits used by a trait and its traits
+	 * Returns all traits used by a trait and its traits.
 	 *
 	 * @param  string  $trait
 	 * @return array
@@ -958,6 +975,17 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function databasePath(){
             return \Illuminate\Foundation\Application::databasePath();
+        }
+        
+        /**
+         * Set the database directory.
+         *
+         * @param string $path
+         * @return $this 
+         * @static 
+         */
+        public static function useDatabasePath($path){
+            return \Illuminate\Foundation\Application::useDatabasePath($path);
         }
         
         /**
@@ -1271,6 +1299,47 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
+         * Get the path to the cached "compiled.php" file.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getCachedCompilePath(){
+            return \Illuminate\Foundation\Application::getCachedCompilePath();
+        }
+        
+        /**
+         * Get the path to the cached services.json file.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getCachedServicesPath(){
+            return \Illuminate\Foundation\Application::getCachedServicesPath();
+        }
+        
+        /**
+         * Determine if vendor path is writable.
+         *
+         * @return bool 
+         * @static 
+         */
+        public static function vendorIsWritableForOptimizations(){
+            return \Illuminate\Foundation\Application::vendorIsWritableForOptimizations();
+        }
+        
+        /**
+         * Determines if storage directory should be used for optimizations.
+         *
+         * @param bool $value
+         * @return $this 
+         * @static 
+         */
+        public static function useStoragePathForOptimizations($value = true){
+            return \Illuminate\Foundation\Application::useStoragePathForOptimizations($value);
+        }
+        
+        /**
          * Determine if the application is currently down for maintenance.
          *
          * @return bool 
@@ -1337,6 +1406,16 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
+         * Get the application's deferred services.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getDeferredServices(){
+            return \Illuminate\Foundation\Application::getDeferredServices();
+        }
+        
+        /**
          * Set the application's deferred services.
          *
          * @param array $services
@@ -1345,6 +1424,17 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function setDeferredServices($services){
             \Illuminate\Foundation\Application::setDeferredServices($services);
+        }
+        
+        /**
+         * Add an array of services to the application's deferred services.
+         *
+         * @param array $services
+         * @return void 
+         * @static 
+         */
+        public static function addDeferredServices($services){
+            \Illuminate\Foundation\Application::addDeferredServices($services);
         }
         
         /**
@@ -2904,7 +2994,7 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * Checks if macro is registered
+         * Checks if macro is registered.
          *
          * @param string $name
          * @return bool 
@@ -3402,7 +3492,7 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * Get the cookies which have been queued for the next request
+         * Get the cookies which have been queued for the next request.
          *
          * @return array 
          * @static 
@@ -4007,7 +4097,7 @@ if ( ! function_exists('admin_redirect'))
         /**
          * Get the schema grammar used by the connection.
          *
-         * @return \Illuminate\Database\Query\Grammars\Grammar 
+         * @return \Illuminate\Database\Schema\Grammars\Grammar 
          * @static 
          */
         public static function getSchemaGrammar(){
@@ -5325,7 +5415,7 @@ if ( ! function_exists('admin_redirect'))
          * Retrieve the minimum value of a given column.
          *
          * @param string $column
-         * @return mixed 
+         * @return float|int 
          * @static 
          */
         public static function min($column){
@@ -5336,7 +5426,7 @@ if ( ! function_exists('admin_redirect'))
          * Retrieve the maximum value of a given column.
          *
          * @param string $column
-         * @return mixed 
+         * @return float|int 
          * @static 
          */
         public static function max($column){
@@ -5347,7 +5437,7 @@ if ( ! function_exists('admin_redirect'))
          * Retrieve the sum of the values of a given column.
          *
          * @param string $column
-         * @return mixed 
+         * @return float|int 
          * @static 
          */
         public static function sum($column){
@@ -5358,7 +5448,7 @@ if ( ! function_exists('admin_redirect'))
          * Retrieve the average of the values of a given column.
          *
          * @param string $column
-         * @return mixed 
+         * @return float|int 
          * @static 
          */
         public static function avg($column){
@@ -5370,7 +5460,7 @@ if ( ! function_exists('admin_redirect'))
          *
          * @param string $function
          * @param array $columns
-         * @return mixed 
+         * @return float|int 
          * @static 
          */
         public static function aggregate($function, $columns = array()){
@@ -6067,7 +6157,7 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * Checks if macro is registered
+         * Checks if macro is registered.
          *
          * @param string $name
          * @return bool 
@@ -7990,7 +8080,7 @@ if ( ! function_exists('admin_redirect'))
          * Register an error_log handler.
          *
          * @param string $level
-         * @param integer $messageType
+         * @param int $messageType
          * @return void 
          * @static 
          */
@@ -7999,8 +8089,7 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * Register a new callback handler for when
-         * a log event is triggered.
+         * Register a new callback handler for when a log event is triggered.
          *
          * @param \Closure $callback
          * @return void 
@@ -8034,7 +8123,7 @@ if ( ! function_exists('admin_redirect'))
         /**
          * Set the event dispatcher instance.
          *
-         * @param \Illuminate\Contracts\Events\Dispatcher
+         * @param \Illuminate\Contracts\Events\Dispatcher $dispatcher
          * @return void 
          * @static 
          */
@@ -10455,7 +10544,7 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * Checks if macro is registered
+         * Checks if macro is registered.
          *
          * @param string $name
          * @return bool 
@@ -10824,7 +10913,7 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * Set a global where pattern on all routes
+         * Set a global where pattern on all routes.
          *
          * @param string $key
          * @param string $pattern
@@ -10836,7 +10925,7 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * Set a group of global where patterns on all routes
+         * Set a group of global where patterns on all routes.
          *
          * @param array $patterns
          * @return void 
@@ -11078,7 +11167,7 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * Checks if macro is registered
+         * Checks if macro is registered.
          *
          * @param string $name
          * @return bool 
@@ -11126,6 +11215,19 @@ if ( ! function_exists('admin_redirect'))
         public static function hasColumn($table, $column){
             //Method inherited from \Illuminate\Database\Schema\Builder            
             return \Illuminate\Database\Schema\MySqlBuilder::hasColumn($table, $column);
+        }
+        
+        /**
+         * Determine if the given table has given columns.
+         *
+         * @param string $table
+         * @param array $columns
+         * @return bool 
+         * @static 
+         */
+        public static function hasColumns($table, $columns){
+            //Method inherited from \Illuminate\Database\Schema\Builder            
+            return \Illuminate\Database\Schema\MySqlBuilder::hasColumns($table, $columns);
         }
         
         /**
@@ -12637,6 +12739,17 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
+         * Check if section exists.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */
+        public static function hasSection($name){
+            return \Illuminate\View\Factory::hasSection($name);
+        }
+        
+        /**
          * Get the entire array of sections.
          *
          * @return array 
@@ -13369,7 +13482,7 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * Checks if macro is registered
+         * Checks if macro is registered.
          *
          * @param string $name
          * @return bool 
@@ -13636,7 +13749,7 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * Checks if macro is registered
+         * Checks if macro is registered.
          *
          * @param string $name
          * @return bool 
@@ -13645,16 +13758,6 @@ if ( ! function_exists('admin_redirect'))
         public static function hasMacro($name){
             return \Collective\Html\HtmlBuilder::hasMacro($name);
         }
-        
-    }
-
-
-    interface navigation extends \Laradic\Themes\Contracts\NavigationFactory{
-        
-    }
-
-
-    interface extensions extends \Laradic\Extensions\Contracts\Extensions{
         
     }
 
@@ -13956,636 +14059,6 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function offsetUnset($slug){
             \Laradic\Extensions\ExtensionFactory::offsetUnset($slug);
-        }
-        
-    }
-
-
-    class Navigation extends \Laradic\Themes\Facades\Navigation{
-        
-        /**
-         * add
-         *
-         * @param $id
-         * @param $value
-         * @param null $parent
-         * @param string $link
-         * @param bool $authenticated
-         * @param array $permissions
-         * @return \Laradic\Themes\Navigation\Node 
-         * @static 
-         */
-        public static function add($id, $value, $parent = null, $link = '#', $authenticated = false, $permissions = array()){
-            return \Laradic\Themes\Navigation\Factory::add($id, $value, $parent, $link, $authenticated, $permissions);
-        }
-        
-        /**
-         * get
-         *
-         * @param $id
-         * @return \Laradic\Themes\Navigation\Node 
-         * @static 
-         */
-        public static function get($id){
-            return \Laradic\Themes\Navigation\Factory::get($id);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function render($id, $view = null){
-            return \Laradic\Themes\Navigation\Factory::render($id, $view);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function registerBreadcrumbs($crumbs, $parent = null){
-            return \Laradic\Themes\Navigation\Factory::registerBreadcrumbs($crumbs, $parent);
-        }
-        
-        /**
-         * Get the value of sentry
-         *
-         * @return \Cartalyst\Sentry\Sentry 
-         * @static 
-         */
-        public static function getSentry(){
-            return \Laradic\Themes\Navigation\Factory::getSentry();
-        }
-        
-        /**
-         * Sets the value of sentry
-         *
-         * @param \Cartalyst\Sentry\Sentry $sentry
-         * @return $this 
-         * @static 
-         */
-        public static function setSentry($sentry){
-            return \Laradic\Themes\Navigation\Factory::setSentry($sentry);
-        }
-        
-        /**
-         * Get the value of generator
-         *
-         * @return \Illuminate\Contracts\Routing\UrlGenerator 
-         * @static 
-         */
-        public static function getGenerator(){
-            return \Laradic\Themes\Navigation\Factory::getGenerator();
-        }
-        
-        /**
-         * Sets the value of generator
-         *
-         * @param \Illuminate\Contracts\Routing\UrlGenerator $generator
-         * @return $this 
-         * @static 
-         */
-        public static function setGenerator($generator){
-            return \Laradic\Themes\Navigation\Factory::setGenerator($generator);
-        }
-        
-    }
-
-
-    class Asset extends \Laradic\Themes\Facades\Asset{
-        
-        /**
-         * 
-         *
-         * @return \Laradic\Themes\Assets\Asset 
-         * @static 
-         */
-        public static function make($assetPath){
-            return \Laradic\Themes\Assets\AssetFactory::make($assetPath);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function url($assetPath = ''){
-            return \Laradic\Themes\Assets\AssetFactory::url($assetPath);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function uri($assetPath = ''){
-            return \Laradic\Themes\Assets\AssetFactory::uri($assetPath);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function style($assetPath = '', $attributes = array(), $secure = false){
-            return \Laradic\Themes\Assets\AssetFactory::style($assetPath, $attributes, $secure);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function script($assetPath = '', $attributes = array(), $secure = false){
-            return \Laradic\Themes\Assets\AssetFactory::script($assetPath, $attributes, $secure);
-        }
-        
-        /**
-         * group
-         *
-         * @param $name
-         * @param callable $cb
-         * @return \Laradic\Themes\Assets\AssetGroup 
-         * @static 
-         */
-        public static function group($name){
-            return \Laradic\Themes\Assets\AssetFactory::group($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function relativePath($path){
-            return \Laradic\Themes\Assets\AssetFactory::relativePath($path);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function toUrl($path){
-            return \Laradic\Themes\Assets\AssetFactory::toUrl($path);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getPath($key = null){
-            return \Laradic\Themes\Assets\AssetFactory::getPath($key);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getThemes(){
-            return \Laradic\Themes\Assets\AssetFactory::getThemes();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setThemes($themes){
-            return \Laradic\Themes\Assets\AssetFactory::setThemes($themes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getContainer(){
-            return \Laradic\Themes\Assets\AssetFactory::getContainer();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setContainer($container){
-            return \Laradic\Themes\Assets\AssetFactory::setContainer($container);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getAssetClass(){
-            return \Laradic\Themes\Assets\AssetFactory::getAssetClass();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setAssetClass($assetClass){
-            return \Laradic\Themes\Assets\AssetFactory::setAssetClass($assetClass);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getUrlGenerator(){
-            return \Laradic\Themes\Assets\AssetFactory::getUrlGenerator();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setUrlGenerator($urlGenerator){
-            return \Laradic\Themes\Assets\AssetFactory::setUrlGenerator($urlGenerator);
-        }
-        
-    }
-
-
-    class Themes extends \Laradic\Themes\Facades\Themes{
-        
-        /**
-         * setConfig
-         *
-         * @param $config
-         * @return $this 
-         * @static 
-         */
-        public static function setConfig($config){
-            return \Laradic\Themes\ThemeFactory::setConfig($config);
-        }
-        
-        /**
-         * Set the active theme
-         *
-         * @param string|\Laradic\Themes\Theme $theme The slug or Theme instance
-         * @return $this 
-         * @static 
-         */
-        public static function setActive($theme){
-            return \Laradic\Themes\ThemeFactory::setActive($theme);
-        }
-        
-        /**
-         * Get the activated theme
-         *
-         * @return \Laradic\Themes\Theme 
-         * @static 
-         */
-        public static function getActive(){
-            return \Laradic\Themes\ThemeFactory::getActive();
-        }
-        
-        /**
-         * Get the default theme
-         *
-         * @return \Laradic\Themes\Theme 
-         * @static 
-         */
-        public static function getDefault(){
-            return \Laradic\Themes\ThemeFactory::getDefault();
-        }
-        
-        /**
-         * Set the default theme
-         *
-         * @param string|\Laradic\Themes\Theme $theme The slug or Theme instance
-         * @static 
-         */
-        public static function setDefault($theme){
-            return \Laradic\Themes\ThemeFactory::setDefault($theme);
-        }
-        
-        /**
-         * resolveTheme
-         *
-         * @param $slug
-         * @return \Laradic\Themes\Theme 
-         * @static 
-         */
-        public static function resolveTheme($slug){
-            return \Laradic\Themes\ThemeFactory::resolveTheme($slug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function all(){
-            return \Laradic\Themes\ThemeFactory::all();
-        }
-        
-        /**
-         * Get a theme with the provided slug
-         *
-         * @return \Laradic\Themes\Theme 
-         * @static 
-         */
-        public static function get($slug){
-            return \Laradic\Themes\ThemeFactory::get($slug);
-        }
-        
-        /**
-         * Check if a theme is present
-         *
-         * @param $slug
-         * @return bool 
-         * @static 
-         */
-        public static function has($slug){
-            return \Laradic\Themes\ThemeFactory::has($slug);
-        }
-        
-        /**
-         * Get the number of themes
-         *
-         * @return int 
-         * @static 
-         */
-        public static function count(){
-            return \Laradic\Themes\ThemeFactory::count();
-        }
-        
-        /**
-         * addNamespace
-         *
-         * @param $id
-         * @param $dirName
-         * @static 
-         */
-        public static function addNamespace($id, $dirName){
-            return \Laradic\Themes\ThemeFactory::addNamespace($id, $dirName);
-        }
-        
-        /**
-         * getPath
-         *
-         * @param $type
-         * @return mixed 
-         * @static 
-         */
-        public static function getPath($type){
-            return \Laradic\Themes\ThemeFactory::getPath($type);
-        }
-        
-        /**
-         * getCascadedPaths
-         *
-         * @param $cascadeType
-         * @param null $cascadeName
-         * @param null $pathType
-         * @param null $theme
-         * @return array 
-         * @static 
-         */
-        public static function getCascadedPaths($cascadeType, $cascadeName = null, $pathType = null, $theme = null){
-            return \Laradic\Themes\ThemeFactory::getCascadedPaths($cascadeType, $cascadeName, $pathType, $theme);
-        }
-        
-        /**
-         * addPackagePublisher
-         *
-         * @param $package
-         * @param $sourcePath
-         * @param null $theme
-         * @static 
-         */
-        public static function addPackagePublisher($package, $sourcePath, $theme = null){
-            return \Laradic\Themes\ThemeFactory::addPackagePublisher($package, $sourcePath, $theme);
-        }
-        
-        /**
-         * addNamespacePublisher
-         *
-         * @param $namespace
-         * @param $sourcePath
-         * @param null $theme
-         * @static 
-         */
-        public static function addNamespacePublisher($namespace, $sourcePath, $theme = null){
-            return \Laradic\Themes\ThemeFactory::addNamespacePublisher($namespace, $sourcePath, $theme);
-        }
-        
-        /**
-         * publish
-         *
-         * @param null $namespaceOrPackage
-         * @static 
-         */
-        public static function publish($namespaceOrPackage = null){
-            return \Laradic\Themes\ThemeFactory::publish($namespaceOrPackage);
-        }
-        
-        /**
-         * Get the value of publishers
-         *
-         * @return \Laradic\Themes\Publisher[] 
-         * @static 
-         */
-        public static function getPublishers(){
-            return \Laradic\Themes\ThemeFactory::getPublishers();
-        }
-        
-        /**
-         * boot
-         *
-         * @static 
-         */
-        public static function boot(){
-            return \Laradic\Themes\ThemeFactory::boot();
-        }
-        
-        /**
-         * getApplication
-         *
-         * @return \Illuminate\Contracts\Foundation\Application 
-         * @static 
-         */
-        public static function getApplication(){
-            return \Laradic\Themes\ThemeFactory::getApplication();
-        }
-        
-        /**
-         * setApplication
-         *
-         * @param \Illuminate\Contracts\Foundation\Application $app
-         * @return $this 
-         * @static 
-         */
-        public static function setApplication($app){
-            return \Laradic\Themes\ThemeFactory::setApplication($app);
-        }
-        
-        /**
-         * getFinder
-         *
-         * @return \Illuminate\View\ViewFinderInterface 
-         * @static 
-         */
-        public static function getFinder(){
-            return \Laradic\Themes\ThemeFactory::getFinder();
-        }
-        
-        /**
-         * setFinder
-         *
-         * @param \Laradic\Themes\ThemeViewFinder $finder
-         * @return $this 
-         * @static 
-         */
-        public static function setFinder($finder){
-            return \Laradic\Themes\ThemeFactory::setFinder($finder);
-        }
-        
-        /**
-         * getFiles
-         *
-         * @return \Illuminate\Filesystem\Filesystem 
-         * @static 
-         */
-        public static function getFiles(){
-            return \Laradic\Themes\ThemeFactory::getFiles();
-        }
-        
-        /**
-         * setFiles
-         *
-         * @param $files
-         * @return $this 
-         * @static 
-         */
-        public static function setFiles($files){
-            return \Laradic\Themes\ThemeFactory::setFiles($files);
-        }
-        
-        /**
-         * offsetExists
-         *
-         * @param mixed $key
-         * @return bool 
-         * @static 
-         */
-        public static function offsetExists($key){
-            return \Laradic\Themes\ThemeFactory::offsetExists($key);
-        }
-        
-        /**
-         * offsetGet
-         *
-         * @param mixed $key
-         * @return mixed 
-         * @static 
-         */
-        public static function offsetGet($key){
-            return \Laradic\Themes\ThemeFactory::offsetGet($key);
-        }
-        
-        /**
-         * offsetSet
-         *
-         * @param mixed $key
-         * @param mixed $value
-         * @static 
-         */
-        public static function offsetSet($key, $value){
-            return \Laradic\Themes\ThemeFactory::offsetSet($key, $value);
-        }
-        
-        /**
-         * offsetUnset
-         *
-         * @param mixed $key
-         * @static 
-         */
-        public static function offsetUnset($key){
-            return \Laradic\Themes\ThemeFactory::offsetUnset($key);
-        }
-        
-        /**
-         * getIterator
-         *
-         * @return \ArrayIterator 
-         * @static 
-         */
-        public static function getIterator(){
-            return \Laradic\Themes\ThemeFactory::getIterator();
-        }
-        
-        /**
-         * Get the value of navigation
-         *
-         * @return \Laradic\Themes\NavigationFactory 
-         * @static 
-         */
-        public static function getNavigation(){
-            return \Laradic\Themes\ThemeFactory::getNavigation();
-        }
-        
-        /**
-         * Sets the value of navigation
-         *
-         * @param \Laradic\Themes\NavigationFactory $navigation
-         * @return \Laradic\Themes\NavigationFactory 
-         * @static 
-         */
-        public static function setNavigation($navigation){
-            return \Laradic\Themes\ThemeFactory::setNavigation($navigation);
-        }
-        
-        /**
-         * Get the value of breadcrumbs
-         *
-         * @return \DaveJamesMiller\Breadcrumbs\Manager 
-         * @static 
-         */
-        public static function getBreadcrumbs(){
-            return \Laradic\Themes\ThemeFactory::getBreadcrumbs();
-        }
-        
-        /**
-         * Sets the value of breadcrumbs
-         *
-         * @param \DaveJamesMiller\Breadcrumbs\Manager $breadcrumbs
-         * @return \DaveJamesMiller\Breadcrumbs\Manager 
-         * @static 
-         */
-        public static function setBreadcrumbs($breadcrumbs){
-            return \Laradic\Themes\ThemeFactory::setBreadcrumbs($breadcrumbs);
-        }
-        
-        /**
-         * Get the value of assets
-         *
-         * @return \Laradic\Themes\Assets\AssetFactory 
-         * @static 
-         */
-        public static function getAssets(){
-            return \Laradic\Themes\ThemeFactory::getAssets();
-        }
-        
-        /**
-         * Sets the value of assets
-         *
-         * @param \Laradic\Themes\Assets\AssetFactory $assets
-         * @return \Laradic\Themes\Assets\AssetFactory 
-         * @static 
-         */
-        public static function setAssets($assets){
-            return \Laradic\Themes\ThemeFactory::setAssets($assets);
         }
         
     }
@@ -15315,6 +14788,636 @@ if ( ! function_exists('admin_redirect'))
         public static function getConfig(){
             //Method inherited from \GrahamCampbell\Manager\AbstractManager            
             return \Vinkla\Hashids\HashidsManager::getConfig();
+        }
+        
+    }
+
+
+    class Navigation extends \Laradic\Themes\Facades\Navigation{
+        
+        /**
+         * add
+         *
+         * @param $id
+         * @param $value
+         * @param null $parent
+         * @param string $link
+         * @param bool $authenticated
+         * @param array $permissions
+         * @return \Laradic\Themes\Navigation\Node 
+         * @static 
+         */
+        public static function add($id, $value, $parent = null, $link = '#', $authenticated = false, $permissions = array()){
+            return \Laradic\Themes\Navigation\Factory::add($id, $value, $parent, $link, $authenticated, $permissions);
+        }
+        
+        /**
+         * get
+         *
+         * @param $id
+         * @return \Laradic\Themes\Navigation\Node 
+         * @static 
+         */
+        public static function get($id){
+            return \Laradic\Themes\Navigation\Factory::get($id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function render($id, $view = null){
+            return \Laradic\Themes\Navigation\Factory::render($id, $view);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function registerBreadcrumbs($crumbs, $parent = null){
+            return \Laradic\Themes\Navigation\Factory::registerBreadcrumbs($crumbs, $parent);
+        }
+        
+        /**
+         * Get the value of sentry
+         *
+         * @return \Cartalyst\Sentry\Sentry 
+         * @static 
+         */
+        public static function getSentry(){
+            return \Laradic\Themes\Navigation\Factory::getSentry();
+        }
+        
+        /**
+         * Sets the value of sentry
+         *
+         * @param \Cartalyst\Sentry\Sentry $sentry
+         * @return $this 
+         * @static 
+         */
+        public static function setSentry($sentry){
+            return \Laradic\Themes\Navigation\Factory::setSentry($sentry);
+        }
+        
+        /**
+         * Get the value of generator
+         *
+         * @return \Illuminate\Contracts\Routing\UrlGenerator 
+         * @static 
+         */
+        public static function getGenerator(){
+            return \Laradic\Themes\Navigation\Factory::getGenerator();
+        }
+        
+        /**
+         * Sets the value of generator
+         *
+         * @param \Illuminate\Contracts\Routing\UrlGenerator $generator
+         * @return $this 
+         * @static 
+         */
+        public static function setGenerator($generator){
+            return \Laradic\Themes\Navigation\Factory::setGenerator($generator);
+        }
+        
+    }
+
+
+    class Asset extends \Laradic\Themes\Facades\Asset{
+        
+        /**
+         * 
+         *
+         * @return \Laradic\Themes\Assets\Asset 
+         * @static 
+         */
+        public static function make($assetPath){
+            return \Laradic\Themes\Assets\AssetFactory::make($assetPath);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function url($assetPath = ''){
+            return \Laradic\Themes\Assets\AssetFactory::url($assetPath);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function uri($assetPath = ''){
+            return \Laradic\Themes\Assets\AssetFactory::uri($assetPath);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function style($assetPath = '', $attributes = array(), $secure = false){
+            return \Laradic\Themes\Assets\AssetFactory::style($assetPath, $attributes, $secure);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function script($assetPath = '', $attributes = array(), $secure = false){
+            return \Laradic\Themes\Assets\AssetFactory::script($assetPath, $attributes, $secure);
+        }
+        
+        /**
+         * group
+         *
+         * @param $name
+         * @param callable $cb
+         * @return \Laradic\Themes\Assets\AssetGroup 
+         * @static 
+         */
+        public static function group($name){
+            return \Laradic\Themes\Assets\AssetFactory::group($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function relativePath($path){
+            return \Laradic\Themes\Assets\AssetFactory::relativePath($path);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function toUrl($path){
+            return \Laradic\Themes\Assets\AssetFactory::toUrl($path);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getPath($key = null){
+            return \Laradic\Themes\Assets\AssetFactory::getPath($key);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getThemes(){
+            return \Laradic\Themes\Assets\AssetFactory::getThemes();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setThemes($themes){
+            return \Laradic\Themes\Assets\AssetFactory::setThemes($themes);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getContainer(){
+            return \Laradic\Themes\Assets\AssetFactory::getContainer();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setContainer($container){
+            return \Laradic\Themes\Assets\AssetFactory::setContainer($container);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getAssetClass(){
+            return \Laradic\Themes\Assets\AssetFactory::getAssetClass();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setAssetClass($assetClass){
+            return \Laradic\Themes\Assets\AssetFactory::setAssetClass($assetClass);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getUrlGenerator(){
+            return \Laradic\Themes\Assets\AssetFactory::getUrlGenerator();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setUrlGenerator($urlGenerator){
+            return \Laradic\Themes\Assets\AssetFactory::setUrlGenerator($urlGenerator);
+        }
+        
+    }
+
+
+    class Themes extends \Laradic\Themes\Facades\Themes{
+        
+        /**
+         * setConfig
+         *
+         * @param $config
+         * @return $this 
+         * @static 
+         */
+        public static function setConfig($config){
+            return \Laradic\Themes\ThemeFactory::setConfig($config);
+        }
+        
+        /**
+         * Set the active theme
+         *
+         * @param string|\Laradic\Themes\Theme $theme The slug or Theme instance
+         * @return $this 
+         * @static 
+         */
+        public static function setActive($theme){
+            return \Laradic\Themes\ThemeFactory::setActive($theme);
+        }
+        
+        /**
+         * Get the activated theme
+         *
+         * @return \Laradic\Themes\Theme 
+         * @static 
+         */
+        public static function getActive(){
+            return \Laradic\Themes\ThemeFactory::getActive();
+        }
+        
+        /**
+         * Get the default theme
+         *
+         * @return \Laradic\Themes\Theme 
+         * @static 
+         */
+        public static function getDefault(){
+            return \Laradic\Themes\ThemeFactory::getDefault();
+        }
+        
+        /**
+         * Set the default theme
+         *
+         * @param string|\Laradic\Themes\Theme $theme The slug or Theme instance
+         * @static 
+         */
+        public static function setDefault($theme){
+            return \Laradic\Themes\ThemeFactory::setDefault($theme);
+        }
+        
+        /**
+         * resolveTheme
+         *
+         * @param $slug
+         * @return \Laradic\Themes\Theme 
+         * @static 
+         */
+        public static function resolveTheme($slug){
+            return \Laradic\Themes\ThemeFactory::resolveTheme($slug);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function all(){
+            return \Laradic\Themes\ThemeFactory::all();
+        }
+        
+        /**
+         * Get a theme with the provided slug
+         *
+         * @return \Laradic\Themes\Theme 
+         * @static 
+         */
+        public static function get($slug){
+            return \Laradic\Themes\ThemeFactory::get($slug);
+        }
+        
+        /**
+         * Check if a theme is present
+         *
+         * @param $slug
+         * @return bool 
+         * @static 
+         */
+        public static function has($slug){
+            return \Laradic\Themes\ThemeFactory::has($slug);
+        }
+        
+        /**
+         * Get the number of themes
+         *
+         * @return int 
+         * @static 
+         */
+        public static function count(){
+            return \Laradic\Themes\ThemeFactory::count();
+        }
+        
+        /**
+         * addNamespace
+         *
+         * @param $id
+         * @param $dirName
+         * @static 
+         */
+        public static function addNamespace($id, $dirName){
+            return \Laradic\Themes\ThemeFactory::addNamespace($id, $dirName);
+        }
+        
+        /**
+         * getPath
+         *
+         * @param $type
+         * @return mixed 
+         * @static 
+         */
+        public static function getPath($type){
+            return \Laradic\Themes\ThemeFactory::getPath($type);
+        }
+        
+        /**
+         * getCascadedPaths
+         *
+         * @param $cascadeType
+         * @param null $cascadeName
+         * @param null $pathType
+         * @param null $theme
+         * @return array 
+         * @static 
+         */
+        public static function getCascadedPaths($cascadeType, $cascadeName = null, $pathType = null, $theme = null){
+            return \Laradic\Themes\ThemeFactory::getCascadedPaths($cascadeType, $cascadeName, $pathType, $theme);
+        }
+        
+        /**
+         * addPackagePublisher
+         *
+         * @param $package
+         * @param $sourcePath
+         * @param null $theme
+         * @static 
+         */
+        public static function addPackagePublisher($package, $sourcePath, $theme = null){
+            return \Laradic\Themes\ThemeFactory::addPackagePublisher($package, $sourcePath, $theme);
+        }
+        
+        /**
+         * addNamespacePublisher
+         *
+         * @param $namespace
+         * @param $sourcePath
+         * @param null $theme
+         * @static 
+         */
+        public static function addNamespacePublisher($namespace, $sourcePath, $theme = null){
+            return \Laradic\Themes\ThemeFactory::addNamespacePublisher($namespace, $sourcePath, $theme);
+        }
+        
+        /**
+         * publish
+         *
+         * @param null $namespaceOrPackage
+         * @static 
+         */
+        public static function publish($namespaceOrPackage = null){
+            return \Laradic\Themes\ThemeFactory::publish($namespaceOrPackage);
+        }
+        
+        /**
+         * Get the value of publishers
+         *
+         * @return \Laradic\Themes\Publisher[] 
+         * @static 
+         */
+        public static function getPublishers(){
+            return \Laradic\Themes\ThemeFactory::getPublishers();
+        }
+        
+        /**
+         * boot
+         *
+         * @static 
+         */
+        public static function boot(){
+            return \Laradic\Themes\ThemeFactory::boot();
+        }
+        
+        /**
+         * getApplication
+         *
+         * @return \Illuminate\Contracts\Foundation\Application 
+         * @static 
+         */
+        public static function getApplication(){
+            return \Laradic\Themes\ThemeFactory::getApplication();
+        }
+        
+        /**
+         * setApplication
+         *
+         * @param \Illuminate\Contracts\Foundation\Application $app
+         * @return $this 
+         * @static 
+         */
+        public static function setApplication($app){
+            return \Laradic\Themes\ThemeFactory::setApplication($app);
+        }
+        
+        /**
+         * getFinder
+         *
+         * @return \Illuminate\View\ViewFinderInterface 
+         * @static 
+         */
+        public static function getFinder(){
+            return \Laradic\Themes\ThemeFactory::getFinder();
+        }
+        
+        /**
+         * setFinder
+         *
+         * @param \Laradic\Themes\ThemeViewFinder $finder
+         * @return $this 
+         * @static 
+         */
+        public static function setFinder($finder){
+            return \Laradic\Themes\ThemeFactory::setFinder($finder);
+        }
+        
+        /**
+         * getFiles
+         *
+         * @return \Illuminate\Filesystem\Filesystem 
+         * @static 
+         */
+        public static function getFiles(){
+            return \Laradic\Themes\ThemeFactory::getFiles();
+        }
+        
+        /**
+         * setFiles
+         *
+         * @param $files
+         * @return $this 
+         * @static 
+         */
+        public static function setFiles($files){
+            return \Laradic\Themes\ThemeFactory::setFiles($files);
+        }
+        
+        /**
+         * offsetExists
+         *
+         * @param mixed $key
+         * @return bool 
+         * @static 
+         */
+        public static function offsetExists($key){
+            return \Laradic\Themes\ThemeFactory::offsetExists($key);
+        }
+        
+        /**
+         * offsetGet
+         *
+         * @param mixed $key
+         * @return mixed 
+         * @static 
+         */
+        public static function offsetGet($key){
+            return \Laradic\Themes\ThemeFactory::offsetGet($key);
+        }
+        
+        /**
+         * offsetSet
+         *
+         * @param mixed $key
+         * @param mixed $value
+         * @static 
+         */
+        public static function offsetSet($key, $value){
+            return \Laradic\Themes\ThemeFactory::offsetSet($key, $value);
+        }
+        
+        /**
+         * offsetUnset
+         *
+         * @param mixed $key
+         * @static 
+         */
+        public static function offsetUnset($key){
+            return \Laradic\Themes\ThemeFactory::offsetUnset($key);
+        }
+        
+        /**
+         * getIterator
+         *
+         * @return \ArrayIterator 
+         * @static 
+         */
+        public static function getIterator(){
+            return \Laradic\Themes\ThemeFactory::getIterator();
+        }
+        
+        /**
+         * Get the value of navigation
+         *
+         * @return \Laradic\Themes\NavigationFactory 
+         * @static 
+         */
+        public static function getNavigation(){
+            return \Laradic\Themes\ThemeFactory::getNavigation();
+        }
+        
+        /**
+         * Sets the value of navigation
+         *
+         * @param \Laradic\Themes\NavigationFactory $navigation
+         * @return \Laradic\Themes\NavigationFactory 
+         * @static 
+         */
+        public static function setNavigation($navigation){
+            return \Laradic\Themes\ThemeFactory::setNavigation($navigation);
+        }
+        
+        /**
+         * Get the value of breadcrumbs
+         *
+         * @return \DaveJamesMiller\Breadcrumbs\Manager 
+         * @static 
+         */
+        public static function getBreadcrumbs(){
+            return \Laradic\Themes\ThemeFactory::getBreadcrumbs();
+        }
+        
+        /**
+         * Sets the value of breadcrumbs
+         *
+         * @param \DaveJamesMiller\Breadcrumbs\Manager $breadcrumbs
+         * @return \DaveJamesMiller\Breadcrumbs\Manager 
+         * @static 
+         */
+        public static function setBreadcrumbs($breadcrumbs){
+            return \Laradic\Themes\ThemeFactory::setBreadcrumbs($breadcrumbs);
+        }
+        
+        /**
+         * Get the value of assets
+         *
+         * @return \Laradic\Themes\Assets\AssetFactory 
+         * @static 
+         */
+        public static function getAssets(){
+            return \Laradic\Themes\ThemeFactory::getAssets();
+        }
+        
+        /**
+         * Sets the value of assets
+         *
+         * @param \Laradic\Themes\Assets\AssetFactory $assets
+         * @return \Laradic\Themes\Assets\AssetFactory 
+         * @static 
+         */
+        public static function setAssets($assets){
+            return \Laradic\Themes\ThemeFactory::setAssets($assets);
         }
         
     }
