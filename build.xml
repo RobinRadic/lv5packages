@@ -1,35 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="lv5packages" default="build">
     <property name="toolsdir" value="${project.basedir}/build/tools/"/>
-    <property name="srcdir" value="${project.basedir}/src" />
-    <property name="testsdir" value="${project.basedir}/tests" />
-    <property name="changelog.header" value="# Changelog"/>
-    <property name="changelog.filename" value="CHANGELOG.md"/>
+    <property name="srcdir" value="${project.basedir}/Laradic" />
+    <property name="testsdir" value="${project.basedir}/Laradic/tests" />
+
     <property name="gitremote.url" value="https://github.com"/>
     <property name="gitremote.owner" value="robinradic"/>
     <property name="gitremote.repo" value="${phing.project.name}"/>
 
-    <if>
-        <equals arg1="${phing.project.name}" arg2="change-me" />
-        <then>
-            <fail message="You need to change the project name." />
-        </then>
-    </if>
 
-    <property name="changelog.header" value="# Changelog"/>
-    <property name="changelog.filename" value="CHANGELOG.md"/>
-    <target name="changelog">
-        <delete file="${changelog.filename}" quiet="true" />
-        <exec command='echo "${changelog.header} \n" >> ${changelog.filename}'/>
-        <exec command='git log --date=short --format="- [%cd](${gitremote.url}/${gitremote.owner}/${gitremote.repo}/commit/%H) %gs %s  " >> ${changelog.filename}' logoutput="false"/>
-        <echo message="Created markdown changelog: ${changelog.filename}" />
-    </target>
-
-    <target name="git.submodule.update">
-        <exec command="bash ${project.basedir}/scripts/submodule-update.sh" dir="${project.basedir}" logoutput="true" />
-    </target>
-
-    <target name="build" depends="vendor,prepare,lint,phploc-ci,pdepend,phpcs-ci,phpcpd-ci,phpunit,phpdox,phpdoc" description=""/>
+    <target name="build" depends="prepare,lint,phploc-ci,pdepend,phpcs-ci,phpcpd-ci,phpunit,phpdox,phpdoc" description=""/>
 
     <target name="clean" unless="clean.done" description="Cleanup build artifacts">
         <delete dir="${project.basedir}/build/api"/>
@@ -42,27 +22,13 @@
         <property name="clean.done" value="true"/>
     </target>
 
-    <target name="vendor" unless="vendor.done" description="Cleanup composer and vendor">
-        <delete dir="${project.basedir}/vendor"/>
-        <delete file="${project.basedir}/composer.lock"/>
-        <exec executable="composer" logoutput="true">
-            <arg line="install"/>
-        </exec>
-        <property name="vendor.done" value="true"/>
-    </target>
-
-
-    <target name="prepare" unless="prepare.done" depends="clean,git.submodule.update" description="Prepare for build">
+    <target name="prepare" unless="prepare.done" depends="clean" description="Prepare for build">
 
         <mkdir dir="${project.basedir}/build/coverage"/>
         <mkdir dir="${project.basedir}/build/logs"/>
         <mkdir dir="${project.basedir}/build/pdepend"/>
         <mkdir dir="${project.basedir}/build/phpdox"/>
         <mkdir dir="${project.basedir}/build/phpdoxwd"/>
-        <mkdir dir="${project.basedir}/build/phpdoc"/>
-        <exec executable="composer" logoutput="true">
-            <arg line="install"/>
-        </exec>
         <property name="prepare.done" value="true"/>
     </target>
 
@@ -186,9 +152,9 @@
     </target>
 
     <target name="phpdoc" depends="prepare" description="Generate project documentation using phpDocumentator">
-        <exec executable="${toolsdir}phpdoc.phar" dir="${project.basedir}/build" logoutput="true">
-            <arg line="-t ./phpdoc"/>
-            <arg line="-d ../src"/>
+        <exec executable="${toolsdir}phpdoc.phar" dir="${project.basedir}" logoutput="true">
+            <arg line="-t ./build/phpdoc"/>
+            <arg line="-d ./Laradic/Themes"/>
             <arg line="--template=responsive-twig"/>
         </exec>
     </target>

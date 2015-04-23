@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="ServiceProviders" pattern="file:*Provider.php" />
+</component>

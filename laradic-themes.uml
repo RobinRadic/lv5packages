@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>PHP</ID>
+  <OriginalElement>\Laradic\Themes\Contracts\Widgets</OriginalElement>
+  <nodes>
+    <node x="974.5" y="66.0">\Laradic\Themes\Contracts\NavigationNode</node>
+    <node x="260.5" y="289.5">\Laradic\Themes\ThemeFactory</node>
+    <node x="-35.5" y="1426.0">\Laradic\Themes\Providers\BusServiceProvider</node>
+    <node x="-19.5" y="363.0">\Laradic\Themes\Publisher</node>
+    <node x="688.0" y="-7.5">\Laradic\Themes\Navigation\Node</node>
+    <node x="382.0" y="664.0">\Laradic\Themes\Assets\Asset</node>
+    <node x="163.5" y="1426.0">\Laradic\Themes\Traits\ThemeProviderTrait</node>
+    <node x="360.5" y="872.5">\Laradic\Themes\Assets\AssetFactory</node>
+    <node x="489.5" y="1135.5">\Laradic\Themes\ThemeViewFinder</node>
+    <node x="1207.0" y="-14.0">\Laradic\Themes\Exceptions\ThemesConfigurationException</node>
+    <node x="711.0" y="1285.0">\Laradic\Themes\Providers\ConsoleServiceProvider</node>
+    <node x="106.5" y="653.5">\Laradic\Themes\Assets\AssetGroup</node>
+    <node x="968.0" y="306.0">\Laradic\Themes\Contracts\NavigationFactory</node>
+    <node x="701.0" y="1104.0">\Laradic\Themes\ThemeServiceProvider</node>
+    <node x="704.5" y="253.5">\Laradic\Themes\Navigation\Factory</node>
+    <node x="300.5" y="11.5">\Laradic\Themes\Theme</node>
+    <node x="971.0" y="1114.5">\Laradic\Themes\Widgets</node>
+    <node x="998.5" y="975.5">\Laradic\Themes\Providers\EventServiceProvider</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="\Laradic\Themes\Assets\AssetGroup" target="\Laradic\Themes\Assets\Asset">
+      <point x="93.5" y="0.0" />
+      <point x="-98.0" y="0.0" />
+    </edge>
+    <edge source="\Laradic\Themes\Assets\AssetFactory" target="\Laradic\Themes\Assets\AssetGroup">
+      <point x="-119.5" y="0.0" />
+      <point x="200.0" y="960.0" />
+      <point x="0.0" y="66.5" />
+    </edge>
+    <edge source="\Laradic\Themes\ThemeFactory" target="\Laradic\Themes\Publisher">
+      <point x="-179.5" y="0.0" />
+      <point x="99.5" y="0.0" />
+    </edge>
+    <edge source="\Laradic\Themes\Navigation\Node" target="\Laradic\Themes\Contracts\NavigationNode">
+      <point x="112.0" y="0.0" />
+      <point x="-65.5" y="0.0" />
+    </edge>
+    <edge source="\Laradic\Themes\ThemeFactory" target="\Laradic\Themes\Theme">
+      <point x="0.0" y="-150.5" />
+      <point x="0.0" y="108.5" />
+    </edge>
+    <edge source="\Laradic\Themes\ThemeServiceProvider" target="\Laradic\Themes\Widgets">
+      <point x="99.0" y="0.0" />
+      <point x="-69.0" y="0.0" />
+    </edge>
+    <edge source="\Laradic\Themes\Assets\AssetFactory" target="\Laradic\Themes\Assets\Asset">
+      <point x="0.0" y="-87.5" />
+      <point x="0.0" y="56.0" />
+    </edge>
+    <edge source="\Laradic\Themes\ThemeServiceProvider" target="\Laradic\Themes\ThemeFactory">
+      <point x="-40.0" y="-56.0" />
+      <point x="760.0" y="440.0" />
+      <point x="179.5" y="0.0" />
+    </edge>
+    <edge source="\Laradic\Themes\ThemeServiceProvider" target="\Laradic\Themes\Navigation\Factory">
+      <point x="0.0" y="-56.0" />
+      <point x="0.0" y="66.5" />
+    </edge>
+    <edge source="\Laradic\Themes\ThemeServiceProvider" target="\Laradic\Themes\ThemeViewFinder">
+      <point x="-99.0" y="0.0" />
+      <point x="70.5" y="0.0" />
+    </edge>
+    <edge source="\Laradic\Themes\ThemeServiceProvider" target="\Laradic\Themes\Assets\AssetFactory">
+      <point x="-80.0" y="-56.0" />
+      <point x="720.0" y="960.0" />
+      <point x="119.5" y="0.0" />
+    </edge>
+    <edge source="\Laradic\Themes\Navigation\Factory" target="\Laradic\Themes\Navigation\Node">
+      <point x="0.0" y="-66.5" />
+      <point x="0.0" y="87.5" />
+    </edge>
+    <edge source="\Laradic\Themes\ThemeServiceProvider" target="\Laradic\Themes\Providers\EventServiceProvider">
+      <point x="40.0" y="-56.0" />
+      <point x="840.0" y="1000.0" />
+      <point x="-81.5" y="0.0" />
+    </edge>
+    <edge source="\Laradic\Themes\ThemeServiceProvider" target="\Laradic\Themes\Providers\ConsoleServiceProvider">
+      <point x="0.0" y="56.0" />
+      <point x="0.0" y="-35.0" />
+    </edge>
+    <edge source="\Laradic\Themes\Navigation\Factory" target="\Laradic\Themes\Contracts\NavigationFactory">
+      <point x="95.5" y="0.0" />
+      <point x="-72.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8408876298394714" x="682.0797304884894" y="906.3082537900054" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constants</Category>
+  </Categories>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

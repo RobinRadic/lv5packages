@@ -6,3 +6,7 @@
 	path = build/tools
 	url = https://github.com/laradic/php-build-tools
 	branch = master
+[submodule "lib/bash"]
+	path = lib/bash
+	url = https://github.com/robinradic/radic-bash-lib
+	branch = master

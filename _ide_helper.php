@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.18 on 2015-04-19.
+ * Generated for Laravel 5.0.18 on 2015-04-23.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -791,6 +791,54 @@ if ( ! function_exists('with'))
 	{
 		return $object;
 	}
+}
+
+if(!function_exists('admin_url')){
+    function admin_url($path = null, $extra = array(), $secure = false)
+    {
+        return app('url')->toAdmin($path, $extra, $secure);
+    }
+}
+
+
+if ( ! function_exists('redirect'))
+{
+    /**
+     * Get an instance of the redirector.
+     *
+     * @param  string|null  $to
+     * @param  int     $status
+     * @param  array   $headers
+     * @param  bool    $secure
+     * @return \Laradic\Admin\Routing\AdminRedirector|\Illuminate\Http\RedirectResponse
+     */
+    function redirect($to = null, $status = 302, $headers = array(), $secure = null)
+    {
+        if (is_null($to)) return app('redirect');
+
+        return app('redirect')->to($to, $status, $headers, $secure);
+    }
+}
+
+
+
+if ( ! function_exists('admin_redirect'))
+{
+    /**
+     * Get an instance of the redirector.
+     *
+     * @param  string|null  $to
+     * @param  int     $status
+     * @param  array   $headers
+     * @param  bool    $secure
+     * @return \Laradic\Admin\Routing\AdminRedirector|\Illuminate\Http\RedirectResponse
+     */
+    function admin_redirect($to = null, $status = 302, $headers = array(), $secure = null)
+    {
+        if (is_null($to)) return app('redirect');
+
+        return app('redirect')->toAdmin($to, $status, $headers, $secure);
+    }
 }
 
     class App extends \Illuminate\Support\Facades\App{
@@ -8553,9 +8601,14 @@ if ( ! function_exists('with'))
         /**
          * Instanciates the class
          *
+         * @param null $path
+         * @param int $status
+         * @param array $headers
+         * @param null $secure
+         * @return \Illuminate\Http\RedirectResponse 
          * @static 
          */
-        public static function toAdmin($path, $status = 302, $headers = array(), $secure = null){
+        public static function toAdmin($path = null, $status = 302, $headers = array(), $secure = null){
             return \Laradic\Admin\Routing\AdminRedirector::toAdmin($path, $status, $headers, $secure);
         }
         
@@ -11820,9 +11873,13 @@ if ( ! function_exists('with'))
         /**
          * Instanciates the class
          *
+         * @param string $path
+         * @param array $extra
+         * @param null $secure
+         * @return string 
          * @static 
          */
-        public static function toAdmin($path = '', $extra = array(), $secure = null){
+        public static function toAdmin($path = null, $extra = array(), $secure = null){
             return \Laradic\Admin\Routing\AdminUrlGenerator::toAdmin($path, $extra, $secure);
         }
         
@@ -12717,6 +12774,159 @@ if ( ! function_exists('with'))
     }
 
 
+    class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade{
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function register($name, $callback){
+            return \DaveJamesMiller\Breadcrumbs\Manager::register($name, $callback);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function exists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::exists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generate($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generate($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateIfExists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function generateIfExistsArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see generateIfExistsArray
+         * @static 
+         */
+        public static function generateArrayIfExists(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::generateArrayIfExists();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function render($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::render($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderIfExists($name = null){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExists($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function renderIfExistsArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExistsArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @deprecated Since 3.0.0
+         * @see renderIfExistsArray
+         * @static 
+         */
+        public static function renderArrayIfExists(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::renderArrayIfExists();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setCurrentRoute($name){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRoute($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setCurrentRouteArray($name, $params = array()){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRouteArray($name, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function clearCurrentRoute(){
+            return \DaveJamesMiller\Breadcrumbs\Manager::clearCurrentRoute();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setView($view){
+            return \DaveJamesMiller\Breadcrumbs\Manager::setView($view);
+        }
+        
+    }
+
+
     class Markdown extends \Radic\BladeExtensions\Facades\Markdown{
         
         /**
@@ -13573,8 +13783,26 @@ if ( ! function_exists('with'))
          *
          * @static 
          */
+        public static function getSortedByDependency(){
+            return \Laradic\Extensions\ExtensionFactory::getSortedByDependency();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
         public static function runSeed($filePath, $className = null){
             return \Laradic\Extensions\ExtensionFactory::runSeed($filePath, $className);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function updateAllRecords(){
+            return \Laradic\Extensions\ExtensionFactory::updateAllRecords();
         }
         
         /**
@@ -13728,6 +13956,260 @@ if ( ! function_exists('with'))
          */
         public static function offsetUnset($slug){
             \Laradic\Extensions\ExtensionFactory::offsetUnset($slug);
+        }
+        
+    }
+
+
+    class Navigation extends \Laradic\Themes\Facades\Navigation{
+        
+        /**
+         * add
+         *
+         * @param $id
+         * @param $value
+         * @param null $parent
+         * @param string $link
+         * @param bool $authenticated
+         * @param array $permissions
+         * @return \Laradic\Themes\Navigation\Node 
+         * @static 
+         */
+        public static function add($id, $value, $parent = null, $link = '#', $authenticated = false, $permissions = array()){
+            return \Laradic\Themes\Navigation\Factory::add($id, $value, $parent, $link, $authenticated, $permissions);
+        }
+        
+        /**
+         * get
+         *
+         * @param $id
+         * @return \Laradic\Themes\Navigation\Node 
+         * @static 
+         */
+        public static function get($id){
+            return \Laradic\Themes\Navigation\Factory::get($id);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function render($id, $view = null){
+            return \Laradic\Themes\Navigation\Factory::render($id, $view);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function registerBreadcrumbs($crumbs, $parent = null){
+            return \Laradic\Themes\Navigation\Factory::registerBreadcrumbs($crumbs, $parent);
+        }
+        
+        /**
+         * Get the value of sentry
+         *
+         * @return \Cartalyst\Sentry\Sentry 
+         * @static 
+         */
+        public static function getSentry(){
+            return \Laradic\Themes\Navigation\Factory::getSentry();
+        }
+        
+        /**
+         * Sets the value of sentry
+         *
+         * @param \Cartalyst\Sentry\Sentry $sentry
+         * @return $this 
+         * @static 
+         */
+        public static function setSentry($sentry){
+            return \Laradic\Themes\Navigation\Factory::setSentry($sentry);
+        }
+        
+        /**
+         * Get the value of generator
+         *
+         * @return \Illuminate\Contracts\Routing\UrlGenerator 
+         * @static 
+         */
+        public static function getGenerator(){
+            return \Laradic\Themes\Navigation\Factory::getGenerator();
+        }
+        
+        /**
+         * Sets the value of generator
+         *
+         * @param \Illuminate\Contracts\Routing\UrlGenerator $generator
+         * @return $this 
+         * @static 
+         */
+        public static function setGenerator($generator){
+            return \Laradic\Themes\Navigation\Factory::setGenerator($generator);
+        }
+        
+    }
+
+
+    class Asset extends \Laradic\Themes\Facades\Asset{
+        
+        /**
+         * 
+         *
+         * @return \Laradic\Themes\Assets\Asset 
+         * @static 
+         */
+        public static function make($assetPath){
+            return \Laradic\Themes\Assets\AssetFactory::make($assetPath);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function url($assetPath = ''){
+            return \Laradic\Themes\Assets\AssetFactory::url($assetPath);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function uri($assetPath = ''){
+            return \Laradic\Themes\Assets\AssetFactory::uri($assetPath);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function style($assetPath = '', $attributes = array(), $secure = false){
+            return \Laradic\Themes\Assets\AssetFactory::style($assetPath, $attributes, $secure);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function script($assetPath = '', $attributes = array(), $secure = false){
+            return \Laradic\Themes\Assets\AssetFactory::script($assetPath, $attributes, $secure);
+        }
+        
+        /**
+         * group
+         *
+         * @param $name
+         * @param callable $cb
+         * @return \Laradic\Themes\Assets\AssetGroup 
+         * @static 
+         */
+        public static function group($name){
+            return \Laradic\Themes\Assets\AssetFactory::group($name);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function relativePath($path){
+            return \Laradic\Themes\Assets\AssetFactory::relativePath($path);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function toUrl($path){
+            return \Laradic\Themes\Assets\AssetFactory::toUrl($path);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getPath($key = null){
+            return \Laradic\Themes\Assets\AssetFactory::getPath($key);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getThemes(){
+            return \Laradic\Themes\Assets\AssetFactory::getThemes();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setThemes($themes){
+            return \Laradic\Themes\Assets\AssetFactory::setThemes($themes);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getContainer(){
+            return \Laradic\Themes\Assets\AssetFactory::getContainer();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setContainer($container){
+            return \Laradic\Themes\Assets\AssetFactory::setContainer($container);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getAssetClass(){
+            return \Laradic\Themes\Assets\AssetFactory::getAssetClass();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setAssetClass($assetClass){
+            return \Laradic\Themes\Assets\AssetFactory::setAssetClass($assetClass);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function getUrlGenerator(){
+            return \Laradic\Themes\Assets\AssetFactory::getUrlGenerator();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */
+        public static function setUrlGenerator($urlGenerator){
+            return \Laradic\Themes\Assets\AssetFactory::setUrlGenerator($urlGenerator);
         }
         
     }
@@ -14043,411 +14525,67 @@ if ( ! function_exists('with'))
             return \Laradic\Themes\ThemeFactory::getIterator();
         }
         
-    }
-
-
-    class Asset extends \Laradic\Themes\Facades\Asset{
-        
         /**
-         * 
+         * Get the value of navigation
          *
-         * @return \Laradic\Themes\Assets\Asset 
+         * @return \Laradic\Themes\NavigationFactory 
          * @static 
          */
-        public static function make($assetPath){
-            return \Laradic\Themes\Assets\AssetFactory::make($assetPath);
+        public static function getNavigation(){
+            return \Laradic\Themes\ThemeFactory::getNavigation();
         }
         
         /**
-         * 
+         * Sets the value of navigation
          *
+         * @param \Laradic\Themes\NavigationFactory $navigation
+         * @return \Laradic\Themes\NavigationFactory 
          * @static 
          */
-        public static function url($assetPath = ''){
-            return \Laradic\Themes\Assets\AssetFactory::url($assetPath);
+        public static function setNavigation($navigation){
+            return \Laradic\Themes\ThemeFactory::setNavigation($navigation);
         }
         
         /**
-         * 
+         * Get the value of breadcrumbs
          *
+         * @return \DaveJamesMiller\Breadcrumbs\Manager 
          * @static 
          */
-        public static function uri($assetPath = ''){
-            return \Laradic\Themes\Assets\AssetFactory::uri($assetPath);
+        public static function getBreadcrumbs(){
+            return \Laradic\Themes\ThemeFactory::getBreadcrumbs();
         }
         
         /**
-         * 
+         * Sets the value of breadcrumbs
          *
+         * @param \DaveJamesMiller\Breadcrumbs\Manager $breadcrumbs
+         * @return \DaveJamesMiller\Breadcrumbs\Manager 
          * @static 
          */
-        public static function style($assetPath = '', $attributes = array(), $secure = false){
-            return \Laradic\Themes\Assets\AssetFactory::style($assetPath, $attributes, $secure);
+        public static function setBreadcrumbs($breadcrumbs){
+            return \Laradic\Themes\ThemeFactory::setBreadcrumbs($breadcrumbs);
         }
         
         /**
-         * 
+         * Get the value of assets
          *
+         * @return \Laradic\Themes\Assets\AssetFactory 
          * @static 
          */
-        public static function script($assetPath = '', $attributes = array(), $secure = false){
-            return \Laradic\Themes\Assets\AssetFactory::script($assetPath, $attributes, $secure);
+        public static function getAssets(){
+            return \Laradic\Themes\ThemeFactory::getAssets();
         }
         
         /**
-         * group
+         * Sets the value of assets
          *
-         * @param $name
-         * @param callable $cb
-         * @return \Laradic\Themes\Assets\AssetGroup 
+         * @param \Laradic\Themes\Assets\AssetFactory $assets
+         * @return \Laradic\Themes\Assets\AssetFactory 
          * @static 
          */
-        public static function group($name){
-            return \Laradic\Themes\Assets\AssetFactory::group($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function relativePath($path){
-            return \Laradic\Themes\Assets\AssetFactory::relativePath($path);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function toUrl($path){
-            return \Laradic\Themes\Assets\AssetFactory::toUrl($path);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getPath($key = null){
-            return \Laradic\Themes\Assets\AssetFactory::getPath($key);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getThemes(){
-            return \Laradic\Themes\Assets\AssetFactory::getThemes();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setThemes($themes){
-            return \Laradic\Themes\Assets\AssetFactory::setThemes($themes);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getContainer(){
-            return \Laradic\Themes\Assets\AssetFactory::getContainer();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setContainer($container){
-            return \Laradic\Themes\Assets\AssetFactory::setContainer($container);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getAssetClass(){
-            return \Laradic\Themes\Assets\AssetFactory::getAssetClass();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setAssetClass($assetClass){
-            return \Laradic\Themes\Assets\AssetFactory::setAssetClass($assetClass);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function getUrlGenerator(){
-            return \Laradic\Themes\Assets\AssetFactory::getUrlGenerator();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setUrlGenerator($urlGenerator){
-            return \Laradic\Themes\Assets\AssetFactory::setUrlGenerator($urlGenerator);
-        }
-        
-    }
-
-
-    class Navigation extends \Laradic\Themes\Facades\Navigation{
-        
-        /**
-         * add
-         *
-         * @param $id
-         * @param $value
-         * @param null $parent
-         * @param string $link
-         * @param bool $authenticated
-         * @param array $permissions
-         * @return \Laradic\Themes\Navigation\Node 
-         * @static 
-         */
-        public static function add($id, $value, $parent = null, $link = '#', $authenticated = false, $permissions = array()){
-            return \Laradic\Themes\Navigation\Factory::add($id, $value, $parent, $link, $authenticated, $permissions);
-        }
-        
-        /**
-         * get
-         *
-         * @param $id
-         * @return \Laradic\Themes\Navigation\Node 
-         * @static 
-         */
-        public static function get($id){
-            return \Laradic\Themes\Navigation\Factory::get($id);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function render($id, $view = null){
-            return \Laradic\Themes\Navigation\Factory::render($id, $view);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function registerBreadcrumbs($crumbs, $parent = null){
-            return \Laradic\Themes\Navigation\Factory::registerBreadcrumbs($crumbs, $parent);
-        }
-        
-        /**
-         * Get the value of sentry
-         *
-         * @return \Cartalyst\Sentry\Sentry 
-         * @static 
-         */
-        public static function getSentry(){
-            return \Laradic\Themes\Navigation\Factory::getSentry();
-        }
-        
-        /**
-         * Sets the value of sentry
-         *
-         * @param \Cartalyst\Sentry\Sentry $sentry
-         * @return $this 
-         * @static 
-         */
-        public static function setSentry($sentry){
-            return \Laradic\Themes\Navigation\Factory::setSentry($sentry);
-        }
-        
-        /**
-         * Get the value of generator
-         *
-         * @return \Illuminate\Contracts\Routing\UrlGenerator 
-         * @static 
-         */
-        public static function getGenerator(){
-            return \Laradic\Themes\Navigation\Factory::getGenerator();
-        }
-        
-        /**
-         * Sets the value of generator
-         *
-         * @param \Illuminate\Contracts\Routing\UrlGenerator $generator
-         * @return $this 
-         * @static 
-         */
-        public static function setGenerator($generator){
-            return \Laradic\Themes\Navigation\Factory::setGenerator($generator);
-        }
-        
-    }
-
-
-    class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade{
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function register($name, $callback){
-            return \DaveJamesMiller\Breadcrumbs\Manager::register($name, $callback);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function exists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::exists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generate($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generate($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateIfExists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateIfExistsArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExistsArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @deprecated Since 3.0.0
-         * @see generateIfExistsArray
-         * @static 
-         */
-        public static function generateArrayIfExists(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateArrayIfExists();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function render($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::render($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderIfExists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderIfExistsArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExistsArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @deprecated Since 3.0.0
-         * @see renderIfExistsArray
-         * @static 
-         */
-        public static function renderArrayIfExists(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderArrayIfExists();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setCurrentRoute($name){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRoute($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setCurrentRouteArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRouteArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function clearCurrentRoute(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::clearCurrentRoute();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setView($view){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setView($view);
+        public static function setAssets($assets){
+            return \Laradic\Themes\ThemeFactory::setAssets($assets);
         }
         
     }
@@ -14572,6 +14710,53 @@ if ( ! function_exists('with'))
          */
         public static function whereNotType($types){
             return \Cartalyst\Alerts\Alerts::whereNotType($types);
+        }
+        
+    }
+
+
+    class Datatable extends \Chumper\Datatable\Facades\DatatableFacade{
+        
+        /**
+         * 
+         *
+         * @param $query
+         * @return \Chumper\Datatable\QueryEngine 
+         * @static 
+         */
+        public static function query($query){
+            return \Chumper\Datatable\Datatable::query($query);
+        }
+        
+        /**
+         * 
+         *
+         * @param $collection
+         * @return \Chumper\Datatable\CollectionEngine 
+         * @static 
+         */
+        public static function collection($collection){
+            return \Chumper\Datatable\Datatable::collection($collection);
+        }
+        
+        /**
+         * 
+         *
+         * @return \Chumper\Datatable\Table 
+         * @static 
+         */
+        public static function table(){
+            return \Chumper\Datatable\Datatable::table();
+        }
+        
+        /**
+         * 
+         *
+         * @return bool True if the plugin should handle this request, false otherwise
+         * @static 
+         */
+        public static function shouldHandle(){
+            return \Chumper\Datatable\Datatable::shouldHandle();
         }
         
     }

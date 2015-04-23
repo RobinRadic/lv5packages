@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Facades" pattern="file:*/Facades//*&amp;&amp;!file:*/build//*" />
+</component>

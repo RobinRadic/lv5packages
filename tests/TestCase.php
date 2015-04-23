@@ -1,20 +1,42 @@
-<?php
+<?php namespace Laradic\Tests;
 
 use Laradic\Dev\AbstractTestCase;
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase
+/**
+ * Class ViewTest
+ *
+ * @author     Robin Radic
+ * @inheritDoc
+ */
+abstract class TestCase extends AbstractTestCase
 {
+
+    protected $provider;
+
+    /** @inheritDoc */
     public function setUp()
     {
         parent::setUp();
     }
-
-    public function createApplication()
+    /**
+     * Define environment setup.
+     *
+     * @param  \Illuminate\Foundation\Application   $app
+     *
+     * @return void
+     */
+    protected function getEnvironmentSetUp($app)
     {
-        $app = require __DIR__.'/../bootstrap/app.php';
-
-        $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
-
-        return $app;
+        // Define your environment setup.
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory
+     */
+    public function view()
+    {
+        return $this->app[ 'view' ];
+    }
+
+
 }

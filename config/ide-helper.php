@@ -28,7 +28,7 @@ return array(
 
     'helper_files' => array(
         base_path().'/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
-        base_path().'/laradic/admin/helpers.php'
+        base_path().'/extensions/laradic/admin/src/helpers.php'
     ),
 
     /*
@@ -43,7 +43,7 @@ return array(
 
     'model_locations' => array(
         'app',
-        'vendor/rydurham/sentinel/src/Sentinel/Models'
+        'extensions/laradic-admin/attributes/src/Models',
     ),
 
 

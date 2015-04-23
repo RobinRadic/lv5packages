@@ -59,7 +59,7 @@ return array(
      |
      */
 
-    'capture_ajax' => false,
+    'capture_ajax' => true,
 
     /*
      |--------------------------------------------------------------------------
@@ -103,7 +103,7 @@ return array(
 
     'options' => array(
         'auth' => array(
-            'show_name' => false,   // Also show the users name/email in the debugbar
+            'show_name' => true,   // Also show the users name/email in the debugbar
         ),
         'db' => array(
             'with_params'       => true,   // Render SQL with the parameters substituted
@@ -119,7 +119,7 @@ return array(
             'full_log' => false
         ),
         'views' => array(
-            'data' => false,    //Note: Can slow down the application, because the data can be quite large..
+            'data' => true,    //Note: Can slow down the application, because the data can be quite large..
         ),
         'route' => array(
             'label' => true  // show complete route on bar

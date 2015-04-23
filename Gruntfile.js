@@ -76,7 +76,7 @@ module.exports = function( grunt ){
             contract_docs_factory: {
                 command: interfaceGenerator("Radic\\Docs", "Factory", "Contracts\\Factory", "radic/docs/src/Contracts/Factory.php")
             },
-            themes_publish: {
+            themes_publish       : {
                 command: 'php artisan themes:publish'
             }
         },
@@ -93,11 +93,28 @@ module.exports = function( grunt ){
                 }
             }
         },
-        watch         : {
-            options          : {livereload: true},
-            themes_publishers: {
-                files: [ 'Laradic/*/resources/theme/**', 'extensions/*/*/resources/theme/**', 'extensions/*/*/resources/field-types/**' ]
+        jade: {
+            templates: {
+                options: {
+                    client   : true,
+                    pretty   : false,
+                    amd      : true,
+                    namespace: false
+                },
+                files  : [
+                    {expand: true, cwd: 'extensions/laradic/admin/resources/theme/assets/templates', src: ['**/*.jade'], ext: '.js', dest: 'extensions/laradic/admin/resources/theme/assets/templates' }
+                ]
             }
+        },
+        watch         : {
+            options          : {livereload: false},
+            jade_templates: {
+                files: ['extensions/*/*/resources/theme/assets/templates/**/*.jade'],
+                tasks: ['jade:templates']
+            }
+           // themes_publishers: {
+           //     files: [ 'Laradic/*/resources/theme/**', 'extensions/*/*/resources/theme/**', 'extensions/*/*/resources/field-types/**' ]
+           // }
         }
 
     };
@@ -111,27 +128,30 @@ module.exports = function( grunt ){
         var task = 'shell:themes_publish';
         var themesPublishNamespace = '';
         if( segments[ 0 ] == 'extensions' && segments[ 4 ] == 'theme' && segments[ 5 ] == 'views' && segments[ 6 ] == 'navigation' ){
-            themesPublishNamespace =  segments[ 1 ] + '/' + segments[ 2 ];
+            themesPublishNamespace = segments[ 1 ] + '/' + segments[ 2 ];
         }
-        if(themesPublishNamespace == 'laradic/packadic')
-        {
-            themesPublishNamespace = 'theme';
+        if( themesPublishNamespace == 'laradic/packadic' ){
+            return;
+            //themesPublishNamespace = 'theme';
         }
-        if(segments[1] == 'laradic')
-        {
-            if(segments[2] == 'admin')
-            {
-                if(segments[4] == 'field-types')
-                {
+        if( segments[ 1 ] == 'laradic' ){
+            if( segments[ 2 ] == 'admin' ){
+                if( segments[ 4 ] == 'field-types' ){
                     themesPublishNamespace = 'field-types';
                 }
-                else if(segments[4] == 'theme')
-                {
+                else if( segments[ 4 ] == 'theme' ){
                     themesPublishNamespace = 'laradic/admin';
                 }
             }
+            else if( segments[ 2 ] == 'packadic' ){
+                return;
+                //themesPublishNamespace = 'laradic/packadic';
+                //if( segments[ 6 ] == 'assets' ){
+                //    return;
+               // }
+            }
         }
-        process.stdout.write(require('util').inspect(segments, {colors:true, hidden:true, depth: 5}));
+        process.stdout.write(require('util').inspect(segments, {colors: true, hidden: true, depth: 5}));
         process.stdout.write(radic.sh.execSync('php artisan themes:publish ' + themesPublishNamespace).stdout)
 
     });

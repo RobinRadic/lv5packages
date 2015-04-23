@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Exceptions" pattern="file:*Exception.php" />
+</component>

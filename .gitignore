@@ -27,7 +27,7 @@
 .idea3
 /secret.js
 /public/packages
-/extensions/laradic
-/extensions/icp-admin
+/extensions
 /public/frontend/default
 /Anigrab
+/theme

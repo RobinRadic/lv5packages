@@ -55,7 +55,12 @@
         "composer-plugin-api": "~1.0",
         "nicmart/tree": "0.2.*",
         "league/oauth2-client": "0.10.*",
-        "laracasts/generators": "~1.1"
+        "laracasts/generators": "~1.1",
+        "chumper/datatable": "dev-develop#bdd90cbe65b3544761f69ea199a1b9591770f3fc"
+    },
+    "require-dev": {
+        "league/factory-muffin": "3.0.*@dev",
+        "phpunit/phpunit": "~4.6"
     },
     "replace": {
         "laradic/admin": "self.version",
@@ -78,18 +83,21 @@
             "Radic\\BladeExtensions\\": "radic/blade-extensions/src/",
             "Laradic\\": "Laradic/",
             "Laradic\\Admin\\": "extensions/laradic/admin/src",
-            "LaradicAdmin\\Extensions\\": "extensions/laradic-admin/extensions/src",
             "Laradic\\Docit\\": "extensions/laradic/docit/src",
             "Laradic\\Packadic\\": "extensions/laradic/packadic/src",
-            "Anigrab\\": "Anigrab",
+            "LaradicAdmin\\Attributes\\": "extensions/laradic-admin/attributes/src",
+            "LaradicAdmin\\Core\\": "extensions/laradic-admin/core/src",
+            "LaradicAdmin\\Users\\": "extensions/laradic-admin/users/src",
             "LaradicAdmin\\GithubEditor\\": "extensions/laradic-admin/github-editor/src",
+            "LaradicAdmin\\Extensions\\": "extensions/laradic-admin/extensions/src",
             "IcpAdmin\\Werkbon\\": "extensions/icp-admin/werkbon/src"
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/"
-        ]
+        "psr-4": {
+            "Laradic\\Tests\\": "tests/",
+            "Laradic\\Dev\\": "Laradic/Dev"
+        }
     },
     "scripts": {
         "post-install-cmd": [

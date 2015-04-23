@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Traits" pattern="file:*Trait.php" />
+</component>

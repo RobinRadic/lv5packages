@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
 
         $fs = $app->make('files');
         $viewFiles = $fs->glob(storage_path('framework/views/*'));
-        #$fs->delete($viewFiles);
+        $fs->delete($viewFiles);
 
         $app->register('Laradic\Support\SupportServiceProvider');
         $app->register('Laradic\Generators\GeneratorsServiceProvider');
@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
         $app->register('Radic\BladeExtensions\BladeExtensionsServiceProvider');
         $app->register('Laradic\Themes\ThemeServiceProvider');
         $app->register('Laradic\Extensions\ExtensionsServiceProvider');
-        $app->register('Anigrab\AnigrabServiceProvider');
+       # $app->register('Anigrab\AnigrabServiceProvider');
 
         AliasLoader::getInstance()->alias('Form', 'Collective\Html\FormFacade');
         AliasLoader::getInstance()->alias('HTML', 'Collective\Html\HtmlFacade');

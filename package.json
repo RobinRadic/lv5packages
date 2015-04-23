@@ -37,6 +37,7 @@
     "grunt-contrib-watch": "~0.6.1"
   },
   "dependencies": {
-    "grunt-ftpsync": "~0.1.1"
+    "grunt-ftpsync": "~0.1.1",
+    "grunt-contrib-jade": "~0.14.1"
   }
 }

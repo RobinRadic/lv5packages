@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Laradic/Config" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Laradic/Debug" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Laradic/Dev" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Laradic/Extensions" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Laradic/Support" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Laradic/Themes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/extensions/laradic/admin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/extensions/laradic/docit" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/extensions/laradic/packadic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/radic/blade-extensions" vcs="Git" />
+  </component>
+</project>

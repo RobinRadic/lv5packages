@@ -2,6 +2,8 @@
 
 use Laradic\Support\AbstractConsoleCommand;
 
+use LaradicAdmin\Attributes\Http\Controllers\AttributesController;
+
 /**
  * Class Test
  *
@@ -37,7 +39,9 @@ class Test extends AbstractConsoleCommand
     public function fire()
     {
         $extensions = app('extensions');
-        $extensions->get('laradic/admin')->runSeeders();
+        $c          = new AttributesController(app('LaradicAdmin\Attributes\FieldTypes\Factory'), app('LaradicAdmin\Attributes\Repositories\EloquentAttributeRepository'));
+        $a          = 'a';
+        #$extensions->get('laradic/admin')->runSeeders();
     }
 
     /**
