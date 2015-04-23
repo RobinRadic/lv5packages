@@ -1,3 +1,0 @@
-<component name="DependencyValidationManager">
-  <scope name="Command" pattern="file:*Command.php" />
-</component>
