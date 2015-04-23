@@ -10,3 +10,7 @@
 	path = lib/laravel
 	url = https://github.com/laravel/framework
 	branch = 5.0
+[submodule "lib/bash"]
+	path = lib/bash
+	url = https://github.com/robinradic/radic-bash-lib
+	branch = master
