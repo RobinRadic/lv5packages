@@ -6,11 +6,12 @@ return array(
     'default_version'         => 'master', #null = latest
     'default_page_attributes' => array(
         'disqus' => true,
-        # 'share_buttons' => ['facebook']
+        'layout' => 'default'
     ),
     'phpdoc'                  => array(
-        'enabled'        => true,
-        'structure_path' => 'docs/structure.xml'
+        'enabled'  => true,
+        'xml_path' => 'phpdoc/structure.xml',
+        'dir'      => 'phpdoc'
     ),
     'github'                  => array(
         'enabled'        => false,

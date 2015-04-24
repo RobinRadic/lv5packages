@@ -160,7 +160,7 @@
     </target>
 
     <target name="phpdoc-themes" depends="prepare" description="Generate project documentation using phpDocumentator">
-        <property name="themes-doc-output-dir" value="${project.basedir}/extensions/laradic/docit/resources/docs/phpdoc"/>
+        <property name="themes-doc-output-dir" value="${project.basedir}/Laradic/Themes/resources/docs/phpdoc"/>
         <delete dir="${themes-doc-output-dir}" />
         <mkdir dir="${themes-doc-output-dir}" />
         <exec executable="${toolsdir}phpdoc.phar" dir="${project.basedir}" logoutput="true">
