@@ -1,7 +1,7 @@
 <?php namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Laradic\Support\Arr;
+use Laradic\Support\Arrays;
 
 class Kernel extends HttpKernel {
 
@@ -41,7 +41,7 @@ class Kernel extends HttpKernel {
         $bootstrappers = array_merge([
             'Illuminate\Foundation\Bootstrap\DetectEnvironment',
             'Laradic\Config\Bootstrap\LoadConfiguration'
-        ], Arr::without($this->bootstrappers, [
+        ], Arrays::without($this->bootstrappers, [
             'Illuminate\Foundation\Bootstrap\DetectEnvironment',
             'Illuminate\Foundation\Bootstrap\LoadConfiguration'
         ]));

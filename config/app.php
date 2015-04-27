@@ -136,6 +136,8 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 
+
+        'Laradic\Workbench\WorkbenchServiceProvider',
 		/*
 		 * Application Service Providers...
 		 */

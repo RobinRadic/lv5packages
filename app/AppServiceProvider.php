@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Symfony\Component\VarDumper\VarDumper;
 use Themes;
 
+#use Themes;
+
 class AppServiceProvider extends ServiceProvider
 {
 
@@ -27,14 +29,17 @@ class AppServiceProvider extends ServiceProvider
         $fs->delete($viewFiles);
 
         $app->register('Laradic\Support\SupportServiceProvider');
-        $app->register('Laradic\Generators\GeneratorsServiceProvider');
-        $app->register('Collective\Html\HtmlServiceProvider');
         $app->register('Laradic\Config\ConfigServiceProvider');
         $app->register('Laradic\Debug\DebugServiceProvider');
-        $app->register('Laradic\Dev\DevServiceProvider');
         $app->register('Radic\BladeExtensions\BladeExtensionsServiceProvider');
+        #$app->register('Laradic\Dev\DevServiceProvider');
         $app->register('Laradic\Themes\ThemeServiceProvider');
+        $app->register('Laradic\Generators\GeneratorsServiceProvider');
         $app->register('Laradic\Extensions\ExtensionsServiceProvider');
+
+        return;
+        $app->register('Collective\Html\HtmlServiceProvider');
+        $app->register('Laradic\Themes\ThemeServiceProvider');
 
        # $app->register('Anigrab\AnigrabServiceProvider');
 

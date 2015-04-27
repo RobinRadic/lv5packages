@@ -1,6 +1,6 @@
 <?php namespace App\Console\Commands;
 
-use Laradic\Support\AbstractConsoleCommand;
+use Laradic\Console\Command;
 
 use LaradicAdmin\Attributes\Http\Controllers\AttributesController;
 
@@ -14,7 +14,7 @@ use LaradicAdmin\Attributes\Http\Controllers\AttributesController;
  * @link        http://radic.mit-license.org
  * @method
  */
-class Test extends AbstractConsoleCommand
+class Test extends Command
 {
 
     /**
@@ -40,7 +40,7 @@ class Test extends AbstractConsoleCommand
     {
         $extensions = app('extensions');
         $f = app('files');
-        $raw = $f->get(base_path('build/phpdoc/structure.xml'));
+        $raw = $f->get(base_path('Laradic/Themes/resources/docs/phpdoc/structure.xml'));
         $xml = simplexml_load_string($raw);
         $xml = json_encode($xml);
         $xml = json_decode($xml, true);

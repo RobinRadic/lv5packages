@@ -2,7 +2,8 @@
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Laradic\Support\Arr;
+
+use Laradic\Support\Arrays;
 
 class Kernel extends ConsoleKernel {
 
@@ -37,7 +38,7 @@ class Kernel extends ConsoleKernel {
         $bootstrappers = array_merge([
             'Illuminate\Foundation\Bootstrap\DetectEnvironment',
             'Laradic\Config\Bootstrap\LoadConfiguration'
-        ], Arr::without($this->bootstrappers, [
+        ], Arrays::without($this->bootstrappers, [
             'Illuminate\Foundation\Bootstrap\DetectEnvironment',
             'Illuminate\Foundation\Bootstrap\LoadConfiguration'
         ]));

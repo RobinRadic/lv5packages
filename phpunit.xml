@@ -10,7 +10,7 @@
          stopOnFailure="false"
          syntaxCheck="false">
     <testsuites>
-        <testsuite name="Laradic">
+        <testsuite name="Support">
             <directory suffix="Test.php">./tests/</directory>
         </testsuite>
 <!--

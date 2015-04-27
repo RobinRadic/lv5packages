@@ -1,0 +1,20 @@
+{
+    "name": "laradic/config",
+    "description": "",
+    "authors": [
+        {
+            "name": "Robin Radic",
+            "email": "robin@radic.nl"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laradic\\Config": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}

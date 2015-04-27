@@ -6,7 +6,13 @@ return array(
     'default_version'         => '2.1', #null = latest
     'default_page_attributes' => array(
         'disqus' => true,
-       # 'share_buttons' => ['facebook']
+        'layout' => 'default'
+    ),
+    'phpdoc'                  => array(
+        'enabled'  => true,
+        'layout'   => 'phpdoc',
+        'github_xml_path' => 'resources/docs/phpdoc/structure.xml',
+        'dir'      => 'phpdoc'
     ),
     'github'                  => array(
         'enabled'        => true,
@@ -17,8 +23,7 @@ return array(
         'exclude_tags'   => [],
         'start_at_tag'   => 'v2.1.0',
         'path_bindings'  => array(
-            'logs'     => 'build/logs',
-            'docs'     => 'docs',
+            'docs'     => 'resources/docs',
             'index_md' => 'README.md' # null for default, otherwise path relative to git root, ex: README.md OR documents/intro.md
         )
     )

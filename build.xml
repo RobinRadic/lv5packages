@@ -171,4 +171,28 @@
         </exec>
     </target>
 
+    <target name="phpdoc-blade" depends="prepare" description="Generate project documentation using phpDocumentator">
+        <property name="blade-doc-output-dir" value="${project.basedir}/radic/blade-extensions/resources/docs/phpdoc"/>
+        <delete dir="${blade-doc-output-dir}" />
+        <mkdir dir="${blade-doc-output-dir}" />
+        <exec executable="${toolsdir}phpdoc.phar" dir="${project.basedir}" logoutput="true">
+            <arg line="-t ${blade-doc-output-dir}"/>
+            <arg line="-d ./radic/blade-extensions/src"/>
+            <arg line="--cache-folder=/tmp/blade"/>
+            <arg line="--template=xml"/>
+        </exec>
+    </target>
+
+    <target name="phpdoc-support" depends="prepare" description="Generate project documentation using phpDocumentator">
+        <property name="support-doc-output-dir" value="${project.basedir}/Laradic/Support/resources/docs/phpdoc"/>
+        <delete dir="${support-doc-output-dir}" />
+        <mkdir dir="${support-doc-output-dir}" />
+        <exec executable="${toolsdir}phpdoc.phar" dir="${project.basedir}" logoutput="true">
+            <arg line="-t ${support-doc-output-dir}"/>
+            <arg line="-d ./Laradic/Support"/>
+            <arg line="--cache-folder=/tmp/support"/>
+            <arg line="--template=xml"/>
+        </exec>
+    </target>
+
 </project>

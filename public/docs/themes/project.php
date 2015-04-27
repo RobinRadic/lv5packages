@@ -10,6 +10,7 @@ return array(
     ),
     'phpdoc'                  => array(
         'enabled'  => true,
+        'layout'   => 'phpdoc',
         'xml_path' => 'phpdoc/structure.xml',
         'dir'      => 'phpdoc'
     ),

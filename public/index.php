@@ -22,7 +22,7 @@ $app->bind('path.base', function() {
 });
 
 
-#$app->bind('Illuminate\Contracts\Http\Kernel', 'Radic\Dev\Exceptions\WhoopsHandler');
+//$app->bind('Illuminate\Contracts\Http\Kernel', 'Radic\Dev\Exceptions\WhoopsHandler');
 
 $kernel = $app->make('Illuminate\Contracts\Http\Kernel');
 

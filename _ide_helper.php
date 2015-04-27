@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.28 on 2015-04-24.
+ * Generated for Laravel 5.0.28 on 2015-04-27.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -808,54 +808,6 @@ if ( ! function_exists('with'))
 	{
 		return $object;
 	}
-}
-
-if(!function_exists('admin_url')){
-    function admin_url($path = null, $extra = array(), $secure = false)
-    {
-        return app('url')->toAdmin($path, $extra, $secure);
-    }
-}
-
-
-if ( ! function_exists('redirect'))
-{
-    /**
-     * Get an instance of the redirector.
-     *
-     * @param  string|null  $to
-     * @param  int     $status
-     * @param  array   $headers
-     * @param  bool    $secure
-     * @return \Laradic\Admin\Routing\AdminRedirector|\Illuminate\Http\RedirectResponse
-     */
-    function redirect($to = null, $status = 302, $headers = array(), $secure = null)
-    {
-        if (is_null($to)) return app('redirect');
-
-        return app('redirect')->to($to, $status, $headers, $secure);
-    }
-}
-
-
-
-if ( ! function_exists('admin_redirect'))
-{
-    /**
-     * Get an instance of the redirector.
-     *
-     * @param  string|null  $to
-     * @param  int     $status
-     * @param  array   $headers
-     * @param  bool    $secure
-     * @return \Laradic\Admin\Routing\AdminRedirector|\Illuminate\Http\RedirectResponse
-     */
-    function admin_redirect($to = null, $status = 302, $headers = array(), $secure = null)
-    {
-        if (is_null($to)) return app('redirect');
-
-        return app('redirect')->toAdmin($to, $status, $headers, $secure);
-    }
 }
 
     class App extends \Illuminate\Support\Facades\App{
@@ -8563,7 +8515,7 @@ if ( ! function_exists('admin_redirect'))
          * @static 
          */
         public static function push($job, $data = '', $queue = null){
-            return \Illuminate\Queue\SyncQueue::push($job, $data, $queue);
+            return \Illuminate\Queue\BeanstalkdQueue::push($job, $data, $queue);
         }
         
         /**
@@ -8576,7 +8528,7 @@ if ( ! function_exists('admin_redirect'))
          * @static 
          */
         public static function pushRaw($payload, $queue = null, $options = array()){
-            return \Illuminate\Queue\SyncQueue::pushRaw($payload, $queue, $options);
+            return \Illuminate\Queue\BeanstalkdQueue::pushRaw($payload, $queue, $options);
         }
         
         /**
@@ -8590,7 +8542,7 @@ if ( ! function_exists('admin_redirect'))
          * @static 
          */
         public static function later($delay, $job, $data = '', $queue = null){
-            return \Illuminate\Queue\SyncQueue::later($delay, $job, $data, $queue);
+            return \Illuminate\Queue\BeanstalkdQueue::later($delay, $job, $data, $queue);
         }
         
         /**
@@ -8601,7 +8553,40 @@ if ( ! function_exists('admin_redirect'))
          * @static 
          */
         public static function pop($queue = null){
-            return \Illuminate\Queue\SyncQueue::pop($queue);
+            return \Illuminate\Queue\BeanstalkdQueue::pop($queue);
+        }
+        
+        /**
+         * Delete a message from the Beanstalk queue.
+         *
+         * @param string $queue
+         * @param string $id
+         * @return void 
+         * @static 
+         */
+        public static function deleteMessage($queue, $id){
+            \Illuminate\Queue\BeanstalkdQueue::deleteMessage($queue, $id);
+        }
+        
+        /**
+         * Get the queue or return the default.
+         *
+         * @param string|null $queue
+         * @return string 
+         * @static 
+         */
+        public static function getQueue($queue){
+            return \Illuminate\Queue\BeanstalkdQueue::getQueue($queue);
+        }
+        
+        /**
+         * Get the underlying Pheanstalk instance.
+         *
+         * @return \Pheanstalk_Pheanstalk 
+         * @static 
+         */
+        public static function getPheanstalk(){
+            return \Illuminate\Queue\BeanstalkdQueue::getPheanstalk();
         }
         
         /**
@@ -8615,7 +8600,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function pushOn($queue, $job, $data = ''){
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::pushOn($queue, $job, $data);
+            return \Illuminate\Queue\BeanstalkdQueue::pushOn($queue, $job, $data);
         }
         
         /**
@@ -8630,7 +8615,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function laterOn($queue, $delay, $job, $data = ''){
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::laterOn($queue, $delay, $job, $data);
+            return \Illuminate\Queue\BeanstalkdQueue::laterOn($queue, $delay, $job, $data);
         }
         
         /**
@@ -8641,7 +8626,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function marshal(){
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::marshal();
+            return \Illuminate\Queue\BeanstalkdQueue::marshal();
         }
         
         /**
@@ -8655,7 +8640,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function bulk($jobs, $data = '', $queue = null){
             //Method inherited from \Illuminate\Queue\Queue            
-            return \Illuminate\Queue\SyncQueue::bulk($jobs, $data, $queue);
+            return \Illuminate\Queue\BeanstalkdQueue::bulk($jobs, $data, $queue);
         }
         
         /**
@@ -8667,7 +8652,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function setContainer($container){
             //Method inherited from \Illuminate\Queue\Queue            
-            \Illuminate\Queue\SyncQueue::setContainer($container);
+            \Illuminate\Queue\BeanstalkdQueue::setContainer($container);
         }
         
         /**
@@ -8679,7 +8664,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function setEncrypter($crypt){
             //Method inherited from \Illuminate\Queue\Queue            
-            \Illuminate\Queue\SyncQueue::setEncrypter($crypt);
+            \Illuminate\Queue\BeanstalkdQueue::setEncrypter($crypt);
         }
         
     }
@@ -8698,7 +8683,7 @@ if ( ! function_exists('admin_redirect'))
          * @static 
          */
         public static function toAdmin($path = null, $status = 302, $headers = array(), $secure = null){
-            return \Laradic\Admin\Routing\AdminRedirector::toAdmin($path, $status, $headers, $secure);
+            return \LaradicAdmin\Core\Routing\AdminRedirector::toAdmin($path, $status, $headers, $secure);
         }
         
         /**
@@ -8710,7 +8695,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function home($status = 302){
             //Method inherited from \Illuminate\Routing\Redirector            
-            return \Laradic\Admin\Routing\AdminRedirector::home($status);
+            return \LaradicAdmin\Core\Routing\AdminRedirector::home($status);
         }
         
         /**
@@ -8723,7 +8708,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function back($status = 302, $headers = array()){
             //Method inherited from \Illuminate\Routing\Redirector            
-            return \Laradic\Admin\Routing\AdminRedirector::back($status, $headers);
+            return \LaradicAdmin\Core\Routing\AdminRedirector::back($status, $headers);
         }
         
         /**
@@ -8736,7 +8721,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function refresh($status = 302, $headers = array()){
             //Method inherited from \Illuminate\Routing\Redirector            
-            return \Laradic\Admin\Routing\AdminRedirector::refresh($status, $headers);
+            return \LaradicAdmin\Core\Routing\AdminRedirector::refresh($status, $headers);
         }
         
         /**
@@ -8751,7 +8736,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function guest($path, $status = 302, $headers = array(), $secure = null){
             //Method inherited from \Illuminate\Routing\Redirector            
-            return \Laradic\Admin\Routing\AdminRedirector::guest($path, $status, $headers, $secure);
+            return \LaradicAdmin\Core\Routing\AdminRedirector::guest($path, $status, $headers, $secure);
         }
         
         /**
@@ -8766,7 +8751,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function intended($default = '/', $status = 302, $headers = array(), $secure = null){
             //Method inherited from \Illuminate\Routing\Redirector            
-            return \Laradic\Admin\Routing\AdminRedirector::intended($default, $status, $headers, $secure);
+            return \LaradicAdmin\Core\Routing\AdminRedirector::intended($default, $status, $headers, $secure);
         }
         
         /**
@@ -8781,7 +8766,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function to($path, $status = 302, $headers = array(), $secure = null){
             //Method inherited from \Illuminate\Routing\Redirector            
-            return \Laradic\Admin\Routing\AdminRedirector::to($path, $status, $headers, $secure);
+            return \LaradicAdmin\Core\Routing\AdminRedirector::to($path, $status, $headers, $secure);
         }
         
         /**
@@ -8795,7 +8780,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function away($path, $status = 302, $headers = array()){
             //Method inherited from \Illuminate\Routing\Redirector            
-            return \Laradic\Admin\Routing\AdminRedirector::away($path, $status, $headers);
+            return \LaradicAdmin\Core\Routing\AdminRedirector::away($path, $status, $headers);
         }
         
         /**
@@ -8809,7 +8794,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function secure($path, $status = 302, $headers = array()){
             //Method inherited from \Illuminate\Routing\Redirector            
-            return \Laradic\Admin\Routing\AdminRedirector::secure($path, $status, $headers);
+            return \LaradicAdmin\Core\Routing\AdminRedirector::secure($path, $status, $headers);
         }
         
         /**
@@ -8824,7 +8809,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function route($route, $parameters = array(), $status = 302, $headers = array()){
             //Method inherited from \Illuminate\Routing\Redirector            
-            return \Laradic\Admin\Routing\AdminRedirector::route($route, $parameters, $status, $headers);
+            return \LaradicAdmin\Core\Routing\AdminRedirector::route($route, $parameters, $status, $headers);
         }
         
         /**
@@ -8839,7 +8824,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function action($action, $parameters = array(), $status = 302, $headers = array()){
             //Method inherited from \Illuminate\Routing\Redirector            
-            return \Laradic\Admin\Routing\AdminRedirector::action($action, $parameters, $status, $headers);
+            return \LaradicAdmin\Core\Routing\AdminRedirector::action($action, $parameters, $status, $headers);
         }
         
         /**
@@ -8850,7 +8835,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function getUrlGenerator(){
             //Method inherited from \Illuminate\Routing\Redirector            
-            return \Laradic\Admin\Routing\AdminRedirector::getUrlGenerator();
+            return \LaradicAdmin\Core\Routing\AdminRedirector::getUrlGenerator();
         }
         
         /**
@@ -8862,7 +8847,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function setSession($session){
             //Method inherited from \Illuminate\Routing\Redirector            
-            \Laradic\Admin\Routing\AdminRedirector::setSession($session);
+            \LaradicAdmin\Core\Routing\AdminRedirector::setSession($session);
         }
         
     }
@@ -11982,7 +11967,7 @@ if ( ! function_exists('admin_redirect'))
          * @static 
          */
         public static function toAdmin($path = null, $extra = array(), $secure = null){
-            return \Laradic\Admin\Routing\AdminUrlGenerator::toAdmin($path, $extra, $secure);
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::toAdmin($path, $extra, $secure);
         }
         
         /**
@@ -11993,7 +11978,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function full(){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::full();
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::full();
         }
         
         /**
@@ -12004,7 +11989,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function current(){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::current();
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::current();
         }
         
         /**
@@ -12015,7 +12000,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function previous(){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::previous();
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::previous();
         }
         
         /**
@@ -12029,7 +12014,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function to($path, $extra = array(), $secure = null){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::to($path, $extra, $secure);
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::to($path, $extra, $secure);
         }
         
         /**
@@ -12042,7 +12027,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function secure($path, $parameters = array()){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::secure($path, $parameters);
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::secure($path, $parameters);
         }
         
         /**
@@ -12055,7 +12040,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function asset($path, $secure = null){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::asset($path, $secure);
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::asset($path, $secure);
         }
         
         /**
@@ -12067,7 +12052,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function secureAsset($path){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::secureAsset($path);
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::secureAsset($path);
         }
         
         /**
@@ -12079,7 +12064,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function forceSchema($schema){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            \Laradic\Admin\Routing\AdminUrlGenerator::forceSchema($schema);
+            \LaradicAdmin\Core\Routing\AdminUrlGenerator::forceSchema($schema);
         }
         
         /**
@@ -12094,7 +12079,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function route($name, $parameters = array(), $absolute = true){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::route($name, $parameters, $absolute);
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::route($name, $parameters, $absolute);
         }
         
         /**
@@ -12109,7 +12094,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function action($action, $parameters = array(), $absolute = true){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::action($action, $parameters, $absolute);
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::action($action, $parameters, $absolute);
         }
         
         /**
@@ -12121,7 +12106,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function forceRootUrl($root){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            \Laradic\Admin\Routing\AdminUrlGenerator::forceRootUrl($root);
+            \LaradicAdmin\Core\Routing\AdminUrlGenerator::forceRootUrl($root);
         }
         
         /**
@@ -12133,7 +12118,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function isValidUrl($path){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::isValidUrl($path);
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::isValidUrl($path);
         }
         
         /**
@@ -12144,7 +12129,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function getRequest(){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::getRequest();
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::getRequest();
         }
         
         /**
@@ -12156,7 +12141,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function setRequest($request){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            \Laradic\Admin\Routing\AdminUrlGenerator::setRequest($request);
+            \LaradicAdmin\Core\Routing\AdminUrlGenerator::setRequest($request);
         }
         
         /**
@@ -12168,7 +12153,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function setRoutes($routes){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::setRoutes($routes);
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::setRoutes($routes);
         }
         
         /**
@@ -12180,7 +12165,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function setSessionResolver($sessionResolver){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::setSessionResolver($sessionResolver);
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::setSessionResolver($sessionResolver);
         }
         
         /**
@@ -12192,7 +12177,7 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function setRootControllerNamespace($rootNamespace){
             //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \Laradic\Admin\Routing\AdminUrlGenerator::setRootControllerNamespace($rootNamespace);
+            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::setRootControllerNamespace($rootNamespace);
         }
         
     }
@@ -12806,8 +12791,8 @@ if ( ! function_exists('admin_redirect'))
          *
          * @static 
          */
-        public static function dump(){
-            return \Laradic\Debug\Debugger::dump();
+        public static function dump($myVar, $maxDepth = 160){
+            return \Laradic\Debug\Debugger::dump($myVar, $maxDepth);
         }
         
         /**
@@ -14898,8 +14883,10 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * 
+         * url
          *
+         * @param string $assetPath
+         * @return string 
          * @static 
          */
         public static function url($assetPath = ''){
@@ -14907,8 +14894,10 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * 
+         * uri
          *
+         * @param string $assetPath
+         * @return string 
          * @static 
          */
         public static function uri($assetPath = ''){
@@ -14916,8 +14905,12 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * 
+         * style
          *
+         * @param string $assetPath
+         * @param array $attributes
+         * @param bool $secure
+         * @return string 
          * @static 
          */
         public static function style($assetPath = '', $attributes = array(), $secure = false){
@@ -14925,8 +14918,12 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * 
+         * script
          *
+         * @param string $assetPath
+         * @param array $attributes
+         * @param bool $secure
+         * @return string 
          * @static 
          */
         public static function script($assetPath = '', $attributes = array(), $secure = false){
@@ -14946,8 +14943,10 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * 
+         * relativePath
          *
+         * @param $path
+         * @return string 
          * @static 
          */
         public static function relativePath($path){
@@ -14955,8 +14954,10 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * 
+         * toUrl
          *
+         * @param $path
+         * @return string 
          * @static 
          */
         public static function toUrl($path){
@@ -14964,8 +14965,10 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * 
+         * getPath
          *
+         * @param null $key
+         * @return string 
          * @static 
          */
         public static function getPath($key = null){
@@ -14973,8 +14976,9 @@ if ( ! function_exists('admin_redirect'))
         }
         
         /**
-         * 
+         * getThemes
          *
+         * @return \Laradic\Themes\Contracts\ThemeFactory|\Laradic\Themes\ThemeFactory 
          * @static 
          */
         public static function getThemes(){
@@ -15498,6 +15502,51 @@ if ( ! function_exists('admin_redirect'))
          */
         public static function getConfig(){
             return \Laradic\Docit\Projects\ProjectFactory::getConfig();
+        }
+        
+        /**
+         * Determine if an item exists at an offset.
+         *
+         * @param mixed $key
+         * @return bool 
+         * @static 
+         */
+        public static function offsetExists($key){
+            return \Laradic\Docit\Projects\ProjectFactory::offsetExists($key);
+        }
+        
+        /**
+         * Get an item at a given offset.
+         *
+         * @param mixed $key
+         * @return mixed 
+         * @static 
+         */
+        public static function offsetGet($key){
+            return \Laradic\Docit\Projects\ProjectFactory::offsetGet($key);
+        }
+        
+        /**
+         * Set the item at a given offset.
+         *
+         * @param mixed $key
+         * @param mixed $value
+         * @return $this 
+         * @static 
+         */
+        public static function offsetSet($key, $value){
+            return \Laradic\Docit\Projects\ProjectFactory::offsetSet($key, $value);
+        }
+        
+        /**
+         * Unset the item at a given offset.
+         *
+         * @param string $key
+         * @return $this 
+         * @static 
+         */
+        public static function offsetUnset($key){
+            return \Laradic\Docit\Projects\ProjectFactory::offsetUnset($key);
         }
         
     }

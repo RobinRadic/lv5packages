@@ -5,7 +5,7 @@ use View;
 
 class TestController extends Controller
 {
-    function __construct()
+    public function __construct()
     {
         Themes::setActive('example/theme');
     }

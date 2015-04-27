@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "grunt-ftpsync": "~0.1.1",
-    "grunt-contrib-jade": "~0.14.1"
+    "grunt-contrib-jade": "~0.14.1",
+    "grunt-contrib-sass": "~0.9.2"
   }
 }
