@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.28 on 2015-04-27.
+ * Generated for Laravel 5.0.28 on 2015-04-28.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13025,23 +13025,6 @@ if ( ! function_exists('with'))
     }
 
 
-    class Markdown extends \Radic\BladeExtensions\Facades\Markdown{
-        
-        /**
-         * Renders markdown text to html
-         *
-         * @param string $text The text
-         * @param string $text The text
-         * @return mixed 
-         * @static 
-         */
-        public static function render($text){
-            return \Radic\BladeExtensions\Renderers\ParsedownRenderer::render($text);
-        }
-        
-    }
-
-
     class Form extends \Collective\Html\FormFacade{
         
         /**
@@ -15054,9 +15037,9 @@ if ( ! function_exists('with'))
     class Themes extends \Laradic\Themes\Facades\Themes{
         
         /**
-         * setConfig
+         * Set the internal config array
          *
-         * @param $config
+         * @param array $config
          * @return $this 
          * @static 
          */
@@ -15065,7 +15048,7 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * Set the active theme
+         * Set the active theme that should be used
          *
          * @param string|\Laradic\Themes\Theme $theme The slug or Theme instance
          * @return $this 
@@ -15106,9 +15089,11 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * resolveTheme
+         * Resolve a theme using it's slug. It will check all theme paths for the required theme.
+         * 
+         * It will instantiate the theme, register it with the factory and return it.
          *
-         * @param $slug
+         * @param string $slug The theme slug
          * @return \Laradic\Themes\Theme 
          * @static 
          */
@@ -15117,8 +15102,9 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * 
+         * Returns all resolved theme slugs
          *
+         * @return array 
          * @static 
          */
         public static function all(){
@@ -15126,7 +15112,7 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * Get a theme with the provided slug
+         * Get a theme with the provided slug, equal to resolveTheme
          *
          * @return \Laradic\Themes\Theme 
          * @static 
@@ -15157,21 +15143,21 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * addNamespace
+         * Add a namespace to the theme
          *
-         * @param $id
-         * @param $dirName
+         * @param string $name
+         * @param string $dirName
          * @static 
          */
-        public static function addNamespace($id, $dirName){
-            return \Laradic\Themes\ThemeFactory::addNamespace($id, $dirName);
+        public static function addNamespace($name, $dirName){
+            return \Laradic\Themes\ThemeFactory::addNamespace($name, $dirName);
         }
         
         /**
-         * getPath
+         * Get a path by type, as configured in config.
          *
-         * @param $type
-         * @return mixed 
+         * @param string $type views, assets, namespaces or packages
+         * @return string 
          * @static 
          */
         public static function getPath($type){
@@ -15179,12 +15165,12 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * getCascadedPaths
+         * Get paths cascadingly for the defined options.
          *
-         * @param $cascadeType
-         * @param null $cascadeName
-         * @param null $pathType
-         * @param null $theme
+         * @param string $cascadeType The type, either namespaces, packages
+         * @param null|string $cascadeName The namespaced or package name
+         * @param null|string $pathType The path type like views or assets
+         * @param null|string $theme
          * @return array 
          * @static 
          */
@@ -15193,11 +15179,11 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * addPackagePublisher
+         * Register/add a theme publisher that publishes as a package
          *
-         * @param $package
-         * @param $sourcePath
-         * @param null $theme
+         * @param string $package Package name
+         * @param string $sourcePath Path to the theme
+         * @param string|null $theme Exclude to a specific theme using tthis slug
          * @static 
          */
         public static function addPackagePublisher($package, $sourcePath, $theme = null){
@@ -15205,11 +15191,11 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * addNamespacePublisher
+         * Register/add a theme publisher that publishes as a namespace
          *
-         * @param $namespace
-         * @param $sourcePath
-         * @param null $theme
+         * @param string $namespace Name
+         * @param string $sourcePath Path to the theme
+         * @param string|null $theme Exclude to a specific theme using tthis slug
          * @static 
          */
         public static function addNamespacePublisher($namespace, $sourcePath, $theme = null){
@@ -15217,7 +15203,7 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * publish
+         * Publish an namespace or package
          *
          * @param null $namespaceOrPackage
          * @static 
@@ -15237,7 +15223,7 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * boot
+         * Boot the active theme
          *
          * @static 
          */
@@ -15267,9 +15253,9 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * getFinder
+         * Get the theme view finder instance
          *
-         * @return \Illuminate\View\ViewFinderInterface 
+         * @return \Laradic\Themes\ThemeViewFinder 
          * @static 
          */
         public static function getFinder(){
@@ -15288,7 +15274,7 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * getFiles
+         * Get the filesystem object
          *
          * @return \Illuminate\Filesystem\Filesystem 
          * @static 
@@ -15298,7 +15284,7 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * setFiles
+         * Set the filesystem object
          *
          * @param $files
          * @return $this 
@@ -15362,7 +15348,7 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * Get the value of navigation
+         * Get the NavigationFactory instance
          *
          * @return \Laradic\Themes\NavigationFactory 
          * @static 
@@ -15372,7 +15358,7 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * Sets the value of navigation
+         * Sets the NavigationFactory instance
          *
          * @param \Laradic\Themes\NavigationFactory $navigation
          * @return \Laradic\Themes\NavigationFactory 
@@ -15396,7 +15382,7 @@ if ( ! function_exists('with'))
          * Sets the value of breadcrumbs
          *
          * @param \DaveJamesMiller\Breadcrumbs\Manager $breadcrumbs
-         * @return \DaveJamesMiller\Breadcrumbs\Manager 
+         * @return $this 
          * @static 
          */
         public static function setBreadcrumbs($breadcrumbs){
@@ -15404,7 +15390,7 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * Get the value of assets
+         * Get the asset factory instance
          *
          * @return \Laradic\Themes\Assets\AssetFactory 
          * @static 
@@ -15417,7 +15403,7 @@ if ( ! function_exists('with'))
          * Sets the value of assets
          *
          * @param \Laradic\Themes\Assets\AssetFactory $assets
-         * @return \Laradic\Themes\Assets\AssetFactory 
+         * @return $this 
          * @static 
          */
         public static function setAssets($assets){
@@ -15427,17 +15413,17 @@ if ( ! function_exists('with'))
     }
 
 
-    class Projects extends \Laradic\Docit\Facades\Projects{
+    class Projects extends \Docit\Core\Facades\Projects{
         
         /**
          * all
          *
          * @param bool $bySlug
-         * @return array|\Laradic\Docit\Project[] 
+         * @return array|\Docit\Core\Project[] 
          * @static 
          */
         public static function all($bySlug = false){
-            return \Laradic\Docit\Projects\ProjectFactory::all($bySlug);
+            return \Docit\Core\Projects\ProjectFactory::all($bySlug);
         }
         
         /**
@@ -15446,7 +15432,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function has($slug){
-            return \Laradic\Docit\Projects\ProjectFactory::has($slug);
+            return \Docit\Core\Projects\ProjectFactory::has($slug);
         }
         
         /**
@@ -15455,7 +15441,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function get($slug){
-            return \Laradic\Docit\Projects\ProjectFactory::get($slug);
+            return \Docit\Core\Projects\ProjectFactory::get($slug);
         }
         
         /**
@@ -15464,7 +15450,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function slugs(){
-            return \Laradic\Docit\Projects\ProjectFactory::slugs();
+            return \Docit\Core\Projects\ProjectFactory::slugs();
         }
         
         /**
@@ -15473,7 +15459,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function make($slug){
-            return \Laradic\Docit\Projects\ProjectFactory::make($slug);
+            return \Docit\Core\Projects\ProjectFactory::make($slug);
         }
         
         /**
@@ -15482,7 +15468,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function path(){
-            return \Laradic\Docit\Projects\ProjectFactory::path();
+            return \Docit\Core\Projects\ProjectFactory::path();
         }
         
         /**
@@ -15491,7 +15477,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function url($project = null, $version = null, $page = null){
-            return \Laradic\Docit\Projects\ProjectFactory::url($project, $version, $page);
+            return \Docit\Core\Projects\ProjectFactory::url($project, $version, $page);
         }
         
         /**
@@ -15501,7 +15487,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function getConfig(){
-            return \Laradic\Docit\Projects\ProjectFactory::getConfig();
+            return \Docit\Core\Projects\ProjectFactory::getConfig();
         }
         
         /**
@@ -15512,7 +15498,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function offsetExists($key){
-            return \Laradic\Docit\Projects\ProjectFactory::offsetExists($key);
+            return \Docit\Core\Projects\ProjectFactory::offsetExists($key);
         }
         
         /**
@@ -15523,7 +15509,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function offsetGet($key){
-            return \Laradic\Docit\Projects\ProjectFactory::offsetGet($key);
+            return \Docit\Core\Projects\ProjectFactory::offsetGet($key);
         }
         
         /**
@@ -15534,8 +15520,8 @@ if ( ! function_exists('with'))
          * @return $this 
          * @static 
          */
-        public static function offsetSet($key, $value){
-            return \Laradic\Docit\Projects\ProjectFactory::offsetSet($key, $value);
+        public static function offsetSet($key, $value = null){
+            return \Docit\Core\Projects\ProjectFactory::offsetSet($key, $value);
         }
         
         /**
@@ -15546,7 +15532,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function offsetUnset($key){
-            return \Laradic\Docit\Projects\ProjectFactory::offsetUnset($key);
+            return \Docit\Core\Projects\ProjectFactory::offsetUnset($key);
         }
         
     }

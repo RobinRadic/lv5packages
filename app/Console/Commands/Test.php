@@ -38,14 +38,9 @@ class Test extends Command
      */
     public function fire()
     {
-        $extensions = app('extensions');
-        $f = app('files');
-        $raw = $f->get(base_path('Laradic/Themes/resources/docs/phpdoc/structure.xml'));
-        $xml = simplexml_load_string($raw);
-        $xml = json_encode($xml);
-        $xml = json_decode($xml, true);
-        $this->dump($xml);
-        #$extensions->get('laradic/admin')->runSeeders();
+        $config = app('config');
+        $this->dump($config->get('config_test.foo'));
+
     }
 
     /**

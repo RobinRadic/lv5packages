@@ -160,12 +160,12 @@
     </target>
 
     <target name="phpdoc-themes" depends="prepare" description="Generate project documentation using phpDocumentator">
-        <property name="themes-doc-output-dir" value="${project.basedir}/Laradic/Themes/resources/docs/phpdoc"/>
+        <property name="themes-doc-output-dir" value="${project.basedir}/workbench/laradic/themes/resources/docs/phpdoc"/>
         <delete dir="${themes-doc-output-dir}" />
         <mkdir dir="${themes-doc-output-dir}" />
         <exec executable="${toolsdir}phpdoc.phar" dir="${project.basedir}" logoutput="true">
             <arg line="-t ${themes-doc-output-dir}"/>
-            <arg line="-d ./Laradic/Themes"/>
+            <arg line="-d ./workbench/laradic/themes/src"/>
             <arg line="--cache-folder=/tmp/phpdoc"/>
             <arg line="--template=xml"/>
         </exec>

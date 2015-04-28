@@ -1,5 +1,12 @@
 target: site
 
+jsbuild:
+  jqueryui:
+    - widget
+    - core
+    - position
+    - autocomplete
+
 targets:
   site:
     stubs: src/stubs

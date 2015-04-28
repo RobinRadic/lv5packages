@@ -36,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
         $app->register('Laradic\Themes\ThemeServiceProvider');
         $app->register('Laradic\Generators\GeneratorsServiceProvider');
         $app->register('Laradic\Extensions\ExtensionsServiceProvider');
+        $app->register('Test\Test\TestServiceProvider');
 
         return;
         $app->register('Collective\Html\HtmlServiceProvider');

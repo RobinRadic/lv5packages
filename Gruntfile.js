@@ -8,7 +8,6 @@ var radic = require('radic'),
     lib   = require('./lib/theme/lib');
 
 
-var secret = require('./secret');
 
 module.exports = function( grunt ){
 
@@ -102,14 +101,14 @@ module.exports = function( grunt ){
                     namespace: false
                 },
                 files  : [
-                    {expand: true, cwd: 'extensions/laradic/admin/resources/theme/assets/templates', src: ['**/*.jade'], ext: '.js', dest: 'extensions/laradic/admin/resources/theme/assets/templates' }
+                    {expand: true, cwd: 'workbench/laradic-admin/attributes/resources/theme/assets/templates', src: ['**/*.jade'], ext: '.js', dest: 'workbench/laradic-admin/attributes/resources/theme/assets/templates' }
                 ]
             }
         },
         watch         : {
             options          : {livereload: false},
             jade_templates: {
-                files: ['extensions/*/*/resources/theme/assets/templates/**/*.jade'],
+                files: ['*/*/*/resources/theme/assets/templates/**/*.jade'],
                 tasks: ['jade:templates']
             }
            // themes_publishers: {
