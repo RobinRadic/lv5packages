@@ -1,7 +1,7 @@
 <?php
 /**
  * An helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.0.28 on 2015-04-28.
+ * Generated for Laravel 5.0.28 on 2015-05-01.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -8673,20 +8673,6 @@ if ( ! function_exists('with'))
     class Redirect extends \Illuminate\Support\Facades\Redirect{
         
         /**
-         * Instanciates the class
-         *
-         * @param null $path
-         * @param int $status
-         * @param array $headers
-         * @param null $secure
-         * @return \Illuminate\Http\RedirectResponse 
-         * @static 
-         */
-        public static function toAdmin($path = null, $status = 302, $headers = array(), $secure = null){
-            return \LaradicAdmin\Core\Routing\AdminRedirector::toAdmin($path, $status, $headers, $secure);
-        }
-        
-        /**
          * Create a new redirect response to the "home" route.
          *
          * @param int $status
@@ -8694,8 +8680,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function home($status = 302){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            return \LaradicAdmin\Core\Routing\AdminRedirector::home($status);
+            return \Illuminate\Routing\Redirector::home($status);
         }
         
         /**
@@ -8707,8 +8692,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function back($status = 302, $headers = array()){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            return \LaradicAdmin\Core\Routing\AdminRedirector::back($status, $headers);
+            return \Illuminate\Routing\Redirector::back($status, $headers);
         }
         
         /**
@@ -8720,8 +8704,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function refresh($status = 302, $headers = array()){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            return \LaradicAdmin\Core\Routing\AdminRedirector::refresh($status, $headers);
+            return \Illuminate\Routing\Redirector::refresh($status, $headers);
         }
         
         /**
@@ -8735,8 +8718,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function guest($path, $status = 302, $headers = array(), $secure = null){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            return \LaradicAdmin\Core\Routing\AdminRedirector::guest($path, $status, $headers, $secure);
+            return \Illuminate\Routing\Redirector::guest($path, $status, $headers, $secure);
         }
         
         /**
@@ -8750,8 +8732,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function intended($default = '/', $status = 302, $headers = array(), $secure = null){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            return \LaradicAdmin\Core\Routing\AdminRedirector::intended($default, $status, $headers, $secure);
+            return \Illuminate\Routing\Redirector::intended($default, $status, $headers, $secure);
         }
         
         /**
@@ -8765,8 +8746,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function to($path, $status = 302, $headers = array(), $secure = null){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            return \LaradicAdmin\Core\Routing\AdminRedirector::to($path, $status, $headers, $secure);
+            return \Illuminate\Routing\Redirector::to($path, $status, $headers, $secure);
         }
         
         /**
@@ -8779,8 +8759,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function away($path, $status = 302, $headers = array()){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            return \LaradicAdmin\Core\Routing\AdminRedirector::away($path, $status, $headers);
+            return \Illuminate\Routing\Redirector::away($path, $status, $headers);
         }
         
         /**
@@ -8793,8 +8772,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function secure($path, $status = 302, $headers = array()){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            return \LaradicAdmin\Core\Routing\AdminRedirector::secure($path, $status, $headers);
+            return \Illuminate\Routing\Redirector::secure($path, $status, $headers);
         }
         
         /**
@@ -8808,8 +8786,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function route($route, $parameters = array(), $status = 302, $headers = array()){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            return \LaradicAdmin\Core\Routing\AdminRedirector::route($route, $parameters, $status, $headers);
+            return \Illuminate\Routing\Redirector::route($route, $parameters, $status, $headers);
         }
         
         /**
@@ -8823,8 +8800,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function action($action, $parameters = array(), $status = 302, $headers = array()){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            return \LaradicAdmin\Core\Routing\AdminRedirector::action($action, $parameters, $status, $headers);
+            return \Illuminate\Routing\Redirector::action($action, $parameters, $status, $headers);
         }
         
         /**
@@ -8834,8 +8810,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function getUrlGenerator(){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            return \LaradicAdmin\Core\Routing\AdminRedirector::getUrlGenerator();
+            return \Illuminate\Routing\Redirector::getUrlGenerator();
         }
         
         /**
@@ -8846,8 +8821,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function setSession($session){
-            //Method inherited from \Illuminate\Routing\Redirector            
-            \LaradicAdmin\Core\Routing\AdminRedirector::setSession($session);
+            \Illuminate\Routing\Redirector::setSession($session);
         }
         
     }
@@ -11958,27 +11932,13 @@ if ( ! function_exists('with'))
     class URL extends \Illuminate\Support\Facades\URL{
         
         /**
-         * Instanciates the class
-         *
-         * @param string $path
-         * @param array $extra
-         * @param null $secure
-         * @return string 
-         * @static 
-         */
-        public static function toAdmin($path = null, $extra = array(), $secure = null){
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::toAdmin($path, $extra, $secure);
-        }
-        
-        /**
          * Get the full URL for the current request.
          *
          * @return string 
          * @static 
          */
         public static function full(){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::full();
+            return \Illuminate\Routing\UrlGenerator::full();
         }
         
         /**
@@ -11988,8 +11948,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function current(){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::current();
+            return \Illuminate\Routing\UrlGenerator::current();
         }
         
         /**
@@ -11999,8 +11958,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function previous(){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::previous();
+            return \Illuminate\Routing\UrlGenerator::previous();
         }
         
         /**
@@ -12013,8 +11971,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function to($path, $extra = array(), $secure = null){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::to($path, $extra, $secure);
+            return \Illuminate\Routing\UrlGenerator::to($path, $extra, $secure);
         }
         
         /**
@@ -12026,8 +11983,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function secure($path, $parameters = array()){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::secure($path, $parameters);
+            return \Illuminate\Routing\UrlGenerator::secure($path, $parameters);
         }
         
         /**
@@ -12039,8 +11995,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function asset($path, $secure = null){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::asset($path, $secure);
+            return \Illuminate\Routing\UrlGenerator::asset($path, $secure);
         }
         
         /**
@@ -12051,8 +12006,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function secureAsset($path){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::secureAsset($path);
+            return \Illuminate\Routing\UrlGenerator::secureAsset($path);
         }
         
         /**
@@ -12063,8 +12017,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function forceSchema($schema){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            \LaradicAdmin\Core\Routing\AdminUrlGenerator::forceSchema($schema);
+            \Illuminate\Routing\UrlGenerator::forceSchema($schema);
         }
         
         /**
@@ -12078,8 +12031,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function route($name, $parameters = array(), $absolute = true){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::route($name, $parameters, $absolute);
+            return \Illuminate\Routing\UrlGenerator::route($name, $parameters, $absolute);
         }
         
         /**
@@ -12093,8 +12045,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function action($action, $parameters = array(), $absolute = true){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::action($action, $parameters, $absolute);
+            return \Illuminate\Routing\UrlGenerator::action($action, $parameters, $absolute);
         }
         
         /**
@@ -12105,8 +12056,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function forceRootUrl($root){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            \LaradicAdmin\Core\Routing\AdminUrlGenerator::forceRootUrl($root);
+            \Illuminate\Routing\UrlGenerator::forceRootUrl($root);
         }
         
         /**
@@ -12117,8 +12067,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function isValidUrl($path){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::isValidUrl($path);
+            return \Illuminate\Routing\UrlGenerator::isValidUrl($path);
         }
         
         /**
@@ -12128,8 +12077,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function getRequest(){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::getRequest();
+            return \Illuminate\Routing\UrlGenerator::getRequest();
         }
         
         /**
@@ -12140,8 +12088,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function setRequest($request){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            \LaradicAdmin\Core\Routing\AdminUrlGenerator::setRequest($request);
+            \Illuminate\Routing\UrlGenerator::setRequest($request);
         }
         
         /**
@@ -12152,8 +12099,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function setRoutes($routes){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::setRoutes($routes);
+            return \Illuminate\Routing\UrlGenerator::setRoutes($routes);
         }
         
         /**
@@ -12164,8 +12110,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function setSessionResolver($sessionResolver){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::setSessionResolver($sessionResolver);
+            return \Illuminate\Routing\UrlGenerator::setSessionResolver($sessionResolver);
         }
         
         /**
@@ -12176,8 +12121,7 @@ if ( ! function_exists('with'))
          * @static 
          */
         public static function setRootControllerNamespace($rootNamespace){
-            //Method inherited from \Illuminate\Routing\UrlGenerator            
-            return \LaradicAdmin\Core\Routing\AdminUrlGenerator::setRootControllerNamespace($rootNamespace);
+            return \Illuminate\Routing\UrlGenerator::setRootControllerNamespace($rootNamespace);
         }
         
     }
@@ -13025,6 +12969,23 @@ if ( ! function_exists('with'))
     }
 
 
+    class Markdown extends \Radic\BladeExtensions\Facades\Markdown{
+        
+        /**
+         * Renders markdown text to html
+         *
+         * @param string $text The text
+         * @param string $text The text
+         * @return mixed 
+         * @static 
+         */
+        public static function render($text){
+            return \Radic\BladeExtensions\Renderers\ParsedownRenderer::render($text);
+        }
+        
+    }
+
+
     class Form extends \Collective\Html\FormFacade{
         
         /**
@@ -13730,6 +13691,11 @@ if ( ! function_exists('with'))
     }
 
 
+    class 0 extends \Generator{
+        
+    }
+
+
     class Extensions extends \Laradic\Extensions\Facades\Extensions{
         
         /**
@@ -13765,14 +13731,12 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * getTemplateParser
+         * 
          *
-         * @param null $sourcePath
-         * @return \Laradic\Support\TemplateParser 
          * @static 
          */
-        public static function getTemplateParser($sourcePath = null){
-            return \Laradic\Extensions\ExtensionFactory::getTemplateParser($sourcePath);
+        public static function updateRecords(){
+            return \Laradic\Extensions\ExtensionFactory::updateRecords();
         }
         
         /**
@@ -13787,56 +13751,13 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * Adds a path to include while searching for extensions
-         *
-         * @param string $path The absolute path to the directory
-         * @static 
-         */
-        public static function addPath($path){
-            return \Laradic\Extensions\ExtensionFactory::addPath($path);
-        }
-        
-        /**
-         * Creates an extension instance using the extension.php file
-         *
-         * @param string $extensionFilePath Path to the extension.php file
-         * @return \Laradic\Extensions\Extension 
-         * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
-         * @static 
-         */
-        public static function createFromFile($extensionFilePath){
-            return \Laradic\Extensions\ExtensionFactory::createFromFile($extensionFilePath);
-        }
-        
-        /**
-         * make
-         *
-         * @return \Laradic\Extensions\Extension 
-         * @static 
-         */
-        public static function make(){
-            return \Laradic\Extensions\ExtensionFactory::make();
-        }
-        
-        /**
          * Finds all extensions and registers them
          *
          * @return $this 
          * @static 
          */
-        public static function locateAndRegisterAll(){
-            return \Laradic\Extensions\ExtensionFactory::locateAndRegisterAll();
-        }
-        
-        /**
-         * register
-         *
-         * @param \Laradic\Extensions\Extension|string $extension An Extension instance or extension slug
-         * @return $this 
-         * @static 
-         */
-        public static function register($extension){
-            return \Laradic\Extensions\ExtensionFactory::register($extension);
+        public static function findAndRegisterAll(){
+            return \Laradic\Extensions\ExtensionFactory::findAndRegisterAll();
         }
         
         /**
@@ -13865,51 +13786,6 @@ if ( ! function_exists('with'))
          */
         public static function runSeed($filePath, $className = null){
             return \Laradic\Extensions\ExtensionFactory::runSeed($filePath, $className);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function updateAllRecords(){
-            return \Laradic\Extensions\ExtensionFactory::updateAllRecords();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function dbGetBySlug($slug){
-            return \Laradic\Extensions\ExtensionFactory::dbGetBySlug($slug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function dbCreate($slug){
-            return \Laradic\Extensions\ExtensionFactory::dbCreate($slug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function dbInstall($slug){
-            return \Laradic\Extensions\ExtensionFactory::dbInstall($slug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function dbUninstall($slug){
-            return \Laradic\Extensions\ExtensionFactory::dbUninstall($slug);
         }
         
         /**
@@ -13965,16 +13841,6 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * Get the value of files
-         *
-         * @return \Illuminate\Filesystem\Filesystem 
-         * @static 
-         */
-        public static function getFiles(){
-            return \Laradic\Extensions\ExtensionFactory::getFiles();
-        }
-        
-        /**
          * Get the value of app
          *
          * @return \Illuminate\Foundation\Application 
@@ -13982,6 +13848,16 @@ if ( ! function_exists('with'))
          */
         public static function getApplication(){
             return \Laradic\Extensions\ExtensionFactory::getApplication();
+        }
+        
+        /**
+         * get files value
+         *
+         * @return \Laradic\Support\Filesystem 
+         * @static 
+         */
+        public static function getFiles(){
+            return \Laradic\Extensions\ExtensionFactory::getFiles();
         }
         
         /**
@@ -13996,766 +13872,37 @@ if ( ! function_exists('with'))
         }
         
         /**
-         * offsetGet
+         * Get an item at a given offset.
          *
-         * @param string $slug
-         * @return \Laradic\Extensions\Extension 
+         * @param mixed $key
+         * @return mixed 
          * @static 
          */
-        public static function offsetGet($slug){
-            return \Laradic\Extensions\ExtensionFactory::offsetGet($slug);
+        public static function offsetGet($key){
+            return \Laradic\Extensions\ExtensionFactory::offsetGet($key);
         }
         
         /**
          * Set the item at a given offset.
          *
-         * @param string $slug
-         * @param \Laradic\Extensions\Extension $extension
-         * @return void 
+         * @param mixed $key
+         * @param mixed $value
+         * @return $this 
          * @static 
          */
-        public static function offsetSet($slug, $extension){
-            \Laradic\Extensions\ExtensionFactory::offsetSet($slug, $extension);
+        public static function offsetSet($key, $value = null){
+            return \Laradic\Extensions\ExtensionFactory::offsetSet($key, $value);
         }
         
         /**
          * Unset the item at a given offset.
          *
-         * @param string $slug
-         * @return void 
-         * @static 
-         */
-        public static function offsetUnset($slug){
-            \Laradic\Extensions\ExtensionFactory::offsetUnset($slug);
-        }
-        
-    }
-
-
-    class Alert extends \Cartalyst\Alerts\Laravel\Facades\Alert{
-        
-        /**
-         * Returns all the registered notifiers.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function getNotifiers(){
-            return \Cartalyst\Alerts\Alerts::getNotifiers();
-        }
-        
-        /**
-         * Adds the given notifier.
-         *
-         * @param \Cartalyst\Alerts\Notifiers\NotifierInterface $notifier
+         * @param string $key
          * @return $this 
          * @static 
          */
-        public static function addNotifier($notifier){
-            return \Cartalyst\Alerts\Alerts::addNotifier($notifier);
-        }
-        
-        /**
-         * Removes the given notifier.
-         *
-         * @param string $name
-         * @return $this 
-         * @static 
-         */
-        public static function removeNotifier($name){
-            return \Cartalyst\Alerts\Alerts::removeNotifier($name);
-        }
-        
-        /**
-         * Returns the default notifier name.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function getDefaultNotifier(){
-            return \Cartalyst\Alerts\Alerts::getDefaultNotifier();
-        }
-        
-        /**
-         * Sets the default notifier.
-         *
-         * @param string $notifier
-         * @return $this 
-         * @static 
-         */
-        public static function setDefaultNotifier($notifier){
-            return \Cartalyst\Alerts\Alerts::setDefaultNotifier($notifier);
-        }
-        
-        /**
-         * Returns the given notifier.
-         *
-         * @param string $name
-         * @param string $default
-         * @return \Cartalyst\Alerts\Notifiers\NotifierInterface|null 
-         * @static 
-         */
-        public static function notifier($name, $default = null){
-            return \Cartalyst\Alerts\Alerts::notifier($name, $default);
-        }
-        
-        /**
-         * Returns the alerts with the applied filters.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function get(){
-            return \Cartalyst\Alerts\Alerts::get();
-        }
-        
-        /**
-         * Filter alerts based on the given areas.
-         *
-         * @param string|array $areas
-         * @return self 
-         * @static 
-         */
-        public static function whereArea($areas){
-            return \Cartalyst\Alerts\Alerts::whereArea($areas);
-        }
-        
-        /**
-         * Filter alerts excluding the given areas.
-         *
-         * @param string|array $areas
-         * @return self 
-         * @static 
-         */
-        public static function whereNotArea($areas){
-            return \Cartalyst\Alerts\Alerts::whereNotArea($areas);
-        }
-        
-        /**
-         * Filter alerts based on the given types.
-         *
-         * @param string|array $types
-         * @return self 
-         * @static 
-         */
-        public static function whereType($types){
-            return \Cartalyst\Alerts\Alerts::whereType($types);
-        }
-        
-        /**
-         * Filter alerts excluding the given types.
-         *
-         * @param string|array $types
-         * @return self 
-         * @static 
-         */
-        public static function whereNotType($types){
-            return \Cartalyst\Alerts\Alerts::whereNotType($types);
-        }
-        
-    }
-
-
-    class Datatable extends \Chumper\Datatable\Facades\DatatableFacade{
-        
-        /**
-         * 
-         *
-         * @param $query
-         * @return \Chumper\Datatable\QueryEngine 
-         * @static 
-         */
-        public static function query($query){
-            return \Chumper\Datatable\Datatable::query($query);
-        }
-        
-        /**
-         * 
-         *
-         * @param $collection
-         * @return \Chumper\Datatable\CollectionEngine 
-         * @static 
-         */
-        public static function collection($collection){
-            return \Chumper\Datatable\Datatable::collection($collection);
-        }
-        
-        /**
-         * 
-         *
-         * @return \Chumper\Datatable\Table 
-         * @static 
-         */
-        public static function table(){
-            return \Chumper\Datatable\Datatable::table();
-        }
-        
-        /**
-         * 
-         *
-         * @return bool True if the plugin should handle this request, false otherwise
-         * @static 
-         */
-        public static function shouldHandle(){
-            return \Chumper\Datatable\Datatable::shouldHandle();
-        }
-        
-    }
-
-
-    class Sentry extends \Cartalyst\Sentry\Facades\Laravel\Sentry{
-        
-        /**
-         * Registers a user by giving the required credentials
-         * and an optional flag for whether to activate the user.
-         *
-         * @param array $credentials
-         * @param bool $activate
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @static 
-         */
-        public static function register($credentials, $activate = false){
-            return \Cartalyst\Sentry\Sentry::register($credentials, $activate);
-        }
-        
-        /**
-         * Attempts to authenticate the given user
-         * according to the passed credentials.
-         *
-         * @param array $credentials
-         * @param bool $remember
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \Cartalyst\Sentry\Throttling\UserBannedException
-         * @throws \Cartalyst\Sentry\Throttling\UserSuspendedException
-         * @throws \Cartalyst\Sentry\Users\LoginRequiredException
-         * @throws \Cartalyst\Sentry\Users\PasswordRequiredException
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function authenticate($credentials, $remember = false){
-            return \Cartalyst\Sentry\Sentry::authenticate($credentials, $remember);
-        }
-        
-        /**
-         * Alias for authenticating with the remember flag checked.
-         *
-         * @param array $credentials
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @static 
-         */
-        public static function authenticateAndRemember($credentials){
-            return \Cartalyst\Sentry\Sentry::authenticateAndRemember($credentials);
-        }
-        
-        /**
-         * Check to see if the user is logged in and activated, and hasn't been banned or suspended.
-         *
-         * @return bool 
-         * @static 
-         */
-        public static function check(){
-            return \Cartalyst\Sentry\Sentry::check();
-        }
-        
-        /**
-         * Logs in the given user and sets properties
-         * in the session.
-         *
-         * @param \Cartalyst\Sentry\Users\UserInterface $user
-         * @param bool $remember
-         * @return void 
-         * @throws \Cartalyst\Sentry\Users\UserNotActivatedException
-         * @static 
-         */
-        public static function login($user, $remember = false){
-            \Cartalyst\Sentry\Sentry::login($user, $remember);
-        }
-        
-        /**
-         * Alias for logging in and remembering.
-         *
-         * @param \Cartalyst\Sentry\Users\UserInterface $user
-         * @static 
-         */
-        public static function loginAndRemember($user){
-            return \Cartalyst\Sentry\Sentry::loginAndRemember($user);
-        }
-        
-        /**
-         * Logs the current user out.
-         *
-         * @return void 
-         * @static 
-         */
-        public static function logout(){
-            \Cartalyst\Sentry\Sentry::logout();
-        }
-        
-        /**
-         * Sets the user to be used by Sentry.
-         *
-         * @param \Cartalyst\Sentry\Users\UserInterface
-         * @return void 
-         * @static 
-         */
-        public static function setUser($user){
-            \Cartalyst\Sentry\Sentry::setUser($user);
-        }
-        
-        /**
-         * Returns the current user being used by Sentry, if any.
-         *
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @static 
-         */
-        public static function getUser(){
-            return \Cartalyst\Sentry\Sentry::getUser();
-        }
-        
-        /**
-         * Sets the session driver for Sentry.
-         *
-         * @param \Cartalyst\Sentry\Sessions\SessionInterface $session
-         * @return void 
-         * @static 
-         */
-        public static function setSession($session){
-            \Cartalyst\Sentry\Sentry::setSession($session);
-        }
-        
-        /**
-         * Gets the session driver for Sentry.
-         *
-         * @return \Cartalyst\Sentry\Sessions\SessionInterface 
-         * @static 
-         */
-        public static function getSession(){
-            return \Cartalyst\Sentry\Sentry::getSession();
-        }
-        
-        /**
-         * Sets the cookie driver for Sentry.
-         *
-         * @param \Cartalyst\Sentry\Cookies\CookieInterface $cookie
-         * @return void 
-         * @static 
-         */
-        public static function setCookie($cookie){
-            \Cartalyst\Sentry\Sentry::setCookie($cookie);
-        }
-        
-        /**
-         * Gets the cookie driver for Sentry.
-         *
-         * @return \Cartalyst\Sentry\Cookies\CookieInterface 
-         * @static 
-         */
-        public static function getCookie(){
-            return \Cartalyst\Sentry\Sentry::getCookie();
-        }
-        
-        /**
-         * Sets the group provider for Sentry.
-         *
-         * @param \Cartalyst\Sentry\Groups\ProviderInterface
-         * @return void 
-         * @static 
-         */
-        public static function setGroupProvider($groupProvider){
-            \Cartalyst\Sentry\Sentry::setGroupProvider($groupProvider);
-        }
-        
-        /**
-         * Gets the group provider for Sentry.
-         *
-         * @return \Cartalyst\Sentry\Groups\ProviderInterface 
-         * @static 
-         */
-        public static function getGroupProvider(){
-            return \Cartalyst\Sentry\Sentry::getGroupProvider();
-        }
-        
-        /**
-         * Sets the user provider for Sentry.
-         *
-         * @param \Cartalyst\Sentry\Users\ProviderInterface
-         * @return void 
-         * @static 
-         */
-        public static function setUserProvider($userProvider){
-            \Cartalyst\Sentry\Sentry::setUserProvider($userProvider);
-        }
-        
-        /**
-         * Gets the user provider for Sentry.
-         *
-         * @return \Cartalyst\Sentry\Users\ProviderInterface 
-         * @static 
-         */
-        public static function getUserProvider(){
-            return \Cartalyst\Sentry\Sentry::getUserProvider();
-        }
-        
-        /**
-         * Sets the throttle provider for Sentry.
-         *
-         * @param \Cartalyst\Sentry\Throttling\ProviderInterface
-         * @return void 
-         * @static 
-         */
-        public static function setThrottleProvider($throttleProvider){
-            \Cartalyst\Sentry\Sentry::setThrottleProvider($throttleProvider);
-        }
-        
-        /**
-         * Gets the throttle provider for Sentry.
-         *
-         * @return \Cartalyst\Sentry\Throttling\ProviderInterface 
-         * @static 
-         */
-        public static function getThrottleProvider(){
-            return \Cartalyst\Sentry\Sentry::getThrottleProvider();
-        }
-        
-        /**
-         * Sets the IP address Sentry is bound to.
-         *
-         * @param string $ipAddress
-         * @return void 
-         * @static 
-         */
-        public static function setIpAddress($ipAddress){
-            \Cartalyst\Sentry\Sentry::setIpAddress($ipAddress);
-        }
-        
-        /**
-         * Gets the IP address Sentry is bound to.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function getIpAddress(){
-            return \Cartalyst\Sentry\Sentry::getIpAddress();
-        }
-        
-        /**
-         * Find the group by ID.
-         *
-         * @param int $id
-         * @return \Cartalyst\Sentry\Groups\GroupInterface $group
-         * @throws \Cartalyst\Sentry\Groups\GroupNotFoundException
-         * @static 
-         */
-        public static function findGroupById($id){
-            return \Cartalyst\Sentry\Sentry::findGroupById($id);
-        }
-        
-        /**
-         * Find the group by name.
-         *
-         * @param string $name
-         * @return \Cartalyst\Sentry\Groups\GroupInterface $group
-         * @throws \Cartalyst\Sentry\Groups\GroupNotFoundException
-         * @static 
-         */
-        public static function findGroupByName($name){
-            return \Cartalyst\Sentry\Sentry::findGroupByName($name);
-        }
-        
-        /**
-         * Returns all groups.
-         *
-         * @return array $groups
-         * @static 
-         */
-        public static function findAllGroups(){
-            return \Cartalyst\Sentry\Sentry::findAllGroups();
-        }
-        
-        /**
-         * Creates a group.
-         *
-         * @param array $attributes
-         * @return \Cartalyst\Sentry\Groups\GroupInterface 
-         * @static 
-         */
-        public static function createGroup($attributes){
-            return \Cartalyst\Sentry\Sentry::createGroup($attributes);
-        }
-        
-        /**
-         * Finds a user by the given user ID.
-         *
-         * @param mixed $id
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function findUserById($id){
-            return \Cartalyst\Sentry\Sentry::findUserById($id);
-        }
-        
-        /**
-         * Finds a user by the login value.
-         *
-         * @param string $login
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function findUserByLogin($login){
-            return \Cartalyst\Sentry\Sentry::findUserByLogin($login);
-        }
-        
-        /**
-         * Finds a user by the given credentials.
-         *
-         * @param array $credentials
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function findUserByCredentials($credentials){
-            return \Cartalyst\Sentry\Sentry::findUserByCredentials($credentials);
-        }
-        
-        /**
-         * Finds a user by the given activation code.
-         *
-         * @param string $code
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \RuntimeException
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function findUserByActivationCode($code){
-            return \Cartalyst\Sentry\Sentry::findUserByActivationCode($code);
-        }
-        
-        /**
-         * Finds a user by the given reset password code.
-         *
-         * @param string $code
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @throws \RuntimeException
-         * @throws \Cartalyst\Sentry\Users\UserNotFoundException
-         * @static 
-         */
-        public static function findUserByResetPasswordCode($code){
-            return \Cartalyst\Sentry\Sentry::findUserByResetPasswordCode($code);
-        }
-        
-        /**
-         * Returns an all users.
-         *
-         * @return array 
-         * @static 
-         */
-        public static function findAllUsers(){
-            return \Cartalyst\Sentry\Sentry::findAllUsers();
-        }
-        
-        /**
-         * Returns all users who belong to
-         * a group.
-         *
-         * @param \Cartalyst\Sentry\Groups\GroupInterface $group
-         * @return array 
-         * @static 
-         */
-        public static function findAllUsersInGroup($group){
-            return \Cartalyst\Sentry\Sentry::findAllUsersInGroup($group);
-        }
-        
-        /**
-         * Returns all users with access to
-         * a permission(s).
-         *
-         * @param string|array $permissions
-         * @return array 
-         * @static 
-         */
-        public static function findAllUsersWithAccess($permissions){
-            return \Cartalyst\Sentry\Sentry::findAllUsersWithAccess($permissions);
-        }
-        
-        /**
-         * Returns all users with access to
-         * any given permission(s).
-         *
-         * @param array $permissions
-         * @return array 
-         * @static 
-         */
-        public static function findAllUsersWithAnyAccess($permissions){
-            return \Cartalyst\Sentry\Sentry::findAllUsersWithAnyAccess($permissions);
-        }
-        
-        /**
-         * Creates a user.
-         *
-         * @param array $credentials
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @static 
-         */
-        public static function createUser($credentials){
-            return \Cartalyst\Sentry\Sentry::createUser($credentials);
-        }
-        
-        /**
-         * Returns an empty user object.
-         *
-         * @return \Cartalyst\Sentry\Users\UserInterface 
-         * @static 
-         */
-        public static function getEmptyUser(){
-            return \Cartalyst\Sentry\Sentry::getEmptyUser();
-        }
-        
-        /**
-         * Finds a throttler by the given user ID.
-         *
-         * @param mixed $id
-         * @param string $ipAddress
-         * @return \Cartalyst\Sentry\Throttling\ThrottleInterface 
-         * @static 
-         */
-        public static function findThrottlerByUserId($id, $ipAddress = null){
-            return \Cartalyst\Sentry\Sentry::findThrottlerByUserId($id, $ipAddress);
-        }
-        
-        /**
-         * Finds a throttling interface by the given user login.
-         *
-         * @param string $login
-         * @param string $ipAddress
-         * @return \Cartalyst\Sentry\Throttling\ThrottleInterface 
-         * @static 
-         */
-        public static function findThrottlerByUserLogin($login, $ipAddress = null){
-            return \Cartalyst\Sentry\Sentry::findThrottlerByUserLogin($login, $ipAddress);
-        }
-        
-    }
-
-
-    class Hashids extends \Vinkla\Hashids\Facades\Hashids{
-        
-        /**
-         * Get the factory instance.
-         *
-         * @return \Vinkla\Hashids\HashidsFactory 
-         * @static 
-         */
-        public static function getFactory(){
-            return \Vinkla\Hashids\HashidsManager::getFactory();
-        }
-        
-        /**
-         * Get a connection instance.
-         *
-         * @param string $name
-         * @return object 
-         * @static 
-         */
-        public static function connection($name = null){
-            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
-            return \Vinkla\Hashids\HashidsManager::connection($name);
-        }
-        
-        /**
-         * Reconnect to the given connection.
-         *
-         * @param string $name
-         * @return object 
-         * @static 
-         */
-        public static function reconnect($name = null){
-            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
-            return \Vinkla\Hashids\HashidsManager::reconnect($name);
-        }
-        
-        /**
-         * Disconnect from the given connection.
-         *
-         * @param string $name
-         * @return void 
-         * @static 
-         */
-        public static function disconnect($name = null){
-            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
-            \Vinkla\Hashids\HashidsManager::disconnect($name);
-        }
-        
-        /**
-         * Get the configuration for a connection.
-         *
-         * @param string $name
-         * @throws \InvalidArgumentException
-         * @return array 
-         * @static 
-         */
-        public static function getConnectionConfig($name){
-            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
-            return \Vinkla\Hashids\HashidsManager::getConnectionConfig($name);
-        }
-        
-        /**
-         * Get the default connection name.
-         *
-         * @return string 
-         * @static 
-         */
-        public static function getDefaultConnection(){
-            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
-            return \Vinkla\Hashids\HashidsManager::getDefaultConnection();
-        }
-        
-        /**
-         * Set the default connection name.
-         *
-         * @param string $name
-         * @return void 
-         * @static 
-         */
-        public static function setDefaultConnection($name){
-            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
-            \Vinkla\Hashids\HashidsManager::setDefaultConnection($name);
-        }
-        
-        /**
-         * Register an extension connection resolver.
-         *
-         * @param string $name
-         * @param callable $resolver
-         * @return void 
-         * @static 
-         */
-        public static function extend($name, $resolver){
-            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
-            \Vinkla\Hashids\HashidsManager::extend($name, $resolver);
-        }
-        
-        /**
-         * Return all of the created connections.
-         *
-         * @return object[] 
-         * @static 
-         */
-        public static function getConnections(){
-            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
-            return \Vinkla\Hashids\HashidsManager::getConnections();
-        }
-        
-        /**
-         * Get the config instance.
-         *
-         * @return \Illuminate\Contracts\Config\Repository 
-         * @static 
-         */
-        public static function getConfig(){
-            //Method inherited from \GrahamCampbell\Manager\AbstractManager            
-            return \Vinkla\Hashids\HashidsManager::getConfig();
+        public static function offsetUnset($key){
+            return \Laradic\Extensions\ExtensionFactory::offsetUnset($key);
         }
         
     }
@@ -15408,131 +14555,6 @@ if ( ! function_exists('with'))
          */
         public static function setAssets($assets){
             return \Laradic\Themes\ThemeFactory::setAssets($assets);
-        }
-        
-    }
-
-
-    class Projects extends \Docit\Core\Facades\Projects{
-        
-        /**
-         * all
-         *
-         * @param bool $bySlug
-         * @return array|\Docit\Core\Project[] 
-         * @static 
-         */
-        public static function all($bySlug = false){
-            return \Docit\Core\Projects\ProjectFactory::all($bySlug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function has($slug){
-            return \Docit\Core\Projects\ProjectFactory::has($slug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function get($slug){
-            return \Docit\Core\Projects\ProjectFactory::get($slug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function slugs(){
-            return \Docit\Core\Projects\ProjectFactory::slugs();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function make($slug){
-            return \Docit\Core\Projects\ProjectFactory::make($slug);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function path(){
-            return \Docit\Core\Projects\ProjectFactory::path();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function url($project = null, $version = null, $page = null){
-            return \Docit\Core\Projects\ProjectFactory::url($project, $version, $page);
-        }
-        
-        /**
-         * Get the value of config
-         *
-         * @return array 
-         * @static 
-         */
-        public static function getConfig(){
-            return \Docit\Core\Projects\ProjectFactory::getConfig();
-        }
-        
-        /**
-         * Determine if an item exists at an offset.
-         *
-         * @param mixed $key
-         * @return bool 
-         * @static 
-         */
-        public static function offsetExists($key){
-            return \Docit\Core\Projects\ProjectFactory::offsetExists($key);
-        }
-        
-        /**
-         * Get an item at a given offset.
-         *
-         * @param mixed $key
-         * @return mixed 
-         * @static 
-         */
-        public static function offsetGet($key){
-            return \Docit\Core\Projects\ProjectFactory::offsetGet($key);
-        }
-        
-        /**
-         * Set the item at a given offset.
-         *
-         * @param mixed $key
-         * @param mixed $value
-         * @return $this 
-         * @static 
-         */
-        public static function offsetSet($key, $value = null){
-            return \Docit\Core\Projects\ProjectFactory::offsetSet($key, $value);
-        }
-        
-        /**
-         * Unset the item at a given offset.
-         *
-         * @param string $key
-         * @return $this 
-         * @static 
-         */
-        public static function offsetUnset($key){
-            return \Docit\Core\Projects\ProjectFactory::offsetUnset($key);
         }
         
     }

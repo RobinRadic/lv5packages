@@ -19,7 +19,8 @@
         "orchestra/testbench": "3.0.*",
         "chumper/datatable": "dev-develop#bdd90cbe65b3544761f69ea199a1b9591770f3fc",
         "predis/predis": "1.0.*",
-        "vierbergenlars/php-semver": "~3.0"
+        "vierbergenlars/php-semver": "~3.0",
+        "knplabs/packagist-api": "1.*@dev"
     },
     "require-dev": {
         "league/factory-muffin": "3.0.*@dev",
