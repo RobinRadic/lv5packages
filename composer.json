@@ -24,7 +24,8 @@
     },
     "require-dev": {
         "league/factory-muffin": "3.0.*@dev",
-        "phpunit/phpunit": "~4.6"
+        "phpunit/phpunit": "~4.6",
+        "laracasts/generators": "~1.1"
     },
     "replace": {
         "laradic/admin": "self.version",

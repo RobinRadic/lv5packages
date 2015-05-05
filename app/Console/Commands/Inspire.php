@@ -4,6 +4,7 @@ use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\VarDumper\VarDumper;
 
 class Inspire extends Command {
 
@@ -28,7 +29,10 @@ class Inspire extends Command {
 	 */
 	public function handle()
 	{
-		$this->comment(PHP_EOL.Inspiring::quote().PHP_EOL);
+        #\Config::getLoader()->set('app.timezone', 'Amsterdam\Europe');
+        #VarDumper::dump(\Config::getLoader()->set('laradic/admin::config.base_route', 'asdf'));
+        VarDumper::dump(\Config::get('test/test::foo'));
+		#$base_route);
 	}
 
 }

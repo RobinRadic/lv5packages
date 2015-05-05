@@ -14,8 +14,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Themes::addNamespace('theme', 'theme');
-    #    Themes::addNamespace('field-types', 'field-types');
-      #  $this->app->make('cache');
+        #    Themes::addNamespace('field-types', 'field-types');
+        #  $this->app->make('cache');
 
     }
 
@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
         /** @var \Illuminate\Foundation\Application $app */
         $app = $this->app;
 
-        $fs = $app->make('files');
+        $fs        = $app->make('files');
         $viewFiles = $fs->glob(storage_path('framework/views/*'));
         $fs->delete($viewFiles);
 
@@ -32,24 +32,17 @@ class AppServiceProvider extends ServiceProvider
         $app->register('Laradic\Config\ConfigServiceProvider');
         $app->register('Laradic\Debug\DebugServiceProvider');
         $app->register('Radic\BladeExtensions\BladeExtensionsServiceProvider');
-        #$app->register('Laradic\Dev\DevServiceProvider');
         $app->register('Laradic\Themes\ThemeServiceProvider');
+        $app->booting(function ()
+        {
+            AliasLoader::getInstance()->alias('Navigation', 'Laradic\Themes\Facades\Navigation');
+            AliasLoader::getInstance()->alias('Asset', 'Laradic\Themes\Facades\Asset');
+        });
+
         $app->register('Laradic\Generators\GeneratorsServiceProvider');
         $app->register('Laradic\Extensions\ExtensionsServiceProvider');
         $app->register('Test\Test\TestServiceProvider');
 
-        return;
-        $app->register('Collective\Html\HtmlServiceProvider');
-        $app->register('Laradic\Themes\ThemeServiceProvider');
 
-       # $app->register('Anigrab\AnigrabServiceProvider');
-
-        AliasLoader::getInstance()->alias('Form', 'Collective\Html\FormFacade');
-        AliasLoader::getInstance()->alias('HTML', 'Collective\Html\HtmlFacade');
-
-        if($app->runningInConsole())
-        {
-         #   $app->register('App\Providers\ConsoleServiceProvider');
-        }
     }
 }
