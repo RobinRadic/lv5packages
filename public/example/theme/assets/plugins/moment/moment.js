@@ -2969,7 +2969,7 @@
     var iso_string__abs = Math.abs;
 
     function iso_string__toISOString() {
-        // inspired by https://github.com/dordille/moment-isoduration/blob/master/moment.isoduration.js
+        // inspired by https://github.com/dordille/moment-isoduration/blob/docs/moment.isoduration.js
         var Y = iso_string__abs(this.years());
         var M = iso_string__abs(this.months());
         var D = iso_string__abs(this.days());

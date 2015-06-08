@@ -33,16 +33,25 @@ class AppServiceProvider extends ServiceProvider
         $app->register('Laradic\Debug\DebugServiceProvider');
         $app->register('Radic\BladeExtensions\BladeExtensionsServiceProvider');
         $app->register('Laradic\Themes\ThemeServiceProvider');
+
         $app->booting(function ()
         {
-            AliasLoader::getInstance()->alias('Navigation', 'Laradic\Themes\Facades\Navigation');
-            AliasLoader::getInstance()->alias('Asset', 'Laradic\Themes\Facades\Asset');
+            $this->alias('Themes', 'Laradic\Themes\Facades\Themes');
+            $this->alias('Navigation', 'Laradic\Themes\Facades\Navigation');
+            $this->alias('Asset', 'Laradic\Themes\Facades\Asset');
         });
 
+        return;
         $app->register('Laradic\Generators\GeneratorsServiceProvider');
         $app->register('Laradic\Extensions\ExtensionsServiceProvider');
         $app->register('Test\Test\TestServiceProvider');
 
 
+    }
+
+
+    protected function alias($a, $b)
+    {
+        AliasLoader::getInstance()->alias($a, $b);
     }
 }

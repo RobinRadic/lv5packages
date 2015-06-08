@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use Themes;
+use Themes, Asset, Navigation;
 use View;
 
 class TestController extends Controller
@@ -12,6 +12,13 @@ class TestController extends Controller
 
     public function themes()
     {
+        return View::make('index');
+    }
+
+    public function themesChild()
+    {
+        Themes::setActive('example/child-theme');
+
         return View::make('index');
     }
 

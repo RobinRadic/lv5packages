@@ -14,20 +14,23 @@ return [
     'boot'     => function (Application $app, Theme $theme)
     {
         Themes::addNamespace('something', 'something');
+
+
+
         Asset::group('base')
             ->add('jquery', 'plugins/jquery/dist/jquery.min.js')
-            ->add('bootstrap', 'bootstrap/dist/js/bootstrap.min.js', ['jquery'])
-            ->add('bootstrap', 'bootstrap/dist/css/bootstrap.min.css')
-            ->add('bootbox', 'something::bootbox/bootbox.js', ['jquery', 'bootstrap'])
-            ->add('slimscroll', 'jquery-slimscroll/jquery.slimscroll.js', ['jquery'])
-            ->add('modernizr', 'modernizr/modernizr.js')
-            ->add('moment', 'moment/moment.js')
-            ->add('highlightjs', 'highlightjs/highlight.pack.js')
-            ->add('highlightjs', 'highlightjs/styles/zenburn.css');
+            ->add('bootstrap', 'plugins/bootstrap/dist/js/bootstrap.min.js', [ 'jquery' ])
+            ->add('bootstrap', 'plugins/bootstrap/dist/css/bootstrap.min.css')
+            ->add('bootbox', 'something::bootbox/bootbox.js', [ 'jquery', 'bootstrap' ])
+            ->add('slimscroll', 'plugins/jquery-slimscroll/jquery.slimscroll.js', [ 'jquery' ])
+            ->add('modernizr', 'plugins/modernizr/modernizr.js')
+            ->add('moment', 'plugins/moment/moment.js')
+            ->add('highlightjs', 'plugins/highlightjs/highlight.pack.js')
+            ->add('highlightjs', 'plugins/highlightjs/styles/zenburn.css');
 
         Asset::group('ie9')
-            ->add('respond', 'respond/dest/respond.min.js')
-            ->add('html5shiv', 'html5shiv/dist/html5shiv.js');
+            ->add('respond', 'plugins/respond/dest/respond.min.js')
+            ->add('html5shiv', 'plugins/html5shiv/dist/html5shiv.js');
     }
 
 

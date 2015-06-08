@@ -49,3 +49,4 @@ Route::get('test/config/get', function ()
     return Response::make('get');
 });
 Route::get('test/themes', 'TestController@themes');
+Route::get('test/child-theme', 'TestController@themesChild');

@@ -28,3 +28,18 @@ body {
 .quote {
     font-size: 24px;
 }
+
+.test-image-path-cache {
+    background: url("images/bg_1.png") no-repeat;
+    width: 150px;
+    height: 173px;
+}
+
+.info {
+    color: black !important;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+/* asdasdfasdfsdssfsdffsdff */
+

@@ -7,8 +7,8 @@
 Modernizr.addTest('subpixelfont', function() {
     var bool,
         styles = "#modernizr{position: absolute; top: -10em; visibility:hidden; font: normal 10px arial;}#subpixel{float: left; font-size: 33.3333%;}";
-    
-    // see https://github.com/Modernizr/Modernizr/blob/master/modernizr.js#L97
+
+    // see https://github.com/Modernizr/Modernizr/blob/docs/modernizr.js#L97
     Modernizr.testStyles(styles, function(elem) {
         var subpixel = elem.firstChild;
 

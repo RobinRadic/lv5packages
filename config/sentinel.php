@@ -162,8 +162,8 @@ return [
     | Master Layout
     |--------------------------------------------------------------------------
     |
-    | By default Sentinel views will extend their own master layout. However,
-    | you can specify a custom master layout view to use instead.
+    | By default Sentinel views will extend their own docs layout. However,
+    | you can specify a custom docs layout view to use instead.
     |
     */
 

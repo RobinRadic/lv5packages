@@ -25,10 +25,6 @@ menu:
       Debug - breakpoint: directives/debug
       Markdown: directives/markdown
 
-  - name: API
-    icon: fa fa-link
-    page: ${project.phpdoc.dir}
-
   - name: Miscellaneous
     icon: fa fa-ellipsis-h
     page: miscellaneous
