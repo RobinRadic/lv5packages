@@ -14297,8 +14297,8 @@ if ( ! function_exists('with'))
          *
          * @static 
          */
-        public static function removeCachedAssets(){
-            return \Laradic\Themes\Assets\AssetFactory::removeCachedAssets();
+        public static function deleteAllCached(){
+            return \Laradic\Themes\Assets\AssetFactory::deleteAllCached();
         }
         
     }
