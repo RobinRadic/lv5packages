@@ -10,13 +10,19 @@
          stopOnFailure="false"
          syntaxCheck="false">
     <testsuites>
+        <testsuite name="Themes">
+            <directory suffix="Test.php">./workbench/laradic/themes/tests/</directory>
+        </testsuite>
+<!--
+
         <testsuite name="Support">
             <directory suffix="Test.php">./tests/</directory>
         </testsuite>
-        <testsuite name="Support">
+        <testsuite name="B">
             <directory suffix="Test.php">./workbench/radic/blade-extensions/tests/</directory>
         </testsuite>
-<!--
+
+
         <testsuite name="docs">
             <directory suffix="Test.php">./laradic/docs/tests/</directory>
         </testsuite>

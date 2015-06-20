@@ -12816,159 +12816,6 @@ if ( ! function_exists('with'))
     }
 
 
-    class Breadcrumbs extends \DaveJamesMiller\Breadcrumbs\Facade{
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function register($name, $callback){
-            return \DaveJamesMiller\Breadcrumbs\Manager::register($name, $callback);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function exists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::exists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generate($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generate($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateIfExists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function generateIfExistsArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateIfExistsArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @deprecated Since 3.0.0
-         * @see generateIfExistsArray
-         * @static 
-         */
-        public static function generateArrayIfExists(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::generateArrayIfExists();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function render($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::render($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderIfExists($name = null){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExists($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function renderIfExistsArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderIfExistsArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @deprecated Since 3.0.0
-         * @see renderIfExistsArray
-         * @static 
-         */
-        public static function renderArrayIfExists(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::renderArrayIfExists();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setCurrentRoute($name){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRoute($name);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setCurrentRouteArray($name, $params = array()){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setCurrentRouteArray($name, $params);
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function clearCurrentRoute(){
-            return \DaveJamesMiller\Breadcrumbs\Manager::clearCurrentRoute();
-        }
-        
-        /**
-         * 
-         *
-         * @static 
-         */
-        public static function setView($view){
-            return \DaveJamesMiller\Breadcrumbs\Manager::setView($view);
-        }
-        
-    }
-
-
     class Form extends \Collective\Html\FormFacade{
         
         /**
@@ -13690,17 +13537,6 @@ if ( ! function_exists('with'))
     class Themes extends \Laradic\Themes\Facades\Themes{
         
         /**
-         * Set the internal config array
-         *
-         * @param array $config
-         * @return $this 
-         * @static 
-         */
-        public static function setConfig($config){
-            return \Laradic\Themes\ThemeFactory::setConfig($config);
-        }
-        
-        /**
          * Set the active theme that should be used
          *
          * @param string|\Laradic\Themes\Theme $theme The slug or Theme instance
@@ -13881,8 +13717,8 @@ if ( ! function_exists('with'))
          * @param bool $bootParent
          * @static 
          */
-        public static function boot($bootParent = true){
-            return \Laradic\Themes\ThemeFactory::boot($bootParent);
+        public static function boot($bootParent = true, $bootDefault = false){
+            return \Laradic\Themes\ThemeFactory::boot($bootParent, $bootDefault);
         }
         
         /**
@@ -14062,6 +13898,38 @@ if ( ! function_exists('with'))
          */
         public static function setAssets($assets){
             return \Laradic\Themes\ThemeFactory::setAssets($assets);
+        }
+        
+        /**
+         * get themeClass value
+         *
+         * @return mixed 
+         * @static 
+         */
+        public static function getThemeClass(){
+            return \Laradic\Themes\ThemeFactory::getThemeClass();
+        }
+        
+        /**
+         * Set the themeClass value
+         *
+         * @param mixed $themeClass
+         * @return \Laradic\Themes\ThemeFactory 
+         * @static 
+         */
+        public static function setThemeClass($themeClass){
+            return \Laradic\Themes\ThemeFactory::setThemeClass($themeClass);
+        }
+        
+        /**
+         * Set the paths value
+         *
+         * @param array $paths
+         * @return \Laradic\Themes\ThemeFactory 
+         * @static 
+         */
+        public static function setPaths($paths){
+            return \Laradic\Themes\ThemeFactory::setPaths($paths);
         }
         
     }
@@ -14299,6 +14167,39 @@ if ( ! function_exists('with'))
          */
         public static function deleteAllCached(){
             return \Laradic\Themes\Assets\AssetFactory::deleteAllCached();
+        }
+        
+        /**
+         * Set the cachePath value
+         *
+         * @param string $cachePath
+         * @return \Laradic\Themes\Assets\AssetFactory 
+         * @static 
+         */
+        public static function setCachePath($cachePath){
+            return \Laradic\Themes\Assets\AssetFactory::setCachePath($cachePath);
+        }
+        
+        /**
+         * Set the assetClass value
+         *
+         * @param string $assetClass
+         * @return \Laradic\Themes\Assets\AssetFactory 
+         * @static 
+         */
+        public static function setAssetClass($assetClass){
+            return \Laradic\Themes\Assets\AssetFactory::setAssetClass($assetClass);
+        }
+        
+        /**
+         * Set the assetGroupClass value
+         *
+         * @param string $assetGroupClass
+         * @return \Laradic\Themes\Assets\AssetFactory 
+         * @static 
+         */
+        public static function setAssetGroupClass($assetGroupClass){
+            return \Laradic\Themes\Assets\AssetFactory::setAssetGroupClass($assetGroupClass);
         }
         
     }

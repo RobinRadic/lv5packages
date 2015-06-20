@@ -32,6 +32,4 @@ return [
             ->add('respond', 'plugins/respond/dest/respond.min.js')
             ->add('html5shiv', 'plugins/html5shiv/dist/html5shiv.js');
     }
-
-
 ];
